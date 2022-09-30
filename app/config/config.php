@@ -1,7 +1,7 @@
 <?php
 //$conexion = mysqli_connect("bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com", "utur7aovmczn6qtf", "Pp83ju823IBh0nmPhQ9v", "bxgvbqru5r7prhsdpnvr");
 
-$conexion = mysqli_connect("bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com", "utur7aovmczn6qtf", "Pp83ju823IBh0nmPhQ9v", "bxgvbqru5r7prhsdpnvr");
+$conexion = mysqli_connect("bicxita7oa0kn6veyzi8-mysql.services.clever-cloud.com", "uapkjgg1v9wsmgng", "bftdNJiNdcIo05v5dJRs", "bicxita7oa0kn6veyzi8");
 ?>
 
 <?php
@@ -25,7 +25,7 @@ define('BD', 'bicxita7oa0kn6veyzi8');
 
 //$URL = 'http://localhost/tecnm';
 
-$URL = 'mysql://utur7aovmczn6qtf:Pp83ju823IBh0nmPhQ9v@bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com:3306/bxgvbqru5r7prhsdpnvr';
+$URL = 'mysql://uapkjgg1v9wsmgng:bftdNJiNdcIo05v5dJRs@bicxita7oa0kn6veyzi8-mysql.services.clever-cloud.com:3306/bicxita7oa0kn6veyzi8';
 //$URL = 'http://localhost/tecnm';
 
 $servidor = "mysql:dbname=" . BD . ";host=" . SERVIDOR;

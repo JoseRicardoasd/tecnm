@@ -60,7 +60,7 @@ if (isset($_SESSION['u_usuario'])) {
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
+            SISTEMA DE CREDITOS COMPLEMENTARIOS
             <small>Calendario de Actividades</small>
           </h1>
 

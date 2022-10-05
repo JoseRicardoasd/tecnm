@@ -5,13 +5,13 @@ include('../../app/config/config.php');
 $nombre = $_FILES['archivo']['name'];
 $guardado = $_FILES['archivo']['tmp_name'];
 
-$id_act = $_POST['id_actividad'];
+$id_act = $_POST['evento'];
 
 $num_control = $_POST['numero_control'];
 
-$responsable = $_POST['responsable'];
+//$responsable = $_POST['responsable'];
 
-$nombre_alumno = $_POST['nombre_alumno'];
+$apellido = $_POST['ap_paterno'];
 
 if (!file_exists('Concurso de emprendedurismo')) {
   mkdir('Concurso de emprendedurismo', 0777, true);

@@ -415,7 +415,7 @@ if (isset($_SESSION['u_usuario'])) {
         </div>
       </div>
     </div>
-    <!-- congreso -->
+    <!-- 4congreso -->
     <div class="modal fade" id="congreso-seminario" tabindex="-1" role="dialog" aria-labelledby="congreso-seminario">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -426,24 +426,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/congreso-seminario.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=4 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Congreso, Seminario, Etc.'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -455,7 +459,7 @@ if (isset($_SESSION['u_usuario'])) {
       </div>
     </div>
     </div>
-    <!-- curso taller -->
+    <!-- 5curso taller -->
     <div class="modal fade" id="curso-taller" tabindex="-1" role="dialog" aria-labelledby="curso-taller">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -466,24 +470,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/curso taller.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=5 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Curso y/o taller'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -495,7 +503,7 @@ if (isset($_SESSION['u_usuario'])) {
       </div>
     </div>
     </div>
-    <!-- diplomado -->
+    <!-- 6diplomado -->
     <div class="modal fade" id="diplomado" tabindex="-1" role="dialog" aria-labelledby="diplomado">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -506,24 +514,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/Diplomado.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=6 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'diplomado'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -536,7 +548,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- ciencias basicas 1 -->
+    <!-- 7ciencias basicas 1 -->
     <div class="modal fade" id="Ciencias-Básicas" tabindex="-1" role="dialog" aria-labelledby="Ciencias-Básicas">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -547,24 +559,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=7 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de ciencias basicas'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -577,7 +593,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- ciencias basicas 2 -->
+    <!-- 8ciencias basicas 2 -->
     <div class="modal fade" id="Ciencias-Básicas2" tabindex="-1" role="dialog" aria-labelledby="Ciencias-Básicas">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -588,24 +604,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=8 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de ciencias basicas'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -618,7 +638,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- ciencias basicas 3 -->
+    <!-- 9ciencias basicas 3 -->
     <div class="modal fade" id="Ciencias-Básicas3" tabindex="-1" role="dialog" aria-labelledby="Ciencias-Básicas">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -629,24 +649,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=9 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de ciencias basicas'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -659,7 +683,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- creatividad 1-->
+    <!-- 10creatividad 1-->
     <div class="modal fade" id="Creatividad" tabindex="-1" role="dialog" aria-labelledby="Creatividad">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -670,24 +694,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=10 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Creatividad e innovacion'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -700,7 +728,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- creatividad 2-->
+    <!-- 11creatividad 2-->
     <div class="modal fade" id="Creatividad2" tabindex="-1" role="dialog" aria-labelledby="Creatividad">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -711,24 +739,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=11 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Creatividad e innovacion'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -741,7 +773,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- creatividad 3-->
+    <!-- 12creatividad 3-->
     <div class="modal fade" id="Creatividad3" tabindex="-1" role="dialog" aria-labelledby="Creatividad">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -752,24 +784,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=12 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Creatividad e innovacion'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -782,7 +818,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- emprendedurismo 1 -->
+    <!-- 13emprendedurismo 1 -->
     <div class="modal fade" id="emprendedurismo" tabindex="-1" role="dialog" aria-labelledby="emprendedurismo">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -793,24 +829,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/emprendedurismo.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=13 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de emprendedurismo'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -823,7 +863,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- emprendedurismo 2 -->
+    <!-- 14emprendedurismo 2 -->
     <div class="modal fade" id="emprendedurismo2" tabindex="-1" role="dialog" aria-labelledby="emprendedurismo">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -834,24 +874,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/emprendedurismo.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=14 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de emprendedurismo'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -864,7 +908,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- emprendedurismo 3 -->
+    <!-- 15emprendedurismo 3 -->
     <div class="modal fade" id="emprendedurismo3" tabindex="-1" role="dialog" aria-labelledby="emprendedurismo">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -875,24 +919,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/emprendedurismo.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=15 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de emprendedurismo'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -905,7 +953,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- prototipos -->
+    <!-- 16prototipos -->
 
     <div class="modal fade" id="Prototipos" tabindex="-1" role="dialog" aria-labelledby="Prototipos">
       <div class="modal-dialog" role="document">
@@ -917,24 +965,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/Prototipos.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=16 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Diseño de prototipos'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -947,7 +999,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- software -->
+    <!-- 17software -->
     <div class="modal fade" id="Software" tabindex="-1" role="dialog" aria-labelledby="Software">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -958,24 +1010,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/Software.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=17 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Diseño de software'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">
@@ -988,7 +1044,7 @@ if (isset($_SESSION['u_usuario'])) {
     </div>
     </div>
 
-    <!-- diseño proyecto -->
+    <!-- 18diseño proyecto -->
     <div class="modal fade" id="diseño-proyecto" tabindex="-1" role="dialog" aria-labelledby="diseño-proyecto">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -999,24 +1055,28 @@ if (isset($_SESSION['u_usuario'])) {
           <div class="modal-body">
             <form action="cargas/Diseño-proyecto.php" method="post" enctype="multipart/form-data">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
-              <input type="number" name="id_actividad" value=18 style="display:none">
-              <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres'] ?>" style="display:none">
-              <input type="file" name="archivo">
+              <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
+              <input type="file" name="archivo" required>
               <br>
-              <label for="responsable">Responsable de la actividad</label> <br>
-              <select name="responsable" id="responsable" class="select_maestro">
+              
+              <label for="responsable">Seleccionar Evento</label> <br>
+              <select name="evento" id="evento" class="form-control" required>
                 <?php
-                $consulta = "SELECT nombres FROM tb_usuarios WHERE cargo = 1";
+
+                $consulta = "SELECT id, title FROM events WHERE tipo = 'Diseño de proyectos'";
                 $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
 
                 ?>
 
                 <?php foreach ($ejecutar as $opciones) : ?>
 
-                  <option value="<?php echo $opciones['nombres'] ?>"><?php echo $opciones['nombres'] ?></option>
+                  <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['title'] ?>
+                  </option>
+
 
                 <?php endforeach ?>
               </select>
+              
               <br><br>
           </div>
           <div class="modal-footer">

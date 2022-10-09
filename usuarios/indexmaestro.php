@@ -10,7 +10,7 @@ if (!array_key_exists('cargo', $_SESSION) || !in_array($_SESSION['cargo'], $allo
 }*/
 
 
-if (isset($_SESSION['u_usuario'])) {
+if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
   //echo "existe sesión";
   //echo "bienvenido usuario";
   $correo_sesion = $_SESSION['u_usuario'];

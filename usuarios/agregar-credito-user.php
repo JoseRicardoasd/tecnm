@@ -288,7 +288,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
                     <h4 class="modal-title" id="movilidad-academica">Cargar Archivo</h4>
                   </div>
                   <div class="modal-body">
-                    <form action="cargas/movilidad-academica.php" method="post" enctype="multipart/form-data">
+                    <form action="cargas/Movilidad-Academica.php" method="post" enctype="multipart/form-data">
                       <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
                       <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
                       <input type="file" name="archivo" required>
@@ -334,7 +334,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
                   <h4 class="modal-title" id="movilidad-academica">Cargar Archivo</h4>
                 </div>
                 <div class="modal-body">
-                  <form action="cargas/movilidad-academica.php" method="post" enctype="multipart/form-data">
+                  <form action="cargas/Movilidad-Academica.php" method="post" enctype="multipart/form-data">
                     <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
                     <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
                     <input type="file" name="archivo" required>

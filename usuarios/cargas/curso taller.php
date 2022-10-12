@@ -40,6 +40,7 @@ if (!file_exists('Curso o curso taller')) {
   if (file_exists('Curso o curso taller/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
     echo '<script language="javascript">alert("El archivo ya existe");window.location.href="../agregar-credito-user.php"</script>';
   } else {
+    move_uploaded_file($guardado, 'Curso o curso taller/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')
     if (move_uploaded_file($guardado, 'Curso o curso taller/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
 
       $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc) VALUES ('$num_control', '$id_act', 1, 'Curso o curso taller/$num_control-$apellido-$id_act.pdf')";

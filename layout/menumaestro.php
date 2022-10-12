@@ -106,39 +106,6 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-        <?php
-                        $caracter_a_buscar = ".";
-                        $buscar = strpos($id_foto_perfil,$caracter_a_buscar);
-                        if($buscar == true){
-                           // echo "existe foto de perfil";
-                           ?>
-                            <img src="<?php echo $URL;?>/usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil'];?>"
-                             class="user-image" alt="User Image">
-                          <?php
-                        }else{
-                            if($id_sexo  == "HOMBRE"){
-                                ?>
-                                
-                                    <img src="<?php echo $URL;?>/public/images/avatar_hombre.png" class="user-image" alt="User Image">
-                                
-                                <?php
-                            }else{
-                                ?>
-                                
-                                    <img src="<?php echo $URL;?>/public/images/avatar_mujer.png" class="user-image" alt="User Image">
-                                
-                                <?php
-                            }
-                        }
-                        ?>
-        </div>
-        <div class="pull-left info">
-          <p><?php echo $id_nombres." ".$id_ap_paterno." ".$id_ap_materno;?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div><br>
       
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->

@@ -83,7 +83,7 @@ $valor = null;
 
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-      <?php include('../layout/menumaestro.php'); ?>
+      <?php include('../layout/menu.php'); ?>
 
 
       <!-- Content Wrapper. Contains page content -->

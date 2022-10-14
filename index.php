@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inicia Sesion</title>
+  <title>Inicia Sesión</title>
   <link rel="stylesheet" href="login/style.css" />
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
@@ -15,19 +15,19 @@
     <img src="img/shape.png" class="square" alt="" />
     <div class="form">
       <div class="contact-info">
-        <h3 class="title">Bienvenido al Sistema de Creditos Complementarios
+        <h3 class="title">Bienvenido al Sistema de Créditos Complementarios
         </h3>
         <br>
-        <h3 class="title">TECNM Campus China
+        <h3 class="title">TECNM Campus Chiná
         </h3>
         <p class="text">
-          En esta Plataforma podras llevar un Registro y un Control de tus Creditos Academicos
+          En esta Plataforma podras llevar un Registro y un Control de tus Créditos Académicos
         </p>
 
         <div class="info">
           <div class="information">
             <img src="img/location.png" class="icon" alt="" />
-            <p>Calle 11 S/N ENTRE 22 Y 28, CHINÁ, CAM. MÉXICO. C.P. 24520</p>
+            <p>Calle 11 S/N entre 22 Y 28, CHINÁ, CAM. MÉXICO. C.P. 24520</p>
           </div>
           <div class="information">
             <img src="img/email.png" class="icon" alt="" />
@@ -40,7 +40,7 @@
         </div>
 
         <div class="social-media">
-          <p>conecta con nosotros:</p>
+          <p>Conecta con nosotros:</p>
           <div class="social-icons">
             <a href="https://www.facebook.com/SomosTecNM/">
               <i class="fab fa-facebook-f"></i>
@@ -57,7 +57,7 @@
 
 
         <form action="login/controller_login.php" method="post" autocomplete="off">
-          <h3 class="title">Iniciar Sesion</h3>
+          <h3 class="title">Iniciar Sesión</h3>
           <div class="input-container">
             <input type="text" name="correo" class="input" required />
             <label for="">Correo Institucional</label>
@@ -66,7 +66,7 @@
           <div class="input-container">
             <input type="password" name="contraseña" class="input" />
             <label for="">Contraseña</label>
-            <span>Contrasela</span>
+            <span>Contraseña</span>
           </div>
           <div class="form-group">
             <input type="submit" value="Ingresar" class="btn btn-primary btn-block">

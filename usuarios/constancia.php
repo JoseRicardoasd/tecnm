@@ -87,15 +87,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 <br>
                 <br>
                 <p style="text-align: justify;">
-                  El que se suscribe <input type="text" name="suscribe" maxlength="100" style="width:500px; height:20x; margin:3px;">, por
+                  El que se suscribe <input type="text" name="suscribe" required maxlength="100" style="width:500px; height:20x; margin:3px;">, por
                   este medio se permite hacer de su conocimiento que
-                  <br> el estudiante <input type="text" name="alumno" maxlength="100" style="width:500px; height:20x; margin:3px">
-                  con número de control <input type="text" name="matricula" maxlength="100" style="width:150px; height:20x; margin:3px"><br>
-                  de la carrera de <input type="text" name="carrera" maxlength="100" style="width:500px; height:20x; margin:3px">
-                  ha cumplido su actividad complementaria con el nivel de desempeño<br> <input type="text" name="desempe" maxlength="100" style="width:100px; height:20x; margin:3px">
-                  y un valor numérico de <input type="text" name="valor" maxlength="100" style="width:100px; height:20x; margin:3px">,
-                  durante el periodo escolar <input type="text" name="ciclo" maxlength="100" style="width:150px; height:20x; margin:3px">
-                  con un valor curricular de <input type="text" name="valorcurri" maxlength="100" style="width:50px; height:20x; margin:3px">
+                  <br> el estudiante <input type="text" name="alumno" required maxlength="100" style="width:500px; height:20x; margin:3px">
+                  con número de control <input type="text" name="matricula" required maxlength="100" style="width:150px; height:20x; margin:3px"><br>
+                  de la carrera de <input type="text" name="carrera" required maxlength="100" style="width:500px; height:20x; margin:3px">
+                  ha cumplido su actividad complementaria con el nivel de desempeño<br> <input type="text" name="desempe" required maxlength="100" style="width:100px; height:20x; margin:3px">
+                  y un valor numérico de <input type="text" name="valor" required maxlength="100" style="width:100px; height:20x; margin:3px">,
+                  durante el periodo escolar <input type="text" name="ciclo" required maxlength="100" style="width:150px; height:20x; margin:3px">
+                  con un valor curricular de <input type="text" name="valorcurri" required maxlength="100" style="width:50px; height:20x; margin:3px">
                   créditos.
                 </p>
                 <br>

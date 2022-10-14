@@ -63,7 +63,7 @@ foreach ($sesion_usuarios as $sesion_usuario) {
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          SISTEMA DE CREDITOS COMPLENTARIOS
+          SISTEMA DE CRÉDITOS COMPLENTARIOS
           <small>Perfil</small>
         </h1>
 
@@ -84,7 +84,7 @@ foreach ($sesion_usuarios as $sesion_usuario) {
 
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-user"></i> Nombres</label>
+                        <label for=""><i class="glyphicon glyphicon-user"></i> Nombre(s)</label>
                         <input type="text" class="form-control" name="nombres" type="text" value="<?php echo $sesion_usuario['nombres']; ?>" required>
                       </div>
                       <div class="form-group">
@@ -92,7 +92,7 @@ foreach ($sesion_usuarios as $sesion_usuario) {
                         <input type="text" class="form-control" name="ap_materno" value="<?php echo $sesion_usuario['ap_materno']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-check"></i> Numero de Control</label>
+                        <label for=""><i class="glyphicon glyphicon-check"></i> Número de Control</label>
                         <input type="text" class="form-control" name="numero_control" value="<?php echo $sesion_usuario['numero_control']; ?>" required>
                       </div>
                       <div class="form-group">
@@ -100,19 +100,19 @@ foreach ($sesion_usuarios as $sesion_usuario) {
                         <input type="email" class="form-control" name="correo" value="<?php echo $sesion_usuario['correo']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-calendar"></i> Fecha de nacimiento</label>
+                        <label for=""><i class="glyphicon glyphicon-calendar"></i> Fecha de Nacimiento</label>
                         <input type="date" class="form-control" name="fecha_nacimiento" value="<?php echo $sesion_usuario['fecha_nacimiento']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-phone"></i> Telefono</label>
+                        <label for=""><i class="glyphicon glyphicon-phone"></i> Teléfono</label>
                         <input type="text" class="form-control" name="telefono" value="<?php echo $sesion_usuario['telefono']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-map-marker"></i> colonia</label>
+                        <label for=""><i class="glyphicon glyphicon-map-marker"></i> Colonia</label>
                         <input type="text" class="form-control" name="colonia" value="<?php echo $sesion_usuario['colonia']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-equalizer"></i> Codigo Postal</label>
+                        <label for=""><i class="glyphicon glyphicon-equalizer"></i> Código Postal</label>
                         <input type="text" class="form-control" name="codigo_postal" value="<?php echo $sesion_usuario['codigo_postal']; ?>" required>
                       </div>
                       <div class="form-group">
@@ -145,13 +145,13 @@ foreach ($sesion_usuarios as $sesion_usuario) {
                         <label for=""><i class="glyphicon glyphicon-book"></i> Carrera</label>
                         <select name="carrera" id="" class="form-control" value="<?php echo $sesion_usuario['carrera']; ?>" required>
                           <option value="elegir"><?php echo $sesion_usuario['carrera']; ?></option>
-                          <option value="Ingeneria en Agronomia">Ingeneria en Agronomia</option>
-                          <option value="Ingeneria Forestal">Ingeneria Forestal</option>
-                          <option value="Infeneria en Industrias Alimentarias">Infeneria en Industrias Alimentarias</option>
-                          <option value="Licenciatura en Biologia">Licenciatura en Biologia</option>
-                          <option value="Ingeneria Informatica">Ingeneria Informatica</option>
-                          <option value="Ingeneria en Administracion">Ingeneria en Administracion </option>
-                          <option value="Infeneria en Gestion Empresarial">Infeneria en Gestion Empresarial</option>
+                          <option value="Ingeneria en Agronomia">Ingeniería en Agronomía</option>
+                          <option value="Ingeneria Forestal">Ingeniería Forestal</option>
+                          <option value="Infeneria en Industrias Alimentarias">Ingeniería en Industrias Alimentarias</option>
+                          <option value="Licenciatura en Biologia">Licenciatura en Biología</option>
+                          <option value="Ingeneria Informatica">Ingeniería Informática</option>
+                          <option value="Ingeneria en Administracion">Ingeniería en Administración </option>
+                          <option value="Infeneria en Gestion Empresarial">Ingeniería en Gestión Empresarial</option>
                         </select>
                       </div>
                       <div class="form-group">
@@ -175,7 +175,7 @@ foreach ($sesion_usuarios as $sesion_usuario) {
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-map-marker"></i> Ciudad</label>
                         <select name="ciudad" id="" class="form-control" required>
-                          <option value="elegir">Elegir una Opcion</option>
+                          <option value="elegir">Elegir una Opción</option>
                           <option value="Aguascalientes">Aguascalientes</option>
                           <option value="Baja California">Baja California</option>
                           <option value="Baja California Sur">Baja California Sur</option>
@@ -215,7 +215,7 @@ foreach ($sesion_usuarios as $sesion_usuario) {
                         <input type="text" class="form-control" name="calle" value="<?php echo $sesion_usuario['calle']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-link"></i> Reticula</label>
+                        <label for=""><i class="glyphicon glyphicon-link"></i> Retícula</label>
                         <input type="text" class="form-control" name="reticula" value="<?php echo $sesion_usuario['reticula']; ?>" required>
                       </div>
                       <div class="form-group">
@@ -223,15 +223,15 @@ foreach ($sesion_usuarios as $sesion_usuario) {
                         <input type="text" class="form-control" name="nivel_escolar" value="<?php echo $sesion_usuario['nivel_escolar']; ?>" required>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-education"></i> Credito Academico</label>
+                        <label for=""><i class="glyphicon glyphicon-education"></i> Crédito Academico</label>
                         <input type="text" class="form-control">
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-education"></i> Credito ExtraEscolar</label>
+                        <label for=""><i class="glyphicon glyphicon-education"></i> Crédito ExtraEscolar</label>
                         <input type="text" class="form-control">
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-education"></i> Credito Tutoria</label>
+                        <label for=""><i class="glyphicon glyphicon-education"></i> Crédito Tutoría</label>
                         <input type="text" class="form-control">
                       </div>
                       <br>

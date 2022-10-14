@@ -76,43 +76,43 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Nombres</label>
-                          <input type="text" class="form-control" name="nombres" required>
+                          <input type="text" class="form-control" name="nombres" required tabindex="1">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Apellido Materno</label>
-                          <input type="text" class="form-control" name="ap_materno" required>
+                          <input type="text" class="form-control" name="ap_materno" required tabindex="3">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-check"></i> Numero de Control</label>
-                          <input type="text" class="form-control" name="numero_control" required>
+                          <input type="text" class="form-control" name="numero_control" required tabindex="5">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-envelope"></i> Correo Institucional</label>
-                          <input type="email" class="form-control" name="correo" required>
+                          <input type="email" class="form-control" name="correo" required tabindex="7">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-calendar"></i> Fecha de nacimiento</label>
-                          <input type="date" class="form-control" name="fecha_nacimiento" required>
+                          <input type="date" class="form-control" name="fecha_nacimiento" required tabindex="9">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-phone"></i> Telefono</label>
-                          <input type="text" class="form-control" name="telefono" required>
+                          <input type="text" class="form-control" name="telefono" required tabindex="11">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-map-marker"></i> colonia</label>
-                          <input type="text" class="form-control" name="colonia" required>
+                          <input type="text" class="form-control" name="colonia" required tabindex="13">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-equalizer"></i> Codigo Postal</label>
-                          <input type="text" class="form-control" name="codigo_postal" required>
+                          <input type="text" class="form-control" name="codigo_postal" required tabindex="15">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-equalizer"></i> Entidad</label>
-                          <input type="text" class="form-control" name="entidad" required>
+                          <input type="text" class="form-control" name="entidad" required tabindex="17">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-picture"></i> Foto de Perfil</label>
-                          <input type="file" class="form-control" id="file" name="file">
+                          <input type="file" class="form-control" id="file" name="file" tabindex="20">
                           <center>
                             <br>
                             <output id="list" style="margin-top: 0px"></output>
@@ -122,11 +122,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Apellido Paterno</label>
-                          <input type="text" class="form-control" name="ap_paterno" required>
+                          <input type="text" class="form-control" name="ap_paterno" required tabindex="2">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Sexo</label>
-                          <select name="sexo" id="" class="form-control">
+                          <select name="sexo" id="" class="form-control" tabindex="4">
                             <option value="elegir">Elegir una Opcion</option>
                             <option value="Hombre">Hombre</option>
                             <option value="Mujer">Mujer</option>
@@ -134,7 +134,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-book"></i> Carrera</label>
-                          <select name="carrera" id="" class="form-control" value="<?php echo $sesion_usuario['carrera']; ?>" required>
+                          <select name="carrera" id="" class="form-control" value="<?php echo $sesion_usuario['carrera']; ?>" required tabindex="6">
                             <option value="elegir"><?php echo $sesion_usuario['carrera']; ?></option>
                             <option value="Ingeneria en Agronomia">Ingeneria en Agronomia</option>
                             <option value="Ingeneria Forestal">Ingeneria Forestal</option>
@@ -147,7 +147,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-modal-window"></i> Estado Civil</label>
-                          <select name="estado_civil" id="" class="form-control" required>
+                          <select name="estado_civil" id="" class="form-control" required tabindex="8">
                             <option value="elegir"><?php echo $sesion_usuario['estado_civil']; ?></option>
                             <option value="Soltero/a">Soltero/a</option>
                             <option value="Casado/a">Casado/a</option>
@@ -159,13 +159,13 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-link"></i> CURP</label>
-                          <input type="text" class="form-control" name="curp" required>
+                          <input type="text" class="form-control" name="curp" required tabindex="10">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-map-marker"></i> Ciudad</label>
-                          <select name="ciudad" id="" class="form-control" required>
+                          <select name="ciudad" id="" class="form-control" required tabindex="12">
                             <option value="elegir">Elegir una Opcion</option>
                             <option value="Aguascalientes">Aguascalientes</option>
                             <option value="Baja California">Baja California</option>
@@ -203,23 +203,23 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-map-marker"></i> Calle</label>
-                          <input type="text" class="form-control" name="calle" required>
+                          <input type="text" class="form-control" name="calle" required tabindex="14">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-link"></i> Reticula</label>
-                          <input type="text" class="form-control" name="reticula" required>
+                          <input type="text" class="form-control" name="reticula" required tabindex="16">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-education"></i> Nivel Escolar</label>
                           <input type="text" class="form-control" name="nivel_escolar" required>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-lock"></i> Contraseña</label>
-                          <input type="password" class="form-control" name="contraseña" required>
+                          <input type="password" class="form-control" name="contraseña" required tabindex="18">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-eye-close"></i> Confirmar Contraseña</label>
-                          <input type="password" class="form-control" required>
+                          <input type="password" class="form-control" required tabindex="19">
                         </div>
                         <br>
                         <div class="form-group">

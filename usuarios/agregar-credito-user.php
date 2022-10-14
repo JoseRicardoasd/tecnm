@@ -42,7 +42,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
   <head>
     <?php include('../layout/head.php'); ?>
-    <title>Agregar Credito Complementario</title>
+    <title>Agregar Crédito Complementario</title>
     <link rel="stylesheet" href="../css/style_maestro.css">
   </head>
 
@@ -56,8 +56,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLEMENTARIOS
-            <small>Agregar Credito Complementario</small>
+            SISTEMA DE CRÉDITOS COMPLEMENTARIOS
+            <small>Agregar Crédito Complementario</small>
           </h1>
 
         </section>
@@ -75,14 +75,14 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
                     <th>Actividad</th>
                     <th>Descripción</th>
                     <th>Crédito por actividad</th>
-                    <th>Máximo acomular</th>
+                    <th>Máximo acumular</th>
                     <th>Subir archivo</th </tr>
                 </thead>
                 <!-- FILA 1 DE MODALIDAD ACADEMICA-->
                 <tr>
                   <td>Movilidad Acádemica</td>
                   <td>Estancias en instituciones educativas de nivel superior,
-                    centros de investigación, y empresas (al menos durante 4 semanas nacional</td>
+                    centros de investigación, y empresas (al menos durante 4 semanas nacional).</td>
                   <td>1.0</td>
                   <td>2.0</td>
                   <td>
@@ -98,7 +98,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
                   <td>Estancias en instituciones educativas de
                     nivel superior, centros de investigación,
                     y empresas (al menos durante 4 Semanas
-                    Internacional</td>
+                    Internacional).</td>
                   <td>2.0</td>
                   <td>2.0</td>
                   <td><button type=" button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#movilidad-academica2">
@@ -122,9 +122,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
                 </tr>
                 <!-- FILA DE CONGRESO, SEMINARIO, ETC. -->
                 <tr>
-                  <td>Congreso, Seminario, Simponsio y/o Coloquio</td>
+                  <td>Congreso, Seminario, Simposio y/o Coloquio</td>
                   <td>Asistencia o participacion dentro o fuera del instituto
-                    en cualquier nivel que se trate, (local, regional, Nacional)
+                    en cualquier nivel que se trate, (local, regional, nacional)
                     relacionada con el profesional</td>
                   <td>0.4</td>
                   <td>1.0</td>
@@ -135,8 +135,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
                 <!-- FILA DE CONSURSO O TALLER -->
                 <tr>
                   <td>Curso y/o curso taller</td>
-                  <td>Participación o imparticion dentro o fuera de la institucion en cualquier nivel que se trate, (local, regional, Nacional)
-                    relacionado con el perfil profesional, con una duracion minima de 20 horas (presencial o a distancia)</td>
+                  <td>Participación o impartición dentro o fuera de la institución en cualquier nivel que se trate, (local, regional, nacional)
+                    relacionado con el perfil profesional, con una duración mínima de 20 horas (presencial o a distancia)</td>
                   <td>0.5</td>
                   <td>1.0</td>
                   <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#curso-taller">
@@ -146,8 +146,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
                 <!-- FILA DE DIPLOMADO -->
                 <tr>
                   <td>Diplomado</td>
-                  <td>Participación o imparticion dentro o fuera del instituto en cualquier nivel que se trate, (local, regional, Nacional)
-                    relacionado con el perfil profesional, con una duracion minima de 90 horas (presencial o a distancia)</td>
+                  <td>Participación o impartición dentro o fuera del instituto en cualquier nivel que se trate, (local, regional, nacional)
+                    relacionado con el perfil profesional, con una duración mínima de 90 horas (presencial o a distancia)</td>
                   <td>2.0</td>
                   <td>2.0</td>
                   <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#diplomado">
@@ -157,7 +157,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
                 <!-- FILA 1 DE CONCURSO NACIONAL DE CIENCIAS BASICAS -->
                 <tr>
                   <td>Concurso Nacional de Ciencias Básicas</td>
-                  <td>Participación en concurso de ciencas básicas como seleccionado de acuerdo al área que corresponda a nivel local</td>
+                  <td>Participación en concurso de ciencias básicas como seleccionado de acuerdo al área que corresponda a nivel local</td>
                   <td>0.5</td>
                   <td>1.0</td>
                   <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Ciencias-Básicas">

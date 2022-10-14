@@ -40,7 +40,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
   <head>
     <?php include('../layout/head.php'); ?>
-    <title>agregar usuario</title>
+    <title>Agregar usuario</title>
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
@@ -54,7 +54,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         <section class="content-header">
           <h1>
             SISTEMA DE CREDITOS COMPLENTARIOS
-            <small>agregar usuario</small>
+            <small>Agregar usuario</small>
           </h1>
 
         </section>
@@ -75,7 +75,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> Nombres</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> Nombre(s)</label>
                           <input type="text" class="form-control" name="nombres" required tabindex="1">
                         </div>
                         <div class="form-group">
@@ -83,7 +83,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           <input type="text" class="form-control" name="ap_materno" required tabindex="3">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-check"></i> Numero de Control</label>
+                          <label for=""><i class="glyphicon glyphicon-check"></i> Número de Control</label>
                           <input type="text" class="form-control" name="numero_control" required tabindex="5">
                         </div>
                         <div class="form-group">
@@ -91,19 +91,19 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           <input type="email" class="form-control" name="correo" required tabindex="7">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-calendar"></i> Fecha de nacimiento</label>
+                          <label for=""><i class="glyphicon glyphicon-calendar"></i> Fecha de Nacimiento</label>
                           <input type="date" class="form-control" name="fecha_nacimiento" required tabindex="9">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-phone"></i> Telefono</label>
+                          <label for=""><i class="glyphicon glyphicon-phone"></i> Teléfono</label>
                           <input type="text" class="form-control" name="telefono" required tabindex="11">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> colonia</label>
+                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> Colonia</label>
                           <input type="text" class="form-control" name="colonia" required tabindex="13">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-equalizer"></i> Codigo Postal</label>
+                          <label for=""><i class="glyphicon glyphicon-equalizer"></i> Código Postal</label>
                           <input type="text" class="form-control" name="codigo_postal" required tabindex="15">
                         </div>
                         <div class="form-group">
@@ -127,7 +127,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Sexo</label>
                           <select name="sexo" id="" class="form-control" tabindex="4">
-                            <option value="elegir">Elegir una Opcion</option>
+                            <option value="elegir">Elegir Opción</option>
                             <option value="Hombre">Hombre</option>
                             <option value="Mujer">Mujer</option>
                           </select>
@@ -136,13 +136,13 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           <label for=""><i class="glyphicon glyphicon-book"></i> Carrera</label>
                           <select name="carrera" id="" class="form-control" value="<?php echo $sesion_usuario['carrera']; ?>" required tabindex="6">
                             <option value="elegir"><?php echo $sesion_usuario['carrera']; ?></option>
-                            <option value="Ingeneria en Agronomia">Ingeneria en Agronomia</option>
-                            <option value="Ingeneria Forestal">Ingeneria Forestal</option>
-                            <option value="Infeneria en Industrias Alimentarias">Infeneria en Industrias Alimentarias</option>
-                            <option value="Licenciatura en Biologia">Licenciatura en Biologia</option>
-                            <option value="Ingeneria Informatica">Ingeneria Informatica</option>
-                            <option value="Ingeneria en Administracion">Ingeneria en Administracion </option>
-                            <option value="Infeneria en Gestion Empresarial">Infeneria en Gestion Empresarial</option>
+                            <option value="Ingeneria en Agronomia">Ingeniería en Agronomía</option>
+                            <option value="Ingeneria Forestal">Ingeniería Forestal</option>
+                            <option value="Infeneria en Industrias Alimentarias">Ingeniería en Industrias Alimentarias</option>
+                            <option value="Licenciatura en Biologia">Licenciatura en Biología</option>
+                            <option value="Ingeneria Informatica">Ingeniería Informática</option>
+                            <option value="Ingeneria en Administracion">Ingeniería en Administración </option>
+                            <option value="Infeneria en Gestion Empresarial">Ingeniería en Gestión Empresarial</option>
                           </select>
                         </div>
                         <div class="form-group">
@@ -206,7 +206,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           <input type="text" class="form-control" name="calle" required tabindex="14">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-link"></i> Reticula</label>
+                          <label for=""><i class="glyphicon glyphicon-link"></i> Retícula</label>
                           <input type="text" class="form-control" name="reticula" required tabindex="16">
                         </div>
                         <!-- <div class="form-group">

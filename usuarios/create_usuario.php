@@ -53,7 +53,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
+            SISTEMA DE CRÉDITOS COMPLENTARIOS
             <small>Agregar usuario</small>
           </h1>
 
@@ -88,7 +88,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
 
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-phone"></i> Telefono</label>
+                          <label for=""><i class="glyphicon glyphicon-phone"></i> Teléfono</label>
                           <input type="text" class="form-control" name="telefono" required tabindex="7">
                         </div>
 

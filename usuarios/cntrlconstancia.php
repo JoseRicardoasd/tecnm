@@ -21,8 +21,7 @@ if (isset($_POST['suscribe']) && isset($_POST['alumno']) && isset($_POST['matric
   $anio = $_POST['anio'];
 
   //sentencia sql
-  $sql = "INSERT INTO constancias (/*ciudadano,*/
-                                suscribe,
+  $sql = "INSERT INTO constancias (suscribe,
                                 alumno,
                                 matricula,
                                 carrera,
@@ -30,7 +29,6 @@ if (isset($_POST['suscribe']) && isset($_POST['alumno']) && isset($_POST['matric
                                 valor,
                                 ciclo,
                                 valorcurri,
-                                /*ciudad,*/
                                 dias,
                                 mes,
                                 anio) 
@@ -44,7 +42,6 @@ if (isset($_POST['suscribe']) && isset($_POST['alumno']) && isset($_POST['matric
                                        '$valor',
                                        '$ciclo',
                                        '$valorcurri',
-                                       
                                        '$dias',
                                        '$mes',
                                        '$anio')";

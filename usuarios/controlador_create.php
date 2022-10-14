@@ -48,7 +48,7 @@ $inserta = "INSERT INTO tb_usuarios(nombres, ap_paterno, ap_materno, sexo, numer
 
 $resultado = mysqli_query($conexion, $inserta);
 if (!$resultado) {
-  //aler('No se pudo guardar. Inténtalo de nuevo.');
+  echo '<script language="javascript">alert("No se pudo guardar. Inténtalo de nuevo.");window.location.href="create.php"</script>';
 } else {
 
   echo '<script language="javascript">alert("Usuario registrado");window.location.href="create.php"</script>';

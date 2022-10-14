@@ -74,7 +74,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> Nombres</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> Nombre(s)</label>
                           <input type="text" class="form-control" name="nombre" required tabindex="1">
                         </div>
                         <div class="form-group">

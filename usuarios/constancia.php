@@ -110,12 +110,13 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                 echo   $dias . " dias de  " . $mes . " de " . $anio; ?>
 
-                <center>
-                  <td colspan="6"><button name="enviar" value="enviar" class="btn btn-success"> Guardar</button></td>
-                </center>
+                
                 <input type="text" name="dias" value="<?php echo '$dias' ?>" style="display: none;">
                 <input type="text" name="mes" value="<?php echo '$mes' ?>" style="display: none;">
                 <input type="text" name="anio" value="<?php echo '$anio' ?>" style="display: none;">
+                <center>
+                  <td colspan="6"><input type="submit" class="btn btn-succes btn-lg" value="Guardar"></td>
+                </center>
               </form>
               <div id="content" class="col-lg-12">
 

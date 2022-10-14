@@ -113,9 +113,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 <center>
                   <td colspan="6"><button name="enviar" value="enviar" class="btn btn-success"> Guardar</button></td>
                 </center>
-                <input type="text" name="dias" value="<?php echo $dias ?>" style="display: none;">
-                <input type="text" name="mes" value="<?php echo $mes ?>" style="display: none;">
-                <input type="text" name="anio" value="<?php echo $anio ?>" style="display: none;">
+                <input type="text" name="dias" value="<?php echo '$dias' ?>" style="display: none;">
+                <input type="text" name="mes" value="<?php echo '$mes' ?>" style="display: none;">
+                <input type="text" name="anio" value="<?php echo '$anio' ?>" style="display: none;">
               </form>
               <div id="content" class="col-lg-12">
 

@@ -11,9 +11,7 @@ include('../app/config/config.php');
   $valor = $_POST['valor'];
   $ciclo = $_POST['ciclo'];
   $valorcurri = $_POST['valorcurri'];
-  $dias = $_POST['dias'];
-  $mes = $_POST['mes'];
-  $anio = $_POST['anio'];
+  $fecha = $_POST['fecha'];
 
   //sentencia sql
   $sql = "INSERT INTO constancias (suscribe,
@@ -24,9 +22,7 @@ include('../app/config/config.php');
                                 valor,
                                 ciclo,
                                 valorcurri,
-                                dias,
-                                mes,
-                                anio) 
+                                fecha) 
                                 VALUES 
                                 (
                                        '$suscribe',
@@ -37,9 +33,7 @@ include('../app/config/config.php');
                                        '$valor',
                                        '$ciclo',
                                        '$valorcurri',
-                                       '$dias',
-                                       '$mes',
-                                       '$anio')";
+                                       '$fecha')";
 
 
   //ejecutamos sql

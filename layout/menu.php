@@ -174,9 +174,9 @@
 
         <li class="header">Formatos</li>
         <li><a href="guia.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guia de Actividades</span></a></li>
-        <li><a href="agregar-credito.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Agregar Credito</span></a></li>
+        <!--<li><a href="agregar-credito.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Agregar Credito</span></a></li>-->
         <li class="header">Evaluciones</li>
-        <li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li>
+        <!--<li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li> -->
         <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias</span></a></li>
         <li><a href="generarconstancia.php"><i class="fa fa-book"></i> <span>GenerarConstancias</span></a></li>
         <li class="header">Tutorias</li>

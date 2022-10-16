@@ -106,11 +106,13 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 $dias = date("d");
                 $mes = date("F");
                 $anio = date("Y");
+                $fecha = $dias . "-" . $mes . "-" . $anio;
 
-                echo   $dias . " dias de  " . $mes . " de " . $anio; ?>
+                echo   $dias . " dias de  " . $mes . " de " . $anio; 
+                echo $fecha?>
 
                 
-                <input type="date" name="fecha" value="<?php echo $dias . "-" . $mes . "-" . $anio ?>" style="display: none;">
+                <input type="text" name="fecha" value="<?php echo $fecha ?>" style="display: none;">
                 <center>
                   <td colspan="6"><input type="submit" class="btn btn-succes btn-lg" value="Guardar"></td>
                 </center>

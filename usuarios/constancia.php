@@ -100,7 +100,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   créditos.
                 </p>
                 <br>
-                Se extiende la presente en el poblado de Chiná a los
+                Se extiende la presente en el poblado de Chiná en la fecha 
                 <?php
                 $fecha = setlocale(LC_ALL, "es_ES");
                 $dias = date("d");
@@ -108,8 +108,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 $anio = date("Y");
                 $fecha = $dias . "-" . $mes . "-" . $anio;
 
-                echo   $dias . " dias de  " . $mes . " de " . $anio; 
-                echo $fecha?>
+                echo   $dias . " dias de  " . $mes . " de " . $anio;?>
 
                 
                 <input type="text" name="fecha" value="<?php echo $fecha ?>" style="display: none;">

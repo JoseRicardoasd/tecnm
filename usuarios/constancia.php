@@ -102,7 +102,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 <br>
                 Se extiende la presente en el poblado de Chiná a los
                 <?php
-                setlocale(LC_ALL, "es_ES");
+                $fecha = setlocale(LC_ALL, "es_ES");
                 $dias = date("d");
                 $mes = date("F");
                 $anio = date("Y");
@@ -110,9 +110,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 echo   $dias . " dias de  " . $mes . " de " . $anio; ?>
 
                 
-                <input type="text" name="dias" value="<?php echo '$dias' ?>" style="display: none;">
-                <input type="text" name="mes" value="<?php echo '$mes' ?>" style="display: none;">
-                <input type="text" name="anio" value="<?php echo '$anio' ?>" style="display: none;">
+                <input type="date" name="fecha" value="<?php echo $fecha ?>" style="display: none;">
                 <center>
                   <td colspan="6"><input type="submit" class="btn btn-succes btn-lg" value="Guardar"></td>
                 </center>

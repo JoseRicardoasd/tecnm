@@ -56,8 +56,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1  class="titulo">
-            SISTEMA DE CREDITOS COMPLENTARIOS
-            <small>Inicio</small>
+            SISTEMA DE CREDITOS COMPLEMENTARIOS
           </h1>
 
         </section>

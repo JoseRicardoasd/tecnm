@@ -60,7 +60,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
+            SISTEMA DE CREDITOS COMPLEMENTARIOS
             <small>Calendario de Actividades</small>
           </h1>
 
@@ -98,13 +98,13 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                     <div class="modal-body">
 
                       <div class="form-group">
-                        <label for="title" class="col-sm-2 control-label">Titulo</label>
+                        <label for="title" class="col-sm-2 control-label">Título</label>
                         <div class="col-sm-10">
                           <input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="descripcion" class="col-sm-2 control-label">Descripcion</label>
+                        <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
                         <div class="col-sm-10">
                           <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Descripcion">
                         </div>
@@ -134,12 +134,12 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                         <div class="col-sm-10">
                           <select name="color" class="form-control" id="color">
                             <option value="">Seleccionar</option>
-                            <option style="color:#0071c5;" value="#0071c5">&#9724; Modalidad Academica</option>
-                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o platica</option>
+                            <option style="color:#0071c5;" value="#0071c5">&#9724; Modalidad Académica</option>
+                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o plática</option>
                             <option style="color:#008000;" value="#008000">&#9724; Congreso, Seminario, Etc.</option>
                             <option style="color:#FFD700;" value="#FFD700">&#9724; Curso y/o taller</option>
-                            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Concurso de ciencias basicas</option>
-                            <option style="color:#FF0000;" value="#FF0000">&#9724; Creatividad e innovacion</option>
+                            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Concurso de ciencias básicas</option>
+                            <option style="color:#FF0000;" value="#FF0000">&#9724; Creatividad e innovación</option>
                             <option style="color:#000;" value="#000">&#9724; Concurso de emprendedurismo</option>
                             <option style="color:#c0392b;" value="#c0392b">&#9724; Diseño de prototipos</option>
                             <option style="color:#8e44ad;" value="#8e44ad">&#9724; Diseño de software</option>
@@ -185,15 +185,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                     <div class="modal-body">
 
                       <div class="form-group">
-                        <label for="title_edit" class="col-sm-2 control-label">Titulo</label>
+                        <label for="title_edit" class="col-sm-2 control-label">Título</label>
                         <div class="col-sm-10">
-                          <input type="text" name="title_edit" class="form-control" id="title_edit" placeholder="Titulo">
+                          <input type="text" name="title_edit" class="form-control" id="title_edit" placeholder="Título">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="descripcion_edit" class="col-sm-2 control-label">descripcion</label>
+                        <label for="descripcion_edit" class="col-sm-2 control-label">Descripción</label>
                         <div class="col-sm-10">
-                          <input type="text" name="descripcion_edit" class="form-control" id="descripcion_edit" placeholder="descripcion">
+                          <input type="text" name="descripcion_edit" class="form-control" id="descripcion_edit" placeholder="Descripción">
                         </div>
 
                       </div>
@@ -222,8 +222,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                         <div class="col-sm-10">
                           <select name="color" class="form-control" id="color">
                             <option value="">Seleccionar</option>
-                            <option style="color:#0071c5;" value="#0071c5" name="modalidad">&#9724; Modalidad Academica</option>
-                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o platica</option>
+                            <option style="color:#0071c5;" value="#0071c5" name="modalidad">&#9724; Modalidad Acádemica</option>
+                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o plática</option>
                             <option style="color:#008000;" value="#008000">&#9724; Congreso, Seminario, Etc.</option>
                             <option style="color:#FFD700;" value="#FFD700">&#9724; Curso y/o taller</option>
                             <option style="color:#FF8C00;" value="#FF8C00">&#9724; Concurso de ciencias basicas</option>

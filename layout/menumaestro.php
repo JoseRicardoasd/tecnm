@@ -32,16 +32,16 @@
                              class="user-image" alt="User Image">
                           <?php
                         }else{
-                            if($id_sexo  == "HOMBRE"){
+                            if($id_sexo  == "Hombre"){
                                 ?>
                                 
-                                    <img src="<?php echo $URL;?>/public/images/avatar_hombre.png" class="user-image" alt="User Image">
+                                    <img src="<?php echo $URL;?>/public/images/avatar.png" class="user-image" alt="User Image">
                                 
                                 <?php
                             }else{
                                 ?>
                                 
-                                    <img src="<?php echo $URL;?>/public/images/avatar_mujer.png" class="user-image" alt="User Image">
+                                    <img src="<?php echo $URL;?>/public/images/avatar.png" class="user-image" alt="User Image">
                                 
                                 <?php
                             }
@@ -62,16 +62,16 @@
                              class="user-image" alt="User Image">
                           <?php
                         }else{
-                            if($id_sexo  == "HOMBRE"){
+                            if($id_sexo  == "Hombre"){
                                 ?>
                                 
-                                    <img src="<?php echo $URL;?>/public/images/avatar_hombre.png" class="user-image" alt="User Image">
+                                    <img src="<?php echo $URL;?>/public/images/avatar.png" class="user-image" alt="User Image">
                                 
                                 <?php
                             }else{
                                 ?>
                                 
-                                    <img src="<?php echo $URL;?>/public/images/avatar_mujer.png" class="user-image" alt="User Image">
+                                    <img src="<?php echo $URL;?>/public/images/avatar.png" class="user-image" alt="User Image">
                                 
                                 <?php
                             }

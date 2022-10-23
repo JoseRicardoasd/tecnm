@@ -166,6 +166,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   echo "no existe sesión";
   header('Location:' . $URL . '/login');
 }
+?>
 
 <script>
   function datos_constancia() {
@@ -178,7 +179,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     $.ajax({
       data: parametros,
       dataType: 'json',
-      url: 'ctrl_constancia_datos.php',
+      url: 'constancia_datos.php',
       type: 'post',
       error: function() {
         alert("Error");

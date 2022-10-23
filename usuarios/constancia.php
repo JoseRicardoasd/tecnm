@@ -40,6 +40,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     <?php include('../layout/head.php'); ?>
     <title>Constancias</title>
     <link rel="stylesheet" href="css/estilo_parrafo.css">
+    <link rel="stylesheet" href="../css/StyleNew.css">
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">

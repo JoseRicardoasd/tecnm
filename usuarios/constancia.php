@@ -189,6 +189,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         //console.log(datos);
         const docs = document.getElementById("docs");
         const body_tabla = document.getElementById("body_table");
+        console.log(datos);
         datos.forEach(element => {
           //se crean los elementos tr y td de la tabla
           let tr = document.createElement('tr');
@@ -196,6 +197,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
           //se agregan los valores correspondientes en la posicion correspondiente de la tabla
           td1.innerHTML = element['nombre'];
+          console.log(element['nombre']);
           let td2 = document.createElement('td');
           td2.innerHTML = element['observacion'];
           let td3 = document.createElement('td');

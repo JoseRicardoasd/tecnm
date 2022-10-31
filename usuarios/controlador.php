@@ -49,7 +49,7 @@ if ($existencia) {
   echo '<script language="javascript">alert("El usuario ya existe");window.location.href="create_usuario.php"</script>';
   echo $existencia;
 } else {
-  $inserta = "INSERT INTO tb_usuarios(nombres, ap_paterno, ap_materno, sexo, correo, telefono, cargo, profesion, cubiculo, area, foto_perfil, contraseña, user_creacion, fyh_creacion, estado) VALUES ('$nombres', '$ap_paterno', '$ap_materno', '$sexo', '$correo', '$telefono', '$cargo', '$profesion', '$cubiculo', '$area', '$filename', '$contraseña', '$user_creacion', '$fechaHora', '$estado')";
+  $inserta = "INSERT INTO tb_usuarios(nombres, ap_paterno, ap_materno, sexo, correo, telefono, cargo, profesion, cubiculo, area, foto_perfil, contrasenia, user_creacion, fyh_creacion, estado) VALUES ('$nombres', '$ap_paterno', '$ap_materno', '$sexo', '$correo', '$telefono', '$cargo', '$profesion', '$cubiculo', '$area', '$filename', '$contraseña', '$user_creacion', '$fechaHora', '$estado')";
 
   $resultado = mysqli_query($conexion, $inserta);
   if (!$resultado) {

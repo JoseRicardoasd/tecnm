@@ -48,7 +48,7 @@ $inserta = "INSERT INTO tb_usuarios(nombres, ap_paterno, ap_materno, sexo, corre
 
 $resultado = mysqli_query($conexion, $inserta);
 if (!$resultado) {
-  if (mysqli_error($conexion) == "Duplicate entry '$correo' for key 'PRIMARY'") {
+  if (mysqli_error($conexion) == "Duplicate entry '$correo' for key 'tb_usuarios.PRIMARY'") {
     echo '<script language="javascript">alert("El usuario ya existe");window.location.href="create_usuario.php"</script>';
   } else {
     echo '<script language="javascript">alert("No se pudo guardar. Inténtalo de nuevo.");window.location.href="create_usuario.php"</script>';

@@ -35,6 +35,19 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
     $privilegio = $sesion_usuario['cargo'];
   }
 
+  //control de inactividad
+  $ahora = date("Y-n-j H:i:s");
+  $fechaGuardada = $_SESSION["ultimoAcceso"];
+  $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
+
+  if ($tiempo_transcurrido >= 600) {
+    //si pasaron 10 minutos o más
+    session_destroy(); // destruyo la sesión
+    header('location:../index.php'); //envío al usuario a la pag. de autenticación
+    //sino, actualizo la fecha de la sesión
+  } else {
+    $_SESSION["ultimoAcceso"] = $ahora;
+  }
 
 ?>
 
@@ -52,6 +65,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
     <div class="wrapper">
       <?php include('../layout/menuuser.php'); ?>
 
+      <!-- cierre sesion por inactividad -->
+      <?php if ($_SESSION["ultimoAcceso"] >= 600) {
+        echo ("<meta http-equiv='refresh' content='600'>");
+      } ?>
 
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper containerTitulo">

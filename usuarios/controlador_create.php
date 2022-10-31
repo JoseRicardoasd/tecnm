@@ -44,9 +44,12 @@ $location = "update_usuarios/" . $filename;
 move_uploaded_file($_FILES['file']['tmp_name'], $location);
 //echo $nombres ." - ".$ap_paterno." - ".$ap_materno." - ".$sexo." - ".$numero_control." - ".$carrera." - ".$correo." - ".$estado_civil." - ".$telefono." - ".$ciudad." - ".$colonia." - ".$calle." - ".$codigo_postal." - ".$curp." - ".$fecha_nacimiento." - ".$nivel_escolar." - ".$reticula." - ".$entidad." - ".$contraseña." - ".$user_creacion. " - ".$fechaHora." - ".$estado;
 
+$inserta = "INSERT INTO tb_usuarios(nombres, ap_paterno, ap_materno, sexo, correo, telefono, cargo, profesion, area, foto_perfil, contrasenia, user_creacion, fyh_creacion, estado) VALUES ('$nombres', '$ap_paterno', '$ap_materno', '$sexo', '$correo', '$telefono', '$cargo', '$profesion', '$area', '$filename', '$contraseña', '$user_creacion', '$fechaHora', '$estado')";
+
+
 $resultado = mysqli_query($conexion, $inserta);
 if (!$resultado) {
-  if (mysqli_error($conexion) == "Duplicate entry 'angel@gmail.com' for key 'PRIMARY'") {
+  if (mysqli_error($conexion) == "Duplicate entry '$correo' for key 'PRIMARY'") {
     echo '<script language="javascript">alert("El usuario ya existe");window.location.href="create.php"</script>';
   } else {
     echo '<script language="javascript">alert("No se pudo guardar. Inténtalo de nuevo.");window.location.href="create.php"</script>';

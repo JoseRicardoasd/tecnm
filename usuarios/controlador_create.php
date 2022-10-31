@@ -47,7 +47,7 @@ move_uploaded_file($_FILES['file']['tmp_name'], $location);
 $inserta = "INSERT INTO tb_usuarios(nombres, ap_paterno, ap_materno, sexo, correo, telefono, cargo, profesion, area, foto_perfil, contrasenia, user_creacion, fyh_creacion, estado) VALUES ('$nombres', '$ap_paterno', '$ap_materno', '$sexo', '$correo', '$telefono', '$cargo', '$profesion', '$area', '$filename', '$contraseña', '$user_creacion', '$fechaHora', '$estado')";
 
 
-$resultado = mysqli_query($conexion, $inserta);
+$resultado = mysqli_query($conexion, $inserta) or die(mysqli_error($conexion));
 if (!$resultado) {
   if (mysqli_error($conexion) == "Duplicate entry '$correo' for key 'PRIMARY'") {
     echo '<script language="javascript">alert("El usuario ya existe");window.location.href="create.php"</script>';

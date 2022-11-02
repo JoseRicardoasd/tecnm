@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registrarse</title>
+  <title>Registrarte</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
@@ -15,10 +15,10 @@
     <img src="img/shape.png" class="square" alt="" />
     <div class="form">
       <div class="contact-info">
-        <h3 class="title">Bienvenido al Sistema de Creditos Complementarios
+        <h3 class="title">Bienvenido al Sistema de Créditos de Actividades Complementarios
         </h3>
         <br>
-        <h3 class="title">TECNM Campus China
+        <h3 class="title">TecNM Campus Chiná
         </h3>
         <p class="text">
           Una vez registrado dirigite a tu perfil para terminar con el registro de tus datos generales
@@ -27,7 +27,7 @@
 
 
         <div class="social-media">
-          <p>conecta con nosotros:</p>
+          <p>Conecta con nosotros:</p>
           <div class="social-icons">
             <a href="https://www.facebook.com/SomosTecNM/">
               <i class="fab fa-facebook-f"></i>
@@ -59,8 +59,8 @@
             </div>
             <div class="input-container">
               <input type="text" name="numero_control" class="input" required />
-              <label for="">Numero de Control</label>
-              <span>Numero de Control</span>
+              <label for="">Número de Control</label>
+              <span>Número de Control</span>
             </div>
             <div class="input-container">
               <input type="password" name="contraseña" class="input" />

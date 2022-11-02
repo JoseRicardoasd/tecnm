@@ -76,8 +76,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
         } ?>
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLEMENTARIOS
-            <small>Calendario de Actividades</small>
+            CALENDARIO DE ACTIVIDADES
           </h1>
 
         </section>
@@ -297,9 +296,6 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
               $('#calendar').fullCalendar({
                 header: {
                   language: 'es',
-                  left: 'prev,next today',
-                  center: 'title_edit',
-                  right: 'month,basicWeek,basicDay',
 
                 },
                 defaultDate: yyyy + "-" + mm + "-" + dd,

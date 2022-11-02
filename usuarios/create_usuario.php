@@ -70,8 +70,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         } ?>
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
-            <small>Agregar usuario</small>
+            Agregar usuarios
           </h1>
 
         </section>
@@ -91,26 +90,26 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> Nombres</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> NOMBRE(S)</label>
                           <input type="text" class="form-control" name="nombre" required tabindex="1" maxlength="30" style="text-transform:uppercase;">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> Apellido Materno</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> APELLIDO MATERNO</label>
                           <input type="text" class="form-control" name="materno" required tabindex="3" maxlength="20" style="text-transform:uppercase;">
                         </div>
 
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-envelope"></i> Correo Institucional</label>
+                          <label for=""><i class="glyphicon glyphicon-envelope"></i> CORREO INSTITUCIONAL</label>
                           <input type="email" class="form-control" name="correo" required tabindex="5" maxlength="30">
                         </div>
 
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-phone"></i> Telefono</label>
+                          <label for=""><i class="glyphicon glyphicon-phone"></i> TELÉFONO</label>
                           <input type="number" class="form-control" name="telefono" required tabindex="7" maxlength="10">
                         </div>
 
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-picture"></i> Foto de Perfil</label>
+                          <label for=""><i class="glyphicon glyphicon-picture"></i> FOTO DE PERFIL</label>
                           <input type="file" class="form-control" id="file" name="file" tabindex="12">
                           <center>
                             <br>
@@ -120,29 +119,29 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> Apellido Paterno</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> APELLIDO PATERNO</label>
                           <input type="text" class="form-control" name="paterno" required tabindex="2" maxlength="20" style="text-transform:uppercase;">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> Sexo</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> SEXO</label>
                           <select name="sexo" id="" class="form-control" tabindex="4" style="text-transform:uppercase;">
-                            <option value="elegir">Elegir una Opcion</option>
-                            <option value="Hombre">Hombre</option>
-                            <option value="Mujer">Mujer</option>
+                            <option value="elegir">         </option>
+                            <option value="Hombre">HOMBRE</option>
+                            <option value="Mujer">MUJER</option>
                           </select>
                         </div>
 
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-modal-window"></i>Tipo de Usuario</label>
+                          <label for=""><i class="glyphicon glyphicon-modal-window"></i>TIPO DE USUARIO</label>
                           <select name="cargo" id="" class="form-control" required tabindex="6" style="text-transform:uppercase;">
                             <option value="elegir"></option>
-                            <option value="Administrador">Administrador</option>
-                            <option value="Maestro">Maestro</option>
+                            <option value="Administrador">ADMINISTRADOR</option>
+                            <option value="Maestro">MAESTRO</option>
 
                           </select>
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-link"></i> Nivel Académico</label>
+                          <label for=""><i class="glyphicon glyphicon-link"></i> NIVEL ACADÉMIDO</label>
                           <input type="text" class="form-control" name="profesion" required tabindex="8" style="text-transform:uppercase;">
                         </div>
                       </div>
@@ -150,7 +149,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
 
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-link"></i> Cargo</label>
+                          <label for=""><i class="glyphicon glyphicon-link"></i> CARGO</label>
                           <!-- <input type="text" class="form-control" name="area" required tabindex="10"> -->
                           <select name="area" id="" class="form-control" required tabindex="6" style="text-transform:uppercase;">
                             <option value="elegir"></option>
@@ -161,11 +160,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
 
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-lock"></i> Contraseña</label>
+                          <label for=""><i class="glyphicon glyphicon-lock"></i> CONTRASEÑA</label>
                           <input type="password" class="form-control" name="contraseña" required tabindex="11" maxlength="15">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-lock"></i> Confirmar Contraseña</label>
+                          <label for=""><i class="glyphicon glyphicon-lock"></i> CONFIRMAR CONTRASEÑA</label>
                           <input type="password" class="form-control" required tabindex="11" maxlength="15">
                         </div>
 

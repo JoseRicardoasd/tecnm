@@ -70,8 +70,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         } ?>
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
-            <small>agregar usuario</small>
+            Agregar usuario
           </h1>
 
         </section>
@@ -82,7 +81,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
             <div class="col-md-12">
               <div class="panel panel-primary">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Agregar Alumno</h3>
+                  <h3 class="panel-title">Agregar alumno</h3>
                 </div>
 
                 <form action="controlador_create.php" method="post" enctype="multipart/form-data">
@@ -92,37 +91,37 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> Nombres</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> NOMBRE(S)</label>
                           <input type="text" class="form-control" name="nombres" required tabindex="1" style="text-transform:uppercase;" maxlength="30">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> Apellido Materno</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> APELLIDO MATERNO</label>
                           <input type="text" class="form-control" name="ap_materno" required tabindex="3" style="text-transform:uppercase;" maxlength="20">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-check"></i> Numero de Control</label>
+                          <label for=""><i class="glyphicon glyphicon-check"></i> NÚMERO DE CONTROL</label>
                           <input type="text" class="form-control" name="numero_control" required tabindex="5" maxlength="8">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-envelope"></i> Correo Institucional</label>
+                          <label for=""><i class="glyphicon glyphicon-envelope"></i> CORREO INSTITUCIONAL</label>
                           <input type="email" class="form-control" name="correo" required tabindex="7" maxlength="30">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-calendar"></i> Fecha de nacimiento</label>
+                          <label for=""><i class="glyphicon glyphicon-calendar"></i> FECHA DE NACIMIENTO</label>
                           <input type="date" class="form-control" name="fecha_nacimiento" required tabindex="9">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-phone"></i> Telefono</label>
+                          <label for=""><i class="glyphicon glyphicon-phone"></i> TELÉFONO</label>
                           <input type="text" class="form-control" name="telefono" required tabindex="11" maxlength="10">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> colonia</label>
+                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> COLONIA</label>
                           <input type="text" class="form-control" name="colonia" required tabindex="13" style="text-transform:uppercase;">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> Entidad Federativa</label>
+                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> ENTIDAD FEDERATIVA</label>
                           <select name="ciudad" class="form-control" required tabindex="15" style="text-transform:uppercase;">
-                            <option value="elegir">Elegir una Opcion</option>
+                            <option value="elegir">       </option>
                             <option value="AGUASCALIENTES">Aguascalientes</option>
                             <option value="BAJA CALIFORNIA">Baja California</option>
                             <option value="BAJA CALIFORNIA SUR">Baja California Sur</option>
@@ -163,7 +162,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           <input type="text" class="form-control" name="entidad" required tabindex="17">
                         </div> -->
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-picture"></i> Foto de Perfil</label>
+                          <label for=""><i class="glyphicon glyphicon-picture"></i> FOTO DE PERFIL</label>
                           <input type="file" class="form-control" id="file" name="file" tabindex="20">
                           <center>
                             <br>
@@ -173,41 +172,41 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> Apellido Paterno</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> APELLIDO PATERNO</label>
                           <input type="text" class="form-control" name="ap_paterno" required tabindex="2" style="text-transform:uppercase;" maxlength="20">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> Sexo</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> SEXO</label>
                           <select name="sexo" class="form-control" tabindex="4" style="text-transform:uppercase;">
-                            <option value="elegir">Elegir una Opcion</option>
-                            <option value="Hombre">Hombre</option>
-                            <option value="Mujer">Mujer</option>
-                            <option value="Mujer">Otro</option>
+                            <option value="elegir">         </option>
+                            <option value="Hombre">HOMBRE</option>
+                            <option value="Mujer">MUJER</option>
+                            <option value="Mujer">OTRO</option>
                           </select>
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-book"></i> Carrera</label>
+                          <label for=""><i class="glyphicon glyphicon-book"></i> CARRERA</label>
                           <select name="carrera" class="form-control" required tabindex="6" style="text-transform:uppercase;">
                             <!-- <option value="elegir"><?php echo $sesion_usuario['carrera']; ?></option> -->
-                            <option value="Ingeneria en Agronomia">Ingeneria en Agronomia</option>
-                            <option value="Ingeneria Forestal">Ingeneria Forestal</option>
-                            <option value="Infeneria en Industrias Alimentarias">Infeneria en Industrias Alimentarias</option>
-                            <option value="Licenciatura en Biologia">Licenciatura en Biologia</option>
-                            <option value="Ingeneria Informatica">Ingeneria Informatica</option>
-                            <option value="Ingeneria en Administracion">Ingeneria en Administracion </option>
-                            <option value="Infeneria en Gestion Empresarial">Infeneria en Gestion Empresarial</option>
+                            <option value="Ingeneria en Agronomia">INGENIERÍA EN AGRONOMÍA</option>
+                            <option value="Ingeneria Forestal">INGENIERÍA FORESTAL</option>
+                            <option value="Infeneria en Industrias Alimentarias">INGENIERÍA EN INDUSTRIAS ALIMENTARIAS</option>
+                            <option value="Licenciatura en Biologia">LICENCIATURA EN BIOLOGÍA</option>
+                            <option value="Ingeneria Informatica">INGENIERÍA EN INFORMÁTICA</option>
+                            <option value="Ingeneria en Administracion">INGENIERÍA EN ADMINISTRACIÓN </option>
+                            <option value="Infeneria en Gestion Empresarial">INGENIERÍA EN GESTIÓN EMPRESARIAL</option>
                           </select>
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-modal-window"></i> Estado Civil</label>
+                          <label for=""><i class="glyphicon glyphicon-modal-window"></i> ESTADO CIVIL</label>
                           <select name="estado_civil" class="form-control" required tabindex="8" style="text-transform:uppercase;">
                             <option value="elegir"><?php echo $sesion_usuario['estado_civil']; ?></option>
-                            <option value="Soltero/a">Soltero/a</option>
-                            <option value="Casado/a">Casado/a</option>
-                            <option value="Unión libre">Unión libre</option>
-                            <option value="Separado/a">Separado/a</option>
-                            <option value="Divorciado/a">Divorciado/a</option>
-                            <option value="Viudo/a">Viudo/a</option>
+                            <option value="Soltero/a">SOLTERO/A</option>
+                            <option value="Casado/a">CASADO/A</option>
+                            <option value="Unión libre">UNIÓN LIBRE</option>
+                            <option value="Separado/a">SEPARADO/A</option>
+                            <option value="Divorciado/a">DIVORCIADO/A</option>
+                            <option value="Viudo/a">VIUDO/A</option>
                           </select>
                         </div>
                         <div class="form-group">
@@ -218,11 +217,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                       <div class="col-md-6">
 
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> Calle</label>
+                          <label for=""><i class="glyphicon glyphicon-map-marker"></i> CALLE</label>
                           <input type="text" class="form-control" name="calle" required tabindex="12" style="text-transform:uppercase;">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-equalizer"></i> Codigo Postal</label>
+                          <label for=""><i class="glyphicon glyphicon-equalizer"></i> CÓDIGO POSTAL</label>
                           <input type="text" class="form-control" name="codigo_postal" required tabindex="14" maxlength="5">
                         </div>
                         <!-- <div class="form-group">
@@ -234,11 +233,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           <input type="text" class="form-control" name="nivel_escolar" required>
                         </div> -->
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-lock"></i> Contraseña</label>
+                          <label for=""><i class="glyphicon glyphicon-lock"></i> CONTRASEÑA</label>
                           <input type="password" class="form-control" name="contraseña" required tabindex="16" maxlength="15">
                         </div>
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-eye-close"></i> Confirmar Contraseña</label>
+                          <label for=""><i class="glyphicon glyphicon-eye-close"></i> CONFIRMAR CONTRASEÑA</label>
                           <input type="password" class="form-control" required tabindex="17" maxlength="15">
                         </div>
                         <br>

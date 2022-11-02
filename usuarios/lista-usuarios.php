@@ -56,7 +56,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
 
   <head>
     <?php include('../layout/head.php'); ?>
-    <title>Listado de Alumnos Activos</title>
+    <title>Listado de Alumnos</title>
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
@@ -73,8 +73,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
-            <small>Listado de Alumnos Activos</small>
+            ÁREA ACADÉMICA
+            <small>Listado de Alumnos</small>
           </h1>
 
         </section>
@@ -82,10 +82,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
         <!-- Main content -->
         <section class="content">
           <div class="panel panel-primary">
-            <div class="panel-heading">Listado de Usuarios Activos</div>
+            <div class="panel-heading">Listado de Usuarios</div>
             <div class="panel-body">
               <table class="table table-bordered table-hover table-condensed">
-                <th>Nro</th>
+                <th>N°</th>
                 <th>Nombre Completo</th>
 
                 <th>Correo Institucional</th>

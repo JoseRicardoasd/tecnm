@@ -4,7 +4,7 @@
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>TECNM</b></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>CHINA</b>TECNM</span>
+    <span class="logo-lg"><b>TecNM</b>Chiná</span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
@@ -139,7 +139,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <li class="treeview">
       <a href="#">
-        <i class="fa fa-users"></i> <span>AREA ACADEMICA</span>
+        <i class="fa fa-users"></i> <span>ÁREA ACADÉMICA</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>

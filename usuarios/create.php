@@ -70,7 +70,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         } ?>
         <section class="content-header">
           <h1>
-            Agregar usuario
+            Agregar usuarios
           </h1>
 
         </section>

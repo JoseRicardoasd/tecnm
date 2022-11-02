@@ -15,19 +15,19 @@
     <img src="img/shape.png" class="square" alt="" />
     <div class="form">
       <div class="contact-info">
-        <h3 class="title">Bienvenido al Sistema de Créditos Complementarios
+        <h3 class="title">Bienvenido al Sistema de Créditos de Actividades Complementarios
         </h3>
         <br>
-        <h3 class="title">TECNM Campus Chiná
+        <h3 class="title">TecNM Campus Chiná
         </h3>
         <p class="text">
-          En esta Plataforma podras llevar un Registro y un Control de tus Créditos Académicos
+          En esta Plataforma podrás llevar un registro de tus créditos de actividades complementarios
         </p>
 
         <div class="info">
           <div class="information">
             <img src="img/location.png" class="icon" alt="" />
-            <p>Calle 11 S/N entre 22 Y 28, CHINÁ, CAM. MÉXICO. C.P. 24520</p>
+            <p>Calle 11 S/N entre 22 Y 28, Chiná, Camp. México. C.P. 24520</p>
           </div>
           <div class="information">
             <img src="img/email.png" class="icon" alt="" />
@@ -70,7 +70,7 @@
           </div>
           <div class="form-group">
             <input type="submit" value="Ingresar" class="btn btn-primary btn-block">
-            <a href="login/registro.php" class="btn btn-default btn-block">Regisrarse</a>
+            <a href="login/registro.php" class="btn btn-default btn-block">Registrar</a>
           </div>
         </form>
       </div>

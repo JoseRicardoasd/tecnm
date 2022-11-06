@@ -180,9 +180,9 @@
         <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias</span></a></li>
         <li><a href="generarconstancia.php"><i class="fa fa-book"></i> <span>GenerarConstancias</span></a></li>
         <li class="header">Tutorias</li>
-        <li><a href="lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de alumnos</span></a></li>
-        <li><a href="incidencias.php"><i class="fa fa-users"></i> <span>Incidencias</span></a></li>
-        <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Constancias tutorias</span></a></li>
+        <li><a href="tutorias/lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de alumnos</span></a></li>
+        <li><a href="tutorias/incidencias.php"><i class="fa fa-users"></i> <span>Incidencias</span></a></li>
+        <li><a href="tutorias/constancias_tutoria.php"><i class="fa fa-users"></i> <span>Constancias tutorias</span></a></li>
 
       </ul>
     </li>

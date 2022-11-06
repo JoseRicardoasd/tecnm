@@ -180,8 +180,6 @@
         <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias</span></a></li>
         <li><a href="generarconstancia.php"><i class="fa fa-book"></i> <span>GenerarConstancias</span></a></li>
         <li class="header">Tutorias</li>
-        <li><a href="tutoria.php"><i class="fa fa-user"></i> <span>registro de tutoriados</span></a></li>
-        <li><a href="lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de Tutorias</span></a></li>
       </ul>
     </li>
 

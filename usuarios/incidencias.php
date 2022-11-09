@@ -81,7 +81,7 @@ $correo_sesion = $_SESSION['u_usuario'];
  <div class="modal-dialog">
  <div class="modal-content">
  <div class="modal-header">
- <h5 class="modal-title" id="exampleModalLabel">Nueva incidencia</h5>
+ <h4 class="modal-title" id="exampleModalLabel">Nueva incidencia</h4>
  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
@@ -89,11 +89,9 @@ $correo_sesion = $_SESSION['u_usuario'];
  <div class="modal-body">
 
 
- 
-    
-                <!--  Campo prioridad  -->
-
-<div class="form-group" class="col-sm2 control-label">
+ <div class="row">
+  <div class="col">
+  <div class="form-group" class="col-sm2 control-label">
   <label for="prioridad">Seleccionar prioridad</label>
     <select name="prioridad" id="" class="form-control" required>
       <option value="" >Elegir una Opcion</option>
@@ -103,10 +101,9 @@ $correo_sesion = $_SESSION['u_usuario'];
 
   </select>
   </div>
-  </td>
+  </div>
 
-              <!--  Campo categoria -->
-
+  <div class="col">
   <div class="form-group" class="col-sm2 control-label">
     <label for="categoria">Seleccionar categoria</label>
     <select name="categoria" id="" class="form-control" required>
@@ -116,39 +113,49 @@ $correo_sesion = $_SESSION['u_usuario'];
       <option value="Otras">Otras</option>
      </select>
   </div>
-
-              <!-- Campo motivo -->
-
-  <div class="form-group">
-  <label for="motivo" class="col-sm2 control-label">Motivo</label>
-  <div class="">
-   <input type="text" name="motivo" id="" class="form-control" placeholder="Motivo de incidencia" required>
   </div>
 
-   <!-- Alumno -->
+  </div>
 
+  <div class="row">
+  <div class="col">
+    <div class="form-group" class="col-sm2 control-label">
+    <label for="incidencia">Status</label>
+      <select name="incidencia" id="" class="form-control" required>
+  <option value="0" <?= (isset($incidencia) && $incidencia == 0) ? 'selected' : '' ?>>Iniciada</option>
+   
+    </select>
+    </div>
+
+  </div>
+
+  
+
+  <div class="col">
   <div class="form-group">
   <label for="id_alumno" class="col-sm2 control-label">Matricula alumno</label>
   <div class="">
    <input type="text" name="id_alumno" id="" class="form-control" placeholder="Matricula alumno" required>
   </div>
-
- 
-
-  <div class="form-group" class="col-sm2 control-label">
-  <label for="incidencia">Status</label>
-    <select name="incidencia" id="" class="form-control" required>
-<option value="0" <?= (isset($incidencia) && $incidencia == 0) ? 'selected' : '' ?>>Iniciada</option>
- 
-  </select>
   </div>
-  </td>
   </div>
-  
   </div>
-</div>
 
 
+    <div class="row">
+      <div class="col">
+      <div class="form-group">
+  <label for="motivo">Motivo</label>
+  <div class="">
+   <textarea name="motivo" id="" class="form-control" placeholder="Motivo de incidencia" required>
+
+   </textarea> 
+  </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
       
   <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

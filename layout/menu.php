@@ -183,6 +183,9 @@
         <li><a href="lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de alumnos</span></a></li>
         <li><a href="incidencias.php"><i class="fa fa-users"></i> <span>Incidencias</span></a></li>
         <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Constancias tutorias</span></a></li>
+        <li class="header">Extraescolar</li>
+        <li><a href="extraexcolar.php"><i class="fa fa-users"></i> <span>Lista de alumnos</span></a></li>
+        <li><a href="nuevoResponsable.php"><i class="fa fa-users"></i> <span>Incidencias</span></a></li>
 
       </ul>
     </li>

@@ -166,6 +166,10 @@
         <li class="header">Evaluacion</li>
 
         <li><a href="generarconstancia_alumno.php"><i class="fa fa-book"></i> <span><b>Generar Constancia</b></span></a></li>
+        
+        <li class="header">extraescolar</li>
+
+        <li><a href="generarconstancia_alumno.php"><i class="fa fa-book"></i> <span><b>Actividades</b></span></a></li>
 
       </ul>
     </li>

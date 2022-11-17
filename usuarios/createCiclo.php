@@ -1,5 +1,7 @@
 <?php
 
+include('../app/config/config.php');
+
 /*********************************************************************************************************/
 
 	/* LLAMAMOS AL ULTIMO ID DE LA TABLA CICLO */

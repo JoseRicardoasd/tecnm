@@ -7,7 +7,7 @@
 
 include('../app/config/config.php');
 
-$nombres = $_POST['nombres'];
+$nombres = strtoupper($_POST['nombres']);
 $ap_paterno = $_POST['ap_paterno'];
 $ap_materno = $_POST['ap_materno'];
 $sexo = $_POST['sexo'];

@@ -51,9 +51,6 @@ Jefe(a) del Departamento de Servicios Escolares o su equivalente en los Institut
 
 <br>
 PRESENTE.
-<br>
-<br>
-<br>
 <p style="text-align: justify; line-height: 22px;">
     El que se suscribe <b><?php echo $opciones['suscribe'] ?></b>, por
     este medio se permite hacer de su conocimiento que el estudiante <b><?php echo $opciones['alumno'] ?></b>

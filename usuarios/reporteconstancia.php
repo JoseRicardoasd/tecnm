@@ -67,10 +67,6 @@ PRESENTE.
     Se extiende la presente en la
     fecha <?php echo $opciones['fecha'] ?>
   </p>
-<br>
-<br>
-<br>
-<br>
 <p>
   ATENTAMENTE
 </p>

@@ -33,15 +33,18 @@ $sentenciaSQL->execute();
 $datos_alumno = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-<h2>
 
-  <p style="text-align: center;">CONSTANCIA DE CUMPLIMIENTO DE ACTIVIDAD COMPLEMENTARIA.
-  </p>
-</h2>
+<div>
+  <img src="../public/images/avatar_hombre.png">
+</div>
+<br>
+<br>
+<p style="text-align: center;">CONSTANCIA DE CUMPLIMIENTO DE ACTIVIDAD COMPLEMENTARIA
+</p>
 <br>
 
 <?php foreach ($datos_alumno as $opciones) : ?>
-C. <?php echo $opciones['jefe'] ?>
+<b>C. <?php echo $opciones['jefe'] ?></b>
 <br>
 
 Jefe(a) del Departamento de Servicios Escolares o su equivalente en los Institutos Tecnológicos Descentralizados
@@ -51,19 +54,17 @@ PRESENTE.
 <br>
 <br>
 <br>
-<p style="text-align: justify;">
-    El que se suscribe <?php echo $opciones['suscribe'] ?>, por
-    este medio se permite hacer de su conocimiento que el estudiante <?php echo $opciones['alumno'] ?>
-    con numero de control <?php echo $opciones['matricula'] ?>
-    de la carrera de <?php echo $opciones['carrera'] ?>
-    ha cumplido su actividad complementaria con el nivel de desempeño <?php echo $opciones['desempe'] ?>
-    y un valor numérico de <?php echo $opciones['valor'] ?>
-    durante el periodo escolar <?php echo $opciones['ciclo'] ?>
-    con un valor curricular de <?php echo $opciones['valorcurri'] ?>
+<p style="text-align: justify; line-height: 22px;">
+    El que se suscribe <b><?php echo $opciones['suscribe'] ?></b>, por
+    este medio se permite hacer de su conocimiento que el estudiante <b><?php echo $opciones['alumno'] ?></b>
+    con numero de control <b><?php echo $opciones['matricula'] ?></b>
+    de la carrera de <b><?php echo $opciones['carrera'] ?></b>
+    ha cumplido su actividad complementaria con el nivel de desempeño <b><?php echo $opciones['desempe'] ?></b>
+    y un valor numérico de <b><?php echo $opciones['valor'] ?></b>
+    durante el periodo escolar <b><?php echo $opciones['ciclo'] ?></b>
+    con un valor curricular de <b><?php echo $opciones['valorcurri'] ?></b>
     créditos.
   </p>
-<br>
-<br>
 <br>
 <p style="text-align: right;">
     Se extiende la presente en la
@@ -73,9 +74,33 @@ PRESENTE.
 <br>
 <br>
 <br>
-<p style="text-align: center;">
+<p>
   ATENTAMENTE
 </p>
+<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div>
+    <b>_____________________________________ <span style="color: white;">-------------</span> _____________________________________</b>
+    <p><b>NOMBRE Y FIRMA DEL DOCENTE <br> RESPONSABLE </b> <span style="color: white;">------------------------------------------------</span> Jefa de Departamento de Area Académica
+    </p>
+  </div>
+  <br>
+  <br>
+
+  <p style="font-size: 14px;">c.c.p. Mirsha Gabriela Magaña Cruz, Jefe de Departamento de Ciencias Básicas</p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div>
+    <img src="../public/images/avatar_hombre.png">
+  </div>
 <?php endforeach ?>
 
 </div>

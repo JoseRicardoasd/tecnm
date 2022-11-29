@@ -86,25 +86,25 @@ $correo_sesion = $_SESSION['u_usuario'];
 
                                 <div class="row">
 
-                                <form action="" method="GET">
-                                        <div class="col-md-6">
+                                  <form action="" method="GET">
+                                    <div class="col-md-6">
 
                                       <label for="caja_busqueda">BUSCAR</label>
                                       <input class="form-control" type="search" name="caja_busqueda" id="caja_busqueda" maxlength="50">
-                                      
+                                    
                                     </div>
 
                                     <br>
 
-                                        <br>
+                                    <br>
 
-                                        
-                                        </div>
+                                          
+                                    </div>
 
-                                        <div class="col-md-6">
+                                    <div class="col-md-6">
 
-                                        </div>
-                                    </form>
+                                    </div>
+                                  </form>
 
                                 </div>
 

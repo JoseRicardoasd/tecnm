@@ -21,7 +21,7 @@ include('../app/config/config.php');
 
 		$inicio=$_POST['inicio'];
 		$fin=$_POST['fin'];
-		$descripcion=$_POST['descripcion'];
+		$descripcion=strtoupper($_POST['descripcion']);
 
 		$sentencia = $con->prepare("INSERT INTO ciclo( cicloInicio, cicloFin, descripcion) VALUES (?, ?, ?);");
 

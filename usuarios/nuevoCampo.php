@@ -73,14 +73,14 @@ $correo_sesion = $_SESSION['u_usuario'];
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for=""><i class="glyphicon glyphicon-user"></i> Nombre del campo extraescolar</label> 
-                                                <input type="text" class="form-control" name="nombreCampo" required>
+                                                <input type="text" class="form-control" name="nombreCampo" required style="text-transform:uppercase;">
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for=""><i class="glyphicon glyphicon-user"></i> Imagen portada de campo</label>
-                                                <input type="file" class="form-control" name="imagenCampo">
+                                                <input type="file" class="form-control" name="imagenCampo" required>
                                             </div>
                                     
                                         <div class="col-md-6">

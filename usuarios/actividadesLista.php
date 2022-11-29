@@ -2,7 +2,40 @@
 include ('../app/config/config.php');
 session_start();
 
-if(isset($_SESSION['u_usuario'])){
+if(!isset($_GET["id"])) exit();//preguntando si el metodo get tiene un valor, si no tiene uno sale del porceso
+    $id = $_GET["id"];
+
+    $sql = ("SELECT id FROM ciclo ORDER BY id DESC LIMIT 1;");
+    $query = $bdd->prepare( $sql );
+    $query->execute();
+    $resultado = $query->fetch(PDO::FETCH_OBJ);
+
+    $idCiclo = $resultado === false ? 1 : $resultado->id;
+
+    $sql = "SELECT id,nombreActividad,idCategoria FROM extraescolar WHERE (id = ?) and (idCiclo = $idCiclo);";
+    $req = $bdd->prepare($sql);
+    $req->execute([$id]);
+    $extraescolar = $req->fetch(PDO::FETCH_LAZY);
+
+    $nombre = $extraescolar['nombreActividad'];
+    $categoria = $extraescolar['idCategoria'];
+
+    $sql = ("SELECT nombreCategoria FROM categorias WHERE id = $categoria;");
+    $query = $bdd->prepare( $sql );
+    $query->execute();
+    $cate = $query->fetch(PDO::FETCH_LAZY);
+
+    $nombreCategoria = $cate['nombreCategoria'];
+
+    $sql = "SELECT tb_usuarios.id, tb_usuarios.nombres,tb_usuarios.ap_paterno,tb_usuarios.ap_materno,tb_usuarios.carrera,tb_usuarios.numero_control,tb_usuarios.telefono,grupos.habilidad,grupos.calificacion,grupos.idActividad FROM grupos INNER JOIN tb_usuarios ON grupos.matricula = tb_usuarios.numero_control WHERE grupos.idActividad = $id";
+    $req = $bdd->prepare($sql);
+    $req->execute();
+    $alumnados = $req->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+
+if(isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0){
     //echo "existe sesión";
     //echo "bienvenido usuario";
 $correo_sesion = $_SESSION['u_usuario'];
@@ -31,7 +64,6 @@ $correo_sesion = $_SESSION['u_usuario'];
          $id_entidad = $sesion_usuario['entidad'];
          $id_foto_perfil = $sesion_usuario['foto_perfil'];
        
-
     }
 
 ?>
@@ -54,8 +86,8 @@ $correo_sesion = $_SESSION['u_usuario'];
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        SISTEMA DE EXTRAESCOLARES
-        <small>Listado de campos extraescolares</small>
+        SISTEMA DE ACTIVIDADES
+        <small>Listado de actividades extraescolares</small>
       </h1>
      
     </section>
@@ -63,51 +95,43 @@ $correo_sesion = $_SESSION['u_usuario'];
     <!-- Main content -->
     <section class="content">
     <div class="panel panel-primary">
-        <div class="panel-heading">CREACION DE NUEVO CICLO</div>
-
-        <div class="panel-body">
-            <form action="createCiclo.php" method="post" enctype="multipart/form-data">
-                <div class="row">
-    
-                    <div class="col-md-6">
-
-                        <div class="form-group">
-                            <label for=""><i class="glyphicon glyphicon-check"></i>Inicio de Ciclo</label> 
-                            <input type="date" class="form-control" name="inicio" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for=""><i class="glyphicon glyphicon-book"></i>Descripcion Ciclo</label> 
-                            <input type="text" class="form-control" name="descripcion" required style="text-transform:uppercase;">
-                        </div>
-                
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for=""><i class="glyphicon glyphicon-check"></i>Fin de Ciclo</label> 
-                            <input type="date" class="form-control" name="fin" required>
-                        </div>
-                    </div>
-
-                    <br>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                        <center>
-                            <a href="extraexcolar.php" class="btn btn-danger btn-lg">Cancelar</a>
-                            <input type="submit" class="btn btn-primary btn-lg" value="Crear Ciclo">
-                        </center>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-                    
-
+                    <div class="panel-heading">CATEGORIA <?php echo $nombreCategoria ?> ACTIVIDAD <?php echo $nombre?></div>
 
                     <div class="panel-body">
+
+                    <a class="btn btn-primary btn-lg" href="">
+                        Imprimir Lista
+                    </a>
+
+                    <br><br>
+
+                    <table class="table table-light">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>#</th>
+						        <th>Alumno</th>
+                                <th>Matricula</th>
+                                <th>Habilidades</th>
+                                <th>Acreditacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($alumnados as $alumno) { ?>
+                            <tr>
+                                <td></td>
+                                <td><?php echo $alumno['nombres'] ?></td>
+                                <td><?php echo $alumno['numero_control'] ?></td>
+                                <td><?php echo $alumno['habilidad'] ?></td>
+                                <td><?php if ($alumno['calificacion'] == 1) {
+                                    echo "acreditado";
+                                } else {
+                                    echo "No acrreditado";
+                                }
+                                ?></td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
                         
                     </div>
                 </div>

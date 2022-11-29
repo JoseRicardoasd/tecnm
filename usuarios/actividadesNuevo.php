@@ -2,6 +2,7 @@
 include ('../app/config/config.php');
 session_start();
 
+
 if(!isset($_GET["id"])) exit();//preguntando si el metodo get tiene un valor, si no tiene uno sale del porceso
     $id = $_GET["id"];
 
@@ -11,6 +12,7 @@ if(!isset($_GET["id"])) exit();//preguntando si el metodo get tiene un valor, si
     $campitosos = $red->fetch(PDO::FETCH_LAZY);
 
     $campor=$campitosos['id'];
+   
 
 
 if(isset($_SESSION['u_usuario'])){
@@ -43,6 +45,7 @@ $correo_sesion = $_SESSION['u_usuario'];
          $id_foto_perfil = $sesion_usuario['foto_perfil'];
        
     }
+    
 
     
 
@@ -79,60 +82,72 @@ $correo_sesion = $_SESSION['u_usuario'];
                     <h3 class="panel-title">Agregar extraescolar <?php echo "".$campor?> </h3>
                </div>
               <div class="panel-body">
-                 <form action="actividadCreate.php" method="post" enctype="multipart/form-data">
-			 <div class="row">
-		
-				      <div class="col-md-6">
+                <form action="actividadCreate.php" method="post" enctype="multipart/form-data">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-user"></i> Nombre de actividad</label> 
+                        <input type="text" class="form-control" name="nombreActividad" required  style="text-transform:uppercase;">
+                      </div>
 
-				<div class="form-group">
-				<label for=""><i class="glyphicon glyphicon-user"></i> Nombre de actividad</label> 
-				<input type="text" class="form-control" name="nombreActividad" required>
-				 </div>
+                      <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-user"></i> Horas a cumplir la actividad</label> 
+                        <input type="text" class="form-control" name="horaActividad" required >
+                      </div>
 
-				 <div class="form-group">
-				<label for=""><i class="glyphicon glyphicon-user"></i> horas a cumplir la actividad</label> 
-				<input type="text" class="form-control" name="horaActividad" required>
-				 </div>
+                      <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-check"></i>Dias a cumplir la actividad</label>
+                        <br>
+                        <input name="lunes" value="lunes" id="lunes" type="checkbox" ><label for="lunes">Lunes</label>
+                        <input name="martes" value="martes" id="martes" type="checkbox"><label for="martes">Martes</label>
+                        <input name="miercoles" value="miercoles" id="miercoles" type="checkbox" ><label for="miercoles">Miercoles</label>
+                        <input name="jueves" value="jueves" id="jueves" type="checkbox"><label for="jueves">Jueves</label>
+                        <input name="viernes" value="viernes" id="viernes" type="checkbox" ><label for="viernes">Viernes</label>
+                      </div>
+                      
+                    </div>
 
-				 <div class="form-group">
-				<label for=""><i class="glyphicon glyphicon-check"></i>Dias a cumplir la actividad</label> 
-				<input type="text" class="form-control" name="diaActividad" required>
-				 </div>
-				 
-				</div>
-				<div class="col-md-6">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-book"></i>Horas de actividad</label>
+                        <input type= "time" name="horaHacer" required >
+                        <!--<input type="text" class="form-control" name="horaHacer" required style="text-transform:uppercase;">-->
+                      </div>
 
-        <div class="form-group">
-				<label for=""><i class="glyphicon glyphicon-book"></i>horas de actividad</label>
-				<input type="text" class="form-control" name="horaHacer" required>
-				 </div>
+                      <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-user"></i>Encargado</label> 
+                        <input type="text" class="form-control" name="encargadoActividad"  style="text-transform:uppercase;">
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-book"></i>Lugar de actividad</label> 
+                        <select name="lugarActividad">
+                          <option value="">Seleccione</option>
+                          <option value="CampoFutbol">Campo de futbol</option>
+                          <option value="Cancha">Cancha usos multiples</option>
+                          <option value="biblioteca">Biblioteca</option>
+                          <option value="beisbol">Campo Beisbol</option>
+                        </select>
+                        <br>
+                        <label for=""><i class="glyphicon glyphicon-user"></i>Otros</label> 
+                        <input type="text" class="form-control" name="otroActividad" id="" style="text-transform:uppercase;">
+                        <input type="hidden" name="idCampo" value="<?php echo $campor?>" style="text-transform:uppercase;">
+                      </div>
 
-				<div class="form-group">
-				<label for=""><i class="glyphicon glyphicon-user"></i>Encargado</label> 
-				<input type="text" class="form-control" name="encargadoActividad" required>
-				 </div>
-				 
-				 <div class="form-group">
-				<label for=""><i class="glyphicon glyphicon-book"></i>Lugar de actividad</label> 
-				<input type="text" class="form-control" name="lugarActividad" id="">
-        <input type="hidden" name="idCampo" value="<?php echo $campor?>">
-				 </div>
-				<div class="col-md-6">
-				
-				 
-				 
-				 <br>
-				 <div class="form-group">
-				 <center>
-				<a href="actividadesCampo.php" class="btn btn-danger btn-lg">Cancelar</a>
-				<input type="submit" class="btn btn-primary btn-lg" value="Registrar">
-				</center>
-				 </div>
-				</div>
-				</div>
-		     
-		    </div>
-		  </form>
+                      <div class="col-md-6">
+
+                        <br>
+                        <div class="form-group">
+                          <center>
+                            <a href="actividadesCampo.php" class="btn btn-danger btn-lg">Cancelar</a>
+                            <input type="submit" class="btn btn-primary btn-lg" value="Registrar" style="text-transform:uppercase;">
+                          </center>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+		            </form>
 		   
 		    </div>
 			</div>

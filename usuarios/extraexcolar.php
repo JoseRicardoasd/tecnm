@@ -70,10 +70,16 @@ $correo_sesion = $_SESSION['u_usuario'];
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        SISTEMA DE EXTRAESCOLARES
-        <small>Listado de campos extraescolares</small>
-      </h1>
+        <h1>
+            <?php
+                if (isset($ciclos->descripcion) == "") {
+                    echo "No Existen Ciclos";
+                } else if (isset($ciclos->descripcion) == $ciclos->descripcion) {
+                    echo "CICLO ".$ciclos->descripcion;
+                }
+            ?>
+            <small>Listado de categoria</small>
+        </h1>
      
     </section>
 
@@ -83,21 +89,9 @@ $correo_sesion = $_SESSION['u_usuario'];
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <?php
-                            if (isset($ciclos->descripcion) == "") {
-                                echo "No Existen Ciclos";
-                            } else if (isset($ciclos->descripcion) == $ciclos->descripcion) {
-                                echo "CATEGORIAS EXTRAESCOLARES ".$ciclos->descripcion;
-                            }
-                            ?>
+                            CRECER EN GRANDE
                         </div>
                         <div class="panel-body">
-                        <a href="nuevoCampo.php"><input type="submit" class="btn btn-primary btn-lg" value="Campo"></a>
-
-<!--<button class=""><a href="nuevoCampo.php">Campo</a></button>-->
-
-                        <a href="nuevoCiclo.php"><input type="submit" class="btn btn-primary btn-lg" value="Ciclo"></a>
-
 
                         <div class="container">
                             <div class="row">
@@ -123,7 +117,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                                                     </td>
                                         
                                                     <td>
-                                                    <a class="btn btn-primary btn-lg" href="<?php echo "actividadesCampo.php?id= ".$campo ['id'] ?>" >entrar</a> 
+                                                    <a class="btn btn-primary btn-lg" href="<?php echo "actividadesCampo.php?id=".$campo ['id'] ?>" >entrar</a> 
                                                     </td>
                                             
                                             

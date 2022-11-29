@@ -17,12 +17,14 @@ if(!isset($_GET["id"])) exit();//preguntando si el metodo get tiene un valor, si
     $req->execute([$id]);
     $actividades = $req->fetchAll();
 
-    $sql = "SELECT * FROM categorias WHERE id = ?;";
+    $sql = "SELECT id,nombreCategoria FROM categorias WHERE id = ?;";
     $red = $bdd->prepare($sql);
     $red->execute([$id]);
     $campitos = $red->fetch(PDO::FETCH_LAZY);
 
-    $campos=$campitos['id'];
+
+    $idCampos=$campitos['id'];
+    $campos=$campitos['nombreCategoria'];
 
     
 
@@ -86,11 +88,11 @@ $correo_sesion = $_SESSION['u_usuario'];
     <!-- Main content -->
     <section class="content">
     <div class="panel panel-primary">
-                    <div class="panel-heading">ACTIVIDADES EXTRAESCOLARES <?php echo "".$campos?></div>
+                    <div class="panel-heading">CATEGORIAS <?php echo "".$campos?></div>
 
                     <div class="panel-body">
 
-                    <a class="btn btn-primary btn-lg" href="<?php echo "actividadesNuevo.php?id=" . $campos?>">
+                    <a class="btn btn-primary btn-lg" href="<?php echo "actividadesNuevo.php?id=" . $idCampos?>">
                         Nueva Actividad
                     </a>
 
@@ -108,12 +110,14 @@ $correo_sesion = $_SESSION['u_usuario'];
 
                     <table class="table table-bordered">
 				<tbody class="bajar">
-					<?php foreach($actividades as $actividad){ ?><!--foreach arrojando por objetos los valores almacenados en la variable $productos-->
+					<?php foreach($actividades as $actividad){ 
+                        $numero = 0;
+                        $numero++; ?><!--foreach arrojando por objetos los valores almacenados en la variable $productos-->
 					<tr>
-						<td class="dabi"><?php echo $actividad['id']?></td><!--mostrando campo almacenado en al tabla-->
+						<td class="dabi"><?php echo $actividad['id']?></td>
 						<td class="dabo"><?php echo $actividad['nombreActividad']?></td>
                         <td>
-                          <a href="listaalumno.php" >lista</a> 
+                          <a href="<?php echo "actividadesLista.php?id=".$actividad['id'] ?>" >lista</a> 
                         </td>
 					</tr>
 					<?php } ?>

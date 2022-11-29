@@ -14,7 +14,7 @@ $habilitar = 1;
 
 if (isset($_POST['nombreCampo']) && isset($_FILES['imagenCampo'])){
 	
-	$nombres=$_POST['nombreCampo'];
+	$nombres=strtoupper($_POST['nombreCampo']);
 	$imagen = addslashes(file_get_contents($_FILES['imagenCampo']['tmp_name']));
 
 	$sql = "INSERT INTO imagen(imagen) VALUES ('$imagen')";

@@ -119,9 +119,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
 
                                     <tbody>
 
-                                        <?php
-
-                                        $conexion=mysqli_connect("localhost","root","","base");               
+                                        <?php              
                                         $SQL="SELECT id, nombres, sexo, numero_control, correo, telefono, ciudad FROM tb_usuarios WHERE cargo = 2 $where";
                                         $dato = mysqli_query($conexion, $SQL);
 

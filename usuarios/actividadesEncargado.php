@@ -96,7 +96,6 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                         <div class="panel-heading">ENCARGO DE ACTIVIDAD <?php echo $nombre_actividad ?> </div>
                             <div class="panel-body">
                                 <?php
-                                $conexion=mysqli_connect("localhost","root","","base"); 
                                 $where="";
                                 ?>
 

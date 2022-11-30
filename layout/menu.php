@@ -179,10 +179,8 @@
         <!--<li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li> -->
         <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias</span></a></li>
         <li><a href="generarconstancia.php"><i class="fa fa-book"></i> <span>GenerarConstancias</span></a></li>
-        <li class="header">Tutorias</li>
-        <li><a href="lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de alumnos</span></a></li>
-        <li><a href="incidencias.php"><i class="fa fa-users"></i> <span>Incidencias</span></a></li>
-        <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Constancias tutorias</span></a></li>
+    
+
       </ul>
     </li>
     
@@ -203,6 +201,24 @@
         <li class="header">Constancias</li>
         <li><a href="constanciasExtra.php"><i class="fa fa-users"></i> <span>Generar</span></a></li>
 
+      </ul>
+    </li>
+    
+     <li class="treeview">
+      <a href="#">
+        <i class="fa fa-users"></i> <span>TUTORIAS</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class=" sidebar-menu treeview-menu">
+      <li><a href="lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de alumnos</span></a></li>
+        <li><a href="incidencias.php"><i class="fa fa-users"></i> <span>Incidencias</span></a></li>
+        <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Constancias tutorias</span></a></li>
+        <li><a href="añadirTutor.php"><i class="fa fa-users"></i> <span>Añadir tutor</span></a></li>
+        <li><a href="añadirGrupo.php"><i class="fa fa-users"></i> <span>Añadir grupo</span></a></li>
+      <li><a href="crear_ciclo.php"><i class="fa fa-users"></i> <span>Ciclos escolares</span></a></li>
+        
       </ul>
     </li>
 

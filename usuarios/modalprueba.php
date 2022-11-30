@@ -34,7 +34,7 @@
 
 <div class="col">
 <div class="form-group" class="col-sm2 control-label">
-<label for="prioridad">Seleccionar prioridad</label>
+<label for="prioridad">Seleccionar carrera</label>
 <select name="carrera" id="" class="form-control" required>
 <option value="">Selecciona una opcion</option>
                 <option value="Ing informatica">Ing informatica</option>
@@ -46,7 +46,7 @@
 </div>
 <div class="col">
 <div class="form-group" class="col-sm2 control-label">
-<label for="prioridad">Seleccionar prioridad</label>
+<label for="prioridad">Seleccionar ciclo escolar</label>
 <select name="periodo" id="" class="form-control" required>
 <?php
         while ($filo = mysqli_fetch_assoc($result)) {

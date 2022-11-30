@@ -48,6 +48,7 @@
 <div class="form-group" class="col-sm2 control-label">
 <label for="prioridad">Seleccionar ciclo escolar</label>
 <select name="periodo" id="" class="form-control" required>
+    <option value="">Selecciona una opcion</option>
 <?php
         while ($filo = mysqli_fetch_assoc($result)) {
         ?>

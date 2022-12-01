@@ -14,7 +14,7 @@ if(!isset($_GET["id"]) && !isset($_GET["extra"]) ) exit();
     $matricula = $usuario['numero_control'];
 
 
-	$sql = "INSERT INTO grupos(idActividad,matricula,habilidad,calificacion) VALUES ($extra, $matricula, NULL, NULL)";
+	$sql = "INSERT INTO grupo(idActividad,matricula,habilidad,calificacion) VALUES ($extra, $matricula, NULL, NULL)";
 
 	$query = $bdd->prepare( $sql );
 	if ($query == false) {

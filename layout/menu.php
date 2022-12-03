@@ -139,7 +139,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <li class="treeview">
       <a href="#">
-        <i class="fa fa-users"></i> <span>ÁREA ACADÉMICA</span>
+        <i class="fa fa-users"></i> <span>ACTIVIDADES ACADÉMICAS</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
@@ -155,7 +155,7 @@
           </a>
           <ul class="treeview-menu">
 
-            <li><a href="lista-usuarios.php"><i class="fa fa-users"></i> Lista de Usuarios</a></li>
+            <li><a href="lista-usuarios.php"><i class="fa fa-users"></i>Usuarios</a></li>
 
             <li><a href="create.php"><i class="fa fa-user"></i> Agregar Alumno</a></li>
 

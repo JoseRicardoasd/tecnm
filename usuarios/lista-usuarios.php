@@ -73,8 +73,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            ÁREA ACADÉMICA
-            <small>Listado de Alumnos</small>
+            USUARIOS
           </h1>
 
         </section>
@@ -82,7 +81,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
         <!-- Main content -->
         <section class="content">
           <div class="panel panel-primary">
-            <div class="panel-heading">Listado de Usuarios</div>
+            <div class="panel-heading">Lista de Usuarios</div>
             <div class="panel-body">
               <table class="table table-bordered table-hover table-condensed">
                 <th>N°</th>

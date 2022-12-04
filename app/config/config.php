@@ -4,16 +4,6 @@
 $conexion = mysqli_connect("bicxita7oa0kn6veyzi8-mysql.services.clever-cloud.com", "uapkjgg1v9wsmgng", "bftdNJiNdcIo05v5dJRs", "bicxita7oa0kn6veyzi8");
 ?>
 
-<?php
-$usuario  = "uapkjgg1v9wsmgng";
-$password = "bftdNJiNdcIo05v5dJRs";
-$servidor = "bicxita7oa0kn6veyzi8-mysql.services.clever-cloud.com";
-$basededatos = "bicxita7oa0kn6veyzi8";
-$por = mysqli_connect($servidor, $usuario, $password) or die("No se ha podido conectar al Servidor");
-mysqli_query($por,"SET SESSION collation_connection ='utf8_unicode_ci'");
-$dba = mysqli_select_db($por, $basededatos) or die("Upps! Error en conectar a la Base de Datos");
-?>
-
 
 <?php
 /**

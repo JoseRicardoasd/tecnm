@@ -19,7 +19,7 @@ $extraescolar = $query->fetch(PDO::FETCH_LAZY);
 
 $nombre_actividad = $extraescolar['nombreActividad'];
 
-$sqlCliente   = ("SELECT * FROM `grupo` WHERE idActividad = 5");
+$sqlCliente   = ("SELECT tb_usuarios.id, tb_usuarios.nombres,tb_usuarios.ap_paterno,tb_usuarios.ap_materno,tb_usuarios.carrera,tb_usuarios.numero_control,tb_usuarios.telefono,grupos.habilidad,grupos.desempeyo,grupos.calificacion,grupos.idActividad FROM grupos INNER JOIN tb_usuarios ON grupos.matricula = tb_usuarios.numero_control WHERE grupos.idActividad = $id");
 $queryCliente = mysqli_query($por, $sqlCliente);
 $cantidad     = mysqli_num_rows($queryCliente);
 

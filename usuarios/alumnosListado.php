@@ -123,11 +123,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                             <td><?php echo $dataCliente['telefono']; ?></td>
                             <td><?php echo $dataCliente['habilidad']; ?></td>
                             <td><?php echo $dataCliente['desempeyo']; ?></td>
-                           /*<td><?php if ($dataCliente['calificacion'] == 1) {
-                                echo "Acreditado";
-                            } else if ($dataCliente['calificacion'] == 2){
-                                echo "No Acreditado";
-                            } ?></td>* /
+                       <!--    <td><#?php if ($dataCliente['calificacion'] == 1) {
+                         #       echo "Acreditado";
+                          #  } else if ($dataCliente['calificacion'] == 2){
+                           #     echo "No Acreditado";
+                            } ?></td> -->
                             
                           <td> 
                             

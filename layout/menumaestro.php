@@ -4,9 +4,9 @@
     <!-- Logo -->
     <a href="indexmaestro.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>TECNM</b></span>
+      <span class="logo-mini"><b>Chiná</b></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>CHINA</b>TECNM</span>
+      <span class="logo-lg"><b>Chiná</b>TecNM</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -143,7 +143,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <li class="treeview">
       <a href="#">
-        <i class="fa fa-users"></i> <span>AREA ACADEMICA</span>
+        <i class="fa fa-users"></i> <span>ACTIVIDADES ACADÉMICA</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
@@ -151,7 +151,6 @@
       <ul class="sidebar-menu treeview-menu">
 
 
-        <!-- <li class="header">Bienvenido</li> -->
 
 
 
@@ -161,15 +160,13 @@
 
 
         <li class="header">Calendario de Actividades</li>
-        <li><a href="calendariovis.php"><i class="glyphicon glyphicon-calendar"></i> <span>Calendario</span></a></li>
-        <li class="header">talleres</li>
+        <li><a href="calendariovis.php"><i class="glyphicon glyphicon-calendar"></i> <span>Elegir Actividad Académica</span></a></li>
+        
+        <li class="header">Evidencias de créditos</li>
+        <li><a href="guiamaestro.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guía de Créditos</span></a></li>
 
-
-        <li class="header">Formatos</li>
-        <li><a href="guiamaestro.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guia de Actividades</span></a></li>
-
-        <li class="header">Evaluciones</li>
-        <li><a href="evaluacionmaestro.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li>
+        <li class="header">Evaluaciones</li>
+        <li><a href="evaluacionmaestro.php"><i class="fa fa-book"></i> <span>Evaluación de Desempeño</span></a></li>
 
 
       </ul>

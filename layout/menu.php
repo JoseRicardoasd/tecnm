@@ -178,6 +178,7 @@
         <li class="header">Evaluciones</li>
         <!--<li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li> -->
         <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias</span></a></li>
+        <li><a href="formato_constancia.php"><i class="fa fa-book"></i> <span><b>Formato de la constancia</b></span></a></li>
         <!--<li><a href="generarconstancia.php"><i class="fa fa-book"></i> <span>GenerarConstancias</span></a></li>-->
     
 

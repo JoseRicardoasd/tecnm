@@ -47,9 +47,19 @@
           <div class="row">
 
             <h3 class="title">Registro</h3>
+               <div class="input-container">
+              <input type="text" name="ap_paterno" class="input" required />
+              <label for="">Apellido paterno</label>
+              <span>Apellido paterno</span>
+            </div>
+            <div class="input-container">
+              <input type="text" name="ap_materno" class="input" required />
+              <label for="">Apellido materno</label>
+              <span>Apellido materno</span>
+            </div>
             <div class="input-container">
               <input type="text" name="nombres" class="input" required />
-              <label for="">Nombres</label>
+              <label for="">Nombre(s)</label>
               <span>Nombres</span>
             </div>
             <div class="input-container">
@@ -62,16 +72,7 @@
               <label for="">Matricula</label>
               <span>Número de Control</span>
             </div>
-             <div class="input-container">
-              <input type="text" name="ap_paterno" class="input" required />
-              <label for="">Apellido paterno</label>
-              <span>Apellido paterno</span>
-            </div>
-            <div class="input-container">
-              <input type="text" name="ap_materno" class="input" required />
-              <label for="">Apellido materno</label>
-              <span>Apellido materno</span>
-            </div>
+          
             <div class="input-container">
               <input type="password" name="contraseña" class="input" />
               <label for="">Contraseña</label>

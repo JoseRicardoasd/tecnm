@@ -7,7 +7,7 @@
     <span class="logo-lg"><b>TecNM</b>Chiná</span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
-  <nav class="navbar navbar-static-top" style="position:relative;">
+  <nav class="navbar navbar-static-top">
     <!-- Sidebar toggle button-->
     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
       <span class="sr-only">Toggle navigation</span>
@@ -19,7 +19,7 @@
 
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="position:absolute; letf:20px;">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <?php
             $caracter_a_buscar = ".";
             $buscar = strpos($id_foto_perfil, $caracter_a_buscar);

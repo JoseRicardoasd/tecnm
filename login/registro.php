@@ -59,8 +59,18 @@
             </div>
             <div class="input-container">
               <input type="text" name="numero_control" class="input" required />
-              <label for="">Número de Control</label>
+              <label for="">Matricula</label>
               <span>Número de Control</span>
+            </div>
+             <div class="input-container">
+              <input type="text" name="ap_paterno" class="input" required />
+              <label for="">Apellido paterno</label>
+              <span>Apellido paterno</span>
+            </div>
+            <div class="input-container">
+              <input type="text" name="ap_materno" class="input" required />
+              <label for="">Apellido materno</label>
+              <span>Apellido materno</span>
             </div>
             <div class="input-container">
               <input type="password" name="contraseña" class="input" />

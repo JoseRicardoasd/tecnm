@@ -2,9 +2,9 @@
   <!-- Logo -->
   <a href="indexuser.php" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>TECNM</b></span>
+    <span class="logo-mini"><b>Chiná</b></span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>CHINA</b>TECNM</span>
+    <span class="logo-lg"><b>Chiná</b>TecNM</span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
@@ -139,7 +139,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <li class="treeview">
       <a href="#">
-        <i class="fa fa-users"></i> <span>AREA ACADEMICA</span>
+        <i class="fa fa-users"></i> <span>ACTIVIDADES ACADÉMICAS</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
@@ -147,7 +147,6 @@
       <ul class="sidebar-menu treeview-menu">
 
 
-        <li class="header">Bienvenido</li>
 
 
 
@@ -156,18 +155,18 @@
 
 
         <li class="header">Calendario de Actividades</li>
-        <li><a href="calendariovista.php"><i class="glyphicon glyphicon-calendar"></i> <span>Calendario</span></a></li>
+        <li><a href="calendariovista.php"><i class="glyphicon glyphicon-calendar"></i> <span>Elegir Actividad Académica</span></a></li>
 
 
-        <li class="header">Formatos</li>
+        <li class="header">Evidencias de créditos</li>
 
-        <li><a href="agregar-credito-user.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Agregar Credito</span></a></li>
+        <li><a href="agregar-credito-user.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Cargar Documento</span></a></li>
 
         <li class="header">Evaluacion</li>
 
-        <li><a href="generarconstancia_alumno.php"><i class="fa fa-book"></i> <span><b>Generar Constancia</b></span></a></li>
+        <li><a href="generarconstancia_alumno.php"><i class="fa fa-book"></i> <span><b>Constancia</b></span></a></li>
         
-        <li class="header">extraescolar</li>
+        <li class="header">Extraescolar</li>
 
         <li><a href="generarconstancia_alumno.php"><i class="fa fa-book"></i> <span><b>Actividades</b></span></a></li>
 

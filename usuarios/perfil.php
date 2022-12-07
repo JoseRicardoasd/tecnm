@@ -81,8 +81,7 @@ if ($tiempo_transcurrido >= 600) {
       } ?>
       <section class="content-header">
         <h1>
-          SISTEMA DE CRÉDITOS COMPLENTARIOS
-          <small>Perfil</small>
+          SISTEMA DE CRÉDITOS COMPLEMENTARIOS
         </h1>
 
       </section>

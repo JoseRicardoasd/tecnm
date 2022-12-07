@@ -168,16 +168,14 @@
 
 
         <li class="header">Calendario de Actividades</li>
-        <li><a href="calendario.php"><i class="glyphicon glyphicon-calendar"></i> <span>Calendario</span></a></li>
-        <li class="header">talleres</li>
-        <li><a href="talleres.php"><i class="glyphicon glyphicon-calendar"></i> <span>Talleres</span></a></li>
-
-        <li class="header">Formatos</li>
-        <li><a href="guia.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guia de Actividades</span></a></li>
+        <li><a href="calendario.php"><i class="glyphicon glyphicon-calendar"></i> <span>Elegir Actividad Académica</span></a></li>
+        
+        <li class="header">Evidencias de créditos</li>
+        <li><a href="guia.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guía de Créditos</span></a></li>
         <!--<li><a href="agregar-credito.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Agregar Credito</span></a></li>-->
-        <li class="header">Evaluciones</li>
+        <li class="header">Evaluaciones</li>
         <!--<li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li> -->
-        <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias</span></a></li>
+        <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias Act. Comp. Académicas</span></a></li>
         <li><a href="formato_constancia.php"><i class="fa fa-book"></i> <span><b>Formato de la constancia</b></span></a></li>
         <!--<li><a href="generarconstancia.php"><i class="fa fa-book"></i> <span>GenerarConstancias</span></a></li>-->
     

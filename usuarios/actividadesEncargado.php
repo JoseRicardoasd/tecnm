@@ -109,8 +109,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                                         <tr>
                                             <th>Nombre</th>
                                             <th>Sexo</th>
-                                            <th>numero de control</th>
-                                            <th>correo</th>
+                                            <th>Matrícula</th>
+                                            <th>Email</th>
                                             <th>telefono</th>
                                             <th>ciudad</th>
                                             <th>Acciones</th>

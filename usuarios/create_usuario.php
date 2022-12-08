@@ -165,7 +165,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-lock"></i> CONFIRMAR CONTRASEÑA</label>
-                          <input type="password" class="form-control" required tabindex="11" maxlength="15">
+                          <input type="password" class="form-control" name="contraseñaConfirm" required tabindex="11" maxlength="15">
                         </div>
 
                         <br>

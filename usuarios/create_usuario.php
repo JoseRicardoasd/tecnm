@@ -171,7 +171,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <br>
                         <div class="form-group">
                           <center>
-                            <a href="" class="btn btn-danger btn-lg">Cancelar</a>
+                            <a href="create_usuario.php" class="btn btn-danger btn-lg">Cancelar</a>
                             <input type="submit" class="btn btn-primary btn-lg" value="Registrar">
                           </center>
                         </div>

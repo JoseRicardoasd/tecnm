@@ -26,7 +26,10 @@ $fecha_nacimiento = strtoupper($_POST['fecha_nacimiento']);
 //$reticula = $_POST['reticula'];
 //$entidad = $_POST['entidad'];
 $contraseña = $_POST['contraseña'];
+$contraseñaConfirm = $_POST['contraseñaConfirm'];
 $user_creacion = "ESCAMILLA";
+
+if ($contraseña == $contraseñaConfirm) {
 
 //encriptar contraseña
 $contraseña = password_hash($contraseña, PASSWORD_DEFAULT, ['cost' => 10]);
@@ -58,6 +61,9 @@ if (!$resultado) {
   echo '<script language="javascript">alert("Usuario registrado");window.location.href="create.php"</script>';
 }
 
+} else {
+  echo '<script language="javascript">alert("Las contraseñas no coinciden");window.location.href="create.php"</script>';
+}
 
 
 mysqli_close($conexion);

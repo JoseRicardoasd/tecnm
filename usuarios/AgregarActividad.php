@@ -81,7 +81,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                 } ?>
                 <section class="content-header">
                     <h1>
-                        SISTEMA DE AGREGADO DE ALUMNO
+                        Gestión de alumnos
                         <small>Agregar alumnos en actividades</small>
                     </h1>
 
@@ -90,7 +90,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                 <!-- Main content -->
                 <section class="content">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">ENCARGO DE ACTIVIDADES</div>
+                        <div class="panel-heading">Actividades Extraescolares</div>
                             <div class="panel-body">
 
                                 <?php

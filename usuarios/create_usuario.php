@@ -84,7 +84,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   <h3 class="panel-title">Agregar Usuario</h3>
                 </div>
                 <div class="panel-body">
-                  <form action="controlador.php" method="post" enctype="multipart/form-data">
+                  <form action="controlador_user.php" method="post" enctype="multipart/form-data">
                     <div class="row">
 
 

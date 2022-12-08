@@ -48,35 +48,35 @@
 
             <h3 class="title">Registro</h3>
                <div class="input-container">
-              <input type="text" name="ap_paterno" class="input" required />
+              <input type="text" name="ap_paterno" class="input" required style="text-transform:uppercase;">
               <label for="">Apellido paterno</label>
               <span>Apellido paterno</span>
             </div>
             <div class="input-container">
-              <input type="text" name="ap_materno" class="input" required />
+              <input type="text" name="ap_materno" class="input" required style="text-transform:uppercase;">
               <label for="">Apellido materno</label>
               <span>Apellido materno</span>
             </div>
             <div class="input-container">
-              <input type="text" name="nombres" class="input" required />
+              <input type="text" name="nombres" class="input" required style="text-transform:uppercase;">
               <label for="">Nombre(s)</label>
               <span>Nombres</span>
             </div>
             <div class="input-container">
-              <input type="text" name="correo" class="input" required />
+              <input type="text" name="correo" class="input" required style="text-transform:uppercase;">
               <label for="">Correo Institucional</label>
               <span>Correo Institucional</span>
             </div>
             <div class="input-container">
-              <input type="text" name="numero_control" class="input" required />
+              <input type="text" name="numero_control" class="input" required>
               <label for="">Matricula</label>
-              <span>Número de Control</span>
+              <span>Matricula</span>
             </div>
           
             <div class="input-container">
-              <input type="password" name="contraseña" class="input" />
+              <input type="password" name="contraseña" class="input">
               <label for="">Contraseña</label>
-              <span>Contrasela</span>
+              <span>Contraseña</span>
             </div>
             <div class="form-group">
               <input type="submit" value="Registrarse" class="btn btn-primary btn-block">

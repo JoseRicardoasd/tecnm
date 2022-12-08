@@ -194,20 +194,20 @@
     
     <li class="treeview">
       <a href="#">
-        <i class="fa fa-users"></i> <span>EXTRAESCOLARES</span>
+        <i class="fa fa-users"></i> <span>ACTIVIDADES EXTRAESCOLARES</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
       </a>
       <ul class=" sidebar-menu treeview-menu">
         <li class="header">Generar Ciclos-Categorias-Actividades</li>
-        <li><a href="nuevoCiclo.php"><i class="fa fa-users"></i> <span>Ciclos</span></a></li>
+        <li><a href="nuevoCiclo.php"><i class="fa fa-users"></i> <span>Generar Ciclo Escolar</span></a></li>
         <li><a href="nuevoCampo.php"><i class="fa fa-users"></i> <span>Categorias</span></a></li>
         <li><a href="extraexcolar.php"><i class="fa fa-users"></i> <span>Actividades</span></a></li>
-        <li class="header">Encargados</li>
-        <li><a href="nuevoResponsable.php"><i class="fa fa-users"></i> <span>Encargados</span></a></li>
+        <li class="header">Responsables de actividades</li>
+        <li><a href="nuevoResponsable.php"><i class="fa fa-users"></i> <span>Asignación de responsables</span></a></li>
         <li class="header">Constancias</li>
-        <li><a href="constanciasExtra.php"><i class="fa fa-users"></i> <span>Generar</span></a></li>
+        <li><a href="constanciasExtra.php"><i class="fa fa-users"></i> <span>Constancias Act. Comp. Extraescolares</span></a></li>
 
       </ul>
     </li>

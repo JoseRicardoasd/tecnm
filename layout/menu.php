@@ -1,3 +1,13 @@
+!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+
+<body>
+  
+
 <header class="main-header">
   <!-- Logo -->
   <a href="index.php" class="logo">
@@ -359,4 +369,6 @@
   <!-- /.sidebar -->
 </aside>
 
+</body>
+      </htm>
 

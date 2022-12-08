@@ -7,17 +7,17 @@
 
 include('../app/config/config.php');
 
-$nombres = $_POST['nombre'];
-$ap_paterno = $_POST['paterno'];
-$ap_materno = $_POST['materno'];
-$sexo = $_POST['sexo'];
-$correo = $_POST['correo'];
-$telefono = $_POST['telefono'];
-$cargo = $_POST['cargo'];
-$profesion = $_POST['profesion'];
+$nombres = strtoupper($_POST['nombre']);
+$ap_paterno = strtoupper($_POST['paterno']);
+$ap_materno = strtoupper($_POST['materno']);
+$sexo = strtoupper($_POST['sexo']);
+$correo = strtoupper($_POST['correo']);
+$telefono = strtoupper($_POST['telefono']);
+$cargo = strtoupper($_POST['cargo']);
+$profesion = strtoupper($_POST['profesion']);
 //$cubiculo = $_POST['cubiculo'];
-$area = $_POST['area'];
-$contraseña = $_POST['contraseña'];
+$area = strtoupper($_POST['area']);
+$contraseña = $_POST['contraseña']);
 $user_creacion = "Administrador";
 
 //cambiar cargo, de letras a numeros

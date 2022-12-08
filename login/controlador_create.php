@@ -7,10 +7,10 @@
 
 include('../app/config/config.php');
 
-$nombres = $_POST['nombres'];
-$ap_paterno = $_POST['ap_paterno'];
-$ap_materno = $_POST['ap_materno'];
-$numero_control = $_POST['numero_control'];
+$nombres = strtoupper($_POST['nombres']);
+$ap_paterno = strtoupper($_POST['ap_paterno']);
+$ap_materno = strtoupper($_POST['ap_materno']);
+$numero_control = strtoupper($_POST['numero_control']);
 $correo = $_POST['correo'];
 
 $contraseña = $_POST['contraseña'];

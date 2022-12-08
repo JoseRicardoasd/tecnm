@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+
+<body>
+
 <header class="main-header">
   <!-- Logo -->
   <a href="indexuser.php" class="logo">
@@ -309,3 +318,5 @@
 </aside>
 
 
+</body>
+      </htm>

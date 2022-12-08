@@ -134,19 +134,8 @@
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div><br> -->
-
-    <!-- /.search form -->
-    <!-- sidebar menu: : style can be found in sidebar.less -->
+    
     <li class="treeview">
-      <a href="#">
-        <i class="fa fa-users"></i> <span>ACTIVIDADES ACADÉMICAS</span>
-        <span class="pull-right-container">
-          <i class="fa fa-angle-left pull-right"></i>
-        </span>
-      </a>
-      <ul class=" sidebar-menu treeview-menu">
-
-        <li class="treeview">
           <a href="#">
             <i class="fa fa-users"></i> <span>Agregar Usuarios</span>
             <span class="pull-right-container">
@@ -165,6 +154,16 @@
           </ul>
         </li>
 
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-users"></i> <span>ACTIVIDADES ACADÉMICAS</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class=" sidebar-menu treeview-menu">
 
 
         <li class="header">Calendario de Actividades</li>

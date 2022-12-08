@@ -1,4 +1,11 @@
+<!DOCTYPE html>
 
+<head>
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+
+
+<body>
 
   <header class="main-header">
     <!-- Logo -->
@@ -322,3 +329,6 @@
   <!-- /.sidebar -->
 </aside>
  
+
+</body>
+      </htm>

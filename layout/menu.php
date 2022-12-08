@@ -224,6 +224,139 @@
 
 
 
+  
+<!-- creditos -->
+<li class="treeview">
+      <a href="#">
+      <span>DESARROLLADORES</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class=" sidebar-menu treeview-menu">
+
+        <li class="treeview">
+          <a href="#">
+            <span>Versión 1.0</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+         
+           
+          <ul class="treeview-menu">
+          <br>
+          <div class="row">
+            <img src="../public/desarrolladores/daniel.PNG" class="imagen">
+            <div class="col-12 version">
+            <b>ING. DANIEL JESÚS PÉREZ M.</b>
+            <br>
+              <b >INGENIERÍA EN INFORMÁTICA <br></b>
+              <b class="uno">MATRÍCULA 16830180 <br></b>
+            </div>
+
+          </div>
+          <br>
+          <div class="row">
+          <img src="../public/desarrolladores/emmanuel.PNG" class="imagen" >
+            <div class="col-12 version">
+            <b>ING. JOSÉ ESCAMILLA MORENO</b>
+            <br>
+              <b >INGENIERÍA EN INFORMÁTICA <br></b>
+              <b class="uno">MATRÍCULA 16830183 <br></b>
+            </div>
+
+          </div>
+          </ul>
+        </li>
+
+
+        <li class="treeview">
+          <a href="#">
+            <span>Versión 2.0</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <br>
+
+          <div class="row">
+          <img src="../public/desarrolladores/diana.jpeg"  class="imagen">            
+          <div class="col-12 version">
+            <b>DIANA L. MADRIGAL BENITEZ</b>
+            <br>
+              <b >INGENIERÍA EN INFORMÁTICA <br></b>
+              <b class="uno">MATRÍCULA 19830012 <br></b>
+            </div>
+
+            <br>
+            <img src="../public/desarrolladores/chan.jpeg"  class="imagen">            
+          <div class="col-12 version">
+            <b>JÓSE RICARDO CHAN MARIN</b>
+            <br>
+              <b >INGENIERÍA EN INFORMÁTICA <br></b>
+              <b class="uno">MATRÍCULA 19830002 <br></b>
+            </div>
+
+            <br>
+            <img src="../public/desarrolladores/cuca.jpeg"  class="imagen">            
+          <div class="col-12 version">
+            <b>JUAN ANTONIO CU CAHUICH</b>
+            <br>
+              <b >INGENIERÍA EN INFORMÁTICA <br></b>
+              <b class="uno">MATRÍCULA 19830001 <br></b>
+            </div>
+
+            <br>
+            <img src="../public/desarrolladores/farfan.jpeg"  class="imagen">            
+          <div class="col-12 version">
+            <b class="tres">DANIEL FARFÁN CAHUICH</b>
+            <br>
+              <b >INGENIERÍA EN INFORMÁTICA <br></b>
+              <b class="uno">MATRÍCULA 19830027 <br></b>
+            </div>
+
+            <br>
+            <img src="../public/desarrolladores/boton.jpeg"  class="imagen">            
+          <div class="col-12 version">
+            <b>CARLOS FRANCISCO BOTON</b>
+            <br>
+              <b >INGENIERÍA EN INFORMÁTICA <br></b>
+              <b class="uno">MATRÍCULA 19830248 <br></b>
+            </div>
+
+            <br>
+            <img src="../public/desarrolladores/kevin.jfif"  class="imagen">            
+          <div class="col-12 version">
+            <b>KEVIN BONIFAZ HERNÁNDEZ</b>
+            <br>
+              <b >INGENIERÍA EN INFORMÁTICA <br></b>
+              <b class="uno">MATRÍCULA 19830014 <br></b>
+            </div>
+
+            <br>
+            <img src="../public/desarrolladores/felipe.jpeg"  class="imagen">            
+          <div class="col-12 version">
+            <b class="dos">FELIPE GIL MAYOR</b>
+            <br>
+              <b >INGENIERÍA EN INFORMÁTICA <br></b>
+              <b class="uno">MATRÍCULA 19830007 <br></b>
+            </div>
+
+
+
+          </div>
+      
+      </ul>
+        
+
+
+        
+
+
   </section>
   <!-- /.sidebar -->
 </aside>
+
+

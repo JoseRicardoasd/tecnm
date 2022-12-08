@@ -1,7 +1,7 @@
 
 <!--ventana para Update--->
 <div class="modal fade" id="editChildresn<?php echo $dataCliente['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-  <div class="modal-dialog" style="width: 80%;">
+  <div class="modal-dialog" style="width: 100%;">
     <div class="modal-content">
       <div class="modal-header" style="background-color: #4859dd !important; padding: 5px;">
         <h2 class="modal-title" style="color: #fff; text-align: center;">

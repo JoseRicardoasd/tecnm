@@ -79,7 +79,7 @@ $correo_sesion = $_SESSION['u_usuario'];
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        SISTEMA DE ACTIVIDADES
+        Actividades Extraescolares
         <small>Listado de actividades extraescolares</small>
       </h1>
      
@@ -117,7 +117,7 @@ $correo_sesion = $_SESSION['u_usuario'];
 						<td class="dabi"><?php echo $actividad['id']?></td>
 						<td class="dabo"><?php echo $actividad['nombreActividad']?></td>
                         <td>
-                          <a href="<?php echo "actividadesLista.php?id=".$actividad['id'] ?>" >lista</a> 
+                          <a class="btn btn-primary btn-lg" href="<?php echo "actividadesLista.php?id=".$actividad['id'] ?>" >lista</a> 
                         </td>
 					</tr>
 					<?php } ?>

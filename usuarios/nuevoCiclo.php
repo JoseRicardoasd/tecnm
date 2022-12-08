@@ -96,7 +96,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                         <div class="form-group">
                         <center>
                             <a href="extraexcolar.php" class="btn btn-danger btn-lg">Cancelar</a>
-                            <input type="submit" class="btn btn-primary btn-lg" value="Crear Ciclo">
+                            <input type="submit" class="btn btn-primary btn-lg" value="Crear">
                         </center>
                         </div>
                     </div>

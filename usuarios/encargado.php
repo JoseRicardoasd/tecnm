@@ -123,6 +123,17 @@ $correo_sesion = $_SESSION['u_usuario'];
                                     <form id="combo" name="combo" action="guarda.php" method="POST">
                                         <div class="col-md-6">
                                         <label for="">SELECCIONA CATEGORIA</label>
+					
+						<div class="col-md-6">
+                                        <label for="">NOMBRE DEL ENCARGADO</label>
+                                          <input class="form-control" type="text" name="" id="" value="<?php echo $nombreCompleto ?>">
+                                          <input type="hidden" name="id_usuario" value="<?php echo $id ?>">
+
+                                          <br>
+
+                                          <label for="">Correo</label>
+                                          <input class="form-control" type="text" name="" id="" value="<?php echo $correo ?>">
+
 
                                         <select class="form-control" name="cbx_categoria" id="cbx_categoria">
                                             <option value="">SELECCIONA CATEGORIA</option>
@@ -142,16 +153,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                                         </div>
                                         </div>
 
-                                        <div class="col-md-6">
-                                        <label for="">NOMBRE DEL ENCARGADO</label>
-                                          <input class="form-control" type="text" name="" id="" value="<?php echo $nombreCompleto ?>">
-                                          <input type="hidden" name="id_usuario" value="<?php echo $id ?>">
-
-                                          <br>
-
-                                          <label for="">Correo</label>
-                                          <input class="form-control" type="text" name="" id="" value="<?php echo $correo ?>">
-
+                                        
                                           <br>
 
                                           <div class="form-group">

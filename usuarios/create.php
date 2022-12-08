@@ -187,14 +187,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-book"></i> CARRERA</label>
                           <select name="carrera" class="form-control" required tabindex="6" style="text-transform:uppercase;">
-                            <!-- <option value="elegir"><?php echo $sesion_usuario['carrera']; ?></option> -->
-                            <option value="Ingeneria en Agronomia">INGENIERÍA EN AGRONOMÍA</option>
-                            <option value="Ingeneria Forestal">INGENIERÍA FORESTAL</option>
-                            <option value="Infeneria en Industrias Alimentarias">INGENIERÍA EN INDUSTRIAS ALIMENTARIAS</option>
-                            <option value="Licenciatura en Biologia">LICENCIATURA EN BIOLOGÍA</option>
-                            <option value="Ingeneria Informatica">INGENIERÍA EN INFORMÁTICA</option>
-                            <option value="Ingeneria en Administracion">INGENIERÍA EN ADMINISTRACIÓN </option>
-                            <option value="Infeneria en Gestion Empresarial">INGENIERÍA EN GESTIÓN EMPRESARIAL</option>
+                            <?php
+                            $consulta1 = "SELECT carrera FROM cat_carreras";
+                            $res = mysqli_query($conexion, $consulta1)  ?>
+                            <?php foreach ($res as $opcion) : ?>
+                            
+                                <option value="<?php echo $opcion['carrera'] ?>"><?php echo $opcion['carrera'] ?></option>
+                      
+                            <?php endforeach ?>
+                            
                           </select>
                         </div>
                         <div class="form-group">

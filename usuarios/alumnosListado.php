@@ -74,7 +74,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
 
     <head>
     <?php include('../layout/head.php'); ?>
-    <title>Guia de actividades Complementarias</title>
+    <title></title>
     </head>
 
     <body class="hold-transition skin-blue sidebar-mini">
@@ -88,7 +88,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                 } ?>
                 <section class="content-header">
                     <h1>
-                        SISTEMA DE CREDITOS COMPLENTARIOS
+                        Gestión de alumnado
                         <small>Guia de Actividades Complementarias</small>
                     </h1>
 
@@ -97,7 +97,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                 <!-- Main content -->
                 <section class="content">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">ENCARGO DE ACTIVIDAD <?php echo $nombre_actividad ?> </div>
+                        <div class="panel-heading">Actividad Extraescolar <?php echo $nombre_actividad ?> </div>
                             <div class="panel-body">
                                 
                             <table class="table table-bordered table-striped table-hover">

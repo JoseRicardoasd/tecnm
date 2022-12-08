@@ -89,7 +89,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            CRECER EN GRANDE
+                            Categorías disciplinarias
                         </div>
                         <div class="panel-body">
 
@@ -99,8 +99,8 @@ $correo_sesion = $_SESSION['u_usuario'];
                                     <table class="table table-light">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th>Categoria</th>
-                                                <th>Imagen</th>
+                                                <th>Categoría</th>
+                                                <th>Logotipo</th>
                                                 <th>Accion</th>
                                             </tr>
                                         </thead>

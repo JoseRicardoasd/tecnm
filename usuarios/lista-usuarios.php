@@ -109,6 +109,16 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                   $correo = $usuario['correo'];
                   $foto_perfil = $usuario['foto_perfil'];
                   $contador_usuarios = $contador_usuarios + 1;
+                  $privilegio = $usuario['cargo'];
+
+                  $rol = '';
+                  if ($privilegio == 0) {
+                    $rol = 'Administrador';
+                  } else if ($privilegio == 1) {
+                    $rol = 'Maestro';
+                  } else if ($privilegio == 2) {
+                    $rol = 'Alumno';
+                  }
                 ?>
                   <tr>
                     <td>

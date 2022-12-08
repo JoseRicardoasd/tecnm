@@ -12,7 +12,7 @@ $ap_paterno = strtoupper($_POST['paterno']);
 $ap_materno = strtoupper($_POST['materno']);
 $sexo = strtoupper($_POST['sexo']);
 $correo = strtoupper($_POST['correo']);
-$telefono = $_POST['telefono'];
+$telefono = strtoupper($_POST['telefono']);
 $cargo = strtoupper($_POST['cargo']);
 $profesion = strtoupper($_POST['profesion']);
 //$cubiculo = $_POST['cubiculo'];
@@ -47,7 +47,8 @@ if ($contraseña == $contraseñaConfirm) {
   move_uploaded_file($_FILES['file']['tmp_name'], $location);
   //echo $nombres ." - ".$ap_paterno." - ".$ap_materno." - ".$sexo." - ".$numero_control." - ".$carrera." - ".$correo." - ".$estado_civil." - ".$telefono." - ".$ciudad." - ".$colonia." - ".$calle." - ".$codigo_postal." - ".$curp." - ".$fecha_nacimiento." - ".$nivel_escolar." - ".$reticula." - ".$entidad." - ".$contraseña." - ".$user_creacion. " - ".$fechaHora." - ".$estado;
 
-  $inserta = "INSERT INTO tb_usuarios(nombres, ap_paterno, ap_materno, sexo, correo, telefono, cargo, profesion, area, foto_perfil, contrasenia, user_creacion, fyh_creacion, estado) VALUES ('$nombres', '$ap_paterno', '$ap_materno', '$sexo', '$correo', '$telefono', '$cargo', '$profesion', '$area', '$filename', '$contraseña', '$user_creacion', '$fechaHora', '$estado')";
+  $inserta = "INSERT INTO tb_usuarios(nombres, ap_paterno, ap_materno, sexo, correo, telefono, cargo, profesion, area, foto_perfil, contrasenia, user_creacion, fyh_creacion, estado) 
+  VALUES ('$nombres', '$ap_paterno', '$ap_materno', '$sexo', '$correo', '$telefono', '$cargo', '$profesion', '$area', '$filename', '$contraseña', '$user_creacion', '$fechaHora', '$estado')";
 
   $resultado = mysqli_query($conexion, $inserta);
   if (!$resultado) {
@@ -61,7 +62,7 @@ if ($contraseña == $contraseñaConfirm) {
   }
 
 } else {
-  echo '<script language="javascript">alert("Las contraseñas no coinciden");window.location.href="create_usuario.php"</script>';
+  echo '<script language="javascript">alert("Las contraseñas no coinciden");window.location.href="create.php"</script>';
 }
 
 

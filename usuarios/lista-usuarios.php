@@ -84,11 +84,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
             <div class="panel-heading">Lista de Usuarios</div>
             <div class="panel-body">
               <table class="table table-bordered table-hover table-condensed">
-                <th>N°</th>
+                <center><th>N°</th></center>
                 <th>Nombre Completo</th>
 
                 <th>Correo Institucional</th>
-                <th>Foto Perfil</th>
+                <th>Cargo</th>
                 <th>Acciones</th>
 
 
@@ -117,41 +117,12 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                     <td><?php echo $nombres . " " . $ap_paterno . " " . $ap_materno; ?></td>
 
                     <td>
-                      <center><?php echo $correo; ?></center>
+                      <?php echo $correo; ?>
                     </td>
                     <td>
-                      <?php
-                      $caracter_a_buscar = ".";
-                      $buscar = strpos($foto_perfil, $caracter_a_buscar);
-                      if ($buscar == true) {
-                        // echo "existe foto de perfil";
-                      ?>
-                        <center>
-                          <img src="<?php echo $URL; ?>/usuarios/update_usuarios/<?php echo $foto_perfil; ?>" width="100px" alt="">
-                        </center>
-                        <?php
-                      } else {
-                        if ($sexo == "Hombre") {
-                        ?>
-                          <center>
-                            <img src="<?php echo $URL; ?>/public/images/avatar_hombre.png" width="100px" alt="">
-                          </center>
-                        <?php
-                        } else {
-                        ?>
-                          <center>
-                            <img src="<?php echo $URL; ?>/public/images/avatar_mujer.png" width="100px" alt="">
-                          </center>
-                      <?php
-                        }
-                      }
-                      ?>
-
+                      <?php echo $rol ?>
                     </td>
-                    <td><a href="update.php?id=<?php echo $fila['id']; ?>" class="btn__update">Editar</a></td>
                     <td><a href="delete.php?id=<?php echo $fila['id']; ?>" class="btn__delete">Eliminar</a></td>
-
-
                   </tr>
                 <?php
                 }

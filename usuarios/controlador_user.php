@@ -22,14 +22,14 @@ $contraseñaConfirm = $_POST['contraseñaConfirm']);
 
 $user_creacion = "Administrador";
 
-//cambiar cargo, de letras a numeros
-if ($cargo == "Administrador") {
-  $cargo = 0;
-} else if ($cargo == "Maestro") {
-  $cargo = 1;
-}
-
 if ($contraseña == $contraseñaConfirm) {
+
+  //cambiar cargo, de letras a numeros
+  if ($cargo == "Administrador") {
+    $cargo = 0;
+  } else if ($cargo == "Maestro") {
+    $cargo = 1;
+  }
 
   //encriptar contraseña
   $contraseña = password_hash($contraseña, PASSWORD_DEFAULT, ['cost' => 10]);

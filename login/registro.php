@@ -29,7 +29,7 @@
         <div class="social-media">
           <p>Conecta con nosotros:</p>
           <div class="social-icons">
-            <a href="https://www.facebook.com/SomosTecNM/">
+            <a href="https://www.facebook.com/tecnmcampus.china">
               <i class="fab fa-facebook-f"></i>
             </a>
             <a href="https://twitter.com/TecNM_MX?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3ATecNM_MX&ref_url=https%3A%2F%2Fwww.itchina.edu.mx%2F">

@@ -15,7 +15,7 @@
 </head>
 <body>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Agregar grupo
+                        Nuevo Grupo
                     </button>
 
                     <form action="grupoCreate.php" method="post" enctype="multipart/form-data">
@@ -23,7 +23,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title" id="exampleModalLabel">Agregar grupo</h4>
+                                        <h4 class="modal-title" id="exampleModalLabel">Alta de grupo</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -34,7 +34,7 @@
 
 <div class="col">
 <div class="form-group" class="col-sm2 control-label">
-<label for="prioridad">Seleccionar carrera</label>
+<label for="prioridad">Seleccionar prioridad</label>
 <select name="carrera" id="" class="form-control" required>
 <option value="">Selecciona una opcion</option>
                 <option value="Ing informatica">Ing informatica</option>
@@ -46,9 +46,8 @@
 </div>
 <div class="col">
 <div class="form-group" class="col-sm2 control-label">
-<label for="prioridad">Seleccionar ciclo escolar</label>
+<label for="prioridad">Seleccionar prioridad</label>
 <select name="periodo" id="" class="form-control" required>
-    <option value="">Selecciona una opcion</option>
 <?php
         while ($filo = mysqli_fetch_assoc($result)) {
         ?>

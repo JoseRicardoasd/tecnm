@@ -56,12 +56,12 @@ if (isset($_SESSION['u_usuario'])) {
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Agregar ciclo
+                        Ciclos Escolares
                 </section>
 
                 <div class="container">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Agregar ciclo
+                        Nuevo Ciclo Escolar
                     </button>
 
                 </div>
@@ -117,7 +117,7 @@ if (isset($_SESSION['u_usuario'])) {
                     <div class="panel panel-primary">
 
 
-                        <div class="panel-heading">Listado de ccilos escolares</div>
+                        <div class="panel-heading">Listado</div>
                         <div class="panel-body">
                             <table class="table table-bordered table-hover table-condensed">
 

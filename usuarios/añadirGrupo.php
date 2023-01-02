@@ -58,7 +58,7 @@ if (isset($_SESSION['u_usuario'])) {
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        agregar tutores
+                    Asignación de tutores al grupo
                 </section>
 
             
@@ -73,11 +73,11 @@ if (isset($_SESSION['u_usuario'])) {
                     <div class="panel panel-primary">
 
 
-                        <div class="panel-heading">Listado de tutores asignados</div>
+                        <div class="panel-heading">Listado</div>
                         <div class="panel-body">
                             <table class="table table-bordered table-hover table-condensed">
 
-                                <th>Carrea</th>
+                                <th>Carrera</th>
                                 <th>Semestre</th>
                                 <th>Ciclo escolar</th>
                                 <th>Acciones</th>
@@ -141,3 +141,4 @@ if (isset($_SESSION['u_usuario'])) {
     echo "no existe sesión";
     header('Location:' . $URL . '/login');
 }
+

@@ -58,7 +58,7 @@ $correo_sesion = $_SESSION['u_usuario'];
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Modulo de Tutorias-Incidencias proceso
+        Incidencias
       </h1>
      
     </section>

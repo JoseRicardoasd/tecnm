@@ -63,7 +63,7 @@ if (isset($_SESSION['u_usuario'])) {
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Informacion grupo
+                        Listado de alumnos
                 </section>
 
             
@@ -107,10 +107,11 @@ if (isset($_SESSION['u_usuario'])) {
                         <div class="panel-body">
                             <table class="table table-bordered table-hover table-condensed">
 
-                                <th>Nombre</th>
-                                <th>Apellido materno</th>
-                                <th>Apellido paterno</th>
-                               <th>Semestre</th>
+                                <th>Ciclo escolar</th>
+                                <th>Carrera</th>
+                                <th>Semestre</th>
+                               <th>Nombre completo del tutor</th>
+                               <th>Horario</th>
                                
 
 

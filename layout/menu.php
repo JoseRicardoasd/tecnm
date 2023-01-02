@@ -220,14 +220,24 @@
         </span>
       </a>
       <ul class=" sidebar-menu treeview-menu">
-        <li class="header">Añadir Incidencias-Tutores-Grupos-Ciclos</li>
-        <li><a href="incidencias.php"><i class="fa fa-users"></i> <span>Añadir incidencias</span></a></li>
-         <li><a href="añadirTutor.php"><i class="fa fa-users"></i> <span>Añadir tutor</span></a></li>
-        <li><a href="añadirGrupo.php"><i class="fa fa-users"></i> <span>Añadir grupo</span></a></li>
-      <li><a href="crear_ciclo.php"><i class="fa fa-users"></i> <span>Añadir ciclos escolares</span></a></li>
+        <li class="header">Ciclos Escolares</li>
+          <li><a href="crear_ciclo.php"><i class="fa fa-users"></i> <span>Generar ciclo escolar</span></a></li>
+        
           <li class="header">Consultar Constancias-Alumnos</li>
-        <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Constancias tutorias</span></a></li>
-       <li><a href="lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de alumnos</span></a></li>
+           
+            <li><a href="lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de alumnos</span></a></li>
+        
+          <li class="header">Programa institucional de Tutorias</li>
+            <li><a href="añadirGrupo.php"><i class="fa fa-users"></i> <span>Asignacion de grupo</span></a></li>
+        
+         <li class="header">Incidencias</li>
+          <li><a href="incidencias.php"><i class="fa fa-users"></i> <span>Alta de Incidencia</span></a></li>
+        
+          <li class="header">Asesores</li>
+             <li><a href="añadirTutor.php"><i class="fa fa-users"></i> <span>Asignacion de Asesores</span></a></li>
+        
+            <li class="header">Constancias de Act. Tutorías</li>
+           <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Act. Compl. Tutorías</span></a></li>
         
       </ul>
     </li>

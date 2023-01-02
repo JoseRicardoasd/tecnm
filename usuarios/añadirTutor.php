@@ -59,12 +59,12 @@ if (isset($_SESSION['u_usuario'])) {
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        agregar tutores
+                        Asignacion de tutores
                 </section>
 
                 <div class="container">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Agregar tutor
+                        Nuevo Tutor
                     </button>
 
                 </div>
@@ -241,3 +241,4 @@ if (isset($_SESSION['u_usuario'])) {
     echo "no existe sesión";
     header('Location:' . $URL . '/login');
 }
+

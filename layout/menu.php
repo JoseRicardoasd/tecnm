@@ -200,7 +200,7 @@
         </span>
       </a>
       <ul class=" sidebar-menu treeview-menu">
-        <li class="header">Generar Ciclos-Categorias-Actividades</li>
+        <li class="header">Ciclos Escolares </li>
         <li><a href="nuevoCiclo.php"><i class="fa fa-users"></i> <span>Generar Ciclo Escolar</span></a></li>
         <li><a href="nuevoCampo.php"><i class="fa fa-users"></i> <span>Categorias</span></a></li>
         <li><a href="extraexcolar.php"><i class="fa fa-users"></i> <span>Actividades</span></a></li>

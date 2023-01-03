@@ -1,6 +1,6 @@
 <?php 
 
-	include_once 'conexion.php';
+include ('../app/config/config.php');
 	if(isset($_GET['id'])){
 		$id=(int) $_GET['id'];
 		$delete=$con->prepare('DELETE FROM tb_usuarios WHERE id=:id');

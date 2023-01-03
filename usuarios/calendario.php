@@ -113,15 +113,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                     <div class="modal-body">
 
                       <div class="form-group">
-                        <label for="title" class="col-sm-2 control-label">Título</label>
+                        <label for="title" class="col-sm-2 control-label">Evento</label>
                         <div class="col-sm-10">
-                          <input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+                          <input type="text" name="title" class="form-control" id="title" placeholder="Evento">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
+                        <label for="descripcion" class="col-sm-2 control-label">Objetivo <br> del <br> evento</label>
                         <div class="col-sm-10">
-                          <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Descripcion">
+                          <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Objetivo">
                         </div>
                       </div>
 
@@ -129,6 +129,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                         <label for="respons" class="col-sm-2 control-label">Responsable</label>
                         <div class="col-sm-10">
                           <select name="respons" id="respons" class="form-control">
+                            <option value="">Seleccionar responsable</option>
                             <?php
                             $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
                             $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
@@ -200,15 +201,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                     <div class="modal-body">
 
                       <div class="form-group">
-                        <label for="title_edit" class="col-sm-2 control-label">Título</label>
+                        <label for="title_edit" class="col-sm-2 control-label">Evento</label>
                         <div class="col-sm-10">
-                          <input type="text" name="title_edit" class="form-control" id="title_edit" placeholder="Título">
+                          <input type="text" name="title_edit" class="form-control" id="title_edit" placeholder="Evento">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="descripcion_edit" class="col-sm-2 control-label">Descripción</label>
+                        <label for="descripcion_edit" class="col-sm-2 control-label">Objetivo <br> del <br> evento</label>
                         <div class="col-sm-10">
-                          <input type="text" name="descripcion_edit" class="form-control" id="descripcion_edit" placeholder="Descripción">
+                          <input type="text" name="descripcion_edit" class="form-control" id="descripcion_edit" placeholder="Objetivo">
                         </div>
 
                       </div>
@@ -217,6 +218,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                         <label for="respons" class="col-sm-2 control-label">Responsable</label>
                         <div class="col-sm-10">
                           <select name="respons" id="respons" class="form-control">
+                            <option value="">Seleccionar responsable</option>
                             <?php
                             $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
                             $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));

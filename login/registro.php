@@ -15,10 +15,10 @@
     <img src="img/shape.png" class="square" alt="" />
     <div class="form">
       <div class="contact-info">
-        <h3 class="title">Bienvenido al Sistema de Créditos de Actividades Complementarios
+        <h3 class="title">Bienvenido al Sistema de Creditos Complementarios
         </h3>
         <br>
-        <h3 class="title">TecNM Campus Chiná
+        <h3 class="title">TECNM Campus China
         </h3>
         <p class="text">
           Una vez registrado dirigite a tu perfil para terminar con el registro de tus datos generales
@@ -27,9 +27,9 @@
 
 
         <div class="social-media">
-          <p>Conecta con nosotros:</p>
+          <p>conecta con nosotros:</p>
           <div class="social-icons">
-            <a href="https://www.facebook.com/tecnmcampus.china">
+            <a href="https://www.facebook.com/SomosTecNM/">
               <i class="fab fa-facebook-f"></i>
             </a>
             <a href="https://twitter.com/TecNM_MX?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3ATecNM_MX&ref_url=https%3A%2F%2Fwww.itchina.edu.mx%2F">
@@ -43,7 +43,7 @@
       <div class="contact-form">
 
 
-        <form action="controlador_create.php" method="POST" enctype="multipart/form-data">
+        <form action="controlador_create.php" method="post" enctype="multipart/form-data">
           <div class="row">
 
             <h3 class="title">Registro</h3>
@@ -63,7 +63,7 @@
               <span>Nombres</span>
             </div>
             <div class="input-container">
-              <input type="text" name="correo" class="input" required style="text-transform:uppercase;">
+              <input type="email" name="correo" class="input" required style="text-transform:uppercase;">
               <label for="">Correo Institucional</label>
               <span>Correo Institucional</span>
             </div>

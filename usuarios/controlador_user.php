@@ -17,8 +17,8 @@ $cargo = strtoupper($_POST['cargo']);
 $profesion = strtoupper($_POST['profesion']);
 //$cubiculo = $_POST['cubiculo'];
 $area = strtoupper($_POST['area']);
-$contraseña = $_POST['contraseña']);
-$contraseñaConfirm = $_POST['contraseñaConfirm']);
+$contraseña = ($_POST['contraseña']);
+$contraseñaConfirm = ($_POST['contraseñaConfirm']);
 
 $user_creacion = "Administrador";
 

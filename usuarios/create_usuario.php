@@ -142,7 +142,14 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-link"></i> NIVEL ACADÉMIDO</label>
-                          <input type="text" class="form-control" name="profesion" required tabindex="8" style="text-transform:uppercase;">
+                          <select name="profesion" id="" class="form-control" required tabindex="8" style="text-transform.uppercase">
+                            <option value="elegit"></option>
+                            <option value="Preparatoria">PREPARATORIA</option>
+                            <option value="Tecnico">TECNICO</option>
+                            <option value="Licenciatura">LICENCIATURA</option>
+                            <option value="Posgrado">POSGRADO</option>
+                            <option value="Doctorado">DOCTORADO</option>
+                        </select>
                         </div>
                       </div>
                       <div class="col-md-6">

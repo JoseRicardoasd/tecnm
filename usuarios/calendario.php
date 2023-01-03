@@ -115,13 +115,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                       <div class="form-group">
                         <label for="title" class="col-sm-2 control-label">Evento</label>
                         <div class="col-sm-10">
-                          <input type="text" name="title" class="form-control" id="title" placeholder="Evento">
+                          <!--<input type="text" name="title" class="form-control" id="title" placeholder="Evento">-->
+                          <textarea name="title" id="title" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:470px; max-width:470px;"></textarea>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="descripcion" class="col-sm-2 control-label">Objetivo <br> del <br> evento</label>
                         <div class="col-sm-10">
-                          <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Objetivo">
+                          <!--<input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Objetivo">-->
+                          <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 70px; min-height:70px; max-height:70px; min-width:470px; max-width:470px;"></textarea>
                         </div>
                       </div>
 

@@ -43,7 +43,7 @@
       <div class="contact-form">
 
 
-        <form action="controlador_create.php" method="POST" enctype="multipart/form-data">
+        <form action="controlador_create.php" method="post" enctype="multipart/form-data">
           <div class="row">
 
             <h3 class="title">Registro</h3>
@@ -63,7 +63,7 @@
               <span>Nombres</span>
             </div>
             <div class="input-container">
-              <input type="text" name="correo" class="input" required style="text-transform:uppercase;">
+              <input type="email" name="correo" class="input" required style="text-transform:uppercase;">
               <label for="">Correo Institucional</label>
               <span>Correo Institucional</span>
             </div>

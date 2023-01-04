@@ -99,181 +99,187 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
             </div>
 
             <!-- /.row -->
+              <!-- Modal agregar evento-->
+          <div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <form class="form-horizontal" method="POST" action="addEvent.php">
 
-            <!-- Modal -->
-            <div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <form class="form-horizontal" method="POST" action="addEvent.php">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar Evento</h4>
+                  </div>
+                  <div class="modal-body">
 
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Agregar Evento</h4>
+                    <div class="form-group">
+                      <label for="title" class="col-sm-2 control-label" style="text-align: center;">Evento</label>
+                      <div class="col-sm-10">
+                        <!-- <input type="text" name="title" class="form-control" id="title" placeholder="Evento"> -->
+                        <textarea required name="title" id="title" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:470px; max-width:470px;"></textarea>
+                      </div>
                     </div>
-                    <div class="modal-body">
-
-                      <div class="form-group">
-                        <label for="title" class="col-sm-2 control-label" style="text-align: center;">Evento</label>
-                        <div class="col-sm-10">
-                          <!--<input type="text" name="title" class="form-control" id="title" placeholder="Evento">-->
-                          <textarea required name="title" id="title" cols="30" rows="10" placeholder="Nombre del evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:470px; max-width:470px;"></textarea>
-                        </div>
+                    <div class="form-group">
+                      <label for="descripcion" class="col-sm-2 control-label" style="text-align: center;">Objetivo <br> del <br> evento</label>
+                      <div class="col-sm-10">
+                        <!-- <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Objetivo" style="height: 70px;"> -->
+                        <textarea required name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 70px; min-height:70px; max-height:70px; min-width:470px; max-width:470px;"></textarea>
                       </div>
-                      <div class="form-group">
-                        <label for="descripcion" class="col-sm-2 control-label" style="text-align: center;">Objetivo <br> del <br> evento</label>
-                        <div class="col-sm-10">
-                          <!--<input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Objetivo">-->
-                          <textarea required name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 70px; min-height:70px; max-height:70px; min-width:470px; max-width:470px;"></textarea>
-                        </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="respons" class="col-sm-2 control-label" style="text-align: center;">Responsable</label>
+                      <div class="col-sm-10">
+                        <select name="respons" id="respons" class="form-control" required>
+                          <option value="" selected disabled>Seleccionar responsable</option>
+                          <?php
+                          $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
+                          $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                          ?>
+
+                          <?php foreach ($ejecutar as $opciones) : ?>
+
+                            <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                          <?php endforeach ?>
+                        </select>
                       </div>
+                    </div>
 
-                      <div class="form-group">
-                        <label for="respons" class="col-sm-2 control-label" style="text-align: center;">Responsable</label>
-                        <div class="col-sm-10">
-                          <select required name="respons" id="respons" class="form-control">
-                            <option value="">Seleccionar responsable</option>
-                            <?php
-                            $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
-                            $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+                    <div class="form-group">
+                      <label for="color" class="col-sm-2 control-label" style="text-align: center;">Tipo de Evento</label>
+                      <div class="col-sm-10">
+                        <select name="color" class="form-control" id="color" required>
+                          <option value="" selected disabled>Seleccionar</option>
+                          <option style="color:#0071c5;" value="#0071c5">&#9724; Modalidad Academica</option>
+                          <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o platica</option>
+                          <option style="color:#008000;" value="#008000">&#9724; Congreso, Seminario, Etc.</option>
+                          <option style="color:#FFD700;" value="#FFD700">&#9724; Curso y/o taller</option>
+                          <option style="color:#FF8C00;" value="#FF8C00">&#9724; Concurso de ciencias basicas</option>
+                          <option style="color:#FF0000;" value="#FF0000">&#9724; Creatividad e innovacion</option>
+                          <option style="color:#000;" value="#000">&#9724; Concurso de emprendedurismo</option>
+                          <option style="color:#c0392b;" value="#c0392b">&#9724; Diseño de prototipos</option>
+                          <option style="color:#8e44ad;" value="#8e44ad">&#9724; Diseño de software</option>
+                          <option style="color:#2c3e50;" value="#2c3e50">&#9724; Diseño de proyectos</option>
 
-                            ?>
-
-                            <?php foreach ($ejecutar as $opciones) : ?>
-
-                              <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['nombres'] ?></option>
-
-                            <?php endforeach ?>
-                          </select>
-                        </div>
+                        </select>
                       </div>
-
-                      <div class="form-group">
-                        <label for="color" class="col-sm-2 control-label" style="text-align: center;">Tipo de Evento</label>
-                        <div class="col-sm-10">
-                          <select required name="color" class="form-control" id="color">
-                            <option value="">Seleccionar</option>
-                            <option style="color:#0071c5;" value="#0071c5">&#9724; Modalidad Académica</option>
-                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o plática</option>
-                            <option style="color:#008000;" value="#008000">&#9724; Congreso, Seminario, Etc.</option>
-                            <option style="color:#FFD700;" value="#FFD700">&#9724; Curso y/o taller</option>
-                            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Concurso de ciencias básicas</option>
-                            <option style="color:#FF0000;" value="#FF0000">&#9724; Creatividad e innovación</option>
-                            <option style="color:#000;" value="#000">&#9724; Concurso de emprendedurismo</option>
-                            <option style="color:#c0392b;" value="#c0392b">&#9724; Diseño de prototipos</option>
-                            <option style="color:#8e44ad;" value="#8e44ad">&#9724; Diseño de software</option>
-                            <option style="color:#2c3e50;" value="#2c3e50">&#9724; Diseño de proyectos</option>
-
-                          </select>
-                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="start" class="col-sm-2 control-label" style="text-align: center;">Fecha Inicial</label>
+                      <div class="col-sm-10">
+                        <input type="text" name="start" class="form-control" id="start" readonly>
                       </div>
-                      <div class="form-group">
-                        <label for="start" class="col-sm-2 control-label" style="text-align: center;">Fecha Inicial</label>
-                        <div class="col-sm-10">
-                          <input type="text" name="start" class="form-control" id="start" readonly>
-                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="end" class="col-sm-2 control-label" style="text-align: center;">Fecha Final</label>
+                      <div class="col-sm-10">
+                        <input type="text" name="end" class="form-control" id="end" readonly>
                       </div>
-                      <div class="form-group">
-                        <label for="end" class="col-sm-2 control-label" style="text-align: center;">Fecha Final</label>
-                        <div class="col-sm-10">
-                          <input type="text" name="end" class="form-control" id="end" readonly>
-                        </div>
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- Modal edit-->
+          <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <form class="form-horizontal" method="POST" action="editEventTitle.php">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modificar Evento</h4>
+                  </div>
+                  <div class="modal-body">
+
+                    <div class="form-group">
+                      <label for="title_edit" class="col-sm-2 control-label">Evento</label>
+                      <div class="col-sm-10">
+                        <!-- <input type="text" name="title_edit" class="form-control" id="title_edit" placeholder="Titulo"> -->
+                        <textarea required name="title_edit" id="title_edit" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:470px; max-width:470px;"></textarea>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="descripcion_edit" class="col-sm-2 control-label">Objetivo</label>
+                      <div class="col-sm-10">
+                        <!-- <input type="text" name="descripcion_edit" class="form-control" id="descripcion_edit" placeholder="descripcion"> -->
+                        <textarea required name="descripcion_edit" id="descripcion_edit" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:470px; max-width:470px;"></textarea>
                       </div>
 
                     </div>
+
+                    <div class="form-group">
+                      <label for="respons" class="col-sm-2 control-label">Responsable</label>
+                      <div class="col-sm-10">
+                        <select required name="respons" id="respons" class="form-control">
+                          <?php
+                          $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
+                          $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
+
+                          ?>
+
+                          <?php foreach ($ejecutar as $opciones) : ?>
+
+                            <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['nombres'] ?></option>
+
+                          <?php endforeach ?>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="color" class="col-sm-2 control-label">Tipo de evento</label>
+                      <div class="col-sm-10">
+                        <select name="color" class="form-control" id="color" required>
+                          <option value="" disabled>Seleccionar</option>
+                          <option style="color:#0071c5;" value="#0071c5" name="modalidad">&#9724; Modalidad Academica</option>
+                          <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o platica</option>
+                          <option style="color:#008000;" value="#008000">&#9724; Congreso, Seminario, Etc.</option>
+                          <option style="color:#FFD700;" value="#FFD700">&#9724; Curso y/o taller</option>
+                          <option style="color:#FF8C00;" value="#FF8C00">&#9724; Concurso de ciencias basicas</option>
+                          <option style="color:#FF0000;" value="#FF0000">&#9724; Creatividad e innovacion</option>
+                          <option style="color:#000;" value="#000">&#9724; Concurso de emprendedurismo</option>
+                          <option style="color:#c0392b;" value="#c0392b">&#9724; Diseño de prototipos</option>
+                          <option style="color:#8e44ad;" value="#8e44ad">&#9724; Diseño de software</option>
+                          <option style="color:#2c3e50;" value="#2c3e50">&#9724; Diseño de proyectos</option>
+
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                          <label class="text-danger"><input type="checkbox" name="delete"> Eliminar Evento</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="id" class="form-control" id="id">
                     <div class="modal-footer">
                       <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                       <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
-                  </form>
-                </div>
+                </form>
               </div>
             </div>
-
-
-
-            <!-- Modal edit-->
-            <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <form class="form-horizontal" method="POST" action="editEventTitle.php">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Modificar Evento</h4>
-                    </div>
-                    <div class="modal-body">
-
-                      <div class="form-group">
-                        <label for="title_edit" class="col-sm-2 control-label">Evento</label>
-                        <div class="col-sm-10">
-                          <textarea required name="title_edit" id="title_edit" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:470px; max-width:470px;"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="descripcion_edit" class="col-sm-2 control-label">Objetivo <br> del <br> evento</label>
-                        <div class="col-sm-10">
-                          <textarea required name="descripcion_edit" id="descripcion_edit" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:470px; max-width:470px;"></textarea>
-                        </div>
-
-                      </div>
-
-                      <div class="form-group">
-                        <label for="respons" class="col-sm-2 control-label">Responsable</label>
-                        <div class="col-sm-10">
-                          <select required name="respons" id="respons" class="form-control">
-                            <option value="">Seleccionar responsable</option>
-                            <?php
-                            $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
-                            $ejecutar = mysqli_query($conexion, $consulta) or die(mysqli_error($conexion));
-
-                            ?>
-
-                            <?php foreach ($ejecutar as $opciones) : ?>
-
-                              <option value="<?php echo $opciones['id'] ?>"><?php echo $opciones['nombres'] ?></option>
-
-                            <?php endforeach ?>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="color" class="col-sm-2 control-label">Tipo de evento</label>
-                        <div class="col-sm-10">
-                          <select required name="color" class="form-control" id="color">
-                            <option value="">Seleccionar</option>
-                            <option style="color:#0071c5;" value="#0071c5" name="modalidad">&#9724; Modalidad Acádemica</option>
-                            <option style="color:#40E0D0;" value="#40E0D0">&#9724; Conferencia y/o plática</option>
-                            <option style="color:#008000;" value="#008000">&#9724; Congreso, Seminario, Etc.</option>
-                            <option style="color:#FFD700;" value="#FFD700">&#9724; Curso y/o taller</option>
-                            <option style="color:#FF8C00;" value="#FF8C00">&#9724; Concurso de ciencias basicas</option>
-                            <option style="color:#FF0000;" value="#FF0000">&#9724; Creatividad e innovacion</option>
-                            <option style="color:#000;" value="#000">&#9724; Concurso de emprendedurismo</option>
-                            <option style="color:#c0392b;" value="#c0392b">&#9724; Diseño de prototipos</option>
-                            <option style="color:#8e44ad;" value="#8e44ad">&#9724; Diseño de software</option>
-                            <option style="color:#2c3e50;" value="#2c3e50">&#9724; Diseño de proyectos</option>
-
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <div class="checkbox">
-                            <label class="text-danger"><input type="checkbox" name="delete"> Eliminar Evento</label>
-                          </div>
-                        </div>
-                      </div>
-
-                      <input type="hidden" name="id" class="form-control" id="id">
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                      </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+          </div>
+            
 
           </div>
+          </div>
+          
+          <!-- /.content-wrapper -->
+      <?php include('../layout/footer.php'); ?>
+      <?php include('../layout/footer_links.php'); ?>
           <!-- /.container -->
 
           <!-- jQuery Version 1.11.1 -->

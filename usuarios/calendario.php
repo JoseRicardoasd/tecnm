@@ -115,14 +115,14 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                       <label for="title" class="col-sm-3 control-label" style="text-align: center;">Evento</label>
                       <div class="col-sm-9">
                         <!-- <input type="text" name="title" class="form-control" id="title" placeholder="Evento"> -->
-                        <textarea required name="title" id="title" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:345px; max-width:345px;"></textarea>
+                        <textarea required name="title" id="title" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:344px; max-width:344px;"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="descripcion" class="col-sm-3 control-label" style="text-align: center;">Objetivo <br> del <br> evento</label>
                       <div class="col-sm-9">
                         <!-- <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Objetivo" style="height: 70px;"> -->
-                        <textarea required name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 70px; min-height:70px; max-height:70px; min-width:345px; max-width:345px;"></textarea>
+                        <textarea required name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 70px; min-height:70px; max-height:70px; min-width:344px; max-width:344px;"></textarea>
                       </div>
                     </div>
 
@@ -197,7 +197,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                 <form class="form-horizontal" method="POST" action="editEventTitle.php">
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modificar Evento</h4>
+                    <h4 class="modal-title" id="myModalLabel" style="text-align: left;">Modificar Evento</h4>
                   </div>
                   <div class="modal-body">
 
@@ -205,14 +205,14 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                       <label for="title_edit" class="col-sm-3 control-label" style="text-align: center;">Evento</label>
                       <div class="col-sm-9">
                         <!-- <input type="text" name="title_edit" class="form-control" id="title_edit" placeholder="Titulo"> -->
-                        <textarea required name="title_edit" id="title_edit" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:345px; max-width:345px;"></textarea>
+                        <textarea required name="title_edit" id="title_edit" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:344px; max-width:344px;"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="descripcion_edit" class="col-sm-3 control-label" style="text-align: center;">Objetivo</label>
                       <div class="col-sm-9">
                         <!-- <input type="text" name="descripcion_edit" class="form-control" id="descripcion_edit" placeholder="descripcion"> -->
-                        <textarea required name="descripcion_edit" id="descripcion_edit" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:345px; max-width:345px;"></textarea>
+                        <textarea required name="descripcion_edit" id="descripcion_edit" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:344px; max-width:344px;"></textarea>
                       </div>
 
                     </div>

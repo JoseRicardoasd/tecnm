@@ -112,23 +112,23 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                   <div class="modal-body">
 
                     <div class="form-group">
-                      <label for="title" class="col-sm-2 control-label" style="text-align: center;">Evento</label>
-                      <div class="col-sm-10">
+                      <label for="title" class="col-sm-3 control-label" style="text-align: center;">Evento</label>
+                      <div class="col-sm-9">
                         <!-- <input type="text" name="title" class="form-control" id="title" placeholder="Evento"> -->
-                        <textarea required name="title" id="title" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:370px; max-width:370px;"></textarea>
+                        <textarea required name="title" id="title" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:390px; max-width:390px;"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="descripcion" class="col-sm-2 control-label" style="text-align: center;">Objetivo <br> del <br> evento</label>
-                      <div class="col-sm-10">
+                      <label for="descripcion" class="col-sm-3 control-label" style="text-align: center;">Objetivo <br> del <br> evento</label>
+                      <div class="col-sm-9">
                         <!-- <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Objetivo" style="height: 70px;"> -->
                         <textarea required name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 70px; min-height:70px; max-height:70px; min-width:370px; max-width:370px;"></textarea>
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label for="respons" class="col-sm-2 control-label" style="text-align: center;">Responsable</label>
-                      <div class="col-sm-10">
+                      <label for="respons" class="col-sm-3 control-label" style="text-align: center;">Responsable</label>
+                      <div class="col-sm-9">
                         <select name="respons" id="respons" class="form-control" required>
                           <option value="" selected disabled>Seleccionar responsable</option>
                           <?php
@@ -147,8 +147,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                     </div>
 
                     <div class="form-group">
-                      <label for="color" class="col-sm-2 control-label" style="text-align: center;">Tipo de Evento</label>
-                      <div class="col-sm-10">
+                      <label for="color" class="col-sm-3 control-label" style="text-align: center;">Tipo de Evento</label>
+                      <div class="col-sm-9">
                         <select name="color" class="form-control" id="color" required>
                           <option value="" selected disabled>Seleccionar</option>
                           <option style="color:#0071c5;" value="#0071c5">&#9724; Modalidad Academica</option>
@@ -166,14 +166,14 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="start" class="col-sm-2 control-label" style="text-align: center;">Fecha Inicial</label>
-                      <div class="col-sm-10">
+                      <label for="start" class="col-sm-3 control-label" style="text-align: center;">Fecha Inicial</label>
+                      <div class="col-sm-9">
                         <input type="text" name="start" class="form-control" id="start" readonly>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="end" class="col-sm-2 control-label" style="text-align: center;">Fecha Final</label>
-                      <div class="col-sm-10">
+                      <label for="end" class="col-sm-3 control-label" style="text-align: center;">Fecha Final</label>
+                      <div class="col-sm-9">
                         <input type="text" name="end" class="form-control" id="end" readonly>
                       </div>
                     </div>
@@ -202,24 +202,24 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                   <div class="modal-body">
 
                     <div class="form-group">
-                      <label for="title_edit" class="col-sm-2 control-label">Evento</label>
-                      <div class="col-sm-10">
+                      <label for="title_edit" class="col-sm-3 control-label">Evento</label>
+                      <div class="col-sm-9">
                         <!-- <input type="text" name="title_edit" class="form-control" id="title_edit" placeholder="Titulo"> -->
-                        <textarea required name="title_edit" id="title_edit" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:470px; max-width:470px;"></textarea>
+                        <textarea required name="title_edit" id="title_edit" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:390px; max-width:390px;"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="descripcion_edit" class="col-sm-2 control-label">Objetivo</label>
-                      <div class="col-sm-10">
+                      <label for="descripcion_edit" class="col-sm-3 control-label">Objetivo</label>
+                      <div class="col-sm-9">
                         <!-- <input type="text" name="descripcion_edit" class="form-control" id="descripcion_edit" placeholder="descripcion"> -->
-                        <textarea required name="descripcion_edit" id="descripcion_edit" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:470px; max-width:470px;"></textarea>
+                        <textarea required name="descripcion_edit" id="descripcion_edit" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:390px; max-width:390px;"></textarea>
                       </div>
 
                     </div>
 
                     <div class="form-group">
-                      <label for="respons" class="col-sm-2 control-label">Responsable</label>
-                      <div class="col-sm-10">
+                      <label for="respons" class="col-sm-3 control-label">Responsable</label>
+                      <div class="col-sm-9">
                         <select required name="respons" id="respons" class="form-control">
                           <?php
                           $consulta = "SELECT id, nombres FROM tb_usuarios WHERE cargo = 1";
@@ -237,8 +237,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                     </div>
 
                     <div class="form-group">
-                      <label for="color" class="col-sm-2 control-label">Tipo de evento</label>
-                      <div class="col-sm-10">
+                      <label for="color" class="col-sm-3 control-label">Tipo de evento</label>
+                      <div class="col-sm-9">
                         <select name="color" class="form-control" id="color" required>
                           <option value="" disabled>Seleccionar</option>
                           <option style="color:#0071c5;" value="#0071c5" name="modalidad">&#9724; Modalidad Academica</option>

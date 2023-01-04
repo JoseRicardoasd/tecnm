@@ -107,7 +107,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
 
                   <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Agregar Evento</h4>
+                    
                   </div>
                   <div class="modal-body">
 
@@ -115,14 +115,14 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                       <label for="title" class="col-sm-2 control-label" style="text-align: center;">Evento</label>
                       <div class="col-sm-10">
                         <!-- <input type="text" name="title" class="form-control" id="title" placeholder="Evento"> -->
-                        <textarea required name="title" id="title" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:470px; max-width:470px;"></textarea>
+                        <textarea required name="title" id="title" cols="30" rows="10" placeholder="Evento" class="form-control" style="height: 40px; min-height:40px; max-height:40px; min-width:370px; max-width:370px;"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="descripcion" class="col-sm-2 control-label" style="text-align: center;">Objetivo <br> del <br> evento</label>
                       <div class="col-sm-10">
                         <!-- <input type="text" name="descripcion" class="form-control" id="descripcion" placeholder="Objetivo" style="height: 70px;"> -->
-                        <textarea required name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 70px; min-height:70px; max-height:70px; min-width:470px; max-width:470px;"></textarea>
+                        <textarea required name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Objetivo" class="form-control" style="height: 70px; min-height:70px; max-height:70px; min-width:370px; max-width:370px;"></textarea>
                       </div>
                     </div>
 

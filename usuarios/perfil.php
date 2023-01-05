@@ -102,19 +102,19 @@ if ($tiempo_transcurrido >= 600) {
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-user"></i> NOMBRE(S)</label>
-                        <input type="text" class="form-control" name="nombres" type="text" value="<?php echo $sesion_usuario['nombres']; ?>" required style="text-transform: uppercase;" tabindex="1">
+                        <input type="text" class="form-control" name="nombres" type="text" value="<?php echo $sesion_usuario['nombres']; ?>" required style="text-transform: uppercase;" tabindex="1" disabled>
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-user"></i> APELLIDO MATERNO</label>
-                        <input type="text" class="form-control" name="ap_materno" value="<?php echo $sesion_usuario['ap_materno']; ?>" required style="text-transform: uppercase;" tabindex="3">
+                        <input type="text" class="form-control" name="ap_materno" value="<?php echo $sesion_usuario['ap_materno']; ?>" required style="text-transform: uppercase;" tabindex="3" disabled>
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-check"></i> NÚMERO DE CONTROL</label>
-                        <input type="text" class="form-control" name="numero_control" value="<?php echo $sesion_usuario['numero_control']; ?>" required style="text-transform: uppercase;" tabindex="5">
+                        <input type="text" class="form-control" name="numero_control" value="<?php echo $sesion_usuario['numero_control']; ?>" required style="text-transform: uppercase;" tabindex="5" disabled>
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-envelope"></i> CORREO INSTITUCIONAL</label>
-                        <input type="email" class="form-control" name="correo" value="<?php echo $sesion_usuario['correo']; ?>" required tabindex="7">
+                        <input type="email" class="form-control" name="correo" value="<?php echo $sesion_usuario['correo']; ?>" required tabindex="7" disabled>
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-calendar"></i> FECHA DE NACIMIENTO</label>
@@ -148,7 +148,7 @@ if ($tiempo_transcurrido >= 600) {
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-user"></i> APELLIDO PATERNO</label>
-                        <input type="text" class="form-control" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno']; ?>" required style="text-transform: uppercase;" tabindex="2">
+                        <input type="text" class="form-control" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno']; ?>" required style="text-transform: uppercase;" tabindex="2" disabled>
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-user"></i> SEXO</label>

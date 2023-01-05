@@ -36,13 +36,13 @@ if (isset($_SESSION['u_usuario'])) {
 ?>
     <?php
     $id = $sesion_usuario['id'];
-    $nombres = strtoupper($_POST['nombres']);
+    /*$nombres = strtoupper($_POST['nombres']);
     $ap_paterno = strtoupper($_POST['ap_paterno']);
-    $ap_materno = strtoupper($_POST['ap_materno']);
+    $ap_materno = strtoupper($_POST['ap_materno']);*/
     $sexo = strtoupper($_POST['sexo']);
-    $numero_control = strtoupper($_POST['numero_control']);
+    //$numero_control = strtoupper($_POST['numero_control']);
     $carrera = strtoupper($_POST['carrera']);
-    $correo = strtoupper($_POST['correo']);
+    //$correo = strtoupper($_POST['correo']);
     $estado_civil = strtoupper($_POST['estado_civil']);
     $telefono = strtoupper($_POST['telefono']);
     $ciudad = strtoupper($_POST['ciudad']);
@@ -66,7 +66,7 @@ if (isset($_SESSION['u_usuario'])) {
 
     move_uploaded_file($_FILES['file']['tmp_name'], $location);
 
-    $edita = "UPDATE tb_usuarios SET nombres = '$nombres', ap_paterno = '$ap_paterno', ap_materno='$ap_materno', sexo='$sexo', numero_control='$numero_control', carrera='$carrera', correo='$correo', estado_civil='$estado_civil', telefono='$telefono', ciudad='$ciudad', colonia='$colonia', calle='$calle', codigo_postal='$codigo_postal', curp='$curp', fecha_nacimiento='$fecha_nacimiento', nivel_escolar='$nivel_escolar', reticula='$reticula', entidad='$entidad', fyh_actualizacion='$fechaHora', foto_perfil='$filename' WHERE id = '$id'";
+    $edita = "UPDATE tb_usuarios SET sexo='$sexo', carrera='$carrera', estado_civil='$estado_civil', telefono='$telefono', ciudad='$ciudad', colonia='$colonia', calle='$calle', codigo_postal='$codigo_postal', curp='$curp', fecha_nacimiento='$fecha_nacimiento', nivel_escolar='$nivel_escolar', reticula='$reticula', entidad='$entidad', fyh_actualizacion='$fechaHora', foto_perfil='$filename' WHERE id = '$id'";
     $resultado = mysqli_query($conexion, $edita);
     if (!$resultado) {
       echo 'Error al actualizar';

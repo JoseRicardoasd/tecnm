@@ -121,7 +121,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-map-marker"></i> ENTIDAD FEDERATIVA</label>
                           <select name="ciudad" class="form-control" required tabindex="15" style="text-transform:uppercase;">
-                            <option value="elegir"> </option>
+                            <option value="" disabled selected>Selecciona tu entidad federativa</option>
                             <option value="AGUASCALIENTES">Aguascalientes</option>
                             <option value="BAJA CALIFORNIA">Baja California</option>
                             <option value="BAJA CALIFORNIA SUR">Baja California Sur</option>
@@ -178,7 +178,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> SEXO</label>
                           <select name="sexo" class="form-control" tabindex="4" style="text-transform:uppercase;">
-                            <option value="elegir"> </option>
+                            <option value="" disabled selected>selecciona tu sexo </option>
                             <option value="Hombre">HOMBRE</option>
                             <option value="Mujer">MUJER</option>
                             <option value="Mujer">OTRO</option>
@@ -187,6 +187,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-book"></i> CARRERA</label>
                           <select name="carrera" class="form-control" required tabindex="6" style="text-transform:uppercase;">
+                            <option value="" disabled selected>Selecciona una carrera</option>
                             <?php
                             $consulta1 = "SELECT carrera FROM cat_carreras";
                             $res = mysqli_query($conexion, $consulta1)  ?>
@@ -201,7 +202,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-modal-window"></i> ESTADO CIVIL</label>
                           <select name="estado_civil" class="form-control" required tabindex="8" style="text-transform:uppercase;">
-                            <option value="elegir"><?php echo $sesion_usuario['estado_civil']; ?></option>
+                            <option value="" disabled selected>Selleciona tu estado civil</option>
                             <option value="Soltero/a">SOLTERO/A</option>
                             <option value="Casado/a">CASADO/A</option>
                             <option value="Unión libre">UNIÓN LIBRE</option>

@@ -36,24 +36,24 @@ if (isset($_SESSION['u_usuario'])) {
 ?>
     <?php
     $id = $sesion_usuario['id'];
-    $nombres = $_POST['nombres'];
-    $ap_paterno = $_POST['ap_paterno'];
-    $ap_materno = $_POST['ap_materno'];
-    $sexo = $_POST['sexo'];
-    $numero_control = $_POST['numero_control'];
-    $carrera = $_POST['carrera'];
-    $correo = $_POST['correo'];
-    $estado_civil = $_POST['estado_civil'];
-    $telefono = $_POST['telefono'];
-    $ciudad = $_POST['ciudad'];
-    $colonia = $_POST['colonia'];
-    $calle = $_POST['calle'];
-    $codigo_postal = $_POST['codigo_postal'];
-    $curp = $_POST['curp'];
-    $fecha_nacimiento = $_POST['fecha_nacimiento'];
-    $nivel_escolar = $_POST['nivel_escolar'];
-    $reticula = $_POST['reticula'];
-    $entidad = $_POST['entidad'];
+    $nombres = strtoupper($_POST['nombres']);
+    $ap_paterno = strtoupper($_POST['ap_paterno']);
+    $ap_materno = strtoupper($_POST['ap_materno']);
+    $sexo = strtoupper($_POST['sexo']);
+    $numero_control = strtoupper($_POST['numero_control']);
+    $carrera = strtoupper($_POST['carrera']);
+    $correo = strtoupper($_POST['correo']);
+    $estado_civil = strtoupper($_POST['estado_civil']);
+    $telefono = strtoupper($_POST['telefono']);
+    $ciudad = strtoupper($_POST['ciudad']);
+    $colonia = strtoupper($_POST['colonia']);
+    $calle = strtoupper($_POST['calle']);
+    $codigo_postal = strtoupper($_POST['codigo_postal']);
+    $curp = strtoupper($_POST['curp']);
+    $fecha_nacimiento = strtoupper($_POST['fecha_nacimiento']);
+    $nivel_escolar = strtoupper($_POST['nivel_escolar']);
+    $reticula = strtoupper($_POST['reticula']);
+    $entidad =  strtoupper($_POST['entidad']);
     date_default_timezone_set("America/Monterrey");
 
     $fechaHora = date('Y-m-d h:i:s');

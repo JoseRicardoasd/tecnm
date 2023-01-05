@@ -33,7 +33,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-  
+
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -121,7 +121,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-map-marker"></i> ENTIDAD FEDERATIVA</label>
                           <select name="ciudad" class="form-control" required tabindex="15" style="text-transform:uppercase;">
-                            <option value="elegir">       </option>
+                            <option value="elegir"> </option>
                             <option value="AGUASCALIENTES">Aguascalientes</option>
                             <option value="BAJA CALIFORNIA">Baja California</option>
                             <option value="BAJA CALIFORNIA SUR">Baja California Sur</option>
@@ -178,7 +178,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> SEXO</label>
                           <select name="sexo" class="form-control" tabindex="4" style="text-transform:uppercase;">
-                            <option value="elegir">         </option>
+                            <option value="elegir"> </option>
                             <option value="Hombre">HOMBRE</option>
                             <option value="Mujer">MUJER</option>
                             <option value="Mujer">OTRO</option>
@@ -191,11 +191,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                             $consulta1 = "SELECT carrera FROM cat_carreras";
                             $res = mysqli_query($conexion, $consulta1)  ?>
                             <?php foreach ($res as $opcion) : ?>
-                            
-                                <option value="<?php echo $opcion['carrera'] ?>"><?php echo $opcion['carrera'] ?></option>
-                      
+
+                              <option value="<?php echo $opcion['carrera'] ?>"><?php echo $opcion['carrera'] ?></option>
+
                             <?php endforeach ?>
-                            
+
                           </select>
                         </div>
                         <div class="form-group">
@@ -214,9 +214,6 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           <label for=""><i class="glyphicon glyphicon-link"></i> CURP</label>
                           <input type="text" class="form-control" name="curp" required tabindex="10" style="text-transform:uppercase;" maxlength="18">
                         </div>
-                      </div>
-                      <div class="col-md-6">
-
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-map-marker"></i> CALLE</label>
                           <input type="text" class="form-control" name="calle" required tabindex="12" style="text-transform:uppercase;">
@@ -249,6 +246,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           </center>
                         </div>
                       </div>
+
                     </div>
 
                   </div>

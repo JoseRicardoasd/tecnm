@@ -33,7 +33,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-  
+
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -125,7 +125,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> SEXO</label>
                           <select name="sexo" id="" class="form-control" tabindex="4" style="text-transform:uppercase;">
-                            <option value="elegir">         </option>
+                            <option value="elegir"> </option>
                             <option value="Hombre">HOMBRE</option>
                             <option value="Mujer">MUJER</option>
                           </select>
@@ -142,23 +142,20 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-link"></i> NIVEL ACADÉMIDO</label>
-                          <select name="profesion" id="" class="form-control" required tabindex="8" style="text-transform.uppercase">
+                          <select name="profesion" id="" class="form-control" required tabindex="8" style="text-transform:uppercase">
                             <option value="elegit"></option>
                             <option value="Preparatoria">PREPARATORIA</option>
                             <option value="Tecnico">TECNICO</option>
                             <option value="Licenciatura">LICENCIATURA</option>
                             <option value="Posgrado">POSGRADO</option>
                             <option value="Doctorado">DOCTORADO</option>
-                        </select>
+                          </select>
                         </div>
-                      </div>
-                      <div class="col-md-6">
-
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-link"></i> CARGO</label>
                           <!-- <input type="text" class="form-control" name="area" required tabindex="10"> -->
-                          <select name="area" id="" class="form-control" required tabindex="6" style="text-transform:uppercase;">
+                          <select name="area" id="" class="form-control" required tabindex="9" style="text-transform:uppercase;">
                             <option value="elegir"></option>
                             <option value="DOCENTE">DOCENTE</option>
                             <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
@@ -183,6 +180,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           </center>
                         </div>
                       </div>
+
                     </div>
 
 

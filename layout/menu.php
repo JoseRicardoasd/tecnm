@@ -1,12 +1,10 @@
-
-
 <head>
   <link rel="stylesheet" href="../css/estilos.css">
 </head>
 
 
 
-  
+
 
 <header class="main-header">
   <!-- Logo -->
@@ -144,25 +142,25 @@
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div><br> -->
-    
+
     <li class="treeview">
-          <a href="#">
-            <i class="fa fa-users"></i> <span>Agregar Usuarios</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
+      <a href="#">
+        <i class="fa fa-users"></i> <span>Agregar Usuarios</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
 
-            <li><a href="lista-usuarios.php"><i class="fa fa-users"></i>Usuarios</a></li>
+        <li><a href="lista-usuarios.php"><i class="fa fa-users"></i>Usuarios</a></li>
 
-            <li><a href="create.php"><i class="fa fa-user"></i> Agregar Alumno</a></li>
+        <li><a href="create.php"><i class="fa fa-user"></i> Agregar Alumno</a></li>
 
 
-            <li><a href="create_usuario.php"><i class="fa fa-user"></i> Agregar Usuario</a></li>
+        <li><a href="create_usuario.php"><i class="fa fa-user"></i> Agregar Usuario</a></li>
 
-          </ul>
-        </li>
+      </ul>
+    </li>
 
     <!-- /.search form -->
     <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -178,20 +176,20 @@
 
         <li class="header">Calendario de Actividades</li>
         <li><a href="calendario.php"><i class="glyphicon glyphicon-calendar"></i> <span>Elegir Actividad Académica</span></a></li>
-        
+
         <li class="header">Evidencias de créditos</li>
         <li><a href="guia.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guía de Créditos</span></a></li>
         <!--<li><a href="agregar-credito.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Agregar Credito</span></a></li>-->
         <li class="header">Evaluaciones</li>
         <!--<li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li> -->
-        <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias Act. Comp. Académicas</span></a></li>
+        <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias Act. Comp. Aca.</span></a></li>
         <li><a href="formato_constancia.php"><i class="fa fa-book"></i> <span><b>Formato de la constancia</b></span></a></li>
         <!--<li><a href="generarconstancia.php"><i class="fa fa-book"></i> <span>GenerarConstancias</span></a></li>-->
-    
+
 
       </ul>
     </li>
-    
+
     <li class="treeview">
       <a href="#">
         <i class="fa fa-users"></i> <span>ACT. EXTRAESCOLARES</span>
@@ -211,8 +209,8 @@
 
       </ul>
     </li>
-    
-     <li class="treeview">
+
+    <li class="treeview">
       <a href="#">
         <i class="fa fa-users"></i> <span>TUTORIAS</span>
         <span class="pull-right-container">
@@ -221,34 +219,34 @@
       </a>
       <ul class=" sidebar-menu treeview-menu">
         <li class="header">Ciclos Escolares</li>
-          <li><a href="crear_ciclo.php"><i class="fa fa-users"></i> <span>Generar ciclo escolar</span></a></li>
-        
-          <li class="header">Consultar Constancias-Alumnos</li>
-           
-            <li><a href="lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de alumnos</span></a></li>
-        
-          <li class="header">Programa institucional de Tutorias</li>
-            <li><a href="añadirGrupo.php"><i class="fa fa-users"></i> <span>Asignacion de grupo</span></a></li>
-        
-         <li class="header">Incidencias</li>
-          <li><a href="incidencias.php"><i class="fa fa-users"></i> <span>Alta de Incidencia</span></a></li>
-        
-          <li class="header">Asesores</li>
-             <li><a href="añadirTutor.php"><i class="fa fa-users"></i> <span>Asignacion de Asesores</span></a></li>
-        
-            <li class="header">Constancias de Act. Tutorías</li>
-           <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Act. Compl. Tutorías</span></a></li>
-        
+        <li><a href="crear_ciclo.php"><i class="fa fa-users"></i> <span>Generar ciclo escolar</span></a></li>
+
+        <li class="header">Consultar Constancias-Alumnos</li>
+
+        <li><a href="lista_tutoria.php"><i class="fa fa-users"></i> <span>Lista de alumnos</span></a></li>
+
+        <li class="header">Programa institucional de Tutorias</li>
+        <li><a href="añadirGrupo.php"><i class="fa fa-users"></i> <span>Asignacion de grupo</span></a></li>
+
+        <li class="header">Incidencias</li>
+        <li><a href="incidencias.php"><i class="fa fa-users"></i> <span>Alta de Incidencia</span></a></li>
+
+        <li class="header">Asesores</li>
+        <li><a href="añadirTutor.php"><i class="fa fa-users"></i> <span>Asignacion de Asesores</span></a></li>
+
+        <li class="header">Constancias de Act. Tutorías</li>
+        <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Act. Compl. Tutorías</span></a></li>
+
       </ul>
     </li>
 
 
 
-  
-<!-- creditos -->
-<li class="treeview">
+
+    <!-- creditos -->
+    <li class="treeview">
       <a href="#">
-      <span>DESARROLLADORES</span>
+        <span>DESARROLLADORES</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
@@ -262,31 +260,31 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-         
-           
+
+
           <ul class="treeview-menu">
-          <br>
-          <div class="row">
-            <img src="../public/desarrolladores/daniel.PNG" class="imagen">
-            <div class="col-12 version">
-            <b>ING. DANIEL JESÚS PÉREZ M.</b>
             <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 16830180 <br></b>
-            </div>
+            <div class="row">
+              <img src="../public/desarrolladores/daniel.PNG" class="imagen">
+              <div class="col-12 version">
+                <b>ING. DANIEL JESÚS PÉREZ M.</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 16830180 <br></b>
+              </div>
 
-          </div>
-          <br>
-          <div class="row">
-          <img src="../public/desarrolladores/emmanuel.PNG" class="imagen" >
-            <div class="col-12 version">
-            <b>ING. JOSÉ ESCAMILLA MORENO</b>
+            </div>
             <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 16830183 <br></b>
-            </div>
+            <div class="row">
+              <img src="../public/desarrolladores/emmanuel.PNG" class="imagen">
+              <div class="col-12 version">
+                <b>ING. JOSÉ ESCAMILLA MORENO</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 16830183 <br></b>
+              </div>
 
-          </div>
+            </div>
           </ul>
         </li>
 
@@ -299,85 +297,82 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <br>
-
-          <div class="row">
-          <img src="../public/desarrolladores/diana.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b>DIANA L. MADRIGAL BENITEZ</b>
             <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830012 <br></b>
+
+            <div class="row">
+              <img src="../public/desarrolladores/diana.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b>DIANA L. MADRIGAL BENITEZ</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830012 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/chan.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b>JÓSE RICARDO CHAN MARIN</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830002 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/cuca.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b>JUAN ANTONIO CU CAHUICH</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830001 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/farfan.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b class="tres">DANIEL FARFÁN CAHUICH</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830027 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/boton.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b>CARLOS FRANCISCO BOTON</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830248 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/kevin.jfif" class="imagen">
+              <div class="col-12 version">
+                <b>KEVIN BONIFAZ HERNÁNDEZ</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830014 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/felipe.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b class="dos">FELIPE GIL MAYOR</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830007 <br></b>
+              </div>
+
+
+
             </div>
 
-            <br>
-            <img src="../public/desarrolladores/chan.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b>JÓSE RICARDO CHAN MARIN</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830002 <br></b>
-            </div>
-
-            <br>
-            <img src="../public/desarrolladores/cuca.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b>JUAN ANTONIO CU CAHUICH</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830001 <br></b>
-            </div>
-
-            <br>
-            <img src="../public/desarrolladores/farfan.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b class="tres">DANIEL FARFÁN CAHUICH</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830027 <br></b>
-            </div>
-
-            <br>
-            <img src="../public/desarrolladores/boton.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b>CARLOS FRANCISCO BOTON</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830248 <br></b>
-            </div>
-
-            <br>
-            <img src="../public/desarrolladores/kevin.jfif"  class="imagen">            
-          <div class="col-12 version">
-            <b>KEVIN BONIFAZ HERNÁNDEZ</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830014 <br></b>
-            </div>
-
-            <br>
-            <img src="../public/desarrolladores/felipe.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b class="dos">FELIPE GIL MAYOR</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830007 <br></b>
-            </div>
+          </ul>
 
 
 
-          </div>
-      
-      </ul>
-        
 
-
-        
 
 
   </section>
   <!-- /.sidebar -->
 </aside>
-
-
-

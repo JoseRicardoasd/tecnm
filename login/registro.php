@@ -35,6 +35,9 @@
             <a href="https://twitter.com/TecNM_MX?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3ATecNM_MX&ref_url=https%3A%2F%2Fwww.itchina.edu.mx%2F">
               <i class="fab fa-twitter"></i>
             </a>
+            <a href="https://www.instagram.com/tecnmcampuschina/">
+              <i class="fab fa-instagram"></i>
+            </a>
 
           </div>
         </div>
@@ -47,7 +50,7 @@
           <div class="row">
 
             <h3 class="title">Registro</h3>
-               <div class="input-container">
+            <div class="input-container">
               <input type="text" name="ap_paterno" class="input" required style="text-transform:uppercase;">
               <label for="">Apellido paterno</label>
               <span>Apellido paterno</span>
@@ -72,7 +75,7 @@
               <label for="">Matricula</label>
               <span>Matricula</span>
             </div>
-          
+
             <div class="input-container">
               <input type="password" name="contraseña" class="input">
               <label for="">Contraseña</label>

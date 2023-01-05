@@ -67,7 +67,7 @@
             <span>Correo Institucional</span>
           </div>
           <div class="input-container">
-            <input type="password" name="contraseña" class="input" />
+            <input type="password" name="contraseña" class="input" required />
             <label for="">Contraseña</label>
             <span>Contraseña</span>
           </div>

@@ -64,7 +64,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
       } ?>
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
+            SISTEMA DE CREDITOS COMPLENTARIOS.
             <small>Guia de Actividades Complementarias</small>
           </h1>
 

@@ -48,6 +48,9 @@
             <a href="https://twitter.com/TecNM_MX?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3ATecNM_MX&ref_url=https%3A%2F%2Fwww.itchina.edu.mx%2F">
               <i class="fab fa-twitter"></i>
             </a>
+            <a href="https://www.instagram.com/tecnmcampuschina/">
+              <i class="fab fa-instagram"></i>
+            </a>
 
           </div>
         </div>

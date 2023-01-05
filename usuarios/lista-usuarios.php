@@ -132,7 +132,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                     <td>
                       <?php echo $rol ?>
                     </td>
-                    <td><a href="delete.php?id=<?php echo $usuario['id']; ?>" class="btn__delete">Eliminar</a></td>
+                    <td>
+                    <a onclick="alerta_eliminar(<?php echo $usuario['id']; ?>)" class="btn btn-danger eliminaruser">Eliminar</a>
+                    </td>
                   </tr>
                 <?php
                 }

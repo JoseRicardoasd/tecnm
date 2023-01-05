@@ -4,7 +4,7 @@ session_start();
 
 
 
-if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
+if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
   //echo "existe sesión";
   //echo "bienvenido usuario";
   $correo_sesion = $_SESSION['u_usuario'];
@@ -33,7 +33,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-  
+
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -68,9 +68,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- cierre sesion por inactividad -->
-      <?php if ($_SESSION["ultimoAcceso"] >= 600) {
-        echo ("<meta http-equiv='refresh' content='600'>");
-      } ?>
+        <?php if ($_SESSION["ultimoAcceso"] >= 600) {
+          echo ("<meta http-equiv='refresh' content='600'>");
+        } ?>
         <section class="content-header">
           <h1>
             SISTEMA DE CRÉDITOS COMPLEMENTARIOS
@@ -316,14 +316,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
 
                       <?php endforeach ?>
-                      
-                      
+
+
                       <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno'] ?>" style="display:none">
                       <input type="file" name="archivo" required>
                       <br>
 
                       <label for="responsable">Seleccionar Evento</label> <br>
                       <select name="evento" id="evento" class="form-control" required>
+                        <option value="" disabled selected>Selecciona un evento</option>
                         <?php
 
                         $consulta = "SELECT id, title FROM events WHERE tipo = 'Modalidad academica'";
@@ -379,6 +380,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
                     <label for="responsable">Seleccionar Evento</label> <br>
                     <select name="evento" id="evento" class="form-control" required>
+                      <option value="" disabled selected>Selecciona un evento</option>
                       <?php
 
                       $consulta = "SELECT id, title FROM events WHERE tipo = 'Modalidad academica'";
@@ -433,6 +435,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
                 <label for="responsable">Seleccionar Evento</label> <br>
                 <select name="evento" id="evento" class="form-control" required>
+                  <option value="" disabled selected>Selecciona un evento</option>
                   <?php
 
                   $consulta = "SELECT id, title FROM events WHERE tipo = 'Conferencia y/o platica'";
@@ -486,6 +489,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Congreso, Seminario, Etc.'";
@@ -539,6 +543,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Curso y/o taller'";
@@ -592,6 +597,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'diplomado'";
@@ -646,6 +652,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de ciencias basicas'";
@@ -699,6 +706,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de ciencias basicas'";
@@ -752,6 +760,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de ciencias basicas'";
@@ -806,6 +815,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Creatividad e innovacion'";
@@ -860,6 +870,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Creatividad e innovacion'";
@@ -914,6 +925,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Creatividad e innovacion'";
@@ -968,6 +980,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de emprendedurismo'";
@@ -1022,6 +1035,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de emprendedurismo'";
@@ -1076,6 +1090,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Concurso de emprendedurismo'";
@@ -1131,6 +1146,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Diseño de prototipos'";
@@ -1185,6 +1201,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Diseño de software'";
@@ -1239,6 +1256,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
 
               <label for="responsable">Seleccionar Evento</label> <br>
               <select name="evento" id="evento" class="form-control" required>
+                <option value="" disabled selected>Selecciona un evento</option>
                 <?php
 
                 $consulta = "SELECT id, title FROM events WHERE tipo = 'Diseño de proyectos'";

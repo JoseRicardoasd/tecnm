@@ -29,7 +29,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-  
+
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -68,7 +68,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         } ?>
         <section class="content-header">
           <h1>
-            CONSTANCIAS DE CREDITOS COMPLEMENTARIOS
+            CONSTANCIA DE CRÉDITOS COMPLEMENTARIOS
             <small>Capturar los datos</small>
           </h1>
         </section>
@@ -76,7 +76,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         <!-- Main content -->
         <section class="content">
           <div class="panel panel-primary">
-            <div class="panel-heading">Capatura de Datos Para la Constancia</div>
+            <div class="panel-heading">Captura de Datos Para la Constancia</div>
             <div class="panel-body">
               <!-- <table class="table table-bordered table-hover table-condensed">
 
@@ -114,13 +114,13 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               </table>
 
               <div class="docs" id="docs">
-                <p id="credito_valor">Creditos totales: </p>
+                <p id="credito_valor">Créditos totales: </p>
 
               </div>
 
               <!-- formulario para guardar la constancia -->
               <form action="cntrlconstancia.php" method="POST">
-                
+
                 <p style="margin-top:20px">
                   <input type="text" name="jefe" maxlength="100" class="input_border input_largo" placeholder="Jefe(a)">
                   <br>
@@ -146,7 +146,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   créditos.
                 </p>
                 <br>
-                Se extiende la presente en el poblado de Chiná en la fecha 
+                Se extiende la presente en el poblado de Chiná en la fecha
                 <?php
                 $fecha = setlocale(LC_ALL, "es_ES");
                 $dias = date("d");
@@ -154,9 +154,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 $anio = date("Y");
                 $fecha = $dias . "-" . $mes . "-" . $anio;
 
-                echo   $dias . " dias de  " . $mes . " de " . $anio;?>
+                echo   $dias . " dias de  " . $mes . " de " . $anio; ?>
 
-                
+
                 <input type="text" name="fecha" value="<?php echo $fecha ?>" style="display: none;">
                 <center>
                   <td colspan="6"><input type="submit" class="btn btn-succes btn-lg" value="Guardar"></td>

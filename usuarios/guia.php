@@ -1,7 +1,7 @@
 <?php
 include('../app/config/config.php');
 session_start();
-if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
+if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   $correo_sesion = $_SESSION['u_usuario'];
   $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
   $query_sesion->execute();
@@ -28,7 +28,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-  
+
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -59,12 +59,12 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- cierre sesion por inactividad -->
-      <?php if ($_SESSION["ultimoAcceso"] >= 600) {
-        echo ("<meta http-equiv='refresh' content='600'>");
-      } ?>
+        <?php if ($_SESSION["ultimoAcceso"] >= 600) {
+          echo ("<meta http-equiv='refresh' content='600'>");
+        } ?>
         <section class="content-header">
           <h1>
-            SISTEMA DE CREDITOS COMPLENTARIOS
+            SISTEMA DE CRÉDITOS COMPLEMENTARIOS
             <small>Guia de Actividades Complementarias</small>
           </h1>
 
@@ -79,9 +79,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                 <thead>
                   <tr>
                     <th>Actividad</th>
-                    <th>Descripcion</th>
-                    <th>Credito por actividad</th>
-                    <th>Maximo Acomular</th>
+                    <th>Descripción</th>
+                    <th>Créditos por actividad</th>
+                    <th>Máximo Acumular</th>
                   </tr>
                 </thead>
 

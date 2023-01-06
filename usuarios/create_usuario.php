@@ -84,7 +84,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   <h3 class="panel-title">Agregar Usuario</h3>
                 </div>
                 <div class="panel-body">
-                  <form action="controlador_user.php" method="post" enctype="multipart/form-data">
+                  <form action="controlador_user.php" method="post" enctype="multipart/form-data" id="formulario">
                     <div class="row">
 
 
@@ -105,7 +105,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-phone"></i> TELÉFONO</label>
-                          <input type="number" class="form-control" name="telefono" required tabindex="7" maxlength="10">
+                          <input type="text" class="form-control" name="telefono" required tabindex="7" maxlength="10">
                         </div>
 
                         <div class="form-group">
@@ -124,7 +124,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> SEXO</label>
-                          <select name="sexo" id="" class="form-control" tabindex="4" style="text-transform:uppercase;">
+                          <select name="sexo" class="form-control" tabindex="4" style="text-transform:uppercase;">
                             <option value="" disabled selected>selecciona tu sexo</option>
                             <option value="Hombre">HOMBRE</option>
                             <option value="Mujer">MUJER</option>
@@ -133,7 +133,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-modal-window"></i>TIPO DE USUARIO</label>
-                          <select name="cargo" id="" class="form-control" required tabindex="6" style="text-transform:uppercase;">
+                          <select name="cargo" class="form-control" required tabindex="6" style="text-transform:uppercase;">
                             <option value="" disabled selected>selecciona el tipo de usuario</option>
                             <option value="Administrador">ADMINISTRADOR</option>
                             <option value="Maestro">MAESTRO</option>
@@ -142,7 +142,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-link"></i> NIVEL ACADÉMIDO</label>
-                          <select name="profesion" id="" class="form-control" required tabindex="8" style="text-transform:uppercase">
+                          <select name="profesion" class="form-control" required tabindex="8" style="text-transform:uppercase">
                             <option value="" disabled selected>selecciona el nivel academico</option>
                             <option value="Preparatoria">PREPARATORIA</option>
                             <option value="Tecnico">TECNICO</option>
@@ -155,21 +155,21 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-link"></i> CARGO</label>
                           <!-- <input type="text" class="form-control" name="area" required tabindex="10"> -->
-                          <select name="area" id="" class="form-control" required tabindex="9" style="text-transform:uppercase;">
+                          <select name="area" class="form-control" required tabindex="9" style="text-transform:uppercase;">
                             <option value="" disabled selected>selecciona el cargo</option>
-                            <option value="DOCENTE">DOCENTE</option>
-                            <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
-                            <option value="EXTERNO">EXTERNO</option>
+                            <option value="Docente">DOCENTE</option>
+                            <option value="Administrativo">ADMINISTRATIVO</option>
+                            <option value="Externo">EXTERNO</option>
                           </select>
                         </div>
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-lock"></i> CONTRASEÑA</label>
-                          <input type="password" class="form-control" name="contraseña" required tabindex="11" maxlength="15">
+                          <input type="password" class="form-control" name="contraseña" required tabindex="11" maxlength="15" id="contrauser">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-lock"></i> CONFIRMAR CONTRASEÑA</label>
-                          <input type="password" class="form-control" name="contraseñaConfirm" required tabindex="11" maxlength="15">
+                          <input type="password" class="form-control" name="contraseñaConfirm" required tabindex="11" maxlength="15" id="contraConfirmUser">
                         </div>
 
                         <br>
@@ -233,6 +233,23 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       }
     }
     document.getElementById('file').addEventListener('change', archivo, false);
+
+    //------------
+
+    const contraCorrecta = false;
+    const confirmContra = document.getElementById('contraConfirmUser');
+    const contra = document.getElementById('contrauser');
+    const formulario = document.getElementById('formulario');
+
+    formulario.addEventListener('submit', (e) => {
+      if (contra.value == confirmContra.value) {
+        contraCorrecta = true;
+      }
+      if (contraCorrecta == false) {
+        alert('Las contraseñas no coinciden');
+        e.preventDefault();
+      }
+    })
   </script>
 <?php
 } else {

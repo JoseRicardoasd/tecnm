@@ -57,13 +57,12 @@ if ($contraseña == $contraseñaConfirm) {
       echo '<script language="javascript">alert("No se pudo guardar. Inténtalo de nuevo.");window.location.href="create.php"</script>';
     }
   } else {
-
-    echo '<script language="javascript">alert("Usuario registrado");window.location.href="create.php"</script>';
+    echo '<script language="javascript">alert("Usuario guardado");window.location.href="create.php"</script>';
   }
-
-} else {
-  echo '<script language="javascript">alert("Las contraseñas no coinciden");window.location.href="create.php"</script>';
 }
+
+
+
 
 
 mysqli_close($conexion);

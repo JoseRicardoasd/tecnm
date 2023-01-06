@@ -84,7 +84,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   <h3 class="panel-title">Agregar alumno</h3>
                 </div>
 
-                <form action="controlador_create.php" method="post" enctype="multipart/form-data">
+                <form action="controlador_create.php" method="post" enctype="multipart/form-data" id="formulario">
                   <div class="panel-body">
                     <div class="row">
 
@@ -233,11 +233,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div> -->
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-lock"></i> CONTRASEÑA</label>
-                          <input type="password" class="form-control" name="contraseña" required tabindex="16" maxlength="15">
+                          <input type="password" class="form-control" name="contraseña" required tabindex="16" maxlength="15" id="contra">
                         </div>
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-eye-close"></i> CONFIRMAR CONTRASEÑA</label>
-                          <input type="password" class="form-control" required tabindex="17" maxlength="15" name="contraseñaConfirm">
+                          <input type="password" class="form-control" required tabindex="17" maxlength="15" name="contraseñaConfirm" id="confirmContra">
                         </div>
                         <br>
                         <div class="form-group">
@@ -291,6 +291,22 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       }
     }
     document.getElementById('file').addEventListener('change', archivo, false);
+
+    //-----------
+    const contraCorrecta = false;
+    const confirmContra = document.getElementById('confirmContra');
+    const contra = document.getElementById('contra');
+    const formulario = document.getElementById('formulario');
+
+    formulario.addEventListener('submit', (e) => {
+      if (contra.value == confirmContra.value) {
+        contraCorrecta = true;
+      }
+      if (contraCorrecta == false) {
+        alert('Las contraseñas no coinciden');
+        e.preventDefault();
+      }
+    })
   </script>
 <?php
 } else {

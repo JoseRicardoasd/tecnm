@@ -8,20 +8,23 @@
 
 <header class="main-header">
   <!-- Logo -->
-  <a href="index.php" class="logo">
+  <a href=" index.php" class="logo" style="background-color: #3c8dbc; display: inline-block;">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>Chiná</b></span>
     <!-- logo for regular state and mobile devices -->
     <span class="logo-lg"><b>Chiná</b>TecNM</span>
   </a>
+
+
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
+
     <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" style="display: inline-block;">
       <span class="sr-only">Toggle navigation</span>
     </a>
 
-    <div class="navbar-custom-menu">
+    <div class="navbar-custom-menu" style="display: inline-block;">
       <ul class="nav navbar-nav">
 
 

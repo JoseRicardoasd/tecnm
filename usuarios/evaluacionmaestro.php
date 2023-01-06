@@ -4,7 +4,7 @@ session_start();
 
 
 
-if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
+if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1) {
   //echo "existe sesión";
   //echo "bienvenido usuario";
   $correo_sesion = $_SESSION['u_usuario'];
@@ -33,7 +33,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-  
+
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -157,7 +157,7 @@ $valor = null;
 
                     <div class="container_input">
                       <label for="nombre" class="label_input">Nombre:</label>
-                      <input id="nombre_alumno" type="text" name="nombre" maxlength="100" class="input_2" required>
+                      <input id="nombre_alumno" type="text" name="nombre" maxlength="100" class="input_2" required readonly="readonly">
                     </div>
 
                     <div class="container_input">
@@ -268,7 +268,7 @@ $valor = null;
 
                   <div class="container_obervacionesGuardar">
                     <label for="obs" class="label_obs">Obervaciones</label>
-                    <textarea class="obs" name="obs"></textarea>
+                    <textarea class="obs" name="obs" style="text-transform: uppercase;"></textarea>
                     <div class="btn_guardar">
                       <button name="enviar" value="enviar" class="btn btn-success"> Guardar</button>
                     </div>

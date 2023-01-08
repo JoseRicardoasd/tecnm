@@ -1,6 +1,5 @@
-
 <head>
-  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/menu.css">
 </head>
 
 
@@ -15,47 +14,19 @@
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
-    <!-- Sidebar toggle button-->
-    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-      <span class="sr-only">Toggle navigation</span>
-    </a>
+    <div class="container_nav">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
 
-    <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
 
 
-        <!-- User Account: style can be found in dropdown.less -->
-        <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <?php
-            $caracter_a_buscar = ".";
-            $buscar = strpos($id_foto_perfil, $caracter_a_buscar);
-            if ($buscar == true) {
-              // echo "existe foto de perfil";
-            ?>
-              <img src="../usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
-              <?php
-            } else {
-              if ($id_sexo  == "Hombre") {
-              ?>
-
-                <img src="../public/images/avatar_hombre.png" class="user-image" alt="User Image">
-
-              <?php
-              } else {
-              ?>
-
-                <img src="../public/images/avatar_mujer.png" class="user-image" alt="User Image">
-
-            <?php
-              }
-            }
-            ?>
-            <span class="hidden-xs"><?php echo $id_nombres . " " . $id_ap_paterno . " " . $id_ap_materno; ?> </span>
-          </a>
-          <ul class="dropdown-menu">
-            <!-- User image -->
-            <li class="user-header">
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <?php
               $caracter_a_buscar = ".";
               $buscar = strpos($id_foto_perfil, $caracter_a_buscar);
@@ -80,27 +51,57 @@
                 }
               }
               ?>
+              <span class="hidden-xs"><?php echo $id_nombres . " " . $id_ap_paterno . " " . $id_ap_materno; ?> </span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <?php
+                $caracter_a_buscar = ".";
+                $buscar = strpos($id_foto_perfil, $caracter_a_buscar);
+                if ($buscar == true) {
+                  // echo "existe foto de perfil";
+                ?>
+                  <img src="../usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
+                  <?php
+                } else {
+                  if ($id_sexo  == "Hombre") {
+                  ?>
 
-              <p>
-                <?php echo $id_nombres . " " . $id_ap_paterno . " " . $id_ap_materno; ?> - <?php echo $id_carrera; ?>
-                <small><?php echo $id_numero_control; ?></small>
-              </p>
-            </li>
+                    <img src="../public/images/avatar_hombre.png" class="user-image" alt="User Image">
 
-            <!-- /.row -->
+                  <?php
+                  } else {
+                  ?>
+
+                    <img src="../public/images/avatar_mujer.png" class="user-image" alt="User Image">
+
+                <?php
+                  }
+                }
+                ?>
+
+                <p>
+                  <?php echo $id_nombres . " " . $id_ap_paterno . " " . $id_ap_materno; ?> - <?php echo $id_carrera; ?>
+                  <small><?php echo $id_numero_control; ?></small>
+                </p>
+              </li>
+
+              <!-- /.row -->
+          </li>
+          <!-- Menu Footer-->
+          <li class="user-footer">
+            <div class="pull-left">
+              <a href="../usuarios/perfil.php" class="btn btn-default btn-flat">Perfil</a>
+            </div>
+            <div class="pull-right">
+              <a href="../login/controller_cerrar_sesion.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
+            </div>
+          </li>
+        </ul>
         </li>
-        <!-- Menu Footer-->
-        <li class="user-footer">
-          <div class="pull-left">
-            <a href="../usuarios/perfil.php" class="btn btn-default btn-flat">Perfil</a>
-          </div>
-          <div class="pull-right">
-            <a href="../login/controller_cerrar_sesion.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
-          </div>
-        </li>
-      </ul>
-      </li>
-      </ul>
+        </ul>
+      </div>
     </div>
   </nav>
 </header>
@@ -172,7 +173,7 @@
         <li class="header">Evaluacion</li>
 
         <li><a href="generarconstancia_alumno.php"><i class="fa fa-book"></i> <span><b>Constancia</b></span></a></li>
-        
+
         <li class="header">Extraescolar</li>
 
         <li><a href="generarconstancia_alumno.php"><i class="fa fa-book"></i> <span><b>Actividades</b></span></a></li>
@@ -180,11 +181,11 @@
       </ul>
     </li>
 
-  
-<!-- creditos -->
-<li class="treeview">
+
+    <!-- creditos -->
+    <li class="treeview">
       <a href="#">
-      <span>DESARROLLADORES</span>
+        <span>DESARROLLADORES</span>
         <span class="pull-right-container">
           <i class="fa fa-angle-left pull-right"></i>
         </span>
@@ -198,31 +199,31 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-         
-           
+
+
           <ul class="treeview-menu">
-          <br>
-          <div class="row">
-            <img src="../public/desarrolladores/daniel.PNG" class="imagen">
-            <div class="col-12 version">
-            <b>ING. DANIEL JESÚS PÉREZ M.</b>
             <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 16830180 <br></b>
-            </div>
+            <div class="row">
+              <img src="../public/desarrolladores/daniel.PNG" class="imagen">
+              <div class="col-12 version">
+                <b>ING. DANIEL JESÚS PÉREZ M.</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 16830180 <br></b>
+              </div>
 
-          </div>
-          <br>
-          <div class="row">
-          <img src="../public/desarrolladores/emmanuel.PNG" class="imagen" >
-            <div class="col-12 version">
-            <b>ING. JOSÉ ESCAMILLA MORENO</b>
+            </div>
             <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 16830183 <br></b>
-            </div>
+            <div class="row">
+              <img src="../public/desarrolladores/emmanuel.PNG" class="imagen">
+              <div class="col-12 version">
+                <b>ING. JOSÉ ESCAMILLA MORENO</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 16830183 <br></b>
+              </div>
 
-          </div>
+            </div>
           </ul>
         </li>
 
@@ -235,83 +236,82 @@
             </span>
           </a>
           <ul class="treeview-menu">
-          <br>
-
-          <div class="row">
-          <img src="../public/desarrolladores/diana.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b>DIANA L. MADRIGAL BENITEZ</b>
             <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830012 <br></b>
+
+            <div class="row">
+              <img src="../public/desarrolladores/diana.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b>DIANA L. MADRIGAL BENITEZ</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830012 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/chan.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b>JÓSE RICARDO CHAN MARIN</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830002 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/cuca.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b>JUAN ANTONIO CU CAHUICH</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830001 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/farfan.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b class="tres">DANIEL FARFÁN CAHUICH</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830027 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/boton.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b>CARLOS FRANCISCO BOTON</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830248 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/kevin.jfif" class="imagen">
+              <div class="col-12 version">
+                <b>KEVIN BONIFAZ HERNÁNDEZ</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830014 <br></b>
+              </div>
+
+              <br>
+              <img src="../public/desarrolladores/felipe.jpeg" class="imagen">
+              <div class="col-12 version">
+                <b class="dos">FELIPE GIL MAYOR</b>
+                <br>
+                <b>INGENIERÍA EN INFORMÁTICA <br></b>
+                <b class="uno">MATRÍCULA 19830007 <br></b>
+              </div>
+
+
+
             </div>
 
-            <br>
-            <img src="../public/desarrolladores/chan.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b>JÓSE RICARDO CHAN MARIN</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830002 <br></b>
-            </div>
-
-            <br>
-            <img src="../public/desarrolladores/cuca.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b>JUAN ANTONIO CU CAHUICH</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830001 <br></b>
-            </div>
-
-            <br>
-            <img src="../public/desarrolladores/farfan.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b class="tres">DANIEL FARFÁN CAHUICH</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830027 <br></b>
-            </div>
-
-            <br>
-            <img src="../public/desarrolladores/boton.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b>CARLOS FRANCISCO BOTON</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830248 <br></b>
-            </div>
-
-            <br>
-            <img src="../public/desarrolladores/kevin.jfif"  class="imagen">            
-          <div class="col-12 version">
-            <b>KEVIN BONIFAZ HERNÁNDEZ</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830014 <br></b>
-            </div>
-
-            <br>
-            <img src="../public/desarrolladores/felipe.jpeg"  class="imagen">            
-          <div class="col-12 version">
-            <b class="dos">FELIPE GIL MAYOR</b>
-            <br>
-              <b >INGENIERÍA EN INFORMÁTICA <br></b>
-              <b class="uno">MATRÍCULA 19830007 <br></b>
-            </div>
+          </ul>
 
 
 
-          </div>
-      
-      </ul>
-        
 
-
-        
 
 
   </section>
   <!-- /.sidebar -->
 </aside>
-

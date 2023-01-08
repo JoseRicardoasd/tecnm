@@ -125,16 +125,16 @@ if ($tiempo_transcurrido >= 600) {
                         <input type="text" class="form-control" name="telefono" value="<?php echo $sesion_usuario['telefono']; ?>" required tabindex="11">
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-map-marker"></i> COLONIA</label>
-                        <input type="text" class="form-control" name="colonia" value="<?php echo $sesion_usuario['colonia']; ?>" required style="text-transform: uppercase;" tabindex="13">
-                      </div>
-                      <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-equalizer"></i> CÓDIGO POSTAL</label>
-                        <input type="text" class="form-control" name="codigo_postal" value="<?php echo $sesion_usuario['codigo_postal']; ?>" required tabindex="15">
-                      </div>
-                      <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-equalizer"></i> CIUDAD O LOCALIDAD</label>
-                        <input type="text" class="form-control" name="entidad" value="<?php echo $sesion_usuario['entidad']; ?>" required style="text-transform: uppercase;" tabindex="17">
+                        <input type="text" class="form-control" name="entidad" value="<?php echo $sesion_usuario['entidad']; ?>" required style="text-transform: uppercase;" tabindex="13">
+                      </div>
+                      <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-map-marker"></i>CALLE</label>
+                        <input type="text" class="form-control" name="calle" value="<?php echo $sesion_usuario['calle']; ?>" required style="text-transform: uppercase;" tabindex="15">
+                      </div>
+                      <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-education"></i> NIVEL ESCOLAR</label>
+                        <input type="text" class="form-control" name="nivel_escolar" value="<?php echo $sesion_usuario['nivel_escolar']; ?>" required style="text-transform: uppercase;" tabindex="17">
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-picture"></i> FOTO DE PERFIL</label>
@@ -190,7 +190,7 @@ if ($tiempo_transcurrido >= 600) {
                       </div>
 
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-map-marker"></i> CIUDAD</label>
+                        <label for=""><i class="glyphicon glyphicon-map-marker"></i> ESTADO</label>
                         <select name="ciudad" id="" class="form-control" required style="text-transform: uppercase;" tabindex="12">
                           <option value="elegir">Elegir una Opción</option>
                           <option value="Aguascalientes">Aguascalientes</option>
@@ -228,12 +228,12 @@ if ($tiempo_transcurrido >= 600) {
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-map-marker"></i>CALLE</label>
-                        <input type="text" class="form-control" name="calle" value="<?php echo $sesion_usuario['calle']; ?>" required style="text-transform: uppercase;" tabindex="14">
+                        <label for=""><i class="glyphicon glyphicon-map-marker"></i> COLONIA</label>
+                        <input type="text" class="form-control" name="colonia" value="<?php echo $sesion_usuario['colonia']; ?>" required style="text-transform: uppercase;" tabindex="14">
                       </div>
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-education"></i> NIVEL ESCOLAR</label>
-                        <input type="text" class="form-control" name="nivel_escolar" value="<?php echo $sesion_usuario['nivel_escolar']; ?>" required style="text-transform: uppercase;" tabindex="16">
+                        <label for=""><i class="glyphicon glyphicon-equalizer"></i> CÓDIGO POSTAL</label>
+                        <input type="text" class="form-control" name="codigo_postal" value="<?php echo $sesion_usuario['codigo_postal']; ?>" required tabindex="16">
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-education"></i> CRÉDITO ACADEMICO</label>
@@ -260,15 +260,6 @@ if ($tiempo_transcurrido >= 600) {
 
               </div>
               </form>
-
-
-
-
-
-
-
-
-
 
 
             </div>

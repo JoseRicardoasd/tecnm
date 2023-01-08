@@ -237,15 +237,15 @@ if ($tiempo_transcurrido >= 600) {
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-education"></i> CRÉDITO ACADEMICO</label>
-                        <input type="text" class="form-control" tabindex="18">
+                        <input type="text" class="form-control" tabindex="18" disabled>
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-education"></i> CRÉDITO EXTRAESCOLAR</label>
-                        <input type="text" class="form-control" tabindex="20">
+                        <input type="text" class="form-control" tabindex="20" disabled>
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-education"></i> CRÉDITO TUTORIA</label>
-                        <input type="text" class="form-control" tabindex="21">
+                        <input type="text" class="form-control" tabindex="21" disabled>
                       </div>
                       <br>
                       <div class="form-group">

@@ -91,6 +91,16 @@ $correo_sesion = $_SESSION['u_usuario'];
   <?php include ('../layout/head.php'); ?>
   <title>Asignacion de responsables</title>
   <link rel="stylesheet" href="../css/StyleNew.css">
+   <script>
+    function confirmacion(){
+        var respuesta = confirm("¿Deseas enviar esta informacion?");
+        if (respuesta==true){
+            return true;
+        }else{
+        return false;
+    }
+    } 
+  </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
@@ -122,28 +132,7 @@ $correo_sesion = $_SESSION['u_usuario'];
 
                                     <form id="combo" name="combo" action="guarda.php" method="POST">
                                         <div class="col-md-6">
-                                        <label for="">SELECCIONA CATEGORIA</label>
-					
-                                        <select class="form-control" name="cbx_categoria" id="cbx_categoria">
-                                            <option value="">SELECCIONA CATEGORIA</option>
-                                            <?php while($tirar = $resultado->fetch_assoc()) {?>
-                                                <option value="<?php echo $tirar['id'] ?>"><?php echo $tirar['nombreCategoria']?></option>
-                                            <?php }?>
-                                        </select>
-
-                                        <br>
-
-                                        <div>
-                                            <label for="">SELECIONA ACTIVIDAD</label>
-                                        <br>
-                                        <select class="form-control" name="cbx_actividad" id="cbx_actividad">
-                                            <option value="">SIN ACTIVIDAD</option>
-                                        </select>
-                                        </div>
-                                        </div>
-					    
-						<div class="col-md-6">
-						<label for="">NOMBRE DEL ENCARGADO</label>
+                                        <label for="">NOMBRE DEL ENCARGADO</label>
                                           <input class="form-control" type="text" name="" id="" value="<?php echo $nombreCompleto ?>">
                                           <input type="hidden" name="id_usuario" value="<?php echo $id ?>">
 
@@ -152,14 +141,37 @@ $correo_sesion = $_SESSION['u_usuario'];
                                           <label for="">Correo</label>
                                           <input class="form-control" type="text" name="" id="" value="<?php echo $correo ?>">
 
+                                          <br>
+                                       
+                                        <br>
 
                                         
-                                          <br>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                        <label for="">SELECCIONA CATEGORIA</label>
+
+                                        <select class="form-control" name="cbx_categoria" id="cbx_categoria">
+                                         <option value="">SELECCIONA CATEGORIA</option>
+                                         <?php while($tirar = $resultado->fetch_assoc()) {?>
+                                         <option value="<?php echo $tirar['id'] ?>"><?php echo $tirar['nombreCategoria']?></option>
+                                         <?php }?>
+                                             </select>
+
+                                              <div>
+                                          <label for="">SELECIONA ACTIVIDAD</label>
+                                              <br>
+                                             <select class="form-control" name="cbx_actividad" id="cbx_actividad">
+                                            <option value="">SIN ACTIVIDAD</option>
+                                                  </select>
+                                              </div>
+                                        
+                                              <br>
 
                                           <div class="form-group">
                               
                                             <a href="extraexcolar.php" class="btn btn-danger btn-lg">Cancelar</a>
-                                            <input type="submit" class="btn btn-primary btn-lg" value="Registrar">
+                                            <input type="submit" class="btn btn-primary btn-lg"  onclick="return confirmacion()" value="Registrar">
                                        
                                         </div>
 

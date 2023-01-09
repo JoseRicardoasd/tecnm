@@ -21,6 +21,8 @@ $fechaHora = date('Y-m-d h:i:s');
 $estado = 1;
 $cargo = 2;
 
+//
+
 
 //encriptar contraseña
 $contrasenia = password_hash($contrasenia, PASSWORD_DEFAULT, ['cost' => 10]);

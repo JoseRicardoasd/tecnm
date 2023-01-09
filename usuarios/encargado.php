@@ -116,34 +116,13 @@ $correo_sesion = $_SESSION['u_usuario'];
                         <div class="panel-heading">
                             <h3 class="panel-title">Agregar Campos Extraescolares</h3>
                             </div>
-                            <div class="panel-body">
+                           <div class="panel-body">
                                     <div class="row">
                                       
 
                                     <form id="combo" name="combo" action="guarda.php" method="POST">
                                         <div class="col-md-6">
-                                        <label for="">SELECCIONA CATEGORIA</label>
-					
-                                        <select class="form-control" name="cbx_categoria" id="cbx_categoria">
-                                            <option value="">SELECCIONA CATEGORIA</option>
-                                            <?php while($tirar = $resultado->fetch_assoc()) {?>
-                                                <option value="<?php echo $tirar['id'] ?>"><?php echo $tirar['nombreCategoria']?></option>
-                                            <?php }?>
-                                        </select>
-
-                                        <br>
-
-                                        <div>
-                                            <label for="">SELECIONA ACTIVIDAD</label>
-                                        <br>
-                                        <select class="form-control" name="cbx_actividad" id="cbx_actividad">
-                                            <option value="">SIN ACTIVIDAD</option>
-                                        </select>
-                                        </div>
-                                        </div>
-					    
-						<div class="col-md-6">
-						<label for="">NOMBRE DEL ENCARGADO</label>
+                                        <label for="">NOMBRE DEL ENCARGADO</label>
                                           <input class="form-control" type="text" name="" id="" value="<?php echo $nombreCompleto ?>">
                                           <input type="hidden" name="id_usuario" value="<?php echo $id ?>">
 
@@ -152,20 +131,40 @@ $correo_sesion = $_SESSION['u_usuario'];
                                           <label for="">Correo</label>
                                           <input class="form-control" type="text" name="" id="" value="<?php echo $correo ?>">
 
+                                          <br>
+                                       
+                                        <br>
 
                                         
-                                          <br>
-
-                                          <div class="form-group">
-                              
-                                            <a href="extraexcolar.php" class="btn btn-danger btn-lg">Cancelar</a>
-                                            <input type="submit" class="btn btn-primary btn-lg" value="Registrar">
-                                       
                                         </div>
 
-                                        </div>
-                                    </form>
 
+                                        
+                                           <div class="col-md-6">
+                                        <label for="">SELECCIONA CATEGORIA</label>
+
+                                        <select class="form-control" name="cbx_categoria" id="cbx_categoria">
+                                         <option value="">SELECCIONA CATEGORIA</option>
+                                         <?php while($tirar = $resultado->fetch_assoc()) {?>
+                                         <option value="<?php echo $tirar['id'] ?>"><?php echo $tirar['nombreCategoria']?></option>
+                                         <?php }?>
+                                             </select>
+
+                                              <div>
+                                          <label for="">SELECIONA ACTIVIDAD</label>
+                                              <br>
+                                             <select class="form-control" name="cbx_actividad" id="cbx_actividad">
+                                            <option value="">SIN ACTIVIDAD</option>
+                                                  </select>
+                                              </div>
+                                        
+                                              <br>
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                                         
                                     </div>
                                 </div>

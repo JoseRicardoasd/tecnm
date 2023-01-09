@@ -116,11 +116,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                         <div class="panel-heading">
                             <h3 class="panel-title">Agregar Campos Extraescolares</h3>
                             </div>
-                           <div class="panel-body">
-                                    <div class="row">
-                                      
-
-                                    <form id="combo" name="combo" action="guarda.php" method="POST">
+			    <form id="combo" name="combo" action="guarda.php" method="POST">
                                         <div class="col-md-6">
                                         <label for="">NOMBRE DEL ENCARGADO</label>
                                           <input class="form-control" type="text" name="" id="" value="<?php echo $nombreCompleto ?>">
@@ -138,9 +134,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                                         
                                         </div>
 
-
-                                        
-                                           <div class="col-md-6">
+                                        <div class="col-md-6">
                                         <label for="">SELECCIONA CATEGORIA</label>
 
                                         <select class="form-control" name="cbx_categoria" id="cbx_categoria">
@@ -160,16 +154,18 @@ $correo_sesion = $_SESSION['u_usuario'];
                                         
                                               <br>
 
+                                          <div class="form-group">
+                              
+                                            <a href="extraexcolar.php" class="btn btn-danger btn-lg">Cancelar</a>
+                                            <input type="submit" class="btn btn-primary btn-lg"  onclick="return confirmacion()" value="Registrar">
+                                       
+                                        </div>
+
+                                        </div>
+                                    </form>
+                        
                                         
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                                    
                     </div>
                 </div>
             </div>

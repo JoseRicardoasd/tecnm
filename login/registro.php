@@ -46,7 +46,7 @@
       <div class="contact-form">
 
 
-        <form action="controlador_create.php" method="post" enctype="multipart/form-data">
+        <form action="./controlador_create.php" method="post" enctype="multipart/form-data">
           <div class="row">
 
             <h3 class="title">Registro</h3>

@@ -163,6 +163,10 @@ $correo_sesion = $_SESSION['u_usuario'];
 
                                         </div>
                                     </form>
+			         </div>
+                                </div>
+                            </div>
+                        </form>
                         
                                         
                                     

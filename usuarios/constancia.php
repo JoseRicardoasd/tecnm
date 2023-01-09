@@ -136,13 +136,13 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 <p class="parrafo_inputs">
                   El que se suscribe <input type="text" name="suscribe" maxlength="100" class="input_border input_largo" placeholder="Suscribe" required>, por
                   este medio se permite hacer de su conocimiento que
-                  <br> el estudiante <input type="text" name="alumno" maxlength="100" required class="input_border input_largo" placeholder="Nombre alumno">
-                  con número de control <input type="text" name="matricula" required maxlength="100" class="input_border input_corto" placeholder="Matricula alumno"><br>
-                  de la carrera de <input type="text" name="carrera" maxlength="100" required class="input_border input_largo" placeholder="Carrera del alumno">
-                  ha cumplido su actividad complementaria con el nivel de desempeño<br> <input type="text" name="desempe" maxlength="100" class="input_border" placeholder="Desempeño">
+                  <br> el estudiante <input type="text" name="alumno" maxlength="100" required class="input_border input_largo" placeholder="Nombre alumno" id="nombre">
+                  con número de control <input type="text" name="matricula" required maxlength="100" class="input_border input_corto" placeholder="Matricula alumno" id="matricula"><br>
+                  de la carrera de <input type="text" name="carrera" maxlength="100" required class="input_border input_largo" placeholder="Carrera del alumno" id="carrera">
+                  ha cumplido su actividad complementaria con el nivel de desempeño<br> <input type="text" name="desempe" maxlength="100" class="input_border" placeholder="Desempeño" id="desem">
                   y un valor numérico de <input type="text" name="valor" maxlength="100" required class="input_border input_corto" placeholder="Valor">,
                   durante el periodo escolar <input type="text" name="ciclo" maxlength="100" required class="input_border input_corto" placeholder="Ciclo escolar">
-                  con un valor curricular de <input type="text" name="valorcurri" maxlength="100" required class="input_border input_corto" placeholder="Valor Curricular">
+                  con un valor curricular de <input type="number" name="valorcurri" maxlength="100" required class="input_border input_corto" placeholder="Valor Curricular" id="creditoss">
                   créditos.
                 </p>
                 <br>
@@ -160,7 +160,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                 <input type="text" name="fecha" value="<?php echo $fecha ?>" style="display: none;">
                 <center>
-                  <td colspan="6"><input type="submit" class="btn btn-success btn-lg" value="Guardar" id="btnGuardar"></td>
+                  <td colspan="6"><input type="submit" class="btn btn-success mt-5 btn-lg" value="Guardar" id="btnGuardar"></td>
                 </center>
               </form>
               <div id="content" class="col-lg-12">
@@ -210,6 +210,18 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         },
         //funcion que recibe los datos que el archivo "datos_alumno_evaluación.php" devuelve, esto los devuelve como un objeto llamado "valores"
         success: function(datos) {
+
+          //INPUTS DEL ALUMNO PARA LLENAR LA CONSTANCIA--------------
+          const nombre = document.getElementById('nombre');
+          const matricula = document.getElementById('matricula');
+          const correo = document.getElementById('correo');
+          const carrera = document.getElementById('carrera');
+          //const desem = document.getElementById('desem');
+          const creditos = document.getElementById('creditoss');
+
+          //----------------------------------------------------
+
+
           let btn = document.getElementById('btnGuardar');
           //creditos
           const valor = document.getElementById("credito_valor");
@@ -220,20 +232,21 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           const docs = document.getElementById("docs");
           const body_tabla = document.getElementById("body_table");
           console.log(datos);
-          datos.forEach(element => {
+
+          for (let i = 1; i < datos.length; i++) {
             //se crean los elementos tr y td de la tabla
             let tr = document.createElement('tr');
             let td1 = document.createElement('td');
 
             //se agregan los valores correspondientes en la posicion correspondiente de la tabla
-            td1.innerHTML = element['nombre'];
-            console.log(element['nombre']);
+            td1.innerHTML = datos[i]['nombre'];
+            console.log(datos[i]['nombre']);
             let td2 = document.createElement('td');
-            td2.innerHTML = element['observacion'];
+            td2.innerHTML = datos[i]['observacion'];
             let td3 = document.createElement('td');
-            td3.innerHTML = element['desmp'];
+            td3.innerHTML = datos[i]['desmp'];
             let td4 = document.createElement('td');
-            td4.innerHTML = element['valor'];
+            td4.innerHTML = datos[i]['valor'];
             //PDFS---------------
             let div = document.createElement('div');
             div.style = "height:30px; margin-right:30px";
@@ -241,8 +254,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
             img.src = "../images/pdf_logo.png";
             img.style = "width:20px; heigth:20px; margin-right:7px";
             let a = document.createElement('a');
-            a.href = `./cargas/${element[4]}`;
-            a.innerHTML = element[6];
+            a.href = `./cargas/${datos[i][4]}`;
+            a.innerHTML = datos[i][6];
             a.target = "_blank";
             a.style = "margin-right:10px";
             div.appendChild(img);
@@ -250,9 +263,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
             div.appendChild(a);
             //-----------------
             let td5 = document.createElement('td');
-            td5.innerHTML = element['title'];
+            td5.innerHTML = datos[i]['title'];
             let td6 = document.createElement('td');
-            td6.innerHTML = element['credito'];
+            td6.innerHTML = datos[i]['credito'];
             a.appendChild(td5);
             //se meten todos los td en el elemento tr
             tr.appendChild(td1);
@@ -265,15 +278,18 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
             body_tabla.appendChild(tr);
             //se agrega el div con los pdfs en donde va
             docs.appendChild(div);
-          });
+
+          }
 
           //obtener el credito, el cual se encuentra en la posicion 5 del arreglo "datos", despues sumo todos los creditos y los guardo en una variable para mostrarlos en pantalla --------------------------
-          datos.forEach(element => {
+
+          for (let e = 1; e < datos.length; e++) {
             //variable que convierte los creditos a numeros
-            let numero = Number(element[5]);
+            let numero = Number(datos[e][5]);
             //se hace la suma de los creditos
             valorFinal = valorFinal + numero;
-          });
+
+          }
           //se crea un elemento b
           let b = document.createElement('b');
           //se le agrega al elemento creado la suma de los creditos
@@ -284,6 +300,38 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           if (valorFinal < 2) {
             btn.disabled = true;
           }
+          //INPUTS DEL ALUMNO PARA LLENAR LA CONSTANCIA--------------
+          //nombre
+          nombre.value = datos[0]['nombres'] + " " + datos[0]['ap_paterno'] + datos[0]['ap_materno'];
+          nombre.setAttribute("readonly", "");
+          nombre.style.backgroundColor = "antiquewhite";
+          nombre.style.color = "black";
+
+          //matricula
+          matricula.value = datos[0]['numero_control'];
+          matricula.setAttribute("readonly", "");
+          matricula.style.backgroundColor = "antiquewhite";
+          matricula.style.color = "black";
+
+          //carrera
+          carrera.value = datos[0]['carrera'];
+          carrera.setAttribute("readonly", "");
+          carrera.style.backgroundColor = "antiquewhite";
+          carrera.style.color = "black";
+
+          //correo
+          correo.value = datos[0]['correo'];
+          correo.setAttribute("readonly", "");
+          correo.style.backgroundColor = "antiquewhite";
+          correo.style.color = "black";
+
+          //creditos
+          creditos.value = valorFinal;
+          creditos.setAttribute("readonly", "");
+          creditos.style.backgroundColor = "antiquewhite";
+          creditos.style.color = "black";
+
+          //---------------------------------------------------
         }
 
 

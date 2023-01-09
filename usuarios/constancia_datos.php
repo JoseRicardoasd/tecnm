@@ -14,6 +14,12 @@ if (isset($_POST['buscar'])) {
   $credito = array();
   $title = array();
 */
+  $alumno_input = array();
+
+  $alumno = mysqli_query($conexion, "SELECT nombres, ap_paterno, ap_materno, numero_control, carrera FROM tb_usuarios where numero_control = '$matricula_buscar'");
+  while ($alumnos_array = mysqli_fetch_array($alumno)) {
+    $datos[] = $alumnos_array;
+  }
 
   $resultados = mysqli_query($conexion, "SELECT nombre, observacion, desmp, valor, ruta_doc, credito, title FROM creditos INNER JOIN evidencia ON creditos.id_evento = evidencia.id_evento INNER JOIN events ON events.id = evidencia.id_evento WHERE evidencia.numero_control = '$matricula_buscar' AND creditos.matricula = '$matricula_buscar'");
   while ($consulta = mysqli_fetch_array($resultados)) {

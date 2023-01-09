@@ -134,7 +134,18 @@ if ($tiempo_transcurrido >= 600) {
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-education"></i> NIVEL ESCOLAR</label>
-                        <input type="text" class="form-control" name="nivel_escolar" value="<?php echo $sesion_usuario['nivel_escolar']; ?>" required style="text-transform: uppercase;" tabindex="17">
+                        <!-- <input type="text" class="form-control" name="nivel_escolar" value="<?php echo $sesion_usuario['nivel_escolar']; ?>" required style="text-transform: uppercase;" tabindex="17"> -->
+
+                        <select class="form-control" name="nivel_escolar" value="<?php echo $sesion_usuario['nivel_escolar']; ?>" required style="text-transform: uppercase;" tabindex="17">
+                          <option value="">ELIGE UNA OPCION</option>
+                          <option value="PREPARATORIA">PREPARATORIA</option>
+                          <option value="TECNICO">TECNICO</option>
+                          <option value="INGENIERIA">INGENIERIA</option>
+                          <option value="LICENCIATURA">LICENCIATURA</option>
+                          <option value="POSGRADO">POSGRADO</option>
+                          <option value="DOCTORADO">DOCTORADO</option>
+                        </select>
+
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-picture"></i> FOTO DE PERFIL</label>

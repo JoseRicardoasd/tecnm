@@ -132,20 +132,17 @@ if ($tiempo_transcurrido >= 600) {
                         <label for=""><i class="glyphicon glyphicon-map-marker"></i>CALLE</label>
                         <input type="text" class="form-control" name="calle" value="<?php echo $sesion_usuario['calle']; ?>" required style="text-transform: uppercase;" tabindex="15">
                       </div>
-                      <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-education"></i> NIVEL ESCOLAR</label>
-                        <!-- <input type="text" class="form-control" name="nivel_escolar" value="<?php echo $sesion_usuario['nivel_escolar']; ?>" required style="text-transform: uppercase;" tabindex="17"> -->
-
-                        <select class="form-control" name="nivel_escolar" value="<?php echo $sesion_usuario['nivel_escolar']; ?>" required style="text-transform: uppercase;" tabindex="17">
-                          <option value="">ELIGE UNA OPCION</option>
-                          <option value="PREPARATORIA">PREPARATORIA</option>
-                          <option value="TECNICO">TECNICO</option>
-                          <option value="INGENIERIA">INGENIERIA</option>
-                          <option value="LICENCIATURA">LICENCIATURA</option>
-                          <option value="POSGRADO">POSGRADO</option>
-                          <option value="DOCTORADO">DOCTORADO</option>
+                        <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-education"></i> Nivel Escolar</label>
+                        <select name="nivel_escolar" id="" class="form-control" required>
+                          <option value="Seleccione opción"><?php echo $sesion_usuario['nivel_escolar']; ?>ELIGIR UNA OPCIÓN</option>
+                          <option value="Primaria">Primaria</option>
+                          <option value="Secundaria">Secundaria</option>
+                          <option value="Preparatoria">Preparatoria</option>
+                          <option value="Licenciatura">Licenciatura</option>
+                          <option value="Maestría">Maestría</option>
+                          <option value="Doctorado">Doctorado</option>
                         </select>
-
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-picture"></i> FOTO DE PERFIL</label>

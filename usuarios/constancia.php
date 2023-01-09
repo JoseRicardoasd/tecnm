@@ -302,7 +302,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           }
           //INPUTS DEL ALUMNO PARA LLENAR LA CONSTANCIA--------------
           //nombre
-          nombre.value = datos[0]['nombres'] + " " + datos[0]['ap_paterno'] + datos[0]['ap_materno'];
+          nombre.value = datos[0]['nombres'] + " " + datos[0]['ap_paterno'] + " " +
+            datos[0]['ap_materno'];
           nombre.setAttribute("readonly", "");
           nombre.style.backgroundColor = "antiquewhite";
           nombre.style.color = "black";

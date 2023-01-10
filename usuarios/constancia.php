@@ -139,10 +139,17 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   <br> el estudiante <input type="text" name="alumno" maxlength="100" required class="input_border input_largo" placeholder="Nombre alumno" id="nombre">
                   con número de control <input type="text" name="matricula" required maxlength="100" class="input_border input_corto" placeholder="Matricula alumno" id="matricula"><br>
                   de la carrera de <input type="text" name="carrera" maxlength="100" required class="input_border input_largo" placeholder="Carrera del alumno" id="carrera">
-                  ha cumplido su actividad complementaria con el nivel de desempeño<br> <input type="text" name="desempe" maxlength="100" class="input_border" placeholder="Desempeño" id="desem">
+                  ha cumplido su actividad complementaria con el nivel de desempeño<br> <select required name="desempe" id="desem" class="input_border" style="color:black">
+                    <option value="" selected disabled>Desempeño</option>
+                    <option value="INSUFICIENTE">INSUFICIENTE</option>
+                    <option value="SUFICIENTE">SUFICIENTE</option>
+                    <option value="BUENO">BUENO</option>
+                    <option value="NOTABLE">NOTABLE</option>
+                    <option value="EXCELENTE">EXCELENTE</option>
+                  </select>
                   y un valor numérico de <input type="text" name="valor" maxlength="100" required class="input_border input_corto" placeholder="Valor">,
                   durante el periodo escolar <input type="text" name="ciclo" maxlength="100" required class="input_border input_corto" placeholder="Ciclo escolar">
-                  con un valor curricular de <input type="number" name="valorcurri" maxlength="100" required class="input_border input_corto" placeholder="Valor Curricular" id="creditoss">
+                  con un valor curricular de <input type="number" name="valorcurri" maxlength="100" required class="input_border input_corto" id="credi">
                   créditos.
                 </p>
                 <br>
@@ -217,7 +224,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           const correo = document.getElementById('correo');
           const carrera = document.getElementById('carrera');
           //const desem = document.getElementById('desem');
-          const creditos = document.getElementById('creditoss');
+          const creditos = document.getElementById('credi');
 
           //----------------------------------------------------
 
@@ -301,6 +308,12 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
             btn.disabled = true;
           }
           //INPUTS DEL ALUMNO PARA LLENAR LA CONSTANCIA--------------
+          //creditos
+          creditos.value = valorFinal;
+          creditos.setAttribute("readonly", "");
+          creditos.style.backgroundColor = "antiquewhite";
+          creditos.style.color = "black";
+
           //nombre
           nombre.value = datos[0]['nombres'] + " " + datos[0]['ap_paterno'] + " " +
             datos[0]['ap_materno'];
@@ -326,11 +339,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           correo.style.backgroundColor = "antiquewhite";
           correo.style.color = "black";
 
-          //creditos
-          creditos.value = valorFinal;
-          creditos.setAttribute("readonly", "");
-          creditos.style.backgroundColor = "antiquewhite";
-          creditos.style.color = "black";
+
 
           //---------------------------------------------------
         }

@@ -88,7 +88,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                 <th>Nombre Completo</th>
 
                 <th>Correo Institucional</th>
-                <th>Caro</th>
+                <th>Cargo</th>
                 <th>Acciones</th>
 
 

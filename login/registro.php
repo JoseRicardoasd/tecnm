@@ -46,7 +46,7 @@
       <div class="contact-form">
 
 
-        <form action="./controlador_create.php" method="post" enctype="multipart/form-data">
+        <form action="./controlador_create.php" method="post" enctype="multipart/form-data" class="Registro">
           <div class="row">
 
             <h3 class="title">Registro</h3>
@@ -82,7 +82,8 @@
               <span>Contraseña</span>
             </div>
             <div class="form-group">
-              <input type="submit" value="Registrarse" class="btn btn-primary btn-block">
+              <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+              <!-- <input type="submit" value="Registrarse" class="btn btn-primary btn-block"> -->
               <a href="../index.php" class="btn btn-default btn-block">Cancelar</a>
             </div>
         </form>
@@ -91,6 +92,38 @@
   </div>
 
   <script src="app.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- <script src="js/sweetalert.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>
+
+<script>
+  $('.Registro').submit(function(e) {
+    e.preventDefault();
+    Swal.fire({
+      title: '¿DESEAS GUARDAR LOS DATOS?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'SI, DESEO GUARDAR'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'DATOS GUARDADOS CORRECTAMENTE',
+          icon: 'success',
+          showConfirmButton: false,
+        })
+        setTimeout(() => {
+          this.submit();
+        }, "1000")
+
+      }
+
+    })
+
+  });
+</script>

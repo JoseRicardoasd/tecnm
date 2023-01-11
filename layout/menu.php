@@ -43,7 +43,7 @@
                 if ($buscar == true) {
                   // echo "existe foto de perfil";
                 ?>
-                  <img src="../usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
+                  <img src="data:imagen/png;base64,<?php echo base64_encode($sesion_usuario['foto']) ?>" class="user-image" alt="img_bd">
                   <?php
                 } else {
                   if ($id_sexo  == "Hombre") {
@@ -128,7 +128,7 @@
         if ($buscar == true) {
           // echo "existe foto de perfil";
         ?>
-          <img src="<?php echo $URL; ?>../usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
+          <img src="src="data:imagen/png;base64,<?php echo base64_encode($sesion_usuario['foto']) ?>" class="user-image" alt="User Image">
           <?php
         } else {
           if ($id_sexo  == "Hombre") {

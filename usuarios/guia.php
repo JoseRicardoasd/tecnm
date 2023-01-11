@@ -1,10 +1,12 @@
 <?php
 include('../app/config/config.php');
+session_start();
+
 $sentencia = $pdo->query("SELECT * FROM guia;");
 $actividades = $sentencia->fetchAll(PDO::FETCH_OBJ);
 //print_r($actividades);
 
-session_start();
+
 if (isset($_SESSION['u_usuario'])) {
   $correo_sesion = $_SESSION['u_usuario'];
   $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");

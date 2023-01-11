@@ -60,7 +60,7 @@ if ($contraseña == $contraseñaConfirm) {
       echo '<script language="javascript">alert("No se pudo guardar. Inténtalo de nuevo.");window.location.href="create_usuario.php"</script>';
     }
   } else {
-    echo '<script language="javascript">alert("Usuario registrado");window.location.href="create_usuario.php"</script>';
+    echo '<script language="javascript">window.location.href="create_usuario.php"</script>';
   }
 }
 

@@ -28,7 +28,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-  
+
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -75,13 +75,14 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                 <p>Aqui podras ver y descargar tu constancia una vez que este disponible </p>
 
 
-                <form action="reporteconstancia.php" method="POST">
+                <form action="reporteconstancia.php" method="POST" target="_blank">
                   <div class="row">
                     <div id="content" class="col-lg-12">
-                      <button class="btn btn-primary" type="submit"><a target="_blank" class="btn btn-primary" href="reporteconstancia.php"><i class="fa fa-download"></i> Descargar PDF</a></button>
+                      <button class="btn btn-primary" type="submit"><i class="fa fa-download"></i> Descargar PDF</button>
                     </div>
                   </div>
                 </form>
+
                 <!-- <table class="table table-bordered table-hover table-condensed">
 
                   <h2>

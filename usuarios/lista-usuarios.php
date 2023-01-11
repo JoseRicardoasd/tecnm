@@ -4,7 +4,7 @@ session_start();
 
 
 
-if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
+if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   //echo "existe sesión";
   //echo "bienvenido usuario";
   $correo_sesion = $_SESSION['u_usuario'];
@@ -33,7 +33,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-  
+
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -84,7 +84,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
             <div class="panel-heading">Lista de Usuarios</div>
             <div class="panel-body">
               <table class="table table-bordered table-hover table-condensed">
-                <center><th>N°</th></center>
+                <center>
+                  <th>N°</th>
+                </center>
                 <th>Nombre Completo</th>
 
                 <th>Correo Institucional</th>
@@ -133,9 +135,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                       <?php echo $rol ?>
                     </td>
                     <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#example<?php echo $usuario['id']; ?>">
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#example<?php echo $usuario['id']; ?>">
                         Editar
                       </button>
+                      <button type="button" onclick="alerta_eliminar(<?php echo $usuario['id']; ?>)" class="btn btn-danger eliminaruser">Eliminar</button>
 
                       <div class="modal fade" id="example<?php echo $usuario['id']; ?>" tabindex="-1" aria-labelledby="example" aria-hidden="true">
                         <div class="modal-dialog">
@@ -154,46 +157,47 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
 
                               <div class="modal-body" id="">
 
-                                  <div class="form-group">
-                                    <label>N°</label>
-                                    <?php echo $usuario['id']; ?>
-                                  </div>
+                                <div class="form-group">
+                                  <label>N°</label>
+                                  <?php echo $usuario['id']; ?>
+                                </div>
 
-                                  <div>
-                                    <label>Nombres</label>
-                                    <input type="text" name="nombres" id="" class="form-control" placeholder="nombres" <?php echo $nombres; ?>>
-                                  </div>
+                                <div>
+                                  <label>Nombres</label>
+                                  <!-- <input type="text" name="nombres" id="" class="form-control" placeholder="nombres"> -->
+                                  <input type="text" name="nombres" id="" class="form-control" placeholder="nombres" value="<?php echo $nombres; ?>">
+                                </div>
 
-                                  <div>
-                                    <label>Apellido Paterno</label>
-                                    <input type="text" name="ap_paterno" id="" class="form-control" placeholder="ap_paterno" <?php echo $ap_paterno; ?>>
-                                  </div>
+                                <div>
+                                  <label>Apellido Paterno</label>
+                                  <input type="text" name="ap_paterno" id="" class="form-control" placeholder="ap_paterno" value="<?php echo $ap_paterno; ?>">
+                                </div>
 
-                                  <div>
-                                    <label>Apellido Materno</label>
-                                    <input type="text" name="ap_materno" id="" class="form-control" placeholder="ap_materno" <?php echo $ap_materno; ?>>
-                                  </div>
+                                <div>
+                                  <label>Apellido Materno</label>
+                                  <input type="text" name="ap_materno" id="" class="form-control" placeholder="ap_materno" value="<?php echo $ap_materno; ?>">
+                                </div>
 
-                                  <div>
-                                    <label>Correo Institucional</label>
-                                    <input type="text" name="correo" id="" class="form-control" placeholder="correo" <?php echo $correo; ?>>
-                                  </div>
-                                  
-                                  <div>
-                                    <label>Cargo</label>
-                                    <select name="cargo" id="" class="form-control" value="<?php echo $usuario['id']; ?>">
-                                      <option value="">Elegir una Opcion</option>
-                                      <option value="0" <?= (isset($privilegio) && $privilegio == 0) ? 'selected' : '' ?>>Administrador</option>
-                                      <option value="1" <?= (isset($privilegio) && $privilegio == 1) ? 'selected' : '' ?>>Maestro</option>
-                                      <option value="2" <?= (isset($privilegio) && $privilegio == 2) ? 'selected' : '' ?>>Alumno</option>
-                                    </select>
-                                  </div>
+                                <div>
+                                  <label>Correo Institucional</label>
+                                  <input type="text" name="correo" id="" class="form-control" placeholder="correo" value="<?php echo $correo; ?>">
+                                </div>
+
+                                <div>
+                                  <label>Cargo</label>
+                                  <select name="cargo" id="" class="form-control" value="<?php echo $usuario['id']; ?>">
+                                    <option value="">Elegir una Opcion</option>
+                                    <option value="0" <?= (isset($privilegio) && $privilegio == 0) ? 'selected' : '' ?>>Administrador</option>
+                                    <option value="1" <?= (isset($privilegio) && $privilegio == 1) ? 'selected' : '' ?>>Maestro</option>
+                                    <option value="2" <?= (isset($privilegio) && $privilegio == 2) ? 'selected' : '' ?>>Alumno</option>
+                                  </select>
+                                </div>
 
 
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary" value="Actualizar">Guardar</button>
-                                  </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                  <button type="submit" class="btn btn-primary" value="Actualizar">Guardar</button>
+                                </div>
 
 
 
@@ -212,8 +216,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
 
                         </div>
                       </div>
-
-                    <a onclick="alerta_eliminar(<?php echo $usuario['id']; ?>)" class="btn btn-danger eliminaruser">Eliminar</a>
+                      <!-- <a onclick="alerta_eliminar(<?php echo $usuario['id']; ?>)" class="btn btn-danger eliminaruser">Eliminar</a> -->
                     </td>
                   </tr>
                 <?php
@@ -235,6 +238,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
 
 
   </body>
+
+  <script src="./js/sweetalert.js"></script>
 
   </html>
 <?php

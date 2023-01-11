@@ -1,7 +1,7 @@
 <?php
 include('../app/config/config.php');
-$sentencia=$pdo->query("SELECT * FROM guia;");
-$actividades=$sentencia->fetchAll(PDO::FETCH_OBJ);
+$sentencia = $pdo->query("SELECT * FROM guia;");
+$actividades = $sentencia->fetchAll(PDO::FETCH_OBJ);
 //print_r($actividades);
 
 session_start();
@@ -33,7 +33,7 @@ if (isset($_SESSION['u_usuario'])) {
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
 
-  
+
 ?>
 
   <!DOCTYPE html>
@@ -46,7 +46,7 @@ if (isset($_SESSION['u_usuario'])) {
 
     <title>Guia de actividades Complementarias</title>
   </head>
-  
+
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
       <?php include('../layout/menu.php'); ?>
@@ -59,15 +59,14 @@ if (isset($_SESSION['u_usuario'])) {
             <small>Guia de Actividades Complementarias</small>
           </h1>
         </section>
-      
+
         <br>
-        
+
         <div>
-            <button type="button" class="btn btn-primary" data-toggle="modal" 
-            data-target="#insertar" ?php echo >Añadir actividad</button>
+          <button style="margin-left: 90px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertar" ?php echo>Añadir actividad</button>
         </div>
-               <!--MODAL (nueva actividad)-->
-               <div class="modal fade" id="insertar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!--MODAL (nueva actividad)-->
+        <div class="modal fade" id="insertar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -106,110 +105,110 @@ if (isset($_SESSION['u_usuario'])) {
           </div>
         </div>
       </div>
-        <br>
+      <br>
 
 
-        <!--CRUD-->
-       
-          
-        <div class="container">
-          <div class="panel panel-primary">
-            <div class="panel-heading">Guia de Actividades Complementarias</div>
-            
-        <table class="table table-bordered table-hover table-condensed">
-  <thead>
-    <tr>
-      <th scope="col">Actividad</th>
-      <th scope="col">Descripción</th>
-      <th scope="col">Crédito por actividad</th>
-      <th scope="col">Máximo acomular</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <!--registros de la bd-->
-    <?php
-                    $sql="SELECT * FROM guia";
-                    
-                    $row = mysqli_query($conexion, $sql); 
+      <!--CRUD-->
 
-                    while($result=mysqli_fetch_assoc($row)){
-                    ?>
-                        <tr>
-                          <td><?php echo $result['actividad']?></td>
-                          <td><?php echo $result['descripcion']?></td>
-                          <td><?php echo $result['credito']?></td>
-                          <td><?php echo $result['maximo']?></td>
-                          <td><button type="button" class="btn btn-success editbtn" data-toggle="modal" data-target="#example<?php echo $result['id']; ?>">Editar</button></td>
-                        
-    
-  
-                    
+
+      <div class="container">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Guia de Actividades Complementarias</div>
+
+          <table class="table table-bordered table-hover table-condensed">
+            <thead>
+              <tr>
+                <th scope="col">Actividad</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Crédito por actividad</th>
+                <th scope="col">Máximo acomular</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <!--registros de la bd-->
+              <?php
+              $sql = "SELECT * FROM guia";
+
+              $row = mysqli_query($conexion, $sql);
+
+              while ($result = mysqli_fetch_assoc($row)) {
+              ?>
+                <tr>
+                  <td><?php echo $result['actividad'] ?></td>
+                  <td><?php echo $result['descripcion'] ?></td>
+                  <td><?php echo $result['credito'] ?></td>
+                  <td><?php echo $result['maximo'] ?></td>
+                  <td><button type="button" class="btn btn-success editbtn" data-toggle="modal" data-target="#example<?php echo $result['id']; ?>">Editar</button></td>
+
+
+
+
         </div>
 
-<!--MODAL (editar actividad)-->
-<div class="modal fade" id="example<?php echo $result['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="exampleModalLabel">Editar</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!--formulario-->
-              <form action="editar.php" method="POST">
-              <input type="hidden" name="id_editar" value="<?php echo $result['id']; ?>">
-               
-                <div class="form-group">
-                  <label for="">Nombre de la actividad</label>
-                  <textarea class="form-control mb-3" name="actividad" id="actividad" placeholder="Actividad" ><?php echo $result['actividad'] ?></textarea>
+        <!--MODAL (editar actividad)-->
+        <div class="modal fade" id="example<?php echo $result['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Editar</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!--formulario-->
+                <form action="editar.php" method="POST">
+                  <input type="hidden" name="id_editar" value="<?php echo $result['id']; ?>">
 
-                  <label for="">Decripción</label>
-                  <textarea class="form-control mb-3" name="descripcion" id="descripcion" placeholder="Descripción"><?php echo $result['descripcion'] ?></textarea>
+                  <div class="form-group">
+                    <label for="">Nombre de la actividad</label>
+                    <textarea class="form-control mb-3" name="actividad" id="actividad" placeholder="Actividad"><?php echo $result['actividad'] ?></textarea>
 
-                  <div class="row">
-                    <div class="col">
-                      <label for="">Crédito de actividad</label>
-                      <input type="text" class="form-control mb-3" name="credito" id="credito" placeholder="Crédito por actividad" value="<?php echo $result['credito'] ?>">
+                    <label for="">Decripción</label>
+                    <textarea class="form-control mb-3" name="descripcion" id="descripcion" placeholder="Descripción"><?php echo $result['descripcion'] ?></textarea>
+
+                    <div class="row">
+                      <div class="col">
+                        <label for="">Crédito de actividad</label>
+                        <input type="text" class="form-control mb-3" name="credito" id="credito" placeholder="Crédito por actividad" value="<?php echo $result['credito'] ?>">
+                      </div>
+                      <div class="col">
+                        <label for="">Máximo acomular</label>
+                        <input type="text" class="form-control mb-3" name="maximo" id="maximo" placeholder="Máximo por acomular" value="  <?php echo $result['maximo'] ?>">
+                      </div>
                     </div>
-                    <div class="col">
-                      <label for="">Máximo acomular</label>
-                      <input type="text" class="form-control mb-3" name="maximo" id="maximo" placeholder="Máximo por acomular" value="  <?php echo $result['maximo'] ?>">
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                  </div>
 
-              </form>
+                </form>
+
+              </div>
 
             </div>
+            <td><a href="delete.php?id=<?php echo $result['id'] ?>" class="btn btn-danger">Eliminar</a></td>
+          <?php
+              }
+          ?>
+          </tr>
+          </tbody>
 
+          </table>
           </div>
-          <td><a href="delete.php?id=<?php echo $result['id']?>" class="btn btn-danger">Eliminar</a></td>
-            <?php
-                 }
-            ?>
-            </tr>
-            </tbody>
-        
-        </table>
         </div>
       </div>
+      </table </div>
     </div>
-    </table
-    </div>
-    </div>
-                </section>
+    </section>
 
 
 
   </body>
-   <?php include('../layout/footer.php'); ?>
-   <?php include('../layout/footer_links.php'); ?>
+  <?php include('../layout/footer.php'); ?>
+  <?php include('../layout/footer_links.php'); ?>
+
   </html>
 <?php
 } else {

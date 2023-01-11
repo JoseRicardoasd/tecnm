@@ -34,12 +34,12 @@ if ($resultado <= 0) {
   $valor = 'Insuficiente';
 };
 
-$update = ("UPDATE grupos 
+$update = ("UPDATE extragrupo 
 	SET 
-	habilidad  ='" .$habilidad. "',
+	observacion  ='" .$habilidad. "',
 	valor  ='" .$resultado. "',
-	desempeyo  ='" .$valor. "',
-	calificacion  ='" .$calificacion. "'
+	desempeño  ='" .$valor. "',
+	acreditacion  ='" .$calificacion. "'
 
 WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
 ");

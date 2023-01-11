@@ -2,27 +2,6 @@
 include('../app/config/config.php');
 session_start();
 
-if(!isset($_GET["id"])) exit();//preguntando si el metodo get tiene un valor, si no tiene uno sale del porceso
-$id = $_GET["id"];
-
-$sql = ("SELECT id FROM ciclo ORDER BY id DESC LIMIT 1;");
-$query = $bdd->prepare( $sql );
-$query->execute();
-$resultado = $query->fetch(PDO::FETCH_OBJ);
-
-$idCiclo = $resultado === false ? 1 : $resultado->id;
-
-$sql = ("SELECT nombreActividad FROM extraescolar WHERE idCiclo = $idCiclo AND id = $id");
-$query = $bdd->prepare($sql);
-$query->execute();
-$extraescolar = $query->fetch(PDO::FETCH_LAZY);
-
-$nombre_actividad = $extraescolar['nombreActividad'];
-
-$sqlCliente   = ("SELECT tb_usuarios.id, tb_usuarios.nombres,tb_usuarios.ap_paterno,tb_usuarios.ap_materno,tb_usuarios.carrera,tb_usuarios.numero_control,tb_usuarios.telefono,grupo.habilidad,grupo.desempeyo,grupo.calificacion,grupo.idActividad FROM grupo INNER JOIN tb_usuarios ON grupo.matricula = tb_usuarios.numero_control WHERE grupo.idActividad = $id");
-$queryCliente = mysqli_query($conexion, $sqlCliente);
-$cantidad     = mysqli_num_rows($queryCliente);
-
 if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
   $correo_sesion = $_SESSION['u_usuario'];
   $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
@@ -66,6 +45,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
     $_SESSION["ultimoAcceso"] = $ahora;
   }
 
+  include('php/extra/alumnosListado.php')
 ?>
 
 <!DOCTYPE html>
@@ -90,6 +70,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                     <h1>
                         Gestión de alumnado
                         <small>Guia de Actividades Complementarias</small>
+                        <a href="AgregarActividad.php" class="btn btn-primary" style="position: absolute; right: 10%;">Atras</a>
                     </h1>
 
                 </section>
@@ -121,11 +102,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                             <td><?php echo $dataCliente['carrera']; ?></td>
                             <td><?php echo $dataCliente['numero_control']; ?></td>
                             <td><?php echo $dataCliente['telefono']; ?></td>
-                            <td><?php echo $dataCliente['habilidad']; ?></td>
-                            <td><?php echo $dataCliente['desempeyo']; ?></td>
-                            <td><?php if ($dataCliente['calificacion'] == 1) {
+                            <td><?php echo $dataCliente['observacion']; ?></td>
+                            <td><?php echo $dataCliente['desempeño']; ?></td>
+                            <td><?php if ($dataCliente['acreditacion'] == 1) {
                                 echo "Acreditado";
-                            } else if ($dataCliente['calificacion'] == 2){
+                            } else if ($dataCliente['acreditacion'] == 2){
                                 echo "No Acreditado";
                             } ?></td>
                             
@@ -139,7 +120,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                      
 
                             <!--Ventana Modal para Actualizar--->
-                            <?php  include('ModalEditar.php'); ?>
+                            <?php  include('ExtraModal.php'); ?>
 
                         <?php } ?>
                 

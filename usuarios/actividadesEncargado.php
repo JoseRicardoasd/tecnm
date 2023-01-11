@@ -2,23 +2,6 @@
 include('../app/config/config.php');
 session_start();
 
-if(!isset($_GET["id"])) exit();//preguntando si el metodo get tiene un valor, si no tiene uno sale del porceso
-$id = $_GET["id"];
-
-$sql = ("SELECT id FROM ciclo ORDER BY id DESC LIMIT 1;");
-$query = $bdd->prepare( $sql );
-$query->execute();
-$resultado = $query->fetch(PDO::FETCH_OBJ);
-
-$idCiclo = $resultado === false ? 1 : $resultado->id;
-
-$sql = ("SELECT nombreActividad FROM extraescolar WHERE idCiclo = $idCiclo AND id = $id");
-$query = $bdd->prepare($sql);
-$query->execute();
-$extraescolar = $query->fetch(PDO::FETCH_LAZY);
-
-$nombre_actividad = $extraescolar['nombreActividad'];
-
 if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
   $correo_sesion = $_SESSION['u_usuario'];
   $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
@@ -47,6 +30,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
+
   
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
@@ -62,6 +46,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
     $_SESSION["ultimoAcceso"] = $ahora;
   }
 
+  include('php/extra/emergente.php');
+  include('php/extra/actividadesEncargado.php');
 ?>
 
 <!DOCTYPE html>
@@ -86,6 +72,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                     <h1>
                         SISTEMA DE CREDITOS COMPLENTARIOS
                         <small>Guia de Actividades Complementarias</small>
+                        <a href="AgregarActividad.php" class="btn btn-primary" style="position: absolute; right: 10%;">Atras</a>
                     </h1>
 
                 </section>
@@ -103,8 +90,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                                     <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" 
                                     placeholder="Buscar por matricula">
                                 </form>
+
+                                <br><br>
                                 
-                                <table class="table table-striped table-dark table_id ">
+                                <table class="table table-striped table-ligh table_id ">
                                     <thead>    
                                         <tr>
                                             <th>Nombre</th>
@@ -113,14 +102,15 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                                             <th>Email</th>
                                             <th>telefono</th>
                                             <th>ciudad</th>
+                                            <th>Registro</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
 
-                                        <?php              
-                                        $SQL="SELECT id, nombres, sexo, numero_control, correo, telefono, ciudad FROM tb_usuarios WHERE cargo = 2 $where";
+                                        <?php      
+                                        $SQL="SELECT id, nombres, sexo, numero_control, correo, telefono, ciudad FROM tb_usuarios WHERE cargo = 2 $where ORDER BY id LIMIT 5";
                                         $dato = mysqli_query($conexion, $SQL);
 
                                         if($dato -> num_rows >0){
@@ -133,12 +123,20 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                                             <td><?php echo $fila['correo']; ?></td>
                                             <td><?php echo $fila['telefono']; ?></td>
                                             <td><?php echo $fila['ciudad']; ?></td>
+                                            <td >
+                                                <?php
+                                                foreach ($matriculas as $matricula) {
+                                                    if ($fila['numero_control']==$matricula['matricula']) {
+                                                        echo "<i class='fa fa-info'></i> ALUMNO REGISTRADO <br> EN UNA ACTIVIDAD";
+                                                    }
+                                                }
+                                                ?>
+                                            </td>
                                             <td>
-                                            <a class="btn btn-warning" href="<?php echo "agregandoAlumno.php?id=".$fila['id']."&"."extra=".$id?> ">
+                                            <a class="btn btn-primary" href="<?php echo "agregandoAlumno.php?id=".$fila['id']."&"."extra=".$id?> ">
                                             Agregar Alumno</a>
                                             </td>
                                         </tr>
-
 
                                         <?php
                                             }

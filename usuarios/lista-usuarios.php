@@ -91,8 +91,6 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                 <th>Cargo</th>
                 <th>Acciones</th>
 
-
-
                 <?php
                 $contador_usuarios = 0;
                 $query_usuarios = $pdo->prepare("SELECT * FROM tb_usuarios");

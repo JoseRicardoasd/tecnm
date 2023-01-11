@@ -91,8 +91,6 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                 <th>Cargo</th>
                 <th>Acciones</th>
 
-
-
                 <?php
                 $contador_usuarios = 0;
                 $query_usuarios = $pdo->prepare("SELECT * FROM tb_usuarios");
@@ -120,6 +118,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                     $rol = 'Alumno';
                   }
                 ?>
+
                   <tr>
                     <td>
                       <center><?php echo $contador_usuarios; ?></center>
@@ -133,7 +132,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                       <?php echo $rol ?>
                     </td>
                     <td>
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#example<?php echo $usuario['id']; ?>">
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#example<?php echo $usuario['id']; ?>">
                         Editar
                       </button>
 
@@ -192,7 +191,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
 
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary" value="Actualizar">Guardar</button>
+                                    <button type="submit" class="btn btn-primary" value="Actualizar" onclick="alerta_guardar(<?php echo $usuario['id']; ?>)">Guardar</button>
                                   </div>
 
 
@@ -213,7 +212,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                         </div>
                       </div>
 
-                    <a onclick="alerta_eliminar(<?php echo $usuario['id']; ?>)" class="btn btn-danger eliminaruser">Eliminar</a>
+                      <a onclick="alerta_eliminar(<?php echo $usuario['id']; ?>)" class="btn btn-danger eliminaruser">Eliminar</a>
                     </td>
                   </tr>
                 <?php
@@ -232,7 +231,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
       <?php include('../layout/footer_links.php'); ?>
 
 
-
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="js/sweetalert.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   </body>
 

@@ -67,9 +67,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           <br> <br>
 
           <div class="container" style="padding: 60px 90px 60px 40px; background: white;">
-            <form action="formato_constancia_ctrl.php" method="POST">
+            <form action="formato_constancia_ctrl.php" method="POST" enctype="multipart/form-data">
               <label for="encabezado">Ingresa el encabezado de la constancia</label>
-              <input type="text" name="encabezado" id="encabezado">
+              <input type="file" name="encabezado" required>
               <br><br> <br>
 
               <b>C.Jefe del departamento</b>
@@ -116,9 +116,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
               </div>
               <label for="pie">Ingresa el pie de pagina de la constancia</label>
-              <input type="text" name="pie" id="pie">
+              <input type="file" name="pie" required>
               <br><br>
-              <input type="submit" class="btn btn-success" value="Aceptar">
+              <input type="submit" class="btn btn-success" value="Guardar">
             </form>
           </div>
           <br>

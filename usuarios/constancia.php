@@ -122,7 +122,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               <form action="cntrlconstancia.php" method="POST">
 
                 <p style="margin-top:20px">
-                  <input type="text" name="jefe" maxlength="100" class="input_border input_largo" placeholder="Jefe(a)" required>
+                  <input type="text" name="jefe" maxlength="100" class="input_border input_largo" placeholder="Jefe(a)" required style="text-transform: uppercase;">
                   <br>
 
                   Jefe(a) del Departamento de Servicios Escolares o su equivalente en los Institutos Tecnológicos Descentralizados
@@ -134,12 +134,12 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 <br>
                 <br>
                 <p class="parrafo_inputs">
-                  El que se suscribe <input type="text" name="suscribe" maxlength="100" class="input_border input_largo" placeholder="Suscribe" required>, por
+                  El que se suscribe <input type="text" name="suscribe" maxlength="100" class="input_border input_largo" placeholder="Suscribe" required style="text-transform: uppercase;">, por
                   este medio se permite hacer de su conocimiento que
-                  <br> el estudiante <input type="text" name="alumno" maxlength="100" required class="input_border input_largo" placeholder="Nombre alumno" id="nombre">
-                  con número de control <input type="text" name="matricula" required maxlength="100" class="input_border input_corto" placeholder="Matricula alumno" id="matricula"><br>
-                  de la carrera de <input type="text" name="carrera" maxlength="100" required class="input_border input_largo" placeholder="Carrera del alumno" id="carrera">
-                  ha cumplido su actividad complementaria con el nivel de desempeño<br> <select required name="desempe" id="desem" class="input_border" style="color:black">
+                  <br> el estudiante <input type="text" name="alumno" maxlength="100" required class="input_border input_largo" placeholder="Nombre alumno" id="nombre" style="text-transform: uppercase;">
+                  con número de control <input type="text" name="matricula" required maxlength="100" class="input_border input_corto" placeholder="Matricula alumno" id="matricula" style="text-transform: uppercase;"><br>
+                  de la carrera de <input type="text" name="carrera" maxlength="100" required class="input_border input_largo" placeholder="Carrera del alumno" id="carrera" style="text-transform: uppercase;">
+                  ha cumplido su actividad complementaria con el nivel de desempeño<br> <select required name="desempe" id="desem" class="input_border" style="color:black; text-transform: uppercase">
                     <option value="" selected disabled>Desempeño</option>
                     <option value="INSUFICIENTE">INSUFICIENTE</option>
                     <option value="SUFICIENTE">SUFICIENTE</option>
@@ -147,9 +147,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                     <option value="NOTABLE">NOTABLE</option>
                     <option value="EXCELENTE">EXCELENTE</option>
                   </select>
-                  y un valor numérico de <input type="text" name="valor" maxlength="100" required class="input_border input_corto" placeholder="Valor">,
-                  durante el periodo escolar <input type="text" name="ciclo" maxlength="100" required class="input_border input_corto" placeholder="Ciclo escolar">
-                  con un valor curricular de <input type="number" name="valorcurri" maxlength="100" required class="input_border input_corto" id="credi">
+                  y un valor numérico de <input type="text" name="valor" maxlength="100" required class="input_border input_corto" placeholder="Valor" style="text-transform: uppercase;">,
+                  durante el periodo escolar <input type="text" name="ciclo" maxlength="100" required class="input_border input_corto" placeholder="Ciclo escolar" style="text-transform: uppercase;">
+                  con un valor curricular de <input type="number" name="valorcurri" maxlength="100" required class="input_border input_corto" id="credi" style="text-transform: uppercase;">
                   créditos.
                 </p>
                 <br>

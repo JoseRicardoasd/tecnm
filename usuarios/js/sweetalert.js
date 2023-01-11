@@ -28,3 +28,13 @@ function mandar_php(codigo) {
         }
     });
 }
+
+function alerta_guardar() {
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: true,
+      })
+}
+

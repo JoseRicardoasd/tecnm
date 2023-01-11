@@ -250,7 +250,23 @@
         </ul>
       </li>
 
+      <li class="treeview">
+          <a href="#">
+            <i class="fa fa-users"></i> <span>Configuración</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
 
+            <li><a href="lista-jefes.php"><i class="fa fa-users"></i>Lista de Jefes</a></li>
+
+            <li><a href="create_jefes.php"><i class="fa fa-user"></i> Agregar Jefes de departamento</a></li>
+
+            <li><a href="añadirDepartamento.php"><i class="fa fa-users"></i>Departamentos</a></li>
+
+          </ul>
+        </li>
 
 
       <!-- creditos -->

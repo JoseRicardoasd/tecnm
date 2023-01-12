@@ -248,7 +248,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
             let td2 = document.createElement('td');
             td2.innerHTML = datos[i]['observacion'];
             let td3 = document.createElement('td');
-            td3.innerHTML = datos[i]['desempeño'];
+            td3.innerHTML = datos[i]['desempeyo'];
             let td4 = document.createElement('td');
             td4.innerHTML = datos[i]['horaActividad'];
             //PDFS---------------

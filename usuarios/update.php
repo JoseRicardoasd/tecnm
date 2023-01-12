@@ -3,12 +3,11 @@
 include('../app/config/config.php');
 // obtenemos el valor y el resultado
 $resultado = 0;
-$valor = null;
+$valor = '';
 $idRegistros = $_REQUEST['id'];
 $control = $_REQUEST['control'];
 $actividad = $_REQUEST['actividad'];
 $habilidad = $_REQUEST['habilidad'];
-$calificacion = $_REQUEST['calificacion'];
 $tiempo = $_POST['tiempo'];
 $equipo = $_POST['equipo'];
 $liderazgo = $_POST['liderazgo'];
@@ -20,21 +19,8 @@ $iniciativa = $_POST['iniciativa'];
 $resultado = ($tiempo + $equipo + $liderazgo + $organiza + $interpreta + $realiza + $iniciativa) / 7;
 if ($resultado <= 4) {
   $valor = 'Excelente';
-}
-if ($resultado <= 3) {
-  $valor = 'Notable';
-}
-if ($resultado <= 2) {
-  $valor = 'Bueno';
-}
-if ($resultado <= 1) {
-  $valor = 'Suficiente';
-}
-if ($resultado <= 0) {
-  $valor = 'Insuficiente';
-};
-
-$update = ("UPDATE extragrupo 
+  $calificacion = 1;
+  $update = ("UPDATE extragrupo 
 	SET 
 	observacion  ='" .$habilidad. "',
 	valor  ='" .$resultado. "',
@@ -46,5 +32,70 @@ WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
 $result_update = mysqli_query($por, $update);
 
 header('Location: alumnosListado.php?id='.$actividad);
+}
+if ($resultado <= 3) {
+  $valor = 'Notable';
+  $calificacion = 1;
+  $update = ("UPDATE extragrupo 
+	SET 
+	observacion  ='" .$habilidad. "',
+	valor  ='" .$resultado. "',
+	desempeño  ='" .$valor. "',
+	acreditacion  ='" .$calificacion. "'
+
+WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
+");
+$result_update = mysqli_query($por, $update);
+
+header('Location: alumnosListado.php?id='.$actividad);
+}
+if ($resultado <= 2) {
+  $valor = 'Bueno';
+  $calificacion = 1;
+  $update = ("UPDATE extragrupo 
+	SET 
+	observacion  ='" .$habilidad. "',
+	valor  ='" .$resultado. "',
+	desempeño  ='" .$valor. "',
+	acreditacion  ='" .$calificacion. "'
+
+WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
+");
+$result_update = mysqli_query($por, $update);
+
+header('Location: alumnosListado.php?id='.$actividad);
+}
+if ($resultado <= 1) {
+  $valor = 'Suficiente';
+  $calificacion = 2;
+  $update = ("UPDATE extragrupo 
+	SET 
+	observacion  ='" .$habilidad. "',
+	valor  ='" .$resultado. "',
+	desempeño  ='" .$valor. "',
+	acreditacion  ='" .$calificacion. "'
+
+WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
+");
+$result_update = mysqli_query($por, $update);
+
+header('Location: alumnosListado.php?id='.$actividad);
+}
+if ($resultado <= 0) {
+  $valor = 'Insuficiente';
+  $calificacion = 2;
+  $update = ("UPDATE extragrupo 
+	SET 
+	observacion  ='" .$habilidad. "',
+	valor  ='" .$resultado. "',
+	desempeño  ='" .$valor. "',
+	acreditacion  ='" .$calificacion. "'
+
+WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
+");
+$result_update = mysqli_query($por, $update);
+
+header('Location: alumnosListado.php?id='.$actividad);
+};
 
 ?>

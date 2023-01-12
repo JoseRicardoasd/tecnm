@@ -103,7 +103,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                             <td><?php echo $dataCliente['numero_control']; ?></td>
                             <td><?php echo $dataCliente['telefono']; ?></td>
                             <td><?php echo $dataCliente['observacion']; ?></td>
-                            <td><?php echo $dataCliente['desempeño']; ?></td>
+                            <td><?php echo $dataCliente['desempeyo']; ?></td>
                             <td><?php if ($dataCliente['acreditacion'] == 1) {
                                 echo "Acreditado";
                             } else if ($dataCliente['acreditacion'] == 2){

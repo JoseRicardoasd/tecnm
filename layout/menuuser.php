@@ -176,7 +176,8 @@
 
         <li class="header">Extraescolar</li>
 
-        <li><a href="generarconstancia_alumno.php"><i class="fa fa-book"></i> <span><b>Actividades</b></span></a></li>
+        <li><a href="actAlum.php"><i class="fa fa-users"></i> <span>Actividades</span></a></li>
+        <li><a href="consAlum.php"><i class="fa fa-users"></i> <span>Generar constancia</span></a></li>
 
       </ul>
     </li>

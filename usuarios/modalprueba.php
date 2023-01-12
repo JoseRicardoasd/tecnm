@@ -12,6 +12,12 @@
 
   $result = mysqli_query($conexion, $sq);
 
+
+  $carrera = "SELECT * FROM cat_carreras; 
+ ";
+
+  $result_carrera = mysqli_query($conexion, $carrera);
+
   ?>
 </head>
 
@@ -38,10 +44,16 @@
                 <div class="form-group" class="col-sm2 control-label">
                   <label for="prioridad">Seleccionar carrera</label>
                   <select name="carrera" id="" class="form-control" required>
-                    <option value="">Selecciona una opcion</option>
-                    <option value="Ing informatica">Ing informatica</option>
-                    <option value="ing forestal">Ing forestal</option>
-                    <option value="ing administracion">Ing.Administracion</option>
+                    <option value="">Seleccionar carrera</option>
+                    <?php
+                    while ($filos= mysqli_fetch_assoc($result_carrera)) {
+                    ?> 
+                    
+
+                      <option value="<?php echo $filos['carrera'] ?>"> <?php echo $filos['carrera'] ?></option>
+                    <?php
+                    }
+                    ?>
                   </select>
                   </select>
                 </div>
@@ -50,6 +62,7 @@
                 <div class="form-group" class="col-sm2 control-label">
                   <label for="prioridad">Seleccionar ciclo escolar</label>
                   <select name="periodo" id="" class="form-control" required>
+                  <option value="">Seleccionar ciclo escolar</option>
                     <?php
                     while ($filo = mysqli_fetch_assoc($result)) {
                     ?>

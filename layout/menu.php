@@ -208,7 +208,7 @@
           <li><a href="extraescolar/nuevoCampo.php"><i class="fa fa-users"></i> <span>Categorias</span></a></li>
           <li><a href="extraescolar/categorias.php"><i class="fa fa-users"></i> <span>Actividades</span></a></li>
           <li class="header">Responsables de actividades</li>
-          <li><a href="nuevoResponsable.php"><i class="fa fa-users"></i> <span>Asignación de responsables</span></a></li>
+          <li><a href="extraescolar/nuevoResponsable.php"><i class="fa fa-users"></i> <span>Asignación de responsables</span></a></li>
           <li class="header">Constancias</li>
           <li><a href="constanciasExtra.php"><i class="fa fa-users"></i> <span>Constancias Act. Extraescolares</span></a></li>
 

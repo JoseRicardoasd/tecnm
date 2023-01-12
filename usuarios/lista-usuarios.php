@@ -216,7 +216,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         </div>
                       </div>
 
-                      <a onclick="alerta_eliminar(<?php echo $usuario['id']; ?>)" class="btn btn-danger eliminaruser">Eliminar</a>
+                     
                     </td>
                   </tr>
                 <?php

@@ -52,6 +52,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
   <head>
     <?php include('../layout/head.php'); ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Constancias</title>
     <link rel="stylesheet" href="css/estilo_parrafo.css">
     <link rel="stylesheet" href="../css/StyleNew.css">
@@ -119,7 +120,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               </div>
 
               <!-- formulario para guardar la constancia -->
-              <form action="cntrlconstancia.php" method="POST">
+              <form action="cntrlconstancia.php" method="POST" class="Constan">
 
                 <p style="margin-top:20px">
                   <input type="text" name="jefe" maxlength="100" class="input_border input_largo" placeholder="Jefe(a)" required style="text-transform: uppercase;">
@@ -170,20 +171,21 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   <td colspan="6"><input type="submit" class="btn btn-success mt-5 btn-lg" value="Guardar" id="btnGuardar"></td>
                 </center>
               </form>
-              <div id="content" class="col-lg-12">
 
-              </div>
 
 
             </div>
             <!-- /.content -->
           </div>
           <!-- /.content-wrapper -->
-          <?php include('../layout/footer.php'); ?>
-          <?php include('../layout/footer_links.php'); ?>
+        </section>
       </div>
 
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   </body>
+
 
   </html>
 <?php
@@ -192,6 +194,35 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   header('Location:' . $URL . '/login');
 }
 ?>
+
+<script>
+  $('.Constan').submit(function(e) {
+    e.preventDefault();
+    Swal.fire({
+      title: '¿DESEAS GUARDAR LA CONSTANCIA?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'SI, DESEO GUARDAR'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'CONSTANCIA GUARDADA CORRECTAMENTE',
+          icon: 'success',
+          showConfirmButton: false,
+        })
+        setTimeout(() => {
+          this.submit();
+        }, "1000")
+
+      }
+
+    })
+
+  });
+</script>
+
 
 <script>
   function datos_constancia() {
@@ -352,4 +383,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
 
   };
+</script>
+
+<script>
+
 </script>

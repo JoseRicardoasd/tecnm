@@ -47,6 +47,17 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   } else {
     $_SESSION["ultimoAcceso"] = $ahora;
   }
+
+//echo $nombres ." - ".$ap_paterno." - ".$ap_materno." - ".$sexo." - ".$numero_control." - ".$carrera." - ".$correo." - ".$estado_civil." - ".$telefono." - ".$ciudad." - ".$colonia." - ".$calle." - ".$codigo_postal." - ".$curp." - ".$fecha_nacimiento." - ".$nivel_escolar." - ".$reticula." - ".$entidad." - ".$contraseña." - ".$user_creacion. " - ".$fechaHora." - ".$estado;
+
+  $inserta = "SELECT id, departamento FROM departamento";
+
+  $resultado = mysqli_query($conexion, $inserta);
+
+
+  mysqli_close($conexion);
+
+
 ?>
 
   <!DOCTYPE html>
@@ -90,7 +101,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-user"></i> NOMBRE(S)</label>
+                          <label for=""><i class="glyphicon glyphicon-user"></i> NOMBRE COMPLETO</label>
                           <input type="text" class="form-control" name="nombre" required tabindex="1" maxlength="40" style="text-transform:uppercase;">
                         </div>
 
@@ -101,13 +112,19 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
                       </div>
                       <div class="col-md-6">
-                      <div class="form-group">
-                          <label for=""><i class="glyphicon glyphicon-link"></i> DEPARTAMENTO</label>
-                          <input type="text" class="form-control" name="departamento" required tabindex="7" maxlength="50" style="text-transform:uppercase;">
-                        </div>
+                        <label for="">Departamentos</label>
+                         <select name="depa" id="">
+                          <?php
+                            while ($filas = mysqli_fetch_assoc($resultado)) {
+                          ?>
+                                              
+                           <Option value="<?php echo $filas['id'] ?>"><?php echo $filas['departamento'] ?></Option>
+                     
+                             
+                              <?php } ?>
+                         </select>
                       <div class="col-md-6">
-
-                        <br>
+  
                         <div class="form-group">
                           <center>
                             <a href="create_jefes.php" class="btn btn-danger btn-lg">Cancelar</a>

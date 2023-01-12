@@ -189,7 +189,6 @@
           <li class="header">Evaluaciones</li>
           <!--<li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li> -->
           <li><a href="constancia.php"><i class="fa fa-book"></i> <span>Constancias Act. Comp. Aca.</span></a></li>
-          <li><a href="formato_constancia.php"><i class="fa fa-book"></i> <span><b>Formato de la constancia</b></span></a></li>
           <!--<li><a href="generarconstancia.php"><i class="fa fa-book"></i> <span>GenerarConstancias</span></a></li>-->
 
 
@@ -260,6 +259,8 @@
             <li><a href="create_jefes.php"><i class="fa fa-user"></i> Agregar Jefes de departamento</a></li>
 
             <li><a href="añadirDepartamento.php"><i class="fa fa-users"></i>Departamentos</a></li>
+
+            <li><a href="formato_constancia.php"><i class="fa fa-book"></i> <span><b>Formato de la constancia</b></span></a></li>
 
           </ul>
         </li>

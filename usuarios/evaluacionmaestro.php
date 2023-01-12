@@ -120,7 +120,7 @@ $valor = null;
             <div class="panel-heading">Guia de Actividades Complementarias</div>
             <div class="panel-body">
 
-              <form method="POST" action="cntrlevaluacion_maestro.php">
+              <form method="POST" action="cntrlevaluacion_maestro.php" class="evaluacionMaestro">
                 <center>
                   <!-- no se usa esta tabla -->
                   <!-- <table>
@@ -283,6 +283,8 @@ $valor = null;
           <?php include('../layout/footer_links.php'); ?>
 
 
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
   </body>
@@ -293,6 +295,35 @@ $valor = null;
   echo "no existe sesión";
   header('Location:' . $URL . '/login');
 } ?>
+
+<script>
+  $('.evaluacionMaestro').submit(function(e) {
+    e.preventDefault();
+    Swal.fire({
+      title: '¿DESEAS GUARDAR LOS DATOS?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'SI, DESEO GUARDAR'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'DATOS GUARDADOS CORRECTAMENTE',
+          icon: 'success',
+          showConfirmButton: false,
+        })
+        setTimeout(() => {
+          this.submit();
+        }, "1000")
+
+      }
+
+    })
+
+  });
+</script>
+
 
 <!-- trallendo datos del alumno para ponerlos en los inputs -->
 <script>

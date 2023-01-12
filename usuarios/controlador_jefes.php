@@ -9,9 +9,7 @@ include('../app/config/config.php');
 
 $nombres = strtoupper($_POST['nombre']);
 $correo = strtoupper($_POST['correo']);
-$departamento = strtoupper($_POST['departamento']);
-
-
+$departamento = strtoupper($_POST['depa']);
 
 date_default_timezone_set("America/Monterrey");
 
@@ -22,7 +20,7 @@ $nombre_de_foto_perfil = "SisTECNM-" . date('Y-m-d-h-i-s');
 
 //echo $nombres ." - ".$ap_paterno." - ".$ap_materno." - ".$sexo." - ".$numero_control." - ".$carrera." - ".$correo." - ".$estado_civil." - ".$telefono." - ".$ciudad." - ".$colonia." - ".$calle." - ".$codigo_postal." - ".$curp." - ".$fecha_nacimiento." - ".$nivel_escolar." - ".$reticula." - ".$entidad." - ".$contraseña." - ".$user_creacion. " - ".$fechaHora." - ".$estado;
 
-$inserta = "INSERT INTO tb_jefes(nombres, correo, departamento) 
+$inserta = "INSERT INTO tb_jefes(nombres, correo, id_departamento) 
 VALUES ('$nombres', '$correo', '$departamento')";
 
 $resultado = mysqli_query($conexion, $inserta);

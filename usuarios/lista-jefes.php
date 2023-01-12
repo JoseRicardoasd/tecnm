@@ -73,7 +73,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            USUARIOS
+            JEFES
           </h1>
 
         </section>
@@ -81,19 +81,19 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
         <!-- Main content -->
         <section class="content">
           <div class="panel panel-primary">
-            <div class="panel-heading">Lista de Usuarios</div>
+            <div class="panel-heading">Lista de Jefes</div>
             <div class="panel-body">
               <table class="table table-bordered table-hover table-condensed">
                 <center><th>N°</th></center>
                 <th>Nombre Completo</th>
 
                 <th>Correo Institucional</th>
-                <th>Departamento</th>
+                <th>Departamento Asignado</th>
                 <th>Acciones</th>
 
                 <?php
                 $contador_usuarios = 0;
-                $query_usuarios = $pdo->prepare("SELECT * FROM tb_jefes");
+                $query_usuarios = $pdo->prepare("SELECT tb_jefes.id, tb_jefes.nombres, tb_jefes.correo, departamento.departamento FROM tb_jefes INNER JOIN departamento ON tb_jefes.id_departamento = departamento.id");
                 $query_usuarios->execute();
                 $usuarios = $query_usuarios->fetchAll(PDO::FETCH_ASSOC);
                 foreach ($usuarios as $jef) {
@@ -113,9 +113,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                     <td>
                       <?php echo $correo; ?>
                     </td>
+
                     <td>
-                      <?php echo $departamento ?>
+                      <?php echo $departamento; ?>
                     </td>
+
                     <td>
                       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#example<?php echo $jef['id']; ?>">
                         Editar
@@ -133,7 +135,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                             </div>
 
 
-                            <form method="post" action="actualizar_usuarios.php">
+                            <form method="post" action="actualizar_jefes.php">
                               <input type="hidden" name="id" value="<?php echo $jef['id']; ?>">
 
                               <div class="modal-body" id="">
@@ -144,18 +146,13 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                                   </div>
 
                                   <div>
-                                    <label>Nombres</label>
-                                    <input type="text" name="nombres" id="" class="form-control" placeholder="nombres" <?php echo $nombres; ?>>
+                                    <label>Nombre Completo</label>
+                                    <input type="text" name="nombres" id="" class="form-control" placeholder="nombre completo" <?php echo $nombres; ?>>
                                   </div>
 
                                   <div>
                                     <label>Correo Institucional</label>
                                     <input type="text" name="correo" id="" class="form-control" placeholder="correo" <?php echo $correo; ?>>
-                                  </div>
-
-                                  <div>
-                                    <label>Departamento</label>
-                                    <input type="text" name="departamento" id="" class="form-control" placeholder="correo" <?php echo $departamento; ?>>
                                   </div>
 
                                   <div class="modal-footer">
@@ -181,7 +178,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
                         </div>
                       </div>
 
-                      <a onclick="alerta_eliminar(<?php echo $jef['id']; ?>)" class="btn btn-danger eliminaruser">Eliminar</a>
+                      <a onclick="alerta_eliminar3(<?php echo $jef['id']; ?>)" class="btn btn-danger">Eliminar</a>
                     </td>
                   </tr>
                 <?php

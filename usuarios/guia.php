@@ -2,9 +2,7 @@
 include('../app/config/config.php');
 session_start();
 
-$sentencia = $pdo->query("SELECT * FROM guia;");
-$actividades = $sentencia->fetchAll(PDO::FETCH_OBJ);
-//print_r($actividades);
+
 
 
 if (isset($_SESSION['u_usuario'])) {
@@ -35,6 +33,9 @@ if (isset($_SESSION['u_usuario'])) {
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
 
+  $sentencia = $pdo->query("SELECT * FROM guia;");
+  $actividades = $sentencia->fetchAll(PDO::FETCH_OBJ);
+  //print_r($actividades);
 
 ?>
 

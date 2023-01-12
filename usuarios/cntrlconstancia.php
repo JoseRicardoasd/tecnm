@@ -46,6 +46,6 @@ $guardar = mysqli_query($conexion, $sql);
 if (!$guardar) {
   echo '<script language="javascript">alert("No se pudo guardar la constancia");window.location.href="constancia.php"</script>';
 } else {
-  echo '<script language="javascript">alert("Constancia guardada satisfactoriamente");window.location.href="constancia.php"</script>';
+  echo '<script language="javascript">window.location.href="constancia.php"</script>';
 }
 mysqli_close($conexion);

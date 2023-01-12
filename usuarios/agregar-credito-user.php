@@ -526,7 +526,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
             <h4 class="modal-title" id="curso-taller">Cargar Archivo</h4>
           </div>
           <div class="modal-body">
-            <form action="cargas/curso taller.php" method="post" enctype="multipart/form-data" class="agregarActiv">
+            <form action="cargas/curso_taller.php" method="post" enctype="multipart/form-data" class="agregarActiv">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <?php
               $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '5'";
@@ -635,7 +635,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
             <h4 class="modal-title" id="Ciencias-Básicas">Cargar Archivo</h4>
           </div>
           <div class="modal-body">
-            <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data" class="agregarActiv">
+            <form action="cargas/Ciencias_Básicas.php" method="post" enctype="multipart/form-data" class="agregarActiv">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <?php
               $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '7'";
@@ -689,7 +689,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
             <h4 class="modal-title" id="Ciencias-Básicas">Cargar Archivo</h4>
           </div>
           <div class="modal-body">
-            <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data" class="agregarActiv">
+            <form action="cargas/Ciencias_Básicas.php" method="post" enctype="multipart/form-data" class="agregarActiv">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <?php
               $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '8'";
@@ -743,7 +743,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
             <h4 class="modal-title" id="Ciencias-Básicas">Cargar Archivo</h4>
           </div>
           <div class="modal-body">
-            <form action="cargas/Ciencias Básicas.php" method="post" enctype="multipart/form-data" class="agregarActiv">
+            <form action="cargas/Ciencias_Básicas.php" method="post" enctype="multipart/form-data" class="agregarActiv">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <?php
               $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '9'";
@@ -798,7 +798,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
             <h4 class="modal-title" id="Creatividad">Cargar Archivo</h4>
           </div>
           <div class="modal-body">
-            <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data" class="agregarActiv">
+            <form action="cargas/Creatividad_e_innovación.php" method="post" enctype="multipart/form-data" class="agregarActiv">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <?php
               $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '10'";
@@ -853,7 +853,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
             <h4 class="modal-title" id="Creatividad">Cargar Archivo</h4>
           </div>
           <div class="modal-body">
-            <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data" class="agregarActiv">
+            <form action="cargas/Creatividad_e_innovación.php" method="post" enctype="multipart/form-data" class="agregarActiv">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <?php
               $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '11'";
@@ -908,7 +908,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
             <h4 class="modal-title" id="Creatividad">Cargar Archivo</h4>
           </div>
           <div class="modal-body">
-            <form action="cargas/Creatividad e innovación.php" method="post" enctype="multipart/form-data" class="agregarActiv">
+            <form action="cargas/Creatividad_e_innovación.php" method="post" enctype="multipart/form-data" class="agregarActiv">
               <input type="text" name="numero_control" value="<?php echo $sesion_usuario['numero_control'] ?>" style="display:none">
               <?php
               $consulta1 = "SELECT credito_activ FROM actividades WHERE id_act = '12'";

@@ -79,7 +79,7 @@ if (!empty($idCicloA)) {/* si la variable $idCicloA esta definida entra en la se
 
 
 
-    header('Location: ../../extraescolar/extraexcolar.php');
+    header('Location: ../../extraescolar/categorias.php');
 
 } else if (empty($idCicloA)) {/* si la variable $idCicloA esta definida pero esta vacia entra en la sentencia */
     if (isset($_POST['inicio']) && isset($_POST['fin']) && isset($_POST['descripcion'])){
@@ -189,7 +189,7 @@ if (!empty($idCicloA)) {/* si la variable $idCicloA esta definida entra en la se
         }
 
         /* redireccionarlo al siguiente archivo */
-        header('Location: ../../extraescolar/extraexcolar.php');
+        header('Location: ../../extraescolar/categorias.php');
         
 
 	}

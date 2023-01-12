@@ -104,14 +104,7 @@
                       <label for="obs" class="label_obs">Obervaciones</label> <br>
                       <textarea name="habilidad" id="habilidad" cols="100" rows="3"></textarea>
                     </div>
-                    <div class="col-md-4">
-                      <label for="recipient-name" class="col-form-label">Calificacion:</label>
-                      <select class="form-control" name="calificacion" id="calificacion" required>
-                        <option value="">SELECCIONE</option>
-                        <option value="1">Acreditado</option>
-                        <option value="2">No Acreditado</option>
-                      </select>
-                    </div>
+                    
                   </div>
                   
 

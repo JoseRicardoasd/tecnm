@@ -38,7 +38,7 @@ function alerta_guardar() {
       })
 }
 
-function alerta_eliminar2(codigos) {
+function alerta_eliminar2(codigos1) {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -49,13 +49,13 @@ function alerta_eliminar2(codigos) {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          mandar_php2(codigos)
+          mandar_php2(codigos1)
         }
     })
 }
 
-function mandar_php2(codigos) {
-    parametros2 = { id: codigos };
+function mandar_php2(codigos1) {
+    parametros2 = { id: codigos1 };
     $.ajax({
         data: parametros2,
         url: "eliminar_dep.php",

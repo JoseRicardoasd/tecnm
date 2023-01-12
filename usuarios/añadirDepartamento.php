@@ -127,7 +127,7 @@ if (isset($_SESSION['u_usuario'])) {
 
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary" value="Actualizar" onclick="alerta_guardar(<?php echo $filas['id'] ?>)">Guardar</button>
+                                    <button type="submit" class="btn btn-primary" value="Actualizar" onclick="alerta_guardar(<?php echo $filas['id']; ?>)">Guardar</button>
                                   </div>
 
 
@@ -149,7 +149,7 @@ if (isset($_SESSION['u_usuario'])) {
                       </div>
 </td>
  <td>
-     <a onclick="alerta_eliminar2(<?php echo $filas['id'] ?>)" class="btn btn-danger">Eliminar</a>
+     <a onclick="alerta_eliminar2(<?php echo $filas['id']; ?>)" class="btn btn-danger">Eliminar</a>
 </td>
          
 
@@ -184,6 +184,7 @@ if (isset($_SESSION['u_usuario'])) {
         <?php include('../layout/footer_links.php'); ?>
 
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="js/sweetalert.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 

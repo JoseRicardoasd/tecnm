@@ -88,7 +88,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
   </thead>
   <tbody>
     <?php
-    $busqueda = mysqli_query($conexion, "SELECT * FROM extraescolar inner join grupo on extraescolar.id=grupo.idActividad WHERE grupo.matricula = $id_numero_control ");
+    $busqueda = mysqli_query($conexion, "SELECT * FROM extraescolar inner join extragrupo on extraescolar.id=extragrupo.idActividad WHERE extragrupo.matricula = $id_numero_control ");
     $numero = mysqli_num_rows($busqueda);
    ?> 
    <h5 class= "card-titl">Resultados (<?php echo $numero?>)</h5>

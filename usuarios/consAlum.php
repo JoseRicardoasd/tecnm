@@ -75,7 +75,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                 <p>Aqui podras ver y descargar tu constancia una vez que este disponible </p>
 
 
-                <form action="reporteconstancia.php" method="POST" target="_blank">
+                <form action="reporte_extra.php" method="POST" target="_blank">
                   <div class="row">
                     <div id="content" class="col-lg-12">
                       <button class="btn btn-primary" type="submit"><i class="fa fa-download"></i> Descargar PDF</button>

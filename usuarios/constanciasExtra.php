@@ -229,7 +229,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           let btn = document.getElementById('btnGuardar');
           //creditos
           const valor = document.getElementById("credito_valor");
-          let valorFinal = 0;
+          let valorFinal = 30;
 
 
           //console.log(datos);

@@ -123,7 +123,18 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               <form action="cntrlconstancia.php" method="POST" class="Constan">
 
                 <p style="margin-top:20px">
-                  <input type="text" name="jefe" maxlength="100" class="input_border input_largo" placeholder="Jefe(a)" required style="text-transform: uppercase;">
+                  <!-- <input type="text" name="jefe" maxlength="100" class="input_border input_largo" placeholder="Jefe(a)" required style="text-transform: uppercase;"> -->
+                  <select name="jefe" class="input_border input_largo" required style="text-transform: uppercase;">
+                    <option value="" selected disabled>Jefe(a)</option>
+                    <?php
+                    $consulta1 = "SELECT * FROM tb_jefes where id_departamento = 47";
+                    $res = mysqli_query($conexion, $consulta1)  ?>
+                    <?php foreach ($res as $opcion) : ?>
+
+                      <option value="<?php echo $opcion['nombres'] ?>"><?php echo $opcion['nombres'] ?></option>
+
+                    <?php endforeach ?>
+                  </select>
                   <br>
 
                   Jefe(a) del Departamento de Servicios Escolares o su equivalente en los Institutos Tecnológicos Descentralizados
@@ -135,7 +146,20 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 <br>
                 <br>
                 <p class="parrafo_inputs">
-                  El que se suscribe <input type="text" name="suscribe" maxlength="100" class="input_border input_largo" placeholder="Suscribe" required style="text-transform: uppercase;">, por
+                  El que se suscribe
+                  <select name="suscribe" class="input_border input_largo" required style="text-transform: uppercase;">
+                    <option value="" selected disabled>Elije una opcion</option>
+                    <?php
+                    $consulta2 = "SELECT nombres FROM tb_jefes where id_departamento = 47";
+                    $res = mysqli_query($conexion, $consulta2)  ?>
+                    <?php foreach ($res as $opcion) : ?>
+
+                      <option value="<?php echo $opcion['nombres'] ?>"><?php echo $opcion['nombres'] ?></option>
+
+                    <?php endforeach ?>
+                  </select>
+
+                  , por
                   este medio se permite hacer de su conocimiento que
                   <br> el estudiante <input type="text" name="alumno" maxlength="100" required class="input_border input_largo" placeholder="Nombre alumno" id="nombre" style="text-transform: uppercase;">
                   con número de control <input type="text" name="matricula" required maxlength="100" class="input_border input_corto" placeholder="Matricula alumno" id="matricula" style="text-transform: uppercase;"><br>

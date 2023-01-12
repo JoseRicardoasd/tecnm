@@ -24,7 +24,7 @@ if ($resultado <= 4) {
 	SET 
 	observacion  ='" .$habilidad. "',
 	valor  ='" .$resultado. "',
-	desempeño  ='" .$valor. "',
+	desempeyo  ='" .$valor. "',
 	acreditacion  ='" .$calificacion. "'
 
 WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
@@ -40,7 +40,7 @@ if ($resultado <= 3) {
 	SET 
 	observacion  ='" .$habilidad. "',
 	valor  ='" .$resultado. "',
-	desempeño  ='" .$valor. "',
+	desempeyo  ='" .$valor. "',
 	acreditacion  ='" .$calificacion. "'
 
 WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
@@ -56,7 +56,7 @@ if ($resultado <= 2) {
 	SET 
 	observacion  ='" .$habilidad. "',
 	valor  ='" .$resultado. "',
-	desempeño  ='" .$valor. "',
+	desempeyo  ='" .$valor. "',
 	acreditacion  ='" .$calificacion. "'
 
 WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
@@ -72,7 +72,7 @@ if ($resultado <= 1) {
 	SET 
 	observacion  ='" .$habilidad. "',
 	valor  ='" .$resultado. "',
-	desempeño  ='" .$valor. "',
+	desempeyo  ='" .$valor. "',
 	acreditacion  ='" .$calificacion. "'
 
 WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
@@ -88,7 +88,7 @@ if ($resultado <= 0) {
 	SET 
 	observacion  ='" .$habilidad. "',
 	valor  ='" .$resultado. "',
-	desempeño  ='" .$valor. "',
+	desempeyo  ='" .$valor. "',
 	acreditacion  ='" .$calificacion. "'
 
 WHERE matricula='" .$control. "' AND idActividad='".$actividad."'

@@ -240,7 +240,8 @@
           <li><a href="añadirTutor.php"><i class="fa fa-users"></i> <span>Asignacion de Asesores</span></a></li>
 
           <li class="header">Constancias de Act. Tutorías</li>
-          <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Act. Compl. Tutorías</span></a></li>
+          
+          <li><a href="tutoria_constancia.php"><i class="fa fa-users"></i> <span>Act. Compl. Tutorías</span></a></li>
 
         </ul>
       </li>

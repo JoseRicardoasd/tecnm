@@ -21,7 +21,7 @@ if (isset($_POST['buscar'])) {
     $datos[] = $alumnos_array;
   }
 
-  $resultados = mysqli_query($conexion, "SELECT matricula, observacion, acreditacion, desempeño, nombreActividad, horaActividad FROM extragrupo INNER JOIN extraescolar ON extraescolar.id = extragrupo.idActividad WHERE extragrupo.matricula = '$matricula_buscar'");
+  $resultados = mysqli_query($conexion, "SELECT matricula, observacion, acreditacion, desempeyo, nombreActividad, horaActividad FROM extragrupo INNER JOIN extraescolar ON extraescolar.id = extragrupo.idActividad WHERE extragrupo.matricula = '$matricula_buscar'");
   while ($consulta = mysqli_fetch_array($resultados)) {
     /*$nombre[] = $consulta['nombre'];
     $obs[] = $consulta['observacion'];

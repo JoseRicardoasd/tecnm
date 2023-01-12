@@ -2,13 +2,6 @@
 include('../app/config/config.php');
 session_start();
 
-$sql = ("SELECT id FROM ciclo ORDER BY id DESC LIMIT 1;");
-$query = $bdd->prepare( $sql );
-$query->execute();
-$resultado = $query->fetch(PDO::FETCH_OBJ);
-
-$idCiclo = $resultado === false ? 1 : $resultado->id;
-
 if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
   $correo_sesion = $_SESSION['u_usuario'];
   $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
@@ -18,7 +11,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
   foreach ($sesion_usuarios as $sesion_usuario) {
     $id_sesion = $sesion_usuario['id'];
     $id_nombres = $sesion_usuario['nombres'];
-    $id_ap_paterno = $sesion_usuario['ap_paterno'];
+    $id_ap_paterno = $sesion_usuario['ap_paterno']; 
     $id_ap_materno = $sesion_usuario['ap_materno'];
     $id_sexo = $sesion_usuario['sexo'];
     $id_numero_control = $sesion_usuario['numero_control'];
@@ -37,14 +30,6 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
     $id_entidad = $sesion_usuario['entidad'];
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
-
-    $sql = ("SELECT extraescolar.id, extraescolar.nombreActividad, extraescolar.idCategoria, encargado.idUsuario, tb_usuarios.nombres FROM extraescolar INNER JOIN encargado ON extraescolar.id = encargado.idActividad INNER JOIN tb_usuarios ON tb_usuarios.id = encargado.idUsuario WHERE extraescolar.idCiclo = $idCiclo AND encargado.idUsuario = $id_sesion");
-    $query = $bdd->prepare($sql);
-    $query->execute();
-    $extraescolar = $query->fetchAll(PDO::FETCH_ASSOC);
-
-
-  
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -58,6 +43,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
   } else {
     $_SESSION["ultimoAcceso"] = $ahora;
   }
+
+  include('php/extra/AgregarActividad.php');
 
 ?>
 
@@ -105,7 +92,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                                 echo "</thead>";
                                 echo "<tbody>";
                                     foreach ($extraescolar as $extra) {
-                                        if ($extra['idUsuario'] == $id_sesion ) {
+                                        if ($extra['idUsuario'] == $id_sesion) {
                                             
                                             echo "<tr>";
                                             echo "<td></td>";
@@ -114,7 +101,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                                             echo "<td><a class='btn btn-primary btn-lg' href='alumnosListado.php?id=".$extra['id']."'>Actividad del alumno</a></td>";
                                             echo "</tr>";
                                             
-                                        } else if($extra['idUsuario'] != $id_sesion ){
+                                        } else if($extra['idUsuario'] == ""){
                                             echo "<tr>";
                                             echo "<td>No tienes cargos;</td>";
                                             echo "</tr>";
@@ -141,4 +128,4 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
 } else {
   echo "no existe sesión";
   header('Location:' . $URL . '/login');
-}
+}?>

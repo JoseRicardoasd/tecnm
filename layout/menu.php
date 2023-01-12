@@ -133,15 +133,11 @@
         } else {
           if ($id_sexo  == "Hombre") {
           ?>
-
             <img src="<?php echo $URL; ?>../public/images/avatar_hombre.png" class="user-image" alt="User Image">
-
           <?php
           } else {
           ?>
-
             <img src="<?php echo $URL; ?>../public/images/avatar_mujer.png" class="user-image" alt="User Image">
-
         <?php
           }
         }
@@ -208,9 +204,9 @@
         </a>
         <ul class=" sidebar-menu treeview-menu">
           <li class="header">Ciclos Escolares </li>
-          <li><a href="nuevoCiclo.php"><i class="fa fa-users"></i> <span>Generar Ciclo Escolar</span></a></li>
-          <li><a href="nuevoCampo.php"><i class="fa fa-users"></i> <span>Categorias</span></a></li>
-          <li><a href="extraexcolar.php"><i class="fa fa-users"></i> <span>Actividades</span></a></li>
+          <li><a href="extraescolar/registro_ciclo.php"><i class="fa fa-users"></i> <span>Generar Ciclo Escolar</span></a></li>
+          <li><a href="extraescolar/nuevoCampo.php"><i class="fa fa-users"></i> <span>Categorias</span></a></li>
+          <li><a href="extraescolar/categorias.php"><i class="fa fa-users"></i> <span>Actividades</span></a></li>
           <li class="header">Responsables de actividades</li>
           <li><a href="nuevoResponsable.php"><i class="fa fa-users"></i> <span>Asignación de responsables</span></a></li>
           <li class="header">Constancias</li>

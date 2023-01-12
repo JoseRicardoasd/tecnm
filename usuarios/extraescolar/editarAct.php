@@ -61,15 +61,14 @@ $correo_sesion = $_SESSION['u_usuario'];
     $nombreActividad=strtoupper($_POST['nombreActividad']);
     $horaActividad=$_POST['horaActividad'];
     $horaHacer = $_POST['horaHacer'];
-    $encargadoActividad = $_POST ['encargadoActividad'];
     $lugarActividad=$_POST ['lugarActividad'];
-    $lunes=$_POST['lunes'];
-    $martes=$_POST['martes'];
-    $miercoles=$_POST['miercoles'];
-    $jueves=$_POST['jueves'];
-    $viernes=$_POST['viernes'];
+    $lunes=(isset($_POST['lunes']))?$_POST['lunes']:"";
+    $martes=(isset($_POST['martes']))?$_POST['martes']:"";
+    $miercoles=(isset($_POST['miercoles']))?$_POST['miercoles']:"";
+    $jueves=(isset($_POST['jueves']))?$_POST['jueves']:"";
+    $viernes=(isset($_POST['viernes']))?$_POST['viernes']:"";
     
-    $sql="UPDATE extraescolar set nombreActividad='".$nombreActividad."', horaActividad='".$horaActividad."', horaHacer='".$horaHacer."', encargadoActividad='".$encargadoActividad."', lugarActividad='".$lugarActividad."' where id='".$id."'";
+    $sql="UPDATE extraescolar set nombreActividad='".$nombreActividad."', horaActividad='".$horaActividad."', horaHacer='".$horaHacer."', lugarActividad='".$lugarActividad."' where id='".$id."'";
     
     $resultado=mysqli_query($conexion,$sql);
     echo "<script languaje='JavaScript'>
@@ -79,14 +78,13 @@ $correo_sesion = $_SESSION['u_usuario'];
 
    }else{
     $id=$_GET['id'];
-    $sql="SELECT nombreActividad,horaActividad,horaHacer,encargadoActividad, lugarActividad FROM extraescolar  where extraescolar.id='".$id."'";
+    $sql="SELECT nombreActividad,horaActividad,horaHacer, lugarActividad FROM extraescolar  where extraescolar.id='".$id."'";
     $resultado=mysqli_query($conexion,$sql);
 
     $campor=mysqli_fetch_assoc($resultado);
     $nombreActividad=$campor["nombreActividad"];
     $horaActividad=$campor['horaActividad'];
     $horaHacer = $campor['horaHacer'];
-    $encargadoActividad = $campor ['encargadoActividad'];
     $lugarActividad=$campor ['lugarActividad'];
     
 
@@ -145,19 +143,14 @@ $correo_sesion = $_SESSION['u_usuario'];
 
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-book"></i>Horas de actividad</label>
-                        <input type= "time" name="horaHacer" required value="<?php echo $horaHacer; ?>">
+                        <label for=""><i class="glyphicon glyphicon-book"></i>Horario de actividad</label>
+                        <input type= "time" class="form-control" name="horaHacer" required value="<?php echo $horaHacer; ?>">
                         <!--<input type="text" class="form-control" name="horaHacer" required style="text-transform:uppercase;">-->
-                      </div>
-
-                      <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-user"></i>Encargado</label> 
-                        <input type="text" class="form-control" name="encargadoActividad"  style="text-transform:uppercase;" value="<?php echo $encargadoActividad; ?>">
                       </div>
                       
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-book"></i>Lugar de actividad</label> 
-                        <select name="lugarActividad">
+                        <select class="form-control" name="lugarActividad">
                           <option value="">Seleccione</option>
                           <option value="CampoFutbol">Campo de futbol</option>
                           <option value="Cancha">Cancha usos multiples</option>

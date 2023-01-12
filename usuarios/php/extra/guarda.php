@@ -20,7 +20,7 @@ if (isset($_POST['cbx_actividad']) && isset($_POST['id_usuario'])){
 		die ('Erreur execute');
 	}
 
-    header('Location: ../../extraescolar/categorias.php');
+    header('Location: ../../extraescolar/nuevoResponsable.php');
 }
 
 ?>

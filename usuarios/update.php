@@ -19,23 +19,23 @@ $iniciativa = $_POST['iniciativa'];
 $resultado = ($tiempo + $equipo + $liderazgo + $organiza + $interpreta + $realiza + $iniciativa) / 7;
 if ($resultado <= 4) {
   $valor = 'Excelente';
-  $calificacion = 'Acreditado';
+  $calificacion = 1;
 }
 if ($resultado <= 3) {
   $valor = 'Notable';
-  $calificacion = 'Acreditado';
+  $calificacion = 1;
 }
 if ($resultado <= 2) {
   $valor = 'Bueno';
-  $calificacion = 'Acreditado';
+  $calificacion = 1;
 }
 if ($resultado <= 1) {
   $valor = 'Suficiente';
-  $calificacion = 'NO Acreditado';
+  $calificacion = 2;
 }
 if ($resultado <= 0) {
   $valor = 'Insuficiente';
-  $calificacion = 'NO Acreditado';
+  $calificacion = 2;
 };
 
 $update = ("UPDATE extragrupo 

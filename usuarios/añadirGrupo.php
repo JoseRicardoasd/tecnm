@@ -2,20 +2,20 @@
 include('../app/config/config.php');
 session_start();
 if (isset($_SESSION['u_usuario'])) {
-    //echo "existe sesión";
-    //echo "bienvenido usuario";
-    $correo_sesion = $_SESSION['u_usuario'];
-    $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
-    $query_sesion->execute();
-    $sesion_usuarios = $query_sesion->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($sesion_usuarios as $sesion_usuario) {
-        $id_sesion = $sesion_usuario['id'];
-        $id_nombres = $sesion_usuario['nombres'];
-        $id_ap_paterno = $sesion_usuario['ap_paterno'];
-        $id_ap_materno = $sesion_usuario['ap_materno'];
-        $id_sexo = $sesion_usuario['sexo'];
-        $id_numero_control = $sesion_usuario['numero_control'];
-        $id_carrera = $sesion_usuario['carrera'];
+//echo "existe sesión";
+//echo "bienvenido usuario";
+$correo_sesion = $_SESSION['u_usuario'];
+$query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
+$query_sesion->execute();
+$sesion_usuarios = $query_sesion->fetchAll(PDO::FETCH_ASSOC);
+foreach ($sesion_usuarios as $sesion_usuario) {
+$id_sesion = $sesion_usuario['id'];
+$id_nombres = $sesion_usuario['nombres'];
+$id_ap_paterno = $sesion_usuario['ap_paterno'];
+$id_ap_materno = $sesion_usuario['ap_materno'];
+$id_sexo = $sesion_usuario['sexo'];
+$id_numero_control = $sesion_usuario['numero_control'];
+    $id_carrera = $sesion_usuario['carrera'];
         $id_correo = $sesion_usuario['correo'];
         $id_estado_civil = $sesion_usuario['estado_civil'];
         $id_telefono = $sesion_usuario['telefono'];
@@ -32,113 +32,159 @@ if (isset($_SESSION['u_usuario'])) {
     }
 ?>
 
-    <!DOCTYPE html>
-    <html>
-    <?php
-        $sql = "SELECT * FROM grupos";
+<!DOCTYPE html>
+<html>
+<?php
+$sql = "SELECT * FROM grupos";
 
-            $resultado = mysqli_query($conexion, $sql);
-        
-            ?>
+$resultado = mysqli_query($conexion, $sql);
 
-    <head>
-        <?php include('../layout/head.php'); ?>
-        
-        <title>Añadir grupo</title>
-    </head>
+?>
 
-    <body class="hold-transition skin-blue sidebar-mini">
-        <div class="wrapper">
-        
-            <?php include('../layout/menu.php'); ?>
+<head>
+<?php include('../layout/head.php'); ?>
+<title>Añadir grupo</title>
+<link rel="stylesheet" href="../usuarios/estilos.css">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+<?php include('../layout/menu.php'); ?>
 
 
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1>
-                    Asignación de tutores al grupo
-                </section>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+<section class="content-header">
+<h1>
+Asignación de tutores al grupo
+</section>
 
-            
+
 <div class="container">
 <?php include('../usuarios/modalprueba.php'); ?>
 </div>
-                <!-- Main content -->
-                <section class="content">
-                    <br>
-                    <!-- Listado de incidencias -->
+<!-- Main content -->
+<section class="content">
+<br>
+<!-- Listado de incidencias -->
 
-                    <div class="panel panel-primary">
-
-
-                        <div class="panel-heading">Listado</div>
-                        <div class="panel-body">
-                            <table class="table table-bordered table-hover table-condensed">
-
-                                <th>Carrera</th>
-                                <th>Semestre</th>
-                                <th>Ciclo escolar</th>
-                                <th>Acciones</th>
+<div class="panel panel-primary">
 
 
+<div class="panel-heading">Listado</div>
+<div class="panel-body">
+<table class="table table-bordered table-hover table-condensed">
+
+<th>Carrera</th>
+<th>Semestre</th>
+<th>Ciclo escolar</th>
+<th>Dias tutoria</th>
+<th>Hora inicio</th>
+<th>Hora finalizacion</th>
+<th>Acciones</th>
 
 
-                                <?php
-                                while ($filas = mysqli_fetch_assoc($resultado)) {
-                                ?>
 
-                                    <tr>
 
-                                        <td><?php echo $filas['carrera'] ?></td>
-                                        <td><?php echo $filas['semestre'] ?></td>
-                                        <td><?php echo $filas['periodo'] ?></td>
-                                 <td>
-                                 <?php include('../usuarios/modaltutor.php'); ?>
+<?php
+while ($filas = mysqli_fetch_assoc($resultado)) {
+?>
+
+<tr>
+
+<td><?php echo $filas['carrera'] ?></td>
+<td><?php echo $filas['semestre'] ?></td>
+<td><?php echo $filas['periodo'] ?></td>
+<td><?php echo $filas['dias_tutoria']?></td>
+<td><?php echo $filas['hora_inicio']?></td>
+<td><?php echo $filas['hora_fin']?></td>
+ <td>
+ <?php include('../usuarios/modaltutor.php'); ?>
 </td>
 
  <td><a href="informaciongrupo.php"><button type="submit" class="btn btn-success">Ver grupo</button></a></td>
-         
+ 
 
 
 
-                        </tr>
-                    <?php
+</tr>
+<?php
 
-                                }
-
-
-                    ?>
+}
 
 
-                    </table>
-                    </div>
-            </div>
-            </section>
-
-        </div>
-        
+?>
 
 
+</table>
+</div>
+</div>
+</section>
 
+</div>
 
 
 
 
+<script>
+    $('.actualizar_grupo').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+  title: '¿ESTAS SEGURO QUE DESEAS GUARDAR EL GRUPO?',
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'SI, DESEO GUARDAR'
+}).then((result) => {
+  if (result.isConfirmed) {
+   this.submit();  
+  }
+})
 
-        <!-- /.content-wrapper -->
-        <?php include('../layout/footer.php'); ?>
-        <?php include('../layout/footer_links.php'); ?>
+    });
+</script>
 
 
-    </body>
+<script>
+    $('.asignar_tutor').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+  title: '¿ESTAS SEGURO QUE DESEAS ASIGNAR EL TUTOR A ESTE GRUPO?',
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'SI, DESEO GUARDAR'
+}).then((result) => {
+  if (result.isConfirmed) {
+   this.submit();  
+  }
+})
 
-    </html>
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- /.content-wrapper -->
+<?php include('../layout/footer.php'); ?>
+<?php include('../layout/footer_links.php'); ?>
+
+
+</body>
+
+</html>
 
 <?php
 } else {
-    echo "no existe sesión";
-    header('Location:' . $URL . '/login');
+echo "no existe sesión";
+header('Location:' . $URL . '/login');
 }
-

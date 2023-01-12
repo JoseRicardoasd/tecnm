@@ -115,7 +115,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                 </div>
                 <div class="panel-body">
                   
-                    <form id="combo" name="combo" action="guarda.php" method="POST">
+                    <form id="combo" name="combo" action="../php/extra/guarda.php" method="POST">
                       <div class="col-md-6">
                         <label for="">SELECCIONA CATEGORIA</label>
 

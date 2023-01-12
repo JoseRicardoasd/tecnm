@@ -57,7 +57,7 @@
     <div class="form-group">
                                                     <label for="id_alumno" class="col-sm2 control-label">Departamento</label>
                                                     <div class="">
-                                                        <input type="text" name="departamento" id="" class="form-control" placeholder="Departamento" required>
+                                                        <input type="text" name="departamento" id="" class="form-control" placeholder="Departamento" style="text-transform:uppercase;" required tabindex="11">
                                                     </div>
                                                 </div>
     </div>

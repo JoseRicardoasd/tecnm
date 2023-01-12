@@ -92,10 +92,65 @@ if (isset($_SESSION['u_usuario'])) {
                                         <td><?php echo $filas['id'] ?></td>
                                         <td><?php echo $filas['Departamento'] ?></td>
                                  <td>
-                                 <?php include('../usuarios/modalEditarDep.php'); ?>
 </td>
 
- <td><a href=".php"><button type="submit" class="btn btn-success">Eliminar</button></a></td>
+ <td>
+     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#example<?php echo $filas['id'] ?>">
+     Editar
+    </button>
+     <div class="modal fade" id="example<?php echo $filas['id'] ?>" tabindex="-1" aria-labelledby="example" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="example">Actualización del Departamento</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+
+                            </div>
+
+
+                            <form method="post" action="actualizar_dep.php">
+                              <input type="hidden" name="id" value="<?php echo $filas['id'] ?>">
+
+                              <div class="modal-body" id="">
+
+                                  <div class="form-group">
+                                    <label>N°</label>
+                                    <?php echo $filas['id'] ?>
+                                  </div>
+
+                                  <div>
+                                    <label>Departamento</label>
+                                    <input type="text" name="departamento" id="" class="form-control" placeholder="Departamento" <?php echo $filas['Departamento'] ?>>
+                                  </div>
+
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary" value="Actualizar" onclick="alerta_guardar(<?php echo $filas['id'] ?>)">Guardar</button>
+                                  </div>
+
+
+
+                              </div>
+                            </form>
+
+
+
+
+
+
+                          </div>
+
+
+
+
+                        </div>
+                      </div>
+</td>
+ <td>
+     <a onclick="alerta_eliminar2(<?php echo $filas['id'] ?>)" class="btn btn-danger">Eliminar</a>
+</td>
          
 
 
@@ -127,6 +182,9 @@ if (isset($_SESSION['u_usuario'])) {
         <!-- /.content-wrapper -->
         <?php include('../layout/footer.php'); ?>
         <?php include('../layout/footer_links.php'); ?>
+
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     </body>

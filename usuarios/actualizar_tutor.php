@@ -7,7 +7,7 @@ if (isset($_POST['tutor']) ){
     $id=$_POST['id'];
 	$tutor = $_POST['tutor'];
 
-	$sql= "UPDATE `tutores` SET `grupo` = $id WHERE `tutores`.`id` = $tutor";
+	$sql= "UPDATE `tb_usuarios` SET `grupo` = $id WHERE `tb_usuarios`.`id` = $tutor";
 
 
  

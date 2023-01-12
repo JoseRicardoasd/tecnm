@@ -37,7 +37,7 @@ $id_foto_perfil = $sesion_usuario['foto_perfil'];
   <head>
     <?php include('../layout/head.php'); ?>
     <title>Incidencias</title>
-    <link rel="stylesheet" href="../usuarios/estilos.css">
+      <link rel="stylesheet" href="../usuarios/css/estilos.css">
    
     
    

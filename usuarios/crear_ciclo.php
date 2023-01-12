@@ -37,7 +37,7 @@ $id_correo = $sesion_usuario['correo'];
 
     <head>
         <?php include('../layout/head.php'); ?>
-        <link rel="stylesheet" href="../usuarios/estilos.css">
+        <link rel="stylesheet" href="usuarios/css/estilos.css">
         <title>Crear Ciclo escolar</title>
     </head>
 

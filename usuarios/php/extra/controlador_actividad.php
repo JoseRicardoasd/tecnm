@@ -10,9 +10,7 @@ $miercoles=(isset($_POST['miercoles']))?$_POST['miercoles']:"";
 $jueves=(isset($_POST['jueves']))?$_POST['jueves']:"";
 $viernes=(isset($_POST['viernes']))?$_POST['viernes']:"";
 
-switch ($actividad) {
-	case '1':
-		if (isset($_POST['nombreActividad']) && isset($_POST['horaActividad']) && isset($_POST['horaHacer']) && isset($_POST['encargadoActividad']) && isset($_POST['lugarActividad']) && isset($_POST['idCampo'])){
+if (isset($_POST['nombreActividad']) && isset($_POST['horaActividad']) && isset($_POST['horaHacer']) && isset($_POST['encargadoActividad']) && isset($_POST['lugarActividad']) && isset($_POST['idCampo'])){
 	
 			$nombres=strtoupper($_POST['nombreActividad']);
 			$ap_paterno=$_POST['horaActividad'];
@@ -39,9 +37,4 @@ switch ($actividad) {
 		
 		header('Location: ../../extraescolar/lista_actividades.php?id='.$semestre);
 		break;
-	
-	default:
-		# code...
-		break;
-}
 ?>

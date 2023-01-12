@@ -20,82 +20,36 @@ $resultado = ($tiempo + $equipo + $liderazgo + $organiza + $interpreta + $realiz
 if ($resultado <= 4) {
   $valor = 'Excelente';
   $calificacion = 1;
-  $update = ("UPDATE extragrupo 
-	SET 
-	observacion  ='" .$habilidad. "',
-	valor  ='" .$resultado. "',
-	desempeyo  ='" .$valor. "',
-	acreditacion  ='" .$calificacion. "'
-
-WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
-");
-$result_update = mysqli_query($por, $update);
-
-header('Location: alumnosListado.php?id='.$actividad);
 }
 if ($resultado <= 3) {
   $valor = 'Notable';
   $calificacion = 1;
-  $update = ("UPDATE extragrupo 
-	SET 
-	observacion  ='" .$habilidad. "',
-	valor  ='" .$resultado. "',
-	desempeyo  ='" .$valor. "',
-	acreditacion  ='" .$calificacion. "'
-
-WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
-");
-$result_update = mysqli_query($por, $update);
-
-header('Location: alumnosListado.php?id='.$actividad);
 }
 if ($resultado <= 2) {
   $valor = 'Bueno';
   $calificacion = 1;
-  $update = ("UPDATE extragrupo 
-	SET 
-	observacion  ='" .$habilidad. "',
-	valor  ='" .$resultado. "',
-	desempeyo  ='" .$valor. "',
-	acreditacion  ='" .$calificacion. "'
-
-WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
-");
-$result_update = mysqli_query($por, $update);
-
-header('Location: alumnosListado.php?id='.$actividad);
 }
 if ($resultado <= 1) {
   $valor = 'Suficiente';
   $calificacion = 2;
-  $update = ("UPDATE extragrupo 
-	SET 
-	observacion  ='" .$habilidad. "',
-	valor  ='" .$resultado. "',
-	desempeyo  ='" .$valor. "',
-	acreditacion  ='" .$calificacion. "'
-
-WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
-");
-$result_update = mysqli_query($por, $update);
-
-header('Location: alumnosListado.php?id='.$actividad);
 }
 if ($resultado <= 0) {
   $valor = 'Insuficiente';
   $calificacion = 2;
-  $update = ("UPDATE extragrupo 
+};
+
+$update = ("UPDATE extragrupo 
 	SET 
 	observacion  ='" .$habilidad. "',
 	valor  ='" .$resultado. "',
-	desempeyo  ='" .$valor. "',
-	acreditacion  ='" .$calificacion. "'
+  acreditacion  ='" .$calificacion. "',
+	desempeyo  ='" .$valor. "'
+	
 
 WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
 ");
 $result_update = mysqli_query($por, $update);
 
 header('Location: alumnosListado.php?id='.$actividad);
-};
 
 ?>

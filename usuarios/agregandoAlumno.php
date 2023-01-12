@@ -14,7 +14,7 @@ if(!isset($_GET["id"]) && !isset($_GET["extra"]) ) exit();
     $matricula = $usuario['numero_control'];
 
 
-	$sql = "INSERT INTO extragrupo(idActividad,matricula,observacion,acreditacion) VALUES ($extra, $matricula, NULL, NULL)";
+	$sql = "INSERT INTO extragrupo(idActividad,matricula,observacion,valor,acreditacion,desempeyo) VALUES ($extra, $matricula, NULL,NULL ,NULL , NULL)";
 
 	$query = $bdd->prepare( $sql );
 	if ($query == false) {

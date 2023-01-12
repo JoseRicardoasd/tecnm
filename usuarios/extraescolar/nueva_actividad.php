@@ -83,7 +83,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                     <h3 class="panel-title">AGREGAR ACTIVIDAD A CATEGORIA <?php echo "".$nomCat?> </h3>
                </div>
               <div class="panel-body">
-                <form action="../php/extra/controlador_actividad.php" method="post" enctype="multipart/form-data">
+                <form action="../php/extra/controlador_actividad.php" method="POST" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
@@ -128,7 +128,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                         <br>
                         <label for=""><i class="glyphicon glyphicon-user"></i>Otros</label> 
                         <input type="text" class="form-control" name="otroActividad" id="" style="text-transform:uppercase;">
-                        <input type="hidden" name="idCampo" value="<?php echo $campor?>" style="text-transform:uppercase;">
+                        <input type="hidden" name="idCampo" value="<?php echo $campor?>">
                       </div>
 
                       <div class="col-md-6">
@@ -136,7 +136,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                         <div class="form-group">
                           <center>
                             <a href="lista_actividades.php?id=<?php echo $campor?>" class="btn btn-danger btn-lg">Cancelar</a>
-                            <input type="submit" class="btn btn-primary btn-lg" value="Registrar" style="text-transform:uppercase;">
+                            <input type="submit" class="btn btn-primary btn-lg" value="Registrar">
                           </center>
                         </div>
                       </div>

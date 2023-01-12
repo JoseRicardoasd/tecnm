@@ -167,7 +167,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           <label for=""><i class="glyphicon glyphicon-link"></i> ROL</label>
                           <!-- <input type="text" class="form-control" name="area" required tabindex="10"> -->
                           <select name="roll" id="" class="form-control" required tabindex="6" style="text-transform:uppercase;">
-                            <option value="elegir"></option>
+                            <option value="" disabled selected>selecciona el cargo</option>
                             <option value="0">SIN CARGO</option>
                             <option value="1">TUTOR</option>
                             <option value="2">ENCARGADO</option>

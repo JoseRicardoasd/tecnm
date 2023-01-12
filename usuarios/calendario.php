@@ -103,7 +103,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
             <div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                  <form class="form-horizontal" method="POST" action="addEvent.php">
+                  <form class="form-horizontal nuevo_evento" method="POST" action="addEvent.php">
 
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -196,7 +196,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
             <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                  <form class="form-horizontal" method="POST" action="editEventTitle.php">
+                  <form class="form-horizontal edit_evento" method="POST" action="editEventTitle.php">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="myModalLabel" style="text-align: left;">Modificar Evento</h4>
@@ -295,6 +295,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       <script src='js/fullcalendar/fullcalendar.min.js'></script>
       <script src='js/fullcalendar/fullcalendar.js'></script>
       <script src='js/fullcalendar/locale/es.js'></script>
+
+
 
 
       <script>
@@ -405,7 +407,67 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
   </body>
 
+
   </html>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
+  <script>
+    $('.edit_evento').submit(function(e) {
+      e.preventDefault();
+      Swal.fire({
+        title: '¿DESEAS GUARDAR LOS CAMBIOS?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, DESEO GUARDAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'CAMBIOS GUARDADOS CORRECTAMENTE',
+            icon: 'success',
+            showConfirmButton: false,
+          })
+          setTimeout(() => {
+            this.submit();
+          }, "1000")
+
+        }
+
+      })
+
+    });
+
+
+
+    $('.nuevo_evento').submit(function(e) {
+      e.preventDefault();
+      Swal.fire({
+        title: '¿DESEAS GUARDAR EL EVENTO?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, DESEO GUARDAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'EVENTO GUARDADO CORRECTAMENTE',
+            icon: 'success',
+            showConfirmButton: false,
+          })
+          setTimeout(() => {
+            this.submit();
+          }, "1000")
+
+        }
+
+      })
+
+    });
+  </script>
 <?php
 } else {
   echo "no existe sesión";

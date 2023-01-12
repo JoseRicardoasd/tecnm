@@ -29,7 +29,7 @@ if (!file_exists('Conferencia Platica')) {
         if (!$resultado) {
           echo 'Error al insertar archivo';
         } else {
-          echo '<script language="javascript">alert("Archivo guardado");window.location.href="../agregar-credito-user.php"</script>';
+          echo '<script language="javascript">window.location.href="../agregar-credito-user.php"</script>';
         }
         mysqli_close($conexion);
       } else {
@@ -48,7 +48,7 @@ if (!file_exists('Conferencia Platica')) {
       if (!$resultado) {
         echo 'Error al insertar archivo';
       } else {
-        echo '<script language="javascript">alert("Archivo guardado");window.location.href="../agregar-credito-user.php"</script>';
+        echo '<script language="javascript">window.location.href="../agregar-credito-user.php"</script>';
       }
       mysqli_close($conexion);
     } else {

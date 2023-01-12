@@ -84,7 +84,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   <h3 class="panel-title">Agregar alumno</h3>
                 </div>
 
-                <form action="controlador_create.php" method="post" enctype="multipart/form-data" id="formulario">
+                <form action="controlador_create.php" method="post" enctype="multipart/form-data" id="formulario" class="controlador_create">
                   <div class="panel-body">
                     <div class="row">
 
@@ -243,7 +243,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                         <div class="form-group">
                           <center>
                             <a href="" class="btn btn-danger btn-lg">Cancelar</a>
-                            <input type="submit" class="btn btn-primary btn-lg" value="Registrar">
+                            <!-- <input type="submit" class="btn btn-primary btn-lg" value="Registrar"> -->
+                            <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
                           </center>
                         </div>
                       </div>
@@ -262,16 +263,51 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <?php include('../layout/footer.php'); ?>
-    <?php include('../layout/footer_links.php'); ?>
+    <!-- <?php include('../layout/footer.php'); ?>
+    <?php include('../layout/footer_links.php'); ?> -->
 
 
 
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="js/sweetalert.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
+
+  <!-- <script src="./js/sweetalert.js"></script> -->
 
   </html>
   <script>
+    //alerta guardar----------------
+    $('.controlador_create').submit(function(e) {
+      e.preventDefault();
+      Swal.fire({
+        title: '¿DESEAS GUARDAR LOS DATOS?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, DESEO GUARDAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'DATOS GUARDADOS CORRECTAMENTE',
+            icon: 'success',
+            showConfirmButton: false,
+          })
+          setTimeout(() => {
+            this.submit();
+          }, "1000")
+
+        }
+
+      })
+
+    });
+
+
+
+
+    // -------------------
     function archivo(evt) {
       var files = evt.target.files; // FileList object
       // Obtenemos la imagen del campo "file".
@@ -303,7 +339,12 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         contraCorrecta = true;
       }
       if (contraCorrecta == false) {
-        alert('Las contraseñas no coinciden');
+        Swal.fire({
+          title: 'LAS CONTRASEÑAS NO COINCIDEN',
+          icon: 'error',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'ACEPTAR'
+        })
         e.preventDefault();
       }
     })

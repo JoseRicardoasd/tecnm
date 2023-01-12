@@ -95,7 +95,7 @@ if ($tiempo_transcurrido >= 600) {
                 <h3 class="panel-title">Perfil</h3>
               </div>
               <div class="panel-body">
-                <form action="controlador_editar.php" method="post" enctype="multipart/form-data">
+                <form action="controlador_editar.php" method="post" enctype="multipart/form-data" class="perfil-form">
                   <div class="row">
 
 
@@ -132,10 +132,10 @@ if ($tiempo_transcurrido >= 600) {
                         <label for=""><i class="glyphicon glyphicon-map-marker"></i>CALLE</label>
                         <input type="text" class="form-control" name="calle" value="<?php echo $sesion_usuario['calle']; ?>" required style="text-transform: uppercase;" tabindex="15">
                       </div>
-                        <div class="form-group">
+                      <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-education"></i> Nivel Escolar</label>
                         <select name="nivel_escolar" id="" class="form-control" required>
-                          <option value="Seleccione opción"><?php echo $sesion_usuario['nivel_escolar']; ?>ELIGIR UNA OPCIÓN</option>
+                          <option value="<?php echo $sesion_usuario['nivel_escolar']; ?>"><?php echo $sesion_usuario['nivel_escolar']; ?></option>
                           <option value="Primaria">Primaria</option>
                           <option value="Secundaria">Secundaria</option>
                           <option value="Preparatoria">Preparatoria</option>
@@ -160,8 +160,7 @@ if ($tiempo_transcurrido >= 600) {
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-user"></i> SEXO</label>
-                        <select name="sexo" id="" class="form-control" required style="text-transform: uppercase;" tabindex="4">
-                          <option value="elegir"><?php echo $sesion_usuario['sexo']; ?></option>
+                        <select name="sexo" id="" class="form-control" required style="text-transform: uppercase;" tabindex="4" value="<?php echo $sesion_usuario['sexo']; ?>">
                           <option value="Hombre">Hombre</option>
                           <option value="Mujer">Mujer</option>
                           <option value="Mujer">Otro</option>
@@ -170,20 +169,20 @@ if ($tiempo_transcurrido >= 600) {
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-book"></i> CARRERA</label>
                         <select name="carrera" id="" class="form-control" value="<?php echo $sesion_usuario['carrera']; ?>" required style="text-transform: uppercase;" tabindex="6">
-                          <option value="elegir"><?php echo $sesion_usuario['carrera']; ?></option>
-                          <option value="Ingeneria en Agronomia">Ingeniería en Agronomía</option>
-                          <option value="Ingeneria Forestal">Ingeniería Forestal</option>
-                          <option value="Infeneria en Industrias Alimentarias">Ingeniería en Industrias Alimentarias</option>
-                          <option value="Licenciatura en Biologia">Licenciatura en Biología</option>
-                          <option value="Ingeneria Informatica">Ingeniería Informática</option>
-                          <option value="Ingeneria en Administracion">Ingeniería en Administración </option>
-                          <option value="Infeneria en Gestion Empresarial">Ingeniería en Gestión Empresarial</option>
+                          <?php
+                          $consulta1 = "SELECT carrera FROM cat_carreras";
+                          $res = mysqli_query($conexion, $consulta1)  ?>
+                          <?php foreach ($res as $opcion) : ?>
+
+                            <option value="<?php echo $opcion['carrera'] ?>"><?php echo $opcion['carrera'] ?></option>
+
+                          <?php endforeach ?>
                         </select>
                       </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-modal-window"></i> ESTADO CIVIL</label>
                         <select name="estado_civil" id="" class="form-control" required style="text-transform: uppercase;" tabindex="8">
-                          <option value="elegir"><?php echo $sesion_usuario['estado_civil']; ?></option>
+                          <option value="<?php echo $sesion_usuario['estado_civil']; ?>"><?php echo $sesion_usuario['estado_civil']; ?></option>
                           <option value="Soltero/a">Soltero/a</option>
                           <option value="Casado/a">Casado/a</option>
                           <option value="Unión libre">Unión libre</option>
@@ -200,7 +199,7 @@ if ($tiempo_transcurrido >= 600) {
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-map-marker"></i> ESTADO</label>
                         <select name="ciudad" id="" class="form-control" required style="text-transform: uppercase;" tabindex="12">
-                          <option value="elegir">Elegir una Opción</option>
+                          <option value="<?php echo $sesion_usuario['ciudad']; ?>"><?php echo $sesion_usuario['ciudad']; ?></option>
                           <option value="Aguascalientes">Aguascalientes</option>
                           <option value="Baja California">Baja California</option>
                           <option value="Baja California Sur">Baja California Sur</option>
@@ -259,16 +258,16 @@ if ($tiempo_transcurrido >= 600) {
                       <div class="form-group">
                         <center>
                           <a href="index.php" class="btn btn-danger btn-lg">Cancelar</a>
-                          <input type="submit" class="btn btn-primary btn-lg" value="Actualizar">
+                          <input type="submit" class="btn btn-primary btn-lg" value="Guardar">
                         </center>
                       </div>
                     </div>
 
                   </div>
 
-              </div>
-              </form>
 
+                </form>
+              </div>
 
             </div>
           </div>
@@ -281,13 +280,57 @@ if ($tiempo_transcurrido >= 600) {
   <?php include('../layout/footer.php'); ?>
   <?php include('../layout/footer_links.php'); ?>
 
-
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 </body>
 
 </html>
 <script>
+  $('.perfil-form').submit(function(e) {
+    e.preventDefault();
+    Swal.fire({
+      title: '¿DESEAS GUARDAR LOS DATOS?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'PERFIL ACTUALIZADO',
+          icon: 'success',
+          showConfirmButton: false,
+        })
+        setTimeout(() => {
+          this.submit();
+        }, "1000")
+      }
+
+    })
+
+
+    const foto = document.getElementById('file');
+    if (foto.files[0].size > 1097152) {
+      Swal.fire({
+        title: 'LA FOTO DE PERFIL SUPERA EL PESO MAXIMO (1MB), INTENTA SUBIR OTRA',
+        icon: 'warning',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          e.preventDefault();
+        }
+
+      })
+    }
+  });
+
+
   function archivo(evt) {
     var files = evt.target.files; // FileList object
     // Obtenemos la imagen del campo "file".

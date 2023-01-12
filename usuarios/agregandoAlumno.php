@@ -14,7 +14,7 @@ if(!isset($_GET["id"]) && !isset($_GET["extra"]) ) exit();
     $matricula = $usuario['numero_control'];
 
 
-	$sql = "INSERT INTO grupo(idActividad,matricula,habilidad,calificacion) VALUES ($extra, $matricula, NULL, NULL)";
+	$sql = "INSERT INTO extragrupo(idActividad,matricula,observacion,valor,acreditacion,desempeyo) VALUES ($extra, $matricula, NULL,NULL ,NULL , NULL)";
 
 	$query = $bdd->prepare( $sql );
 	if ($query == false) {
@@ -27,5 +27,7 @@ if(!isset($_GET["id"]) && !isset($_GET["extra"]) ) exit();
 		die ('Erreur execute');
 	}
 
-    header('Location: actividadesEncargado.php?id='.$extra);
+	$valor = 1;
+
+    header('Location: actividadesEncargado.php?id='.$extra.'&'.'valor='.$valor);
 ?>

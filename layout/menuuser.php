@@ -33,7 +33,7 @@
               if ($buscar == true) {
                 // echo "existe foto de perfil";
               ?>
-                <img src="../usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
+                <img src="data:imagen/png;base64,<?php echo base64_encode($sesion_usuario['foto']) ?>" class="user-image" alt="User Image">
                 <?php
               } else {
                 if ($id_sexo  == "Hombre") {
@@ -62,7 +62,7 @@
                 if ($buscar == true) {
                   // echo "existe foto de perfil";
                 ?>
-                  <img src="../usuarios/update_usuarios/<?php echo $sesion_usuario['foto_perfil']; ?>" class="user-image" alt="User Image">
+                  <img src="data:imagen/png;base64,<?php echo base64_encode($sesion_usuario['foto']) ?>" class="user-image" alt="User Image">
                   <?php
                 } else {
                   if ($id_sexo  == "Hombre") {
@@ -176,7 +176,8 @@
 
         <li class="header">Extraescolar</li>
 
-        <li><a href="generarconstancia_alumno.php"><i class="fa fa-book"></i> <span><b>Actividades</b></span></a></li>
+        <li><a href="actAlum.php"><i class="fa fa-users"></i> <span>Actividades</span></a></li>
+        <li><a href="consAlum.php"><i class="fa fa-users"></i> <span>Generar constancia</span></a></li>
 
       </ul>
     </li>

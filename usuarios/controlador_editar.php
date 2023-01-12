@@ -59,14 +59,27 @@ if (isset($_SESSION['u_usuario'])) {
     $fechaHora = date('Y-m-d h:i:s');
 
 
-    $nombre_de_foto_perfil = "SisTECNM-" . date('Y-m-d-h-i-s');
-    $filename = $nombre_de_foto_perfil . "_" . $_FILES['file']['name'];
+    // --------------------------------------------------------
+    // CAPTURA Y GUARADO DE IMAGEN EN BD
+    $type_img = $_FILES['filr']['type'];
+    $name_img = $_FILES['file']['name'];
+    $tamano_img = $_FILES['file']['size'];
 
-    $location = "update_usuarios/" . $filename;
+    $imgSubida = fopen($_FILES['file']['tmp_name'], 'r');
 
-    move_uploaded_file($_FILES['file']['tmp_name'], $location);
+    $imgBinario = fread($imgSubida, $tamano_img);
 
-    $edita = "UPDATE tb_usuarios SET sexo='$sexo', carrera='$carrera', estado_civil='$estado_civil', telefono='$telefono', ciudad='$ciudad', colonia='$colonia', calle='$calle', codigo_postal='$codigo_postal', curp='$curp', fecha_nacimiento='$fecha_nacimiento', nivel_escolar='$nivel_escolar', reticula='$reticula', entidad='$entidad', fyh_actualizacion='$fechaHora', foto_perfil='$filename' WHERE id = '$id'";
+    $imgBinario = mysqli_escape_string($conexion, $imgBinario);
+
+    // ---------------------------------------------
+    //$nombre_de_foto_perfil = "SisTECNM-" . date('Y-m-d-h-i-s');
+    //$filename = $nombre_de_foto_perfil . "_" . $_FILES['file']['name'];
+
+    //$location = "update_usuarios/" . $filename;
+
+    //move_uploaded_file($_FILES['file']['tmp_name'], $location);
+
+    $edita = "UPDATE tb_usuarios SET sexo='$sexo', carrera='$carrera', estado_civil='$estado_civil', telefono='$telefono', ciudad='$ciudad', colonia='$colonia', calle='$calle', codigo_postal='$codigo_postal', curp='$curp', fecha_nacimiento='$fecha_nacimiento', nivel_escolar='$nivel_escolar', reticula='$reticula', entidad='$entidad', fyh_actualizacion='$fechaHora', foto_perfil='$name_img', foto='$imgBinario' WHERE id = '$id'";
     $resultado = mysqli_query($conexion, $edita);
     if (!$resultado) {
       echo 'Error al actualizar';

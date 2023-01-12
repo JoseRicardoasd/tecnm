@@ -84,7 +84,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   <h3 class="panel-title">Agregar Usuario</h3>
                 </div>
                 <div class="panel-body">
-                  <form action="controlador_user.php" method="post" enctype="multipart/form-data" id="formulario">
+                  <form action="controlador_user.php" method="post" enctype="multipart/form-data" id="formulario" class="controlador_user">
                     <div class="row">
 
 
@@ -162,6 +162,17 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                             <option value="Externo">EXTERNO</option>
                           </select>
                         </div>
+                        
+                        <div class="form-group">
+                          <label for=""><i class="glyphicon glyphicon-link"></i> ROL</label>
+                          <!-- <input type="text" class="form-control" name="area" required tabindex="10"> -->
+                          <select name="roll" id="" class="form-control" required tabindex="6" style="text-transform:uppercase;">
+                            <option value="" disabled selected>selecciona el cargo</option>
+                            <option value="0">SIN CARGO</option>
+                            <option value="1">TUTOR</option>
+                            <option value="2">ENCARGADO</option>
+                          </select>
+                        </div>
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-lock"></i> CONTRASEÑA</label>
@@ -209,11 +220,44 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
 
 
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="js/sweetalert.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
 
   </html>
   <script>
+    //alerta guardar----------------
+    $('.controlador_user').submit(function(e) {
+      e.preventDefault();
+      Swal.fire({
+        title: '¿DESEAS GUARDAR LOS DATOS?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, DESEO GUARDAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'DATOS GUARDADOS CORRECTAMENTE',
+            icon: 'success',
+            showConfirmButton: false,
+          })
+          setTimeout(() => {
+            this.submit();
+          }, "1000")
+
+        }
+
+      })
+
+    });
+
+
+
+    // -------------------
+
     function archivo(evt) {
       var files = evt.target.files; // FileList object
       // Obtenemos la imagen del campo "file".
@@ -246,7 +290,12 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         contraCorrecta = true;
       }
       if (contraCorrecta == false) {
-        alert('Las contraseñas no coinciden');
+        Swal.fire({
+          title: 'LAS CONTRASEÑAS NO COINCIDEN',
+          icon: 'error',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar'
+        })
         e.preventDefault();
       }
     })

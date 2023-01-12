@@ -67,9 +67,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           <br> <br>
 
           <div class="container" style="padding: 60px 90px 60px 40px; background: white;">
-            <form action="formato_constancia_ctrl.php" method="POST">
+            <form action="formato_constancia_ctrl.php" method="POST" enctype="multipart/form-data" class="formato">
               <label for="encabezado">Ingresa el encabezado de la constancia</label>
-              <input type="text" name="encabezado" id="encabezado">
+              <input type="file" name="encabezado" required id="encabezado">
               <br><br> <br>
 
               <b>C.Jefe del departamento</b>
@@ -116,13 +116,16 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
               </div>
               <label for="pie">Ingresa el pie de pagina de la constancia</label>
-              <input type="text" name="pie" id="pie">
+              <input type="file" name="pie" required id="pie">
               <br><br>
-              <input type="submit" class="btn btn-success" value="Aceptar">
+              <input type="submit" class="btn btn-success" value="Guardar">
             </form>
           </div>
           <br>
           <br>
+
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
   </body>
@@ -141,9 +144,56 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
   </body>
 
+
+
   </html>
 <?php
 } else {
   echo "no existe sesión";
   header('Location:' . $URL . '/login');
-}
+} ?>
+
+<script>
+  const encabezado = document.getElementById('encabezado');
+  const pie = document.getElementById('pie');
+
+  $('.formato').submit(function(e) {
+    e.preventDefault();
+    if (encabezado.files[0].size > 1097152 || pie.files[0].size > 1097152) {
+      Swal.fire({
+        title: 'UNA DE LAS IMAGENES SUPERA EL PESO MAXIMO (1MB), INTENTA SUBIR OTRA',
+        icon: 'warning',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          e.preventDefault();
+        }
+
+      })
+    } else {
+      Swal.fire({
+        title: '¿DESEAS GUARDAR LAS IMAGENES?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'ENCABEZADO Y PIE DE PAGINA GUARDADOS',
+            icon: 'success',
+            showConfirmButton: false,
+          })
+          setTimeout(() => {
+            this.submit();
+          }, "1000")
+        }
+
+      })
+    }
+  });
+</script>

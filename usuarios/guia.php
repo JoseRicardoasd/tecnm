@@ -1,6 +1,7 @@
 <?php
 include('../app/config/config.php');
 session_start();
+
 if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   $correo_sesion = $_SESSION['u_usuario'];
   $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
@@ -29,19 +30,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
 
-  //control de inactividad
-  $ahora = date("Y-n-j H:i:s");
-  $fechaGuardada = $_SESSION["ultimoAcceso"];
-  $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
-
-  if ($tiempo_transcurrido >= 600) {
-    //si pasaron 10 minutos o más
-    session_destroy(); // destruyo la sesión
-    header('location:../index.php'); //envío al usuario a la pag. de autenticación
-    //sino, actualizo la fecha de la sesión
-  } else {
-    $_SESSION["ultimoAcceso"] = $ahora;
-  }
+  $sentencia = $pdo->query("SELECT * FROM guia;");
+  $actividades = $sentencia->fetchAll(PDO::FETCH_OBJ);
+  //print_r($actividades);
 
 ?>
 
@@ -50,6 +41,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
   <head>
     <?php include('../layout/head.php'); ?>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../app/templeates/AdminLTE-2.3.11/bootstrap/css/bootstrap.css">
+
     <title>Guia de actividades Complementarias</title>
   </head>
 
@@ -58,164 +52,162 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       <?php include('../layout/menu.php'); ?>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        <!-- cierre sesion por inactividad -->
-        <?php if ($_SESSION["ultimoAcceso"] >= 600) {
-          echo ("<meta http-equiv='refresh' content='600'>");
-        } ?>
+        <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            SISTEMA DE CRÉDITOS COMPLEMENTARIOS
+            SISTEMA DE CREDITOS COMPLENTARIOS
             <small>Guia de Actividades Complementarias</small>
           </h1>
-
         </section>
 
-        <!-- Main content -->
-        <section class="content">
-          <div class="panel panel-primary">
-            <div class="panel-heading">Guia de Actividades Complementarias</div>
-            <div class="panel-body">
-              <table class="table table-bordered table-hover table-condensed">
-                <thead>
-                  <tr>
-                    <th>Actividad</th>
-                    <th>Descripción</th>
-                    <th>Créditos por actividad</th>
-                    <th>Máximo Acumular</th>
-                  </tr>
-                </thead>
+        <br>
 
-                <tr>
-                  <td>Movilidad Academica</td>
-                  <td>Estancias en instituciones educativas de nivel superior,
-                    centros de investigacion, y empresas (al menos durante 4 Semanas Nacional</td>
-                  <td>1.0</td>
-                  <td>2.0</td>
-                </tr>
-                <tr>
-                  <td>Movilidad Academica</td>
-                  <td>Estancias en instituciones educativas de
-                    nivel superior, centros de investigacion,
-                    y empresas (al menos durante 4 Semanas
-                    Internacional</td>
-                  <td>2.0</td>
-                  <td>2.0</td>
-                </tr>
-                <tr>
-                  <td>Conferencia y/o Platica</td>
-                  <td>Asistencia o participación dentro o
-                    fuera del instituto en cualquier nivel que se trate, (local, regional, Nacional)
-                    relacionada con el profesional</td>
-                  <td>0.2</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Congreso, Seminario, Simponsio y/o Coloquio</td>
-                  <td>Asistencia o participacion dentro o fuera del instituto
-                    en cualquier nivel que se trate, (local, regional, Nacional)
-                    relacionada con el profesional</td>
-                  <td>0.4</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Curso y/o curso taller</td>
-                  <td>Participación o imparticion dentro o fuera de la institucion en cualquier nivel que se trate, (local, regional, Nacional)
-                    relacionado con el perfil profesional, con una duracion minima de 20 horas (presencial o a distancia)</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Diplomado</td>
-                  <td>Participación o imparticion dentro o fuera del instituto en cualquier nivel que se trate, (local, regional, Nacional)
-                    relacionado con el perfil profesional, con una duracion minima de 90 horas (presencial o a distancia)</td>
-                  <td>2.0</td>
-                  <td>2.0</td>
-                </tr>
+        <div>
+          <button style="margin-left: 90px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertar" ?php echo>Añadir actividad</button>
+        </div>
+        <!--MODAL (nueva actividad)-->
+        <div class="modal fade" id="insertar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Ingrese actividad complementaria</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!--formulario-->
+                <form action="registrar.php" method="POST">
+                  <div class="form-group">
+                    <label for="">Nombre de la actividad</label>
+                    <textarea class="form-control mb-3" name="actividad" placeholder="Actividad"></textarea>
+                    <label for="">Decripción</label>
+                    <textarea class="form-control mb-3" name="descripcion" placeholder="Descripción"></textarea>
+                    <div class="row">
+                      <div class="col">
+                        <label for="">Crédito de actividad</label>
+                        <input type="text" class="form-control mb-3" name="credito" placeholder="Crédito por actividad">
+                      </div>
+                      <div class="col">
+                        <label for="">Máximo acomular</label>
+                        <input type="text" class="form-control mb-3" name="maximo" placeholder="Máximo por acomular">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
 
-                <tr>
-                  <td>Concurso Nacional de Ciencias Básicas</td>
-                  <td>Participación en concurso de ciencas básicas como seleccionado de acuerdo al área que corresponda a nivel local</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso Nacional de Ciencias Básicas</td>
-                  <td>Participación en concurso de ciencas básicas como seleccionado de acuerdo al área que corresponda a nivel regional</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso Nacional de Ciencias Básicas</td>
-                  <td>Participación en concurso de ciencas básicas como seleccionado de acuerdo al área que corresponda a nivel nacional</td>
-                  <td>1.0</td>
-                  <td>2.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de Creatividad e innovación</td>
-                  <td>Participación en concurso de creatividad e innovación de acuerdo al área que corresponda a nivel local</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de Creatividad e innovación</td>
-                  <td>Participación en concurso de creatividad e innovación de acuerdo al área que corresponda a nivel regional</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de Creatividad e innovación</td>
-                  <td>Participación en concurso de creatividad e innovación de acuerdo al área que corresponda a nivel nacional</td>
-                  <td>1.0</td>
-                  <td>2.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de emprendedurismo</td>
-                  <td>Participación en concurso de emprendedurismo de acuerdo al área que corresponda a nivel local</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de emprendedurismo</td>
-                  <td>Participación en concurso de emprendedurismo de acuerdo al área que corresponda a nivel regional</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de emprendedurismo</td>
-                  <td>Participación en concurso de emprendedurismo de acuerdo al área que corresponda a nivel nacional</td>
-                  <td>1.0</td>
-                  <td>2.0</td>
-                </tr>
-                <tr>
-                  <td>Diseño de Prototipos</td>
-                  <td>Participar o ser responsable del diseño de un prototipo que solucione una problemática y esté relacionado con su perfil profesional</td>
-                  <td>0.75</td>
-                  <td>1.5</td>
-                </tr>
-                <tr>
-                  <td>Diseño de Software</td>
-                  <td>Participar o ser responsable del diseño de un prototipo que solucione una problemática y esté relacionado con su perfil profesional</td>
-                  <td>0.75</td>
-                  <td>1.5</td>
-                </tr>
-                <tr>
-                  <td>Diseño en proyecto</td>
-                  <td>Participar en un proyecto de producción, vinculación e investigación previamente autorizado de acuerdo a su perfil profesional realizando las actividades programadas, al menos durante 40 horas</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-              </table>
+              </div>
+
             </div>
-            <!-- /.content -->
           </div>
-          <!-- /.content-wrapper -->
-          <?php include('../layout/footer.php'); ?>
-          <?php include('../layout/footer_links.php'); ?>
+        </div>
+      </div>
+      <br>
 
+
+      <!--CRUD-->
+
+
+      <div class="container">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Guia de Actividades Complementarias</div>
+
+          <table class="table table-bordered table-hover table-condensed">
+            <thead>
+              <tr>
+                <th scope="col">Actividad</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Crédito por actividad</th>
+                <th scope="col">Máximo acomular</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <!--registros de la bd-->
+              <?php
+              $sql = "SELECT * FROM guia";
+
+              $row = mysqli_query($conexion, $sql);
+
+              while ($result = mysqli_fetch_assoc($row)) {
+              ?>
+                <tr>
+                  <td><?php echo $result['actividad'] ?></td>
+                  <td><?php echo $result['descripcion'] ?></td>
+                  <td><?php echo $result['credito'] ?></td>
+                  <td><?php echo $result['maximo'] ?></td>
+                  <td><button type="button" class="btn btn-success editbtn" data-toggle="modal" data-target="#example<?php echo $result['id']; ?>">Editar</button></td>
+
+
+
+
+        </div>
+
+        <!--MODAL (editar actividad)-->
+        <div class="modal fade" id="example<?php echo $result['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Editar</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!--formulario-->
+                <form action="editar.php" method="POST">
+                  <input type="hidden" name="id_editar" value="<?php echo $result['id']; ?>">
+
+                  <div class="form-group">
+                    <label for="">Nombre de la actividad</label>
+                    <textarea class="form-control mb-3" name="actividad" id="actividad" placeholder="Actividad"><?php echo $result['actividad'] ?></textarea>
+
+                    <label for="">Decripción</label>
+                    <textarea class="form-control mb-3" name="descripcion" id="descripcion" placeholder="Descripción"><?php echo $result['descripcion'] ?></textarea>
+
+                    <div class="row">
+                      <div class="col">
+                        <label for="">Crédito de actividad</label>
+                        <input type="text" class="form-control mb-3" name="credito" id="credito" placeholder="Crédito por actividad" value="<?php echo $result['credito'] ?>">
+                      </div>
+                      <div class="col">
+                        <label for="">Máximo acomular</label>
+                        <input type="text" class="form-control mb-3" name="maximo" id="maximo" placeholder="Máximo por acomular" value="  <?php echo $result['maximo'] ?>">
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                      <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+
+                </form>
+
+              </div>
+
+            </div>
+            <td><a href="delete.php?id=<?php echo $result['id'] ?>" class="btn btn-danger">Eliminar</a></td>
+          <?php
+              }
+          ?>
+          </tr>
+          </tbody>
+
+          </table>
+          </div>
+        </div>
+      </div>
+      </table </div>
+    </div>
+    </section>
 
 
 
   </body>
+  <?php include('../layout/footer.php'); ?>
+  <?php include('../layout/footer_links.php'); ?>
 
   </html>
 <?php

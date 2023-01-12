@@ -225,7 +225,7 @@
         <li class="header">Responsables de actividades</li>
         <li><a href="nuevoResponsable.php"><i class="fa fa-users"></i> <span>Asignación de responsables</span></a></li>
         <li class="header">Constancias</li>
-        <li><a href="constanciasExtra.php"><i class="fa fa-users"></i> <span>Constancias Act. Extraescolares</span></a></li>
+        <li><a href="../constanciasExtra.php"><i class="fa fa-users"></i> <span>Constancias Act. Extraescolares</span></a></li>
 
       </ul>
     </li>

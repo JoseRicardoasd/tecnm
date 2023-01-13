@@ -184,7 +184,7 @@
           <li><a href="calendario.php"><i class="glyphicon glyphicon-calendar"></i> <span>Elegir Actividad Académica</span></a></li>
 
           <li class="header">Evidencias de créditos</li>
-          <li><a href="../usuarios/guia.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guía de Créditos</span></a></li>
+          <li><a href="./guia.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guía de Créditos</span></a></li>
           <!--<li><a href="agregar-credito.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Agregar Credito</span></a></li>-->
           <li class="header">Evaluaciones</li>
           <!--<li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li> -->
@@ -240,7 +240,8 @@
           <li><a href="añadirTutor.php"><i class="fa fa-users"></i> <span>Asignacion de Asesores</span></a></li>
 
           <li class="header">Constancias de Act. Tutorías</li>
-          <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Act. Compl. Tutorías</span></a></li>
+          
+          <li><a href="tutoria_constancia.php"><i class="fa fa-users"></i> <span>Act. Compl. Tutorías</span></a></li>
 
         </ul>
       </li>

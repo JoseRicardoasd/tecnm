@@ -75,7 +75,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            Cambio de carpetas
+                            CATEGORIAS
                         </div>
                         <div class="panel-body">
 

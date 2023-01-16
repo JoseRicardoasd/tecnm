@@ -34,6 +34,7 @@ $correo_sesion = $_SESSION['u_usuario'];
          $id_foto_perfil = $sesion_usuario['foto_perfil'];
        
 
+         include('../php/extra/controlador_categorias.php');
     }
 ?>
 
@@ -68,13 +69,25 @@ $correo_sesion = $_SESSION['u_usuario'];
                             <h3 class="panel-title">Agregar Campos Extraescolares</h3>
                             </div>
                             <div class="panel-body">
-                                <form action="../php/extra/controlador_categorias.php" method="post" enctype="multipart/form-data">
+                                <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for=""><i class="glyphicon glyphicon-user"></i> Nombre del campo extraescolar</label> 
-                                                <input type="text" class="form-control" name="nombreCampo" required style="text-transform:uppercase;">
+                                                <input type="text" class="form-control" value="<?php if (!empty($nombre)) {
+                                                    echo $nombre;
+                                                } ?>" name="nombreCampo" required style="text-transform:uppercase;">
+                                                <input type="hidden" name="id" value="<?php if (!empty($id)) {
+                                                    echo $id;
+                                                } ?>">
                                             </div>
+                                            <?php if (!empty($imagen)) {
+                                                echo "<div class='form-group'>";
+                                                echo "<label for=''><i class='glyphicon glyphicon-user'></i>Imagen Anterior</label>";
+                                                echo "<br>";
+                                                echo "<img src='data:image/jpg;base64,". base64_encode($imagen)."' width = '150px' alt='...'>";
+                                                echo "</div>";
+                                            } ?>
                                         </div>
 
                                         <div class="col-md-6">
@@ -87,8 +100,14 @@ $correo_sesion = $_SESSION['u_usuario'];
                                         <br>
                                         <div class="form-group">
                                             <center>
-                                            <a href="categorias.php" class="btn btn-danger btn-lg">Cancelar</a>
-                                            <input type="submit" class="btn btn-primary btn-lg" value="Registrar">
+                                            <a href="registro_categoria.php" class="btn btn-danger btn-lg">Cancelar</a>
+                                            <?php
+                                            if (!empty($nombre)) {
+                                                echo "<input type='submit' name='categoria' class='btn btn-primary btn-lg' value='Actualizar'>";
+                                            } elseif (empty($nombre)) {
+                                                echo "<input type='submit' name='categoria' class='btn btn-primary btn-lg' value='Registrar'>";
+                                            }
+                                            ?>
                                             </center>
                                         </div>
                                     </div>

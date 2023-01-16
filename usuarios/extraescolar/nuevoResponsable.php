@@ -40,12 +40,14 @@ $correo_sesion = $_SESSION['u_usuario'];
     $query->execute();
     $resultado = $query->fetch(PDO::FETCH_OBJ);
 
-    $idCiclo = $resultado->id;
+    if (!empty($resultado)) {
+      $idCiclo = $resultado->id;
 
-    $sql = ("SELECT id, nombreCategoria FROM categorias WHERE idCiclo = $idCiclo;");
-    $query = $bdd->prepare( $sql );
-    $query->execute();
-    $categorias = $query->fetchAll(PDO::FETCH_OBJ);
+      $sql = ("SELECT id, nombreCategoria FROM categorias WHERE idCiclo = $idCiclo;");
+      $query = $bdd->prepare( $sql );
+      $query->execute();
+      $categorias = $query->fetchAll(PDO::FETCH_OBJ);
+    }
 
 ?>
 
@@ -112,9 +114,15 @@ $correo_sesion = $_SESSION['u_usuario'];
 
                               <div class="col-md-12">
 
-                              <div class="" id="datos">
-
-                              </div>
+                              <?php
+                              if (!empty($resultado)) {
+                                echo "<div class='' id='datos'>";
+                                echo "</div>";
+                              } elseif (empty($resultado)) {
+                                echo "<h3>no puedes encargar a personales si no hay ciclos generados</h3>";
+                              }
+                              
+                              ?>
 
                               </div>
                             </div>

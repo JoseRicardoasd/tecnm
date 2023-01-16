@@ -1,93 +1,140 @@
 <?php
 
-include ('../../../app/config/config.php');
 
-$sql = ("SELECT id FROM ciclo ORDER BY id DESC LIMIT 1;");
-$query = $bdd->prepare( $sql );
-$query->execute();
-$resultado = $query->fetch(PDO::FETCH_OBJ);
+$pase=(isset($_POST['categoria']))?$_POST['categoria']:"";
 
-$idCiclo = $resultado === false ? 1 : $resultado->id;
+switch ($pase) {
+	case 'Registrar':
 
-if (isset($_POST['nombreCampo']) && isset($_FILES['imagenCampo'])){
+		include ('../../../app/config/config.php');
 
-	$nombres=strtoupper($_POST['nombreCampo']);
-	$imagen = addslashes(file_get_contents($_FILES['imagenCampo']['tmp_name']));
+		include('ciclo.php');
 
-	$sql = "INSERT INTO imagen(imagen) VALUES ('$imagen')";
+		if (isset($_POST['nombreCampo']) && isset($_FILES['imagenCampo'])){
 
-	$query = $bdd->prepare( $sql );
-	if ($query == false) {
-		print_r($bdd->errorInfo());
-		die ('Erreur prepare');
-	}
-	$sth = $query->execute();
-	if ($sth == false) {
-		print_r($query->errorInfo());
-		die ('Erreur execute');
-	}
+			$nombres=strtoupper($_POST['nombreCampo']);
+			$imagen = addslashes(file_get_contents($_FILES['imagenCampo']['tmp_name']));
+		
+			$sql = "INSERT INTO imagen(imagen) VALUES ('$imagen')";
+		
+			$query = $bdd->prepare( $sql );
+			if ($query == false) {
+				print_r($bdd->errorInfo());
+				die ('Erreur prepare');
+			}
+			$sth = $query->execute();
+			if ($sth == false) {
+				print_r($query->errorInfo());
+				die ('Erreur execute');
+			}
+		
+			$sql = ("SELECT id FROM imagen ORDER BY id DESC LIMIT 1;");
+			$query = $bdd->prepare( $sql );
+			$query->execute();
+			$resultado = $query->fetch(PDO::FETCH_OBJ);
+		
+			$imagenes = $resultado === false ? 1 : $resultado->id;
+		
+			$sql = "INSERT INTO categorias(nombreCategoria,idImagen,idCiclo) VALUES ('$nombres','$imagenes','$idCiclo')";
+		
+			echo $sql;
+		
+			$query = $bdd->prepare( $sql );
+			if ($query == false) {
+				print_r($bdd->errorInfo());
+				die ('Erreur prepare');
+			}
+			$sth = $query->execute();
+			if ($sth == false) {
+				print_r($query->errorInfo());
+				die ('Erreur execute');
+			}
+		
+			header('Location: categorias.php');
+		}
+		break;
 
-	$sql = ("SELECT id FROM imagen ORDER BY id DESC LIMIT 1;");
-	$query = $bdd->prepare( $sql );
-	$query->execute();
-	$resultado = $query->fetch(PDO::FETCH_OBJ);
+	case 'Editar':
 
-	$imagenes = $resultado === false ? 1 : $resultado->id;
+		$id=$_POST['id'];
+		
+		$sentencia = $con->prepare("SELECT categorias.id,nombreCategoria,imagen FROM categorias INNER JOIN imagen ON categorias.idImagen = imagen.id where categorias.id = $id");
+		$sentencia->execute();
+		$categoria = $sentencia->fetch(PDO::FETCH_LAZY);
 
-	$sql = "INSERT INTO categorias(nombreCategoria,idImagen,idCiclo) VALUES ('$nombres','$imagenes','$idCiclo')";
+		$nombre = $categoria['nombreCategoria'];
+		$imagen = $categoria['imagen'];
+		$idCategoria = $categoria['id'];
+		break;
 
-	echo $sql;
+	case 'Actualizar':
 
-	$query = $bdd->prepare( $sql );
-	if ($query == false) {
-		print_r($bdd->errorInfo());
-		die ('Erreur prepare');
-	}
-	$sth = $query->execute();
-	if ($sth == false) {
-		print_r($query->errorInfo());
-		die ('Erreur execute');
-	}
+		$id=$_POST['id'];
+		$nombres=strtoupper($_POST['nombreCampo']);
+		$imagen = addslashes(file_get_contents($_FILES['imagenCampo']['tmp_name']));
 
-	header('Location: ../../extraescolar/categorias.php');
+		$sql = ("SELECT idImagen FROM categorias WHERE categorias.id = $id");
+		$query = $bdd->prepare( $sql );
+		$query->execute();
+		$resultado = $query->fetch(PDO::FETCH_OBJ);
+
+		$idimagen = $resultado->idImagen;
+
+		$sql = "UPDATE `imagen` SET `imagen` = '$imagen' WHERE imagen.id = '$idimagen'";
+		$query = $bdd->prepare( $sql );
+		if ($query == false) {
+			print_r($bdd->errorInfo());
+			die ('Erreur prepare');
+		}
+		$sth = $query->execute();
+		if ($sth == false) {
+			print_r($query->errorInfo());
+			die ('Erreur execute');
+		}
+
+		$sql = "UPDATE `categorias` SET `nombreCategoria` = '$nombres' WHERE `categorias`.`id` = $id";
+		$resultado=mysqli_query($conexion,$sql);
+		header('Location: categorias.php');
+		break;
+
+	case 'Eliminar':
+		include ('../../../app/config/config.php');
+
+		$id=$_POST['id'];
+
+		$sql = "DELETE FROM categorias WHERE id='$id'";
+		$query = $bdd->prepare( $sql );
+    	$query->execute();
+		header('Location: categorias.php');
+		break;
+	
+	default:
+		# code...
+		break;
 }
 
-// echo"<form action='extraexcolar.php' method='POST' name='formulario'>";//form con el valor del id del proveedor, con el metodo post y el envio de datos a la campra con el proveedor
-// echo"<input type='text' name='idProve' value=".'como'.">";
-// echo"</form>";
+
+	include('ciclo.php');
+
+    $sql = ("SELECT id, descripcion FROM ciclo ORDER BY id DESC LIMIT 1;");
+    $query = $bdd->prepare( $sql );
+    $query->execute();
+    $ciclos = $query->fetch(PDO::FETCH_OBJ);
+
+    $sql = "SELECT categorias.id, categorias.nombreCategoria, imagen.imagen FROM categorias INNER JOIN imagen ON categorias.idImagen = imagen.id WHERE idCiclo = $idCiclo;";
+    $query = $bdd->prepare($sql);
+    $query->execute();
+    $campos = $query->fetchAll(PDO::FETCH_ASSOC);
+
+	/*SELECCIONANDO  EL PRIMER ID DE LA CATEGORIAS DEL CICLO ACTUAL*/
+
+	$sql = "SELECT categorias.id FROM categorias WHERE idCiclo = $idCiclo ORDER BY id ASC LIMIT 1;";
+    $query = $bdd->prepare($sql);
+    $query->execute();
+    $resultado = $query->fetch(PDO::FETCH_LAZY);
+
+	$idCampo = $resultado['id'];
+
 
 ?>
 
-<!--uso de scrip para dar click automatico al envio del form sin que el usuario de confirmar-->
-<!-- <script>
-    window.addEventListener("load",function(){
-		formulario = document.formulario;
-		idProve = document.formulario.idProve;
-		campoError = document.getElementById("error");
-		
-		idProve.addEventListener("input",function(){
-			campoError.innerHTML= "";
-		});
-		idProve.addEventListener("change",envioAutomatico);
-	});
-
-	function enviarFormulario(e){
-		e = e || window.event;	//compatibilidad explorer
-		if(idProve.value==""){ 
-			e.preventDefault(); // parar la ejecución por defecto del evento.
-			campoError.innerHTML ="rellene este campo";
-		}else{
-			console.log("se ha procedio al envío del formulario");
-		};
-	};
-
-    function envioAutomatico(){
-		formulario.addEventListener("submit",enviarFormulario);
-		formulario.submit();
-	}
-
-    window.onload = function envioAutomatico(){//activa el envio automatico del valor post
-		formulario.addEventListener("submit",enviarFormulario);
-		formulario.submit();
-	}
-</script> -->

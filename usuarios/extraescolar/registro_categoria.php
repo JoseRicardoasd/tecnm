@@ -39,8 +39,6 @@ $correo_sesion = $_SESSION['u_usuario'];
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,6 +80,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <a class="btn btn-primary" href="nuevoCampo.php">NUEVA CATEGORIA</a>
                                     <table class="table table-light">
                                         <thead class="thead-light">
                                             <tr>
@@ -99,12 +98,23 @@ $correo_sesion = $_SESSION['u_usuario'];
                                                     </td>
 
                                                     <td>
-                                                        <img src="data:image/jpg;base64,<?php echo base64_encode($campo['imagen']);?>" width = "150px" alt="...">
+                                                        <img src="data:image/jpg;base64,<?php echo base64_encode($campo['imagen']);?>" width = "100px" alt="">
                                                     </td>
                                         
                                                     <td>
                                                     <form action="nuevoCampo.php" method="POST">
-                                                        <a class="btn btn-primary btn-lg" href="<?php echo "lista_actividades.php?id=".$campo ['id'] ?>" >entrar</a>
+                                                        
+                                                        <?php
+                                                        if ($campo['id'] >= $idCampo + 4 ) {
+                                                            echo "<input type='hidden' name='id' value='".$campo ['id']."'>";
+                                                            echo "<input type='submit' class='btn btn-primary' name='categoria' value='Editar'> ";
+                                                            echo "<input type='submit' class='btn btn-danger' name='categoria' value='Eliminar'>";
+                                                        } else {
+                                                            echo "<input type='hidden' name='id' value='".$campo ['id']."'>";
+                                                            echo "<input type='submit' class='btn btn-primary' name='categoria' value='Editar'>";
+                                                        }
+                                                        ?>
+
                                                     </form>
                                                     </td>
                                             

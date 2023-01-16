@@ -13,7 +13,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href=" index.php" class="logo">
+    <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>Chiná</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -205,10 +205,12 @@
         <ul class=" sidebar-menu treeview-menu">
           <li class="header">Ciclos Escolares </li>
           <li><a href="extraescolar/registro_ciclo.php"><i class="fa fa-users"></i> <span>Generar Ciclo Escolar</span></a></li>
-          <li><a href="extraescolar/nuevoCampo.php"><i class="fa fa-users"></i> <span>Categorias</span></a></li>
+          <li><a href="extraescolar/registro_categoria.php"><i class="fa fa-users"></i> <span>Categorias</span></a></li>
           <li><a href="extraescolar/categorias.php"><i class="fa fa-users"></i> <span>Actividades</span></a></li>
           <li class="header">Responsables de actividades</li>
           <li><a href="extraescolar/nuevoResponsable.php"><i class="fa fa-users"></i> <span>Asignación de responsables</span></a></li>
+          <li class="header">Historial Alumnos</li>
+        <li><a href="extraescolar/historial_alumnos.php"><i class="fa fa-users"></i> <span>Alumnos</span></a></li>
           <li class="header">Constancias</li>
           <li><a href="constanciasExtra.php"><i class="fa fa-users"></i> <span>Constancias Act. Extraescolares</span></a></li>
 

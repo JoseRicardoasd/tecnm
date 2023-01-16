@@ -33,7 +33,7 @@ $correo_sesion = $_SESSION['u_usuario'];
          
     }
 
-    include('../php/extra/ciclos.php');
+    include('../php/extra/ciclo.php');
     $i = 1;
 
 ?>

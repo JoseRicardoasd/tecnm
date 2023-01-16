@@ -13,7 +13,15 @@ if ($data == 1){
 
 <script>
     function confirmacion(){
-        var respuesta = confirm("¿Deseas editar esta informacion?");
+        Swal.fire({
+        title: 'ACTUALIZACIÓN',
+        text: "SEGURO QUE QUIERES ACTUALIZAR",
+        icon: 'PELIGRO',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        })
         if (respuesta==true){
             return true;
         }else{

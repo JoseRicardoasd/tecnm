@@ -77,7 +77,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               </div>
               <div class="modal-body">
                 <!--formulario-->
-                <form action="registrar.php" method="POST">
+                <form action="registrar.php" method="POST" class="nuevo_evento">
                   <div class="form-group">
                     <label for="">Nombre de la actividad</label>
                     <textarea class="form-control mb-3" name="actividad" placeholder="Actividad"></textarea>
@@ -158,7 +158,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               </div>
               <div class="modal-body">
                 <!--formulario-->
-                <form action="editar.php" method="POST">
+                <form action="editar.php" method="POST" class="editar_evento">
                   <input type="hidden" name="id_editar" value="<?php echo $result['id']; ?>">
 
                   <div class="form-group">
@@ -219,6 +219,63 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 }
 ?>
 <script>
+  //alerta guardar----------------
+  $('.nuevo_evento').submit(function(e) {
+    e.preventDefault();
+    Swal.fire({
+      title: '¿DESEAS GUARDAR LOS DATOS?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'SI, DESEO GUARDAR'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'DATOS GUARDADOS CORRECTAMENTE',
+          icon: 'success',
+          showConfirmButton: false,
+        })
+        setTimeout(() => {
+          this.submit();
+        }, "1000")
+
+      }
+
+    })
+
+  });
+
+  //alerta editar----------------
+  $('.editar_evento').submit(function(e) {
+    e.preventDefault();
+    Swal.fire({
+      title: '¿DESEAS ACTUALIZAR LA INFORMACIÓN?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ACEPTAR'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'DATOS GUARDADOS CORRECTAMENTE',
+          icon: 'success',
+          showConfirmButton: false,
+        })
+        setTimeout(() => {
+          this.submit();
+        }, "1000")
+
+      }
+
+    })
+
+  });
+
+
+
+
   function alerta_eliminar(codigo) {
     Swal.fire({
       title: 'ELIMINAR',
@@ -227,7 +284,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'SI, eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
         parametros = {

@@ -34,8 +34,9 @@ $correo_sesion = $_SESSION['u_usuario'];
 
     }
 
-    include('../php/extra/controlador_categorias.php');
-    include('../php/extra/emergente.php')
+    include('../php/extra/emergente.php');
+    include('../php/extra/controlador_historial.php');
+    $i=1;
 
 ?>
 
@@ -57,14 +58,8 @@ $correo_sesion = $_SESSION['u_usuario'];
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <?php
-                if (isset($ciclos->descripcion) == "") {
-                    echo "No Existen Ciclos";
-                } else if (isset($ciclos->descripcion) == $ciclos->descripcion) {
-                    echo $ciclos->descripcion;
-                }
-            ?>
-            <small>Listado de categoria</small>
+            ALUMNOS
+            <small>Listado de alumnos</small>
         </h1>
      
     </section>
@@ -75,7 +70,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            CATEGORIAS
+                            LISTA ALUMNOS
                         </div>
                         <div class="panel-body">
 
@@ -85,35 +80,26 @@ $correo_sesion = $_SESSION['u_usuario'];
                                     <table class="table table-light">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th>Categoría</th>
-                                                <th>Logotipo</th>
+                                                <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Matricula</th>
                                                 <th>Accion</th>
                                             </tr>
                                         </thead>
-                                    
-                                            <tbody>
-                                                <?php foreach($campos as $campo){?>
-                                                <tr>
-                                                    <td>
-                                                        <h3><?php echo $campo['nombreCategoria'] ?></h3>
-                                                    </td>
-
-                                                    <td>
-                                                        <img src="data:image/jpg;base64,<?php echo base64_encode($campo['imagen']);?>" width = "150px" alt="...">
-                                                    </td>
-                                        
-                                                    <td>
-                                                    <form action="nuevoCampo.php" method="POST">
-                                                        <a class="btn btn-primary btn-lg" href="<?php echo "lista_actividades.php?id=".$campo ['id'] ?>" >entrar</a>
-                                                    </form>
-                                                    </td>
-                                            
-                                            
-                                                </tr>
-                                                <?php } ?>
-                                            </tbody>
-                                    
-                                        </table>
+                                        <tbody>
+                                            <?php
+                                            foreach ($registros as $extra) {
+                                                echo "<tr>";
+                                                echo "<td>".$i."</td>";
+                                                echo "<td>".$extra['matricula']."</td>";
+                                                echo "<td>".$extra['descripcion']."</td>";
+                                                echo "<td>".$extra['nombreActividad']."</td>";
+                                                echo "</tr>";
+                                                $i++;
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>

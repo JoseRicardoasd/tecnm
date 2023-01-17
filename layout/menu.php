@@ -13,7 +13,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href=" index.php" class="logo">
+    <a href="index.php" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>Chiná</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -184,7 +184,7 @@
           <li><a href="calendario.php"><i class="glyphicon glyphicon-calendar"></i> <span>Elegir Actividad Académica</span></a></li>
 
           <li class="header">Evidencias de créditos</li>
-          <li><a href="../usuarios/guia.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guía de Créditos</span></a></li>
+          <li><a href="./guia.php"><i class="glyphicon glyphicon-paperclip"></i> <span>Guía de Créditos</span></a></li>
           <!--<li><a href="agregar-credito.php"><i class="glyphicon glyphicon-folder-open"></i> <span>Agregar Credito</span></a></li>-->
           <li class="header">Evaluaciones</li>
           <!--<li><a href="evaluacion.php"><i class="fa fa-book"></i> <span>Evalucion de Desempeño</span></a></li> -->
@@ -205,10 +205,12 @@
         <ul class=" sidebar-menu treeview-menu">
           <li class="header">Ciclos Escolares </li>
           <li><a href="extraescolar/registro_ciclo.php"><i class="fa fa-users"></i> <span>Generar Ciclo Escolar</span></a></li>
-          <li><a href="extraescolar/nuevoCampo.php"><i class="fa fa-users"></i> <span>Categorias</span></a></li>
+          <li><a href="extraescolar/registro_categoria.php"><i class="fa fa-users"></i> <span>Categorias</span></a></li>
           <li><a href="extraescolar/categorias.php"><i class="fa fa-users"></i> <span>Actividades</span></a></li>
           <li class="header">Responsables de actividades</li>
           <li><a href="extraescolar/nuevoResponsable.php"><i class="fa fa-users"></i> <span>Asignación de responsables</span></a></li>
+          <li class="header">Historial Alumnos</li>
+        <li><a href="extraescolar/historial_alumnos.php"><i class="fa fa-users"></i> <span>Alumnos</span></a></li>
           <li class="header">Constancias</li>
           <li><a href="constanciasExtra.php"><i class="fa fa-users"></i> <span>Constancias Act. Extraescolares</span></a></li>
 
@@ -240,7 +242,8 @@
           <li><a href="añadirTutor.php"><i class="fa fa-users"></i> <span>Asignacion de Asesores</span></a></li>
 
           <li class="header">Constancias de Act. Tutorías</li>
-          <li><a href="constancias_tutoria.php"><i class="fa fa-users"></i> <span>Act. Compl. Tutorías</span></a></li>
+          
+          <li><a href="tutoria_constancia.php"><i class="fa fa-users"></i> <span>Act. Compl. Tutorías</span></a></li>
 
         </ul>
       </li>

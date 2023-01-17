@@ -38,7 +38,7 @@ if (isset($_SESSION['u_usuario'])) {
   <head>
     <?php include('../layout/head.php'); ?>
     <title>Incidencias</title>
-    <link rel="stylesheet" href="../usuarios/css/estilos.css">
+    <link rel="stylesheet" href="../usuarios/estilos.css">
 
 
 

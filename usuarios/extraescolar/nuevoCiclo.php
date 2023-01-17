@@ -96,7 +96,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                         <div class="form-group">
                         <center>
                             <a href="registro_ciclo.php" class="btn btn-danger btn-lg">Cancelar</a>
-                            <input type="submit" class="btn btn-primary btn-lg" value="Crear">
+                            <input type="submit" name="ciclo" class="btn btn-primary btn-lg" value="Crear">
                         </center>
                         </div>
                     </div>

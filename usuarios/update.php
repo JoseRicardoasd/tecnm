@@ -48,10 +48,9 @@ $update = ("UPDATE extragrupo
 
 WHERE matricula='" .$control. "' AND idActividad='".$actividad."'
 ");
-$result_update = mysqli_query($por, $update);
+$result_update = mysqli_query($conexion, $update);
 
-echo $update;
 
-// header('Location: alumnosListado.php?id='.$actividad);
+header('Location: alumnosListado.php?id='.$actividad);
 
 ?>

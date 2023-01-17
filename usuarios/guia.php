@@ -44,9 +44,13 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     $_SESSION["ultimoAcceso"] = $ahora;
   }
 
-  $sentencia = $pdo->query("SELECT * FROM guia;");
-  $actividades = $sentencia->fetchAll(PDO::FETCH_OBJ);
+  //$sentencia = $pdo->query("SELECT * FROM guia;");
+  //$actividades = $sentencia->fetchAll(PDO::FETCH_OBJ);
   //print_r($actividades);
+
+  $guia = $pdo->prepare("SELECT * FROM guia");
+  $guia->execute();
+  $actividades = $guia->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 

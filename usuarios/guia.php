@@ -30,6 +30,20 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
 
+  //control de inactividad
+  $ahora = date("Y-n-j H:i:s");
+  $fechaGuardada = $_SESSION["ultimoAcceso"];
+  $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
+
+  if ($tiempo_transcurrido >= 600) {
+    //si pasaron 10 minutos o más
+    session_destroy(); // destruyo la sesión
+    header('location:../index.php'); //envío al usuario a la pag. de autenticación
+    //sino, actualizo la fecha de la sesión
+  } else {
+    $_SESSION["ultimoAcceso"] = $ahora;
+  }
+
   $sentencia = $pdo->query("SELECT * FROM guia;");
   $actividades = $sentencia->fetchAll(PDO::FETCH_OBJ);
   //print_r($actividades);
@@ -41,9 +55,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
   <head>
     <?php include('../layout/head.php'); ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../app/templeates/AdminLTE-2.3.11/bootstrap/css/bootstrap.css">
-
     <title>Guia de actividades Complementarias</title>
   </head>
 
@@ -52,6 +66,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       <?php include('../layout/menu.php'); ?>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
+        <!-- cierre sesion por inactividad -->
+        <?php if ($_SESSION["ultimoAcceso"] >= 600) {
+          echo ("<meta http-equiv='refresh' content='600'>");
+        } ?>
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>

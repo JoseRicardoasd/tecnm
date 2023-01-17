@@ -63,7 +63,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         <br>
 
         <div>
-          <button style="margin-left: 90px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertar" ?php echo>Añadir actividad</button>
+          <button style="margin-left: 90px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertar">Añadir actividad</button>
         </div>
         <!--MODAL (nueva actividad)-->
         <div class="modal fade" id="insertar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -188,7 +188,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               </div>
 
             </div>
-            <td><a href="delete.php?id=<?php echo $result['id'] ?>" class="btn btn-danger">Eliminar</a></td>
+            <td><a class="btn btn-danger" onclick="alerta_eliminar(<?php echo $result['id']; ?>)">Eliminar</a></td>
           <?php
               }
           ?>
@@ -202,8 +202,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       </table </div>
     </div>
     </section>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
+    <script src="./js/sweetalert.js"></script>
 
   </body>
   <?php include('../layout/footer.php'); ?>
@@ -215,3 +217,34 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   echo "no existe sesión";
   header('Location:' . $URL . '/login');
 }
+?>
+<script>
+  function alerta_eliminar(codigo) {
+    Swal.fire({
+      title: 'ELIMINAR',
+      text: "Deseas eliminar la información?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        parametros = {
+          id: codigo
+        };
+        $.ajax({
+          data: parametros,
+          url: "delete.php",
+          type: "GET",
+          beforeSend: function() {},
+          success: function() {
+            Swal.fire("Informacion eliminada", "success").then((result) => {
+              window.location.href = "guia.php"
+            });
+          }
+        });
+      }
+    })
+  }
+</script>

@@ -1,12 +1,13 @@
+//Alerta de eliminar usuario
 function alerta_eliminar(codigo) {
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'SEGURO DESEAS ELIMINAR?',
+        text: "UNA VEZ HECHO EL CAMBIO NO SE PUEDE REVERTIR!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'SI, ELIMINARLO!'
       }).then((result) => {
         if (result.isConfirmed) {
           mandar_php(codigo)
@@ -22,31 +23,33 @@ function mandar_php(codigo) {
         type: "GET",
         beforeSend: function () {},
         success: function () {
-            Swal.fire("Deleted", "Your file has been deleted.", "success").then((result) =>{
+            Swal.fire("ELIMINADO", "EL CAMPO A SIDO ELIMINADO.", "success").then((result) =>{
                 window.location.href = "lista-usuarios.php"
             });
         }
     });
 }
 
+//Alerta de guardar usuarios, jefes de departamento y departamentos a la hora de editar
 function alerta_guardar() {
     Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'SEGUADO CORRECTAMENTE',
         showConfirmButton: true,
       })
 }
 
+//Alerta de eliminar departamento
 function alerta_eliminar2(codigos1) {
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'SEGURO DESEAS ELIMINAR?',
+        text: "UNA VEZ HECHO EL CAMBIO NO SE PUEDE REVERTIR!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'SI, ELIMINARLO!'
       }).then((result) => {
         if (result.isConfirmed) {
           mandar_php2(codigos1)
@@ -62,22 +65,23 @@ function mandar_php2(codigos1) {
         type: "GET",
         beforeSend: function () {},
         success: function () {
-            Swal.fire("Deleted", "Your file has been deleted.", "success").then((result) =>{
+            Swal.fire("ELIMINADO", "EL CAMPO A SIDO ELIMINADO..", "success").then((result) =>{
                 window.location.href = "añadirDepartamento.php"
             });
         }
     });
 }
 
+//Alerta de eliminar jefes de departamento
 function alerta_eliminar3(codig) {
     Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'SEGURO DESEAS ELIMINAR?',
+        text: "UNA VEZ HECHO EL CAMBIO NO SE PUEDE REVERTIR!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'SI, ELIMINARLO!'
       }).then((result) => {
         if (result.isConfirmed) {
           mandar_php3(codig)
@@ -93,7 +97,7 @@ function mandar_php3(codig) {
         type: "GET",
         beforeSend: function () {},
         success: function () {
-            Swal.fire("Deleted", "Your file has been deleted.", "success").then((result) =>{
+            Swal.fire("ELIMINADO", "EL CAMPO A SIDO ELIMINADO.", "success").then((result) =>{
                 window.location.href = "lista-jefes.php"
             });
         }

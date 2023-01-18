@@ -57,6 +57,28 @@ if ($tiempo_transcurrido >= 600) {
 
 <head>
   <?php include('../layout/head.php'); ?>
+  <script
+  src="https://code.jquery.com/jquery-3.6.3.js"
+  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous"></script>
+  
+  <script language="javascript" src="js/jquery-3.6.1.min.js"></script>
+    <script language="javascript">
+			$(document).ready(function(){
+				$("#estados").change(function () {
+
+					//$('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
+					
+					$("#estados option:selected").each(function () {
+						idEstados = $(this).val();
+						$.post("municipios.php", { idEstados: idEstados }, function(data){
+                            $("#municipio") .html(data);
+                            console.log(data);
+						});            
+					});
+				})
+			});
+		</script>
   <title>Perfil</title>
 </head>
 
@@ -120,14 +142,22 @@ if ($tiempo_transcurrido >= 600) {
                         <label for=""><i class="glyphicon glyphicon-calendar"></i> FECHA DE NACIMIENTO</label>
                         <input type="date" class="form-control" name="fecha_nacimiento" value="<?php echo $sesion_usuario['fecha_nacimiento']; ?>" required tabindex="9">
                       </div>
+                      
+                      <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-map-marker"></i> ESTADO</label>
+                        <select name="estados" id="estados" class="form-control" required style="text-transform: uppercase;" tabindex="12">
+                        <option value="">*SELECCIONE ESTADO</option>
+                        <?php while ($row = mysqli_fetch_assoc($resultado)) {?>
+                            <option value="<?php echo $row ['idEstados'] ?>"><?php echo $row ['estado']?></option>
+                        <?php }?>
+                        </select>
+                      </div>
+
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-phone"></i> TELÉFONO</label>
                         <input type="text" class="form-control" name="telefono" value="<?php echo $sesion_usuario['telefono']; ?>" required tabindex="11">
                       </div>
-                      <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-equalizer"></i> CIUDAD O LOCALIDAD</label>
-                        <input type="text" class="form-control" name="entidad" value="<?php echo $sesion_usuario['entidad']; ?>" required style="text-transform: uppercase;" tabindex="13">
-                      </div>
+                      
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-map-marker"></i>CALLE</label>
                         <input type="text" class="form-control" name="calle" value="<?php echo $sesion_usuario['calle']; ?>" required style="text-transform: uppercase;" tabindex="15">
@@ -195,49 +225,11 @@ if ($tiempo_transcurrido >= 600) {
                         <label for=""><i class="glyphicon glyphicon-link"></i> CURP</label>
                         <input type="text" class="form-control" name="curp" value="<?php echo $sesion_usuario['curp']; ?>" required style="text-transform: uppercase;" tabindex="10">
                       </div>
+                      <div class="form-group">
+                        <label for=""><i class="glyphicon glyphicon-equalizer"></i> CIUDAD O LOCALIDAD</label>
+                        <select name="municipio" id="municipio" class="form-control" required style="text-transform: uppercase;" tabindex="12"></select>
+                      </div>
 
-                      <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-map-marker"></i> ESTADO</label>
-                        <select name="ciudad" id="" class="form-control" required style="text-transform: uppercase;" tabindex="12">
-                          <option value="<?php echo $sesion_usuario['ciudad']; ?>"><?php echo $sesion_usuario['ciudad']; ?></option>
-                          <option value="Aguascalientes">Aguascalientes</option>
-                          <option value="Baja California">Baja California</option>
-                          <option value="Baja California Sur">Baja California Sur</option>
-                          <option value="Campeche">Campeche</option>
-                          <option value="Chiapas">Chiapas</option>
-                          <option value="Chihuahua">Chihuahua</option>
-                          <option value="CDMX">Ciudad de México</option>
-                          <option value="Coahuila">Coahuila</option>
-                          <option value="Colima">Colima</option>
-                          <option value="Durango">Durango</option>
-                          <option value="Estado de México">Estado de México</option>
-                          <option value="Guanajuato">Guanajuato</option>
-                          <option value="Guerrero">Guerrero</option>
-                          <option value="Hidalgo">Hidalgo</option>
-                          <option value="Jalisco">Jalisco</option>
-                          <option value="Michoacán">Michoacán</option>
-                          <option value="Morelos">Morelos</option>
-                          <option value="Nayarit">Nayarit</option>
-                          <option value="Nuevo León">Nuevo León</option>
-                          <option value="Oaxaca">Oaxaca</option>
-                          <option value="Puebla">Puebla</option>
-                          <option value="Querétaro">Querétaro</option>
-                          <option value="Quintana Roo">Quintana Roo</option>
-                          <option value="San Luis Potosí">San Luis Potosí</option>
-                          <option value="Sinaloa">Sinaloa</option>
-                          <option value="Sonora">Sonora</option>
-                          <option value="Tabasco">Tabasco</option>
-                          <option value="Tamaulipas">Tamaulipas</option>
-                          <option value="Tlaxcala">Tlaxcala</option>
-                          <option value="Veracruz">Veracruz</option>
-                          <option value="Yucatán">Yucatán</option>
-                          <option value="Zacatecas">Zacatecas</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for=""><i class="glyphicon glyphicon-map-marker"></i> COLONIA</label>
-                        <input type="text" class="form-control" name="colonia" value="<?php echo $sesion_usuario['colonia']; ?>" required style="text-transform: uppercase;" tabindex="14">
-                      </div>
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-equalizer"></i> CÓDIGO POSTAL</label>
                         <input type="text" class="form-control" name="codigo_postal" value="<?php echo $sesion_usuario['codigo_postal']; ?>" required tabindex="16">

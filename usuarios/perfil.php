@@ -2,6 +2,9 @@
 include('../app/config/config.php');
 session_start();
 
+$query ="SELECT idEstados, estado FROM estados";
+$resultado = mysqli_query($conexion,$query);
+
 
 
 if (isset($_SESSION['u_usuario'])) {

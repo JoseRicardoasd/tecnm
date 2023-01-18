@@ -179,6 +179,8 @@ $correo_sesion = $_SESSION['u_usuario'];
 </form>
 
     <!---->
+
+    <br>
      
     <div class="panel panel-primary">
    
@@ -212,11 +214,10 @@ $correo_sesion = $_SESSION['u_usuario'];
         <td><?php echo $filas['estado']?></td>
         <td><?php echo $filas['semestre']?></td>
         
-        <td>
-          <?php  echo "<a href='eliminar.php?id=".$filas['id']."'>ELIMINAR</a>";?>
-          <?php  echo "<a href='historial_incidencia_alumno.php?id=".$filas['id']."' >ver</a>";?>
-          
-          
+        <td> 
+          <?php  echo "<a class='btn btn-success' href='historial_incidencia_alumno.php?id=".$filas['id']."' >VER</a>";?> 
+          <?php  echo "<a class='btn btn-danger' href='eliminar.php?id=".$filas['id']."'>ELIMINAR</a>";?>
+
           
         </td>
       </tr>

@@ -82,67 +82,39 @@ if (isset($_SESSION['u_usuario'])) {
 
 <br>
 
-<?php
+<section class="content">
+  
+<div class="panel panel-primary">
+  <div class="panel-heading">Informacion del alumno</div>
+  <div class="panel-body">
+    <table class="table table-bordered table-hover table-condensed">
+    <th>Nombres</th>
+    <th>Apellido paterno</th>
+    <th>Apellido materno</th>
+    <th>Numero control</th>
+    <th>Carrera</th>
+    <th>Semestre</th>
+
+    <?php
       while($filas = mysqli_fetch_assoc($resultado)){
 ?>
-     
-     <div class="container">
-            <div class="row">
-              <div class="col">
-                <label class="control-label">Nombre</label>
-              <div class="pl-4"><tr>  <td><?php echo $filas['nombres']?></td></tr></div>
-              </div>
-
-              <div class="col">
-              <label class="control-label">Apellido paterno</label>
-              <div class="pl-4"><tr>  <td><?php echo $filas['ap_paterno']?></td></tr></div>
-
-              </div>
-            </div>
-
-<br>
-            <div class="row">
-              <div class="col">
-              <label class="control-label">Apellido materno</label>
-              <div class="pl-4"><tr>  <td><?php echo $filas['ap_materno']?></td></tr></div>
-
-              </div>
-
-              <div class="col">
-              <label class="control-label">Numero control</label>
-              <div class="pl-4"><tr>  <td><?php echo $filas['id']?></td></tr></div>
-              </div>
-              
-            </div>
+     <tr>
+       <td><?php echo $filas['nombres']?></td>
+       <td><?php echo $filas['ap_paterno']?></td>
+       <td><?php echo $filas['ap_materno']?></td>
+       <td><?php echo $filas['id']?></td>
+       <td><?php echo $filas['carrera']?></td>
+       <td><?php echo $filas['semestre']?></td>
+     </tr>
 
 
-            <div class="row">
-              <div class="col">
-              <div class="row">
-                <div class="col">
-                <label class="control-label">Carrera</label>
-              <div class="pl-4"><tr>  <td><?php echo $filas['carrera']?></td></tr></div>
-                  
-                </div>
-
-                <div class="col">
-              
-                <label class="control-label">Semestre</label>
-              <div class="pl-4"><tr>  <td><?php echo $filas['semestre']?></td></tr></div>
-                  
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-                    <?php
+    <?php
     }
     ?>
-<br>
-<br>
 
-
+    </table>
+  </div>
+</div>
 
 
 <div class="panel panel-primary">
@@ -181,10 +153,13 @@ if (isset($_SESSION['u_usuario'])) {
     
     </table>
 </div>
+</section>
 </div>
 
     
       <!-- /.content-wrapper -->
+      <?php include ('../layout/footer.php'); ?>
+      <?php include ('../layout/footer_links.php'); ?>
   
 
   </body>

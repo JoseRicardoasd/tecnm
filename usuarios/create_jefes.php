@@ -158,7 +158,39 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     <?php include('../layout/footer.php'); ?>
     <?php include('../layout/footer_links.php'); ?>
 
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="js/sweetalert.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <script>
+       //alerta guardar----------------
+    $('.controlador_jefes').submit(function(e) {
+      e.preventDefault();
+      Swal.fire({
+        title: '¿DESEAS GUARDAR LOS DATOS?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, DESEO GUARDAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'DATOS GUARDADOS CORRECTAMENTE',
+            icon: 'success',
+            showConfirmButton: false,
+          })
+          setTimeout(() => {
+            this.submit();
+          }, "1000")
+
+        }
+
+      })
+
+    });
+    </script>
 
 
   </body>

@@ -1,27 +1,22 @@
-<?php
-$id=$_GET['id_incidencia'];
+<?php 
+
 include ('../app/config/config.php');
-
-
-//consulta a la tabla eliminar
-
-$sql = "DELETE FROM tb_incidencia WHERE id_incidencia='".$id."'";
-
-$resultado = mysqli_query($conexion,$sql);
-
-if($resultado){
-
-    echo "<script languaje='JavaScript'>
-    alert('Los datos se eliminaron correctamente');
-    location.assign('incidencias.php')
-    </script>";
-
-}else{
-    echo "<script languaje='JavaScript'>
-    alert('Los datos no se eliminaron correctamente');
-    location.assign('incidencias.php')
-    </script>";
-
-}
+	if(isset($_GET['id'])){
+		$id=(int) $_GET['id'];
+		$delete=$con->prepare('DELETE FROM tb_tutorias WHERE id=:id');
+		$delete->execute(array(
+			':id'=>$id
+		));
+        echo "<script languaje='JavaScript'>
+        alert('Los datos se eliminaron correctamente');
+        location.assign('lista_tutoria.php')
+        </script>";
+	}else{
+        echo "<script languaje='JavaScript'>
+        alert('Los datos no se eliminaron correctamente');
+        location.assign('lista_tutoria.php')
+        </script>";
+    
+    }
 
 ?>

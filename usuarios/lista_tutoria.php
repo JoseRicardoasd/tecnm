@@ -188,7 +188,6 @@ $correo_sesion = $_SESSION['u_usuario'];
   <div class="panel-heading">Listado de tutorias</div>
   <div class="panel-body">
   <table class="table table-bordered table-hover table-condensed">
-  <th>Nro</th>
   <th>Nombre</th>
   <th>Apellido paterno</th>
   <th>Apellido materno</th>
@@ -205,7 +204,6 @@ $correo_sesion = $_SESSION['u_usuario'];
 ?>
       
       <tr>
-        <td><?php echo $filas['id']?></td>
         <td><?php echo $filas['nombres']?></td>
         <td><?php echo $filas['ap_paterno']?></td>
         <td><?php echo $filas['ap_materno']?></td>

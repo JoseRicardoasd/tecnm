@@ -88,7 +88,7 @@ if (isset($_SESSION['u_usuario'])) {
   <div class="panel-heading">Informacion del alumno</div>
   <div class="panel-body">
     <table class="table table-bordered table-hover table-condensed">
-    <th>Numbres</th>
+    <th>Nombres</th>
     <th>Apellido paterno</th>
     <th>Apellido materno</th>
     <th>Numero control</th>

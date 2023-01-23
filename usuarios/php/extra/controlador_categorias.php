@@ -133,7 +133,9 @@ switch ($pase) {
     $query->execute();
     $resultado = $query->fetch(PDO::FETCH_LAZY);
 
-	$idCampo = $resultado['id'];
+	if (!empty($resultado)) {
+		$idCampo = $resultado['id'];
+	}
 
 
 ?>

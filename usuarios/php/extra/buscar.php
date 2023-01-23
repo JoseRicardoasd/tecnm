@@ -3,12 +3,12 @@
 include ('../../../app/config/config.php');
 
     $salida = "";
-    $sql = ("SELECT * FROM tb_usuarios WHERE roll = 2 ORDER BY id DESC LIMIT 5;");
+    $sql = ("SELECT * FROM tb_usuarios WHERE Responsable = 1 ORDER BY id DESC LIMIT 5;");
 
 
       if (isset($_POST['consulta'])) {
         $valor = $conect->real_escape_string($_POST['consulta']);
-        $sql = "SELECT id, nombres, ap_paterno, ap_materno, correo, curp, telefono, cubiculo FROM tb_usuarios WHERE roll = 2 AND curp LIKE '%".$valor."%'";
+        $sql = "SELECT id, nombres, ap_paterno, ap_materno, correo, curp, telefono, cubiculo FROM tb_usuarios WHERE Responsable = 1 AND curp LIKE '%".$valor."%'";
       }
 
       $resultado = $conect->query($sql);

@@ -58,13 +58,6 @@ $correo_sesion = $_SESSION['u_usuario'];
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <?php
-                if (isset($ciclos->descripcion) == "") {
-                    echo "NO HAY ALUMNOS SIN CICLOS";
-                } else if (isset($ciclos->descripcion) == $ciclos->descripcion) {
-                    echo $ciclos->descripcion;
-                }
-            ?>
             <small>Listado de alumnos</small>
         </h1>
      

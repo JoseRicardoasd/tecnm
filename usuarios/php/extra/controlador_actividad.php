@@ -1,41 +1,86 @@
 <?php
 
-include ('../../../app/config/config.php');
 
-include('ciclo.php');
+$pase=(isset($_POST['actividad']))?$_POST['actividad']:"";
 
-$lunes=(isset($_POST['lunes']))?$_POST['lunes']:"";
-$martes=(isset($_POST['martes']))?$_POST['martes']:"";
-$miercoles=(isset($_POST['miercoles']))?$_POST['miercoles']:"";
-$jueves=(isset($_POST['jueves']))?$_POST['jueves']:"";
-$viernes=(isset($_POST['viernes']))?$_POST['viernes']:"";
+switch ($pase) {
+	case 'Entrar':
 
-if (isset($_POST['nombreActividad']) && isset($_POST['horaActividad']) && isset($_POST['horaHacer']) && isset($_POST['lugarActividad']) && isset($_POST['idCampo'])){
-	
-	$nombres=strtoupper($_POST['nombreActividad']);
-	$ap_paterno=$_POST['horaActividad'];
-	$numero_control=$_POST['horaHacer'];
-	$carrera=$_POST['encargadoActividad'];
-	$estado=strtoupper($_POST['lugarActividad']);
-	$semestre=$_POST['idCampo'];
+		include('ciclo.php');//incluyendo el codigo del llamado del ciclo
+		include('controlador_actividades/Entrar.php');
 
-	$dias = $lunes.' '.$martes.' '.$miercoles.' '.$jueves.' '.$viernes;
+		break;
 
-	$sql = "INSERT INTO extraescolar(nombreActividad, horaActividad, diaActividad, horaHacer, encargadoActividad, lugarActividad, idCategoria, idCiclo) values ('$nombres','$ap_paterno', '$dias', '$numero_control', NULL , '$estado', '$semestre','$idCiclo')";
-	
-	$query = $bdd->prepare( $sql );
-	if ($query == false) {
-	 print_r($bdd->errorInfo());
-	 die ('Erreur prepare');
-	}
-	$sth = $query->execute();
-	if ($sth == false) {
-	 print_r($query->errorInfo());
-	 die ('Erreur execute');
-	}
+	case 'ATRAS':
 
-	header('Location: ../../extraescolar/lista_actividades.php?id='.$semestre);
+		include('ciclo.php');//incluyendo el codigo del llamado del ciclo
+		include('controlador_actividades/Atras.php');
+		break;
+
+	case 'Cancelar':
+
+		include('ciclo.php');//incluyendo el codigo del llamado del ciclo
+		include('Controlador_actividades/Cancelar.php');
+		break;
+
+	case 'Registrar':
+
+		include('ciclo.php');//incluyendo el codigo del ciclo actual
+		include('controlador_actividades/Registrar.php');
+
+		break;
+
+	case 'Nueva actividad':
+		include ('controlador_actividades/Nueva_actividad.php');
+		break;
+
+	case 'Eliminar':
+
+		include('ciclo.php');//incluyendo el codigo del llamado del ciclo
+		include('controlador_actividades/Eliminar.php');
+		break;
+
+	case 'Listas':
+		include('ciclo.php');//incluyendo el codigo del llamado del ciclo
+		include('controlador_actividades/Listas.php');
+		break;
+
+	case 'Editar':
+		include('controlador_actividades/Editar.php');
+		break;
+
+	case 'Actualizar':
+		include('ciclo.php');//incluyendo el codigo del llamado del ciclo
+		include('controlador_actividades/Actualizar.php');//controlador para actualizar
+		break;	
+	default:
+		# code...
+		break;
 }
 
+if(!isset($_POST["id"])) {//Preguntando si recibio el valor del idCategoria
+	$id = $_POST["id"];//almacenando en una variable el valor del idCategoria
 
+	include('ciclo.php');//incluyendo el codigo del llamado del ciclo
+
+	//Seleccionando los campos de la tabla estraescolar para tomar uso de ello
+	$sql = "SELECT extraescolar.id, extraescolar.nombreActividad, extraescolar.horaActividad, extraescolar.encargadoActividad, tb_usuarios.nombres FROM extraescolar LEFT JOIN tb_usuarios ON extraescolar.encargadoActividad = tb_usuarios.id WHERE (idCategoria = ?) and (idCiclo = $idCiclo);";
+	$req = $bdd->prepare($sql);
+	$req->execute([$id]);
+	$actividades = $req->fetchAll();
+
+
+	//Seleccionando los campos de la tabla categoria buscada por el idCategoria que recibimos con el metodo POST
+	$sql = "SELECT id,nombreCategoria FROM categorias WHERE id = ?;";
+	$red = $bdd->prepare($sql);
+	$red->execute([$id]);
+	$campitos = $red->fetch(PDO::FETCH_LAZY);
+
+	//Almacenando valores en variables para hacer su llamado y ser vistas por el usuario
+	$idCampos=$campitos['id'];
+	$campos=$campitos['nombreCategoria'];
+
+}
 ?>
+
+

@@ -33,31 +33,7 @@ $correo_sesion = $_SESSION['u_usuario'];
        
     }
 
-    if(!isset($_GET["id"])) exit();//preguntando si el metodo get tiene un valor, si no tiene uno sale del porceso
-    $id = $_GET["id"];
-
-    include('../php/extra/ciclo.php');
-
-    $sql = "SELECT id,nombreActividad,idCategoria FROM extraescolar WHERE (id = ?) and (idCiclo = $idCiclo);";
-    $req = $bdd->prepare($sql);
-    $req->execute([$id]);
-    $extraescolar = $req->fetch(PDO::FETCH_OBJ);
-
-    $nombre = $extraescolar->nombreActividad;
-    $categoria = $extraescolar->idCategoria;
-
-    $sql = ("SELECT id,nombreCategoria FROM categorias WHERE id = $categoria;");
-    $query = $bdd->prepare( $sql );
-    $query->execute();
-    $cate = $query->fetch(PDO::FETCH_LAZY);
-
-    $idCategoria = $cate['id'];
-    $nombreCategoria = $cate['nombreCategoria'];
-
-    $sql = "SELECT tb_usuarios.id, tb_usuarios.nombres,tb_usuarios.ap_paterno,tb_usuarios.ap_materno,tb_usuarios.carrera,tb_usuarios.numero_control,tb_usuarios.telefono,extragrupo.observacion,extragrupo.acreditacion,extragrupo.idActividad FROM extragrupo INNER JOIN tb_usuarios ON extragrupo.matricula = tb_usuarios.numero_control WHERE extragrupo.idActividad = $id";
-    $req = $bdd->prepare($sql);
-    $req->execute();
-    $alumnados = $req->fetchAll(PDO::FETCH_ASSOC);
+    include ('../php/extra/controlador_actividad.php');
 
 ?>
 
@@ -81,14 +57,17 @@ $correo_sesion = $_SESSION['u_usuario'];
       <h1>
         SISTEMA DE ACTIVIDADES
         <small>Listado de actividades extraescolares</small>
-        <a href="lista_actividades.php?id=<?php echo $idCategoria?>" class="btn btn-primary" style="position: absolute; right: 10%;">Atras</a>
+        <form action="lista_actividades.php" style="position: absolute; top: 30%; right: 10%;" method="POST">
+            <input type="hidden" name="id" value="<?php echo $idCategoria?>">
+            <input type="submit" class="btn btn-primary" name="actividad"  value="ATRAS">
+        </form>
       </h1>
      
     </section>
 
     <!-- Main content -->
     <section class="content">
-    <div class="panel panel-primary">
+        <div class="panel panel-primary">
                     <div class="panel-heading">CATEGORIA <?php 
                     echo $nombreCategoria ?> DE ACTIVIDAD <?php echo $nombre;
                     ?></div>
@@ -112,20 +91,6 @@ $correo_sesion = $_SESSION['u_usuario'];
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($alumnados as $alumno) { ?>
-                            <tr>
-                                <td></td>
-                                <td><?php echo $alumno['nombres'] ?></td>
-                                <td><?php echo $alumno['numero_control'] ?></td>
-                                <td><?php echo $alumno['habilidad'] ?></td>
-                                <td><?php if ($alumno['calificacion'] == 1) {
-                                    echo "acreditado";
-                                } else {
-                                    echo "No acrreditado";
-                                }
-                                ?></td>
-                            </tr>
-                            <?php } ?>
 
                             <?php
                                 if (!empty($alumnados)) {

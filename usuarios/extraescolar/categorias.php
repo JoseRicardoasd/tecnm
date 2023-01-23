@@ -103,8 +103,9 @@ $correo_sesion = $_SESSION['u_usuario'];
                                                     </td>
                                         
                                                     <td>
-                                                    <form action="nuevoCampo.php" method="POST">
-                                                        <a class="btn btn-primary btn-lg" href="<?php echo "lista_actividades.php?id=".$campo ['id'] ?>" >entrar</a>
+                                                    <form action="lista_actividades.php" method="POST">
+                                                        <input type="hidden" name="id" value="<?php echo $campo ['id'] ?>">
+                                                        <input type="submit" name="actividad" class="btn btn-primary btn-lg" value="Entrar">
                                                     </form>
                                                     </td>
                                             

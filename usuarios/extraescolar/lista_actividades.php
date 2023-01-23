@@ -2,36 +2,10 @@
 include ('../../app/config/config.php');
 session_start();
 
-if(!isset($_GET["id"])) exit();//preguntando si el metodo get tiene un valor, si no tiene uno sale del porceso
-    $id = $_GET["id"];
-
-    $sql = ("SELECT id FROM ciclo ORDER BY id DESC LIMIT 1;");
-    $query = $bdd->prepare( $sql );
-    $query->execute();
-    $resultado = $query->fetch(PDO::FETCH_OBJ);
-
-    $idCiclo = $resultado === false ? 1 : $resultado->id;
-
-    $sql = "SELECT * FROM extraescolar WHERE (idCategoria = ?) and (idCiclo = $idCiclo);";
-    $req = $bdd->prepare($sql);
-    $req->execute([$id]);
-    $actividades = $req->fetchAll();
-
-    $sql = "SELECT id,nombreCategoria FROM categorias WHERE id = ?;";
-    $red = $bdd->prepare($sql);
-    $red->execute([$id]);
-    $campitos = $red->fetch(PDO::FETCH_LAZY);
-
-
-    $idCampos=$campitos['id'];
-    $campos=$campitos['nombreCategoria'];
-
-    
-
 if(isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0){
     //echo "existe sesión";
     //echo "bienvenido usuario";
-$correo_sesion = $_SESSION['u_usuario'];
+    $correo_sesion = $_SESSION['u_usuario'];
     $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
     $query_sesion->execute();
     $sesion_usuarios = $query_sesion->fetchAll(PDO::FETCH_ASSOC);
@@ -59,6 +33,7 @@ $correo_sesion = $_SESSION['u_usuario'];
        
     }
 
+    include ('../php/extra/controlador_actividad.php');
     $i = 1;
 
 ?>
@@ -81,7 +56,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                     <h1>
                         Actividades Extraescolares
                         <small>Listado de actividades extraescolares</small>
-                        <a href="categorias.php" class="btn btn-primary" style="position: absolute; right: 10%;">Atras</a>
+                        <a href="categorias.php" class="btn btn-primary" style="position: absolute; right: 10%;">ATRAS</a>
                     </h1>
                 </section>
 
@@ -92,9 +67,10 @@ $correo_sesion = $_SESSION['u_usuario'];
 
                         <div class="panel-body">
 
-                            <a class="btn btn-primary btn-lg" href="<?php echo "nueva_actividad.php?id=" . $idCampos?>">
-                                Nueva Actividad
-                            </a>
+                            <form action="nueva_actividad.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $idCampos?>">
+                                <input type="submit" class="btn btn-primary btn-lg" name="actividad" value="Nueva actividad">
+                            </form>
 
                             <br><br>
 
@@ -103,31 +79,56 @@ $correo_sesion = $_SESSION['u_usuario'];
                                     <tr>
                                         <th>#</th>
                                         <th>ACTIVIDAD</th>
-                                        <th>ACCION</th>
+                                        <th>ENCARGADO</th>
+                                        <th>HORAS</th>
+                                        <th>ACCIONES</th>
                                     </tr>
                                 </thead>
                                 <tbody class="thead-light">
-                                    <form action="../php/extra/eliminarAct.php" method="POST">
                                         <?php
                                         if (!empty($actividades)) {
                                             foreach ($actividades as $actividad) {
                                                 echo"<tr>";
                                                 echo"<td>".$i++."</td>";
                                                 echo"<td>".$actividad['nombreActividad']."</td>";
-                                                echo"<td style='width: 25%;'>
-                                                <a href='lista_alumno_actividad.php?id=".$actividad['id']."' class='btn btn-primary'>Listas</a>
+                                                if (!empty($actividad['nombres'])) {
+                                                    echo"<td>".$actividad['nombres']."</td>";
+                                                } else {
+                                                    echo "<td>Sin Asignar</td>";
+                                                }
+                                                if (!empty($actividad['horaActividad'])) {
+                                                    echo"<td>".$actividad['horaActividad']." HORAS ACADEMICAS</td>";
+                                                } else {
+                                                    echo "<td>Sin Asignar</td>";
+                                                }
+                                                echo "<form action='lista_alumno_actividad.php' method='POST'>";
+                                                echo"<td style='width: 8%;'>
                                                 <input type='hidden' name='id' value='".$actividad['id']."'>
-                                                <input type='submit' class='btn btn-danger' value='Eliminar'>
-                                                <a href='editarAct.php?id=".$actividad['id']."' class='btn btn-primary'>Editar</a>";
+                                                <input type='submit' name='actividad' class='btn btn-primary' value='Listas'>";
+                                                echo "</form>";
+                                                echo "<form action='nueva_actividad.php' method='POST'>";
+                                                echo "<td style='width: 8%;'>";
+                                                echo "<input type='hidden' name='id' value='".$actividad['id']."'>";
+                                                echo "<input type='hidden' name='idCategoria' value='".$idCampos."'>";
+                                                echo "<input type='submit' name='actividad' class='btn btn-primary' value='Editar'>";
+                                                echo "</td>";
+                                                echo "</form>";
+                                                echo "<form action='lista_actividades.php' method='POST'>";
+                                                echo "<td style='width: 8%;'>";
+                                                echo "<input type='hidden' name='id' value='".$actividad['id']."'>";
+                                                echo "<input type='submit' name='actividad' class='btn btn-danger' value='Eliminar'>";
+                                                echo "</td>";
+                                                echo "</form>";
                                                 echo"<tr>";
+                                                
                                             }
                                         } else if(empty($actividades)){
                                             echo"<tr>";
-                                            echo"<td> SIN REGISTROS DE CICLOS </td>";
+                                            echo"<td> SIN REGISTROS DE ACTIVIDADES </td>";
                                             echo"<tr>";
                                         }
                                         ?>
-                                    </form>
+                                    
                                 </tbody>
                             </table>
                         

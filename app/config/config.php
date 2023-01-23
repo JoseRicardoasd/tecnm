@@ -45,17 +45,13 @@ $server = "bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com";
 $user = "utur7aovmczn6qtf";
 $pass = "Pp83ju823IBh0nmPhQ9v";
 $bd = "bxgvbqru5r7prhsdpnvr";
-
 $conect = new mysqli($server, $user, $pass, $bd);
 ?>
 <?php
 $database = "bxgvbqru5r7prhsdpnvr";
 $user = 'utur7aovmczn6qtf';
 $password = 'Pp83ju823IBh0nmPhQ9v';
-
-
 try {
-
   $con = new PDO('mysql:host=bxgvbqru5r7prhsdpnvr-mysql.services.clever-cloud.com;dbname=' . $database, $user, $password);
 } catch (PDOException $e) {
   echo "Error" . $e->getMessage();

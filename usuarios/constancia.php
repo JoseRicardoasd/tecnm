@@ -250,160 +250,192 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
 <script>
   function datos_constancia() {
+    let recargar = 1;
     var trs = document.querySelectorAll('#body_table tr');
-    if (trs.length) {
-      if (confirm("Ya consultaste datos ¿Quieres borrarlos para volver a consultar?")) {
-        location.reload();
-      }
-    } else {
-      buscar_matricula = $("#buscar_matricula").val();
-      //se manda la matricula al archivo php para buscar los datos enbase a esa matricula
-      var parametros = {
-        "buscar": "1",
-        "buscar_matricula": buscar_matricula
-      }; //fucnion que me manda esa matricula 
-      $.ajax({
-        data: parametros,
-        dataType: 'json',
-        url: 'constancia_datos.php',
-        type: 'post',
-        error: function() {
-          alert("Error");
-        },
-        //funcion que recibe los datos que el archivo "datos_alumno_evaluación.php" devuelve, esto los devuelve como un objeto llamado "valores"
-        success: function(datos) {
+    /*if (trs.length) {
+      Swal.fire({
+        title: '¿DESEAS CONSULTAR OTROS DATOS? ',
+        text: "Nota: Se borraran los datos actuales",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, DESEO GUARDAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.reload();
+        }
 
-          //INPUTS DEL ALUMNO PARA LLENAR LA CONSTANCIA--------------
-          const nombre = document.getElementById('nombre');
-          const matricula = document.getElementById('matricula');
-          const correo = document.getElementById('correo');
-          const carrera = document.getElementById('carrera');
-          //const desem = document.getElementById('desem');
-          const creditos = document.getElementById('credi');
+      })
+    }*/
+    buscar_matricula = $("#buscar_matricula").val();
+    //se manda la matricula al archivo php para buscar los datos enbase a esa matricula
+    var parametros = {
+      "buscar": "1",
+      "buscar_matricula": buscar_matricula
+    }; //fucnion que me manda esa matricula 
+    $.ajax({
+      data: parametros,
+      dataType: 'json',
+      url: 'constancia_datos.php',
+      type: 'post',
+      error: function() {
+        alert("Error");
+      },
+      //funcion que recibe los datos que el archivo "datos_alumno_evaluación.php" devuelve, esto los devuelve como un objeto llamado "valores"
+      success: function(datos) {
 
-          //----------------------------------------------------
+        //INPUTS DEL ALUMNO PARA LLENAR LA CONSTANCIA--------------
+        const nombre = document.getElementById('nombre');
+        const matricula = document.getElementById('matricula');
+        const correo = document.getElementById('correo');
+        const carrera = document.getElementById('carrera');
+        //const desem = document.getElementById('desem');
+        const creditos = document.getElementById('credi');
+
+        //----------------------------------------------------
 
 
-          let btn = document.getElementById('btnGuardar');
-          //creditos
-          const valor = document.getElementById("credito_valor");
-          let valorFinal = 0;
+        let btn = document.getElementById('btnGuardar');
+        //creditos
+        const valor = document.getElementById("credito_valor");
+        let valorFinal = 0;
 
 
-          //console.log(datos);
-          const docs = document.getElementById("docs");
-          const body_tabla = document.getElementById("body_table");
-          console.log(datos);
+        //obtener el credito, el cual se encuentra en la posicion 5 del arreglo "datos", despues sumo todos los creditos y los guardo en una variable para mostrarlos en pantalla --------------------------
 
-          for (let i = 1; i < datos.length; i++) {
-            //se crean los elementos tr y td de la tabla
-            let tr = document.createElement('tr');
-            let td1 = document.createElement('td');
+        for (let e = 1; e < datos.length; e++) {
+          //variable que convierte los creditos a numeros
+          let numero = Number(datos[e][5]);
+          //se hace la suma de los creditos
+          valorFinal = valorFinal + numero;
 
-            //se agregan los valores correspondientes en la posicion correspondiente de la tabla
-            td1.innerHTML = datos[i]['nombre'];
-            console.log(datos[i]['nombre']);
-            let td2 = document.createElement('td');
-            td2.innerHTML = datos[i]['observacion'];
-            let td3 = document.createElement('td');
-            td3.innerHTML = datos[i]['desmp'];
-            let td4 = document.createElement('td');
-            td4.innerHTML = datos[i]['valor'];
-            //PDFS---------------
-            let div = document.createElement('div');
-            div.style = "height:30px; margin-right:30px";
-            let img = document.createElement('img');
-            img.src = "../images/pdf_logo.png";
-            img.style = "width:20px; heigth:20px; margin-right:7px";
-            let a = document.createElement('a');
-            a.href = `./cargas/${datos[i][4]}`;
-            a.innerHTML = datos[i][6];
-            a.target = "_blank";
-            a.style = "margin-right:10px";
-            div.appendChild(img);
-            //se mete el elemento "a" en el div
-            div.appendChild(a);
-            //-----------------
-            let td5 = document.createElement('td');
-            td5.innerHTML = datos[i]['title'];
-            let td6 = document.createElement('td');
-            td6.innerHTML = datos[i]['credito'];
-            a.appendChild(td5);
-            //se meten todos los td en el elemento tr
-            tr.appendChild(td1);
-            tr.appendChild(td2);
-            tr.appendChild(td3);
-            tr.appendChild(td4);
-            tr.appendChild(td5);
-            tr.appendChild(td6);
-            //se agrega el elemento tr en la tabla
-            body_tabla.appendChild(tr);
-            //se agrega el div con los pdfs en donde va
-            docs.appendChild(div);
-
+        }
+        recargar = valorFinal;
+        if (trs.length) {
+          if (confirm("YA TIENES DATOS CONSULTADOS - SE RECARGARÁ LA PAGINA PARA CONSULTAR OTRO DATOS")) {
+            location.reload();
+          } else {
+            location.reload();
           }
 
-          //obtener el credito, el cual se encuentra en la posicion 5 del arreglo "datos", despues sumo todos los creditos y los guardo en una variable para mostrarlos en pantalla --------------------------
-
-          for (let e = 1; e < datos.length; e++) {
-            //variable que convierte los creditos a numeros
-            let numero = Number(datos[e][5]);
-            //se hace la suma de los creditos
-            valorFinal = valorFinal + numero;
-
+        } else if (!trs.length) {
+          if (recargar == 0) {
+            if (confirm("SIN CREDITOS - Nota: El alumno no tiene creditos registrados")) {
+              location.reload();
+            } else {
+              location.reload();
+            }
           }
-          //se crea un elemento b
-          let b = document.createElement('b');
-          //se le agrega al elemento creado la suma de los creditos
-          b.innerHTML = valorFinal;
-          valor.appendChild(b);
-          //console.log(b);
-          // si el valor final es menor a 2 se desabilita el boton de enviar
-          if (valorFinal < 2) {
-            btn.disabled = true;
-          }
-          //INPUTS DEL ALUMNO PARA LLENAR LA CONSTANCIA--------------
-          //creditos
-          creditos.value = valorFinal;
-          creditos.setAttribute("readonly", "");
-          creditos.style.backgroundColor = "antiquewhite";
-          creditos.style.color = "black";
+        }
+        //console.log(datos);
+        const docs = document.getElementById("docs");
+        const body_tabla = document.getElementById("body_table");
+        console.log(datos);
 
-          //nombre
-          nombre.value = datos[0]['nombres'] + " " + datos[0]['ap_paterno'] + " " +
-            datos[0]['ap_materno'];
-          nombre.setAttribute("readonly", "");
-          nombre.style.backgroundColor = "antiquewhite";
-          nombre.style.color = "black";
+        for (let i = 1; i < datos.length; i++) {
+          //se crean los elementos tr y td de la tabla
+          let tr = document.createElement('tr');
+          let td1 = document.createElement('td');
 
-          //matricula
-          matricula.value = datos[0]['numero_control'];
-          matricula.setAttribute("readonly", "");
-          matricula.style.backgroundColor = "antiquewhite";
-          matricula.style.color = "black";
+          //se agregan los valores correspondientes en la posicion correspondiente de la tabla
+          td1.innerHTML = datos[i]['nombre'];
+          console.log(datos[i]['nombre']);
+          let td2 = document.createElement('td');
+          td2.innerHTML = datos[i]['observacion'];
+          let td3 = document.createElement('td');
+          td3.innerHTML = datos[i]['desmp'];
+          let td4 = document.createElement('td');
+          td4.innerHTML = datos[i]['valor'];
+          //PDFS---------------
+          let div = document.createElement('div');
+          div.style = "height:30px; margin-right:30px";
+          let img = document.createElement('img');
+          img.src = "../images/pdf_logo.png";
+          img.style = "width:20px; heigth:20px; margin-right:7px";
+          let a = document.createElement('a');
+          a.href = `./cargas/${datos[i][4]}`;
+          a.innerHTML = datos[i][6];
+          a.target = "_blank";
+          a.style = "margin-right:10px";
+          div.appendChild(img);
+          //se mete el elemento "a" en el div
+          div.appendChild(a);
+          //-----------------
+          let td5 = document.createElement('td');
+          td5.innerHTML = datos[i]['title'];
+          let td6 = document.createElement('td');
+          td6.innerHTML = datos[i]['credito'];
+          a.appendChild(td5);
+          //se meten todos los td en el elemento tr
+          tr.appendChild(td1);
+          tr.appendChild(td2);
+          tr.appendChild(td3);
+          tr.appendChild(td4);
+          tr.appendChild(td5);
+          tr.appendChild(td6);
+          //se agrega el elemento tr en la tabla
+          body_tabla.appendChild(tr);
+          //se agrega el div con los pdfs en donde va
+          docs.appendChild(div);
 
-          //carrera
-          carrera.value = datos[0]['carrera'];
-          carrera.setAttribute("readonly", "");
-          carrera.style.backgroundColor = "antiquewhite";
-          carrera.style.color = "black";
-
-          //correo
-          correo.value = datos[0]['correo'];
-          correo.setAttribute("readonly", "");
-          correo.style.backgroundColor = "antiquewhite";
-          correo.style.color = "black";
-
-
-
-          //---------------------------------------------------
         }
 
 
 
-      })
-    }
 
+
+
+        //se crea un elemento b
+        let b = document.createElement('b');
+        //se le agrega al elemento creado la suma de los creditos
+        b.innerHTML = valorFinal;
+        valor.appendChild(b);
+        //console.log(b);
+        // si el valor final es menor a 2 se desabilita el boton de enviar
+        if (valorFinal < 2) {
+          btn.disabled = true;
+        }
+        //INPUTS DEL ALUMNO PARA LLENAR LA CONSTANCIA--------------
+        //creditos
+        creditos.value = valorFinal;
+        creditos.setAttribute("readonly", "");
+        creditos.style.backgroundColor = "antiquewhite";
+        creditos.style.color = "black";
+
+        //nombre
+        nombre.value = datos[0]['nombres'] + " " + datos[0]['ap_paterno'] + " " +
+          datos[0]['ap_materno'];
+        nombre.setAttribute("readonly", "");
+        nombre.style.backgroundColor = "antiquewhite";
+        nombre.style.color = "black";
+
+        //matricula
+        matricula.value = datos[0]['numero_control'];
+        matricula.setAttribute("readonly", "");
+        matricula.style.backgroundColor = "antiquewhite";
+        matricula.style.color = "black";
+
+        //carrera
+        carrera.value = datos[0]['carrera'];
+        carrera.setAttribute("readonly", "");
+        carrera.style.backgroundColor = "antiquewhite";
+        carrera.style.color = "black";
+
+        //correo
+        correo.value = datos[0]['correo'];
+        correo.setAttribute("readonly", "");
+        correo.style.backgroundColor = "antiquewhite";
+        correo.style.color = "black";
+
+
+
+        //---------------------------------------------------
+
+
+      }
+
+    })
 
 
   };

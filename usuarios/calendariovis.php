@@ -4,7 +4,7 @@ session_start();
 
 
 
-if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
+if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1) {
   //echo "existe sesión";
   //echo "bienvenido usuario";
   $correo_sesion = $_SESSION['u_usuario'];
@@ -39,7 +39,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
   $req->execute();
 
   $events = $req->fetchAll();
-	
+
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -231,6 +231,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
 
                       <input type="hidden" name="id" class="form-control" id="id">
                       <div class="modal-footer">
+                        <a href="#"><button type="button" class="btn btn-info">VER ALUMNOS SUSCRITOS</button></a>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         <!-- <button type="submit" class="btn btn-primary">Guardar</button> -->
                       </div>

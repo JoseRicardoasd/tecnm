@@ -30,9 +30,27 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
 
-  $sentencia = $pdo->query("SELECT * FROM guia;");
-  $actividades = $sentencia->fetchAll(PDO::FETCH_OBJ);
+  //control de inactividad
+  $ahora = date("Y-n-j H:i:s");
+  $fechaGuardada = $_SESSION["ultimoAcceso"];
+  $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
+
+  if ($tiempo_transcurrido >= 600) {
+    //si pasaron 10 minutos o más
+    session_destroy(); // destruyo la sesión
+    header('location:../index.php'); //envío al usuario a la pag. de autenticación
+    //sino, actualizo la fecha de la sesión
+  } else {
+    $_SESSION["ultimoAcceso"] = $ahora;
+  }
+
+  //$sentencia = $pdo->query("SELECT * FROM guia;");
+  //$actividades = $sentencia->fetchAll(PDO::FETCH_OBJ);
   //print_r($actividades);
+
+  $guia = $pdo->prepare("SELECT * FROM guia");
+  $guia->execute();
+  $actividades = $guia->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -41,9 +59,9 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
   <head>
     <?php include('../layout/head.php'); ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../app/templeates/AdminLTE-2.3.11/bootstrap/css/bootstrap.css">
-
     <title>Guia de actividades Complementarias</title>
   </head>
 
@@ -52,6 +70,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       <?php include('../layout/menu.php'); ?>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
+        <!-- cierre sesion por inactividad -->
+        <?php if ($_SESSION["ultimoAcceso"] >= 600) {
+          echo ("<meta http-equiv='refresh' content='600'>");
+        } ?>
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
@@ -63,7 +85,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
         <br>
 
         <div>
-          <button style="margin-left: 90px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertar" ?php echo>Añadir actividad</button>
+          <button style="margin-left: 90px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertar">Añadir actividad</button>
         </div>
         <!--MODAL (nueva actividad)-->
         <div class="modal fade" id="insertar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -77,7 +99,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               </div>
               <div class="modal-body">
                 <!--formulario-->
-                <form action="registrar.php" method="POST">
+                <form action="registrar.php" method="POST" class="nuevo_evento">
                   <div class="form-group">
                     <label for="">Nombre de la actividad</label>
                     <textarea class="form-control mb-3" name="actividad" placeholder="Actividad"></textarea>
@@ -158,7 +180,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               </div>
               <div class="modal-body">
                 <!--formulario-->
-                <form action="editar.php" method="POST">
+                <form action="editar.php" method="POST" class="editar_evento">
                   <input type="hidden" name="id_editar" value="<?php echo $result['id']; ?>">
 
                   <div class="form-group">
@@ -188,7 +210,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               </div>
 
             </div>
-            <td><a href="delete.php?id=<?php echo $result['id'] ?>" class="btn btn-danger">Eliminar</a></td>
+            <td><a class="btn btn-danger" onclick="alerta_eliminar(<?php echo $result['id']; ?>)">Eliminar</a></td>
           <?php
               }
           ?>
@@ -202,8 +224,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       </table </div>
     </div>
     </section>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-
+    <script src="./js/sweetalert.js"></script>
 
   </body>
   <?php include('../layout/footer.php'); ?>
@@ -215,3 +239,91 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   echo "no existe sesión";
   header('Location:' . $URL . '/login');
 }
+?>
+<script>
+  //alerta guardar----------------
+  $('.nuevo_evento').submit(function(e) {
+    e.preventDefault();
+    Swal.fire({
+      title: '¿DESEAS GUARDAR LOS DATOS?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'SI, DESEO GUARDAR'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'DATOS GUARDADOS CORRECTAMENTE',
+          icon: 'success',
+          showConfirmButton: false,
+        })
+        setTimeout(() => {
+          this.submit();
+        }, "1000")
+
+      }
+
+    })
+
+  });
+
+  //alerta editar----------------
+  $('.editar_evento').submit(function(e) {
+    e.preventDefault();
+    Swal.fire({
+      title: '¿DESEAS ACTUALIZAR LA INFORMACIÓN?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ACEPTAR'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'DATOS GUARDADOS CORRECTAMENTE',
+          icon: 'success',
+          showConfirmButton: false,
+        })
+        setTimeout(() => {
+          this.submit();
+        }, "1000")
+
+      }
+
+    })
+
+  });
+
+
+
+
+  function alerta_eliminar(codigo) {
+    Swal.fire({
+      title: 'ELIMINAR',
+      text: "Deseas eliminar la información?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'SI, eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        parametros = {
+          id: codigo
+        };
+        $.ajax({
+          data: parametros,
+          url: "delete.php",
+          type: "GET",
+          beforeSend: function() {},
+          success: function() {
+            Swal.fire("Informacion eliminada", "success").then((result) => {
+              window.location.href = "guia.php"
+            });
+          }
+        });
+      }
+    })
+  }
+</script>

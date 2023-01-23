@@ -179,6 +179,8 @@ $correo_sesion = $_SESSION['u_usuario'];
 </form>
 
     <!---->
+
+    <br>
      
     <div class="panel panel-primary">
    
@@ -186,7 +188,6 @@ $correo_sesion = $_SESSION['u_usuario'];
   <div class="panel-heading">Listado de tutorias</div>
   <div class="panel-body">
   <table class="table table-bordered table-hover table-condensed">
-  <th>Nro</th>
   <th>Nombre</th>
   <th>Apellido paterno</th>
   <th>Apellido materno</th>
@@ -203,7 +204,6 @@ $correo_sesion = $_SESSION['u_usuario'];
 ?>
       
       <tr>
-        <td><?php echo $filas['id']?></td>
         <td><?php echo $filas['nombres']?></td>
         <td><?php echo $filas['ap_paterno']?></td>
         <td><?php echo $filas['ap_materno']?></td>
@@ -212,11 +212,10 @@ $correo_sesion = $_SESSION['u_usuario'];
         <td><?php echo $filas['estado']?></td>
         <td><?php echo $filas['semestre']?></td>
         
-        <td>
-          <?php  echo "<a href='eliminar.php?id=".$filas['id']."'>ELIMINAR</a>";?>
-          <?php  echo "<a href='historial_incidencia_alumno.php?id=".$filas['id']."' >ver</a>";?>
-          
-          
+        <td> 
+          <?php  echo "<a class='btn btn-success' href='historial_incidencia_alumno.php?id=".$filas['id']."' >VER</a>";?> 
+          <?php  echo "<a class='btn btn-danger' href='eliminar.php?id=".$filas['id']."'>ELIMINAR</a>";?>
+
           
         </td>
       </tr>

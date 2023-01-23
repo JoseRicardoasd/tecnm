@@ -1,8 +1,7 @@
 <?php
 include('../app/config/config.php');
-$sentencia=$pdo->query("SELECT * FROM guia;");
-$actividades=$sentencia->fetchAll(PDO::FETCH_OBJ);
-//print_r($actividades);
+
+$id = $_POST['id'];
 
 session_start();
 if (isset($_SESSION['u_usuario'])) {
@@ -33,7 +32,11 @@ if (isset($_SESSION['u_usuario'])) {
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
 
-  
+  //$sentenciaSQL = $pdo->prepare("SELECT * FROM suscritos where id_evento = $id");
+  //$sentenciaSQL->execute();
+  //$datos_alumno = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 
   <!DOCTYPE html>
@@ -46,7 +49,7 @@ if (isset($_SESSION['u_usuario'])) {
 
     <title>Guia de actividades Complementarias</title>
   </head>
-  
+
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
       <?php include('../layout/menu.php'); ?>
@@ -60,73 +63,77 @@ if (isset($_SESSION['u_usuario'])) {
           </h1>
           <br>
           <form action="Docx_suscribirse.php" method="POST" target="_blank">
-                  <div class="row">
-                    <div id="content" class="col-lg-12">
-                      <button class="btn btn-primary" type="submit"><i class="fa fa-download"></i> Descargar PDF</button>
-                    </div>
-                  </div>
-                </form>
+            <div class="row">
+              <input type="text" value=<?php echo $id ?> style="display: none;" name="id_evento">
+              <div id="content" class="col-lg-12">
+                <button class="btn btn-primary" type="submit"><i class="fa fa-download"></i> Descargar PDF</button>
+              </div>
+            </div>
+          </form>
         </section>
-      
+
         <br>
-        
+
 
         <!--CRUD-->
-       
-          
+
+
         <div class="container">
           <div class="panel panel-primary">
             <div class="panel-heading">Alumnos suscritos</div>
-            
-        <table class="table table-bordered table-hover table-condensed">
-  <thead>
-    <tr class="info">
-      <th scope="col">Alumnos</th>
-      <th scope="col">Matrícula</th>
-      <th scope="col">Fecha y Hora de Suscripción</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <!--registros de la bd-->
-    <?php
-                    $sql="SELECT * FROM suscritos";
-                    
-                    $row = mysqli_query($conexion, $sql); 
 
-                    while($result=mysqli_fetch_assoc($row)){
-                    ?>
-                        <tr>
-                          <td><?php echo $result['nombre_alumn']?></td>
-                          <td><?php echo $result['matricula_alumn']?></td>
-                          <td><?php echo $result['fecha_suscripcion']?></td>
-                        
-    
-  
-                    
-                          </div> 
+            <table class="table table-bordered table-hover table-condensed">
+              <thead>
+                <tr class="info">
+                  <th scope="col">Alumnos</th>
+                  <th scope="col">Matrícula</th>
+                  <th scope="col">Inicio del evento</th>
+                  <th scope="col">Fin del evento</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <!--registros de la bd-->
+                <?php
+
+                $sql = "SELECT * FROM suscritos where id_evento = $id";
+
+                $row = mysqli_query($conexion, $sql);
+
+                while ($result = mysqli_fetch_assoc($row)) {
+                ?>
+                  <tr>
+                    <td><?php echo $result['nombre_alumno'] ?></td>
+                    <td><?php echo $result['matricula_alumn'] ?></td>
+                    <td><?php echo $result['inicio'] ?></td>
+                    <td><?php echo $result['fin'] ?></td>
 
 
-            <?php
-                 }
-            ?>
-            </tr>
-            </tbody>
-        
+
+
+          </div>
+
+
+        <?php
+                }
+        ?>
+        </tr>
+        </tbody>
+
         </table>
         </div>
       </div>
     </div>
-    </table
+    </table </div>
     </div>
-    </div>
-                </section>
+    </section>
 
 
 
   </body>
-   <?php include('../layout/footer.php'); ?>
-   <?php include('../layout/footer_links.php'); ?>
+  <?php include('../layout/footer.php'); ?>
+  <?php include('../layout/footer_links.php'); ?>
+
   </html>
 <?php
 } else {

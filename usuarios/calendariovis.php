@@ -161,7 +161,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1) {
             <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                  <form class="form-horizontal" method="POST" action="editEventTitle.php">
+                  <form class="form-horizontal" method="POST" action="Alumnos_Suscritos.php">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="myModalLabel">Detalles evento</h4>
@@ -231,7 +231,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1) {
 
                       <input type="hidden" name="id" class="form-control" id="id">
                       <div class="modal-footer">
-                        <a href="#"><button type="button" class="btn btn-info">VER ALUMNOS SUSCRITOS</button></a>
+                        <button type="submit" class="btn btn-info"> VER ALUMNOS SUSCRITOS</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         <!-- <button type="submit" class="btn btn-primary">Guardar</button> -->
                       </div>
@@ -373,3 +373,4 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1) {
   echo "no existe sesión";
   header('Location:' . $URL . '/login');
 }
+?>

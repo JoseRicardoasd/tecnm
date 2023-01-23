@@ -44,7 +44,7 @@ if (isset($_POST['nombreActividad']) && isset($_POST['horaActividad']) && isset(
     $lugarActividad=$_POST ['lugarActividad'];
     $encargado=$_POST ['encargado'];
     
-    $sql="UPDATE extraescolar set nombreActividad = $nombreActividad , horaActividad = $horaActividad , horaHacer = $horaHacer , lugarActividad = $lugarActividad, diaActividad = $dias WHERE id = $idActividad";
+    $sql="UPDATE extraescolar set nombreActividad = $nombreActividad , horaActividad = $horaActividad , diaActividad = $dias, horaHacer = $horaHacer , encargadoActividad = $encargado, lugarActividad = $lugarActividad, WHERE id = $idActividad ";
     $req = $bdd->prepare($sql);
     $req->execute();
 

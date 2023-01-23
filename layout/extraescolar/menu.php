@@ -228,6 +228,7 @@
         <li><a href="historial_alumnos.php"><i class="fa fa-users"></i> <span>Alumnos</span></a></li>
         <li class="header">Constancias</li>
         <li><a href="../constanciasExtra.php"><i class="fa fa-users"></i> <span>Constancias Act. Extraescolares</span></a></li>
+        <li><a href="../formato_constancia2.php"><i class="fa fa-users"></i> <span>Formato constancia</span></a></li>
 
       </ul>
     </li>

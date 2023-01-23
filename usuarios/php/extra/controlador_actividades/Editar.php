@@ -22,6 +22,7 @@ $nombreActividad=$campor["nombreActividad"];//almacenando datos de la seleccion 
 $horaActividad=$campor['horaActividad'];//almacenando datos de la seleccion de la categoria en la variable
 $horaHacer = $campor['horaHacer'];//almacenando datos de la seleccion de la categoria en la variable
 $lugarActividad=$campor ['lugarActividad'];//almacenando datos de la seleccion de la categoria en la variable
+$id=$campor['idCategoria'];//almacenando datos de la seleccion de la categoria en la variable
 
 $sql = "SELECT id, nombres, ap_paterno, ap_materno FROM tb_usuarios WHERE Responsable = 1 and cargo = 1 ORDER BY nombres ASC;";
 $query = $bdd->prepare($sql);

@@ -49,6 +49,18 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
   <!DOCTYPE html>
 
   <html>
+    <style>
+      .contenedor{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+      }
+      .left{
+        display: flex;
+        justify-content: right;
+        align-items:right;
+      }
+      </style>
 
   <head>
     <?php include('../layout/head.php'); ?>
@@ -98,10 +110,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               <table class="table table-bordered table-hover table-condensed">
                 <thead>
                   <tr class="info">
-                    <th>Nombre Alumno</th>
+                    <th>Matricula</th>
                     <th>Observaciones</th>
                     <th>Desempeño</th>
-                    <th>Valor</th>
+                    <th>Horas</th>
                     <th>Evento o Actividad</th>
                     <th>Credito</th>
                   </tr>
@@ -111,18 +123,20 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               </table>
 
               <div class="docs" id="docs">
-                <p id="credito_valor">Créditos totales: </p>
+                <p id="credito_valor">Horas totales: </p>
 
               </div>
 
               <!-- formulario para guardar la constancia -->
-              <form action="constancia_dos.php" method="POST">
+              <form action="cntrlconstancia.php" method="POST">
 
                 <p style="margin-top:20px">
                   <input type="text" name="jefe" maxlength="100" class="input_border input_largo" placeholder="Jefe(a)" required style="text-transform: uppercase;">
                   <br>
 
-                  Jefe(a) del Departamento de Servicios Escolares o su equivalente en los Institutos Tecnológicos Descentralizados
+                  JEFE (A) DE DEPTO. DE SERVICIOS ESCOLARES DEL I. T. CHINÁ
+PRESENTE
+
 
                   <br>
                   PRESENTE.
@@ -131,26 +145,21 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 <br>
                 <br>
                 <p class="parrafo_inputs">
-                  El que se suscribe <input type="text" name="suscribe" maxlength="100" class="input_border input_largo" placeholder="Suscribe" required style="text-transform: uppercase;">, por
-                  este medio se permite hacer de su conocimiento que
-                  <br> el estudiante <input type="text" name="alumno" maxlength="100" required class="input_border input_largo" placeholder="Nombre alumno" id="nombre" style="text-transform: uppercase;">
-                  con número de control <input type="text" name="matricula" required maxlength="100" class="input_border input_corto" placeholder="Matricula alumno" id="matricula" style="text-transform: uppercase;"><br>
-                  de la carrera de <input type="text" name="carrera" maxlength="100" required class="input_border input_largo" placeholder="Carrera del alumno" id="carrera" style="text-transform: uppercase;">
-                  ha cumplido su actividad complementaria con el nivel de desempeño<br> <select required name="desempe" id="desem" class="input_border" style="color:black; text-transform: uppercase">
-                    <option value="" selected disabled>Desempeño</option>
+               
+
+El que suscribe, <input type="text" name="suscribe" maxlength="100" class="input_border input_largo" placeholder="Suscribe" required style="text-transform: uppercase;">, por este medio se permite hacer de su conocimiento que el estudiante <input type="text" name="alumno" maxlength="100" required class="input_border input_largo" placeholder="Nombre alumno" id="nombre" style="text-transform: uppercase;"> con numero de control <input type="text" name="matricula" required maxlength="100" class="input_border input_corto" placeholder="Matricula alumno" id="matricula" style="text-transform: uppercase;">de la carrera <input type="text" name="carrera" maxlength="100" required class="input_border input_largo" placeholder="Carrera del alumno" id="carrera" style="text-transform: uppercase;">ha cumplido  con su actividad complementaria con el nivel de desempeño <select required name="desempe" id="desem" class="input_border" style="color:black; text-transform: uppercase"><option value="" selected disabled>Desempeño</option>
                     <option value="INSUFICIENTE">INSUFICIENTE</option>
                     <option value="SUFICIENTE">SUFICIENTE</option>
                     <option value="BUENO">BUENO</option>
                     <option value="NOTABLE">NOTABLE</option>
                     <option value="EXCELENTE">EXCELENTE</option>
-                  </select>
-                  y un valor numérico de <input type="text" name="valor" maxlength="100" required class="input_border input_corto" placeholder="Valor" style="text-transform: uppercase;">,
-                  durante el periodo escolar <input type="text" name="ciclo" maxlength="100" required class="input_border input_corto" placeholder="Ciclo escolar" style="text-transform: uppercase;">
-                  con un valor curricular de <input type="number" name="valorcurri" maxlength="100" required class="input_border input_corto" id="credi" style="text-transform: uppercase;">
-                  créditos.
-                </p>
+                  </select> y un valor numérico de <input type="number" name="valorcurri" maxlength="100" required class="input_border input_corto" id="credi" style="text-transform: uppercase;">durante el periodo escolar  <input type="text" name="ciclo" maxlength="100" required class="input_border input_corto" placeholder="Ciclo escolar" style="text-transform: uppercase;"> 
+                  con un valor circular de <input type="text" name="valor" maxlength="100" required class="input_border input_corto" placeholder="Valor" style="text-transform: uppercase;">
+.
+                   Sin más por el momento agradezco su atención y me despido enviándole un cordial saludo.
+
                 <br>
-                Se extiende la presente en el poblado de Chiná en la fecha
+                Se extiende la presente en el poblado de Chiná en la fecha 
                 <?php
                 $meses = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
                 $fecha = setlocale(LC_ALL, "es_ES");
@@ -159,17 +168,30 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                 $anio = date("Y");
                 $fecha = $dias . "-" . $mes . "-" . $anio;
 
-                echo   $dias . " dias de  " . $mes . " de " . $anio; ?>
+                echo   $dias . " de  " . $mes . " de " . $anio; ?>
+
+                <br>
+                <div>
+                  
+      </div>
+                  
 
 
                 <input type="text" name="fecha" value="<?php echo $fecha ?>" style="display: none;">
+
+      
+
+<input type="text" name="fecha" value="<?php echo $fecha ?>" style="display: none;">
                 <center>
+                <input type="text" name="fecha" value="<?php echo $fecha ?>" style="display: none;">
                   <td colspan="6"><input type="submit" class="btn btn-success mt-5 btn-lg" value="Guardar" id="btnGuardar"></td>
                 </center>
               </form>
               <div id="content" class="col-lg-12">
 
               </div>
+              
+
 
 
             </div>
@@ -207,7 +229,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
       $.ajax({
         data: parametros,
         dataType: 'json',
-        url: 'constancia_uno.php',
+        url: 'constancia_datos.php',
         type: 'post',
         error: function() {
           alert("Error");
@@ -229,7 +251,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           let btn = document.getElementById('btnGuardar');
           //creditos
           const valor = document.getElementById("credito_valor");
-          let valorFinal = 30;
+          let valorFinal = 0;
 
 
           //console.log(datos);
@@ -248,7 +270,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
             let td2 = document.createElement('td');
             td2.innerHTML = datos[i]['observacion'];
             let td3 = document.createElement('td');
-            td3.innerHTML = datos[i]['desempeyo'];
+            td3.innerHTML = datos[i]['desempeño'];
             let td4 = document.createElement('td');
             td4.innerHTML = datos[i]['horaActividad'];
             //PDFS---------------
@@ -301,7 +323,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           valor.appendChild(b);
           //console.log(b);
           // si el valor final es menor a 2 se desabilita el boton de enviar
-          if (valorFinal < 2) {
+          if (valorFinal < 0) {
             btn.disabled = true;
           }
           //INPUTS DEL ALUMNO PARA LLENAR LA CONSTANCIA--------------
@@ -349,7 +371,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
 
   };
+ 
+
+
 </script>
+
 Footer
 © 2023 GitHub, Inc.
 Footer navigation

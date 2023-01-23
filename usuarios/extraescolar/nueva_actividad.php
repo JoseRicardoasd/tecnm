@@ -156,7 +156,7 @@ if(isset($_SESSION['u_usuario'])){
                           <br>
                           <label for=""><i class="glyphicon glyphicon-user"></i>Otros</label> 
                           <input type="text" class="form-control" name="otroActividad" style="text-transform:uppercase;">
-                          <input type="text" name="id" value="<?php echo $campor ?>">
+                          <input type="text" name="id" value="<?php echo $id ?>">
                           <input type="text" name="idActividad" value="<?php echo $idActividad ?>" >
                           
                         </div>
@@ -166,7 +166,7 @@ if(isset($_SESSION['u_usuario'])){
 
                   <form action="lista_actividades.php" style="position: absolute; top: 70%; left: 12%;" method="POST">
                     <div class="form-group">
- 
+                      <input type="hidden" name="id" value="<?php echo $campor ?>">
                       <input type="submit" name="actividad" class="btn btn-danger btn-lg" value="Cancelar">
                     </div>
                   </form>

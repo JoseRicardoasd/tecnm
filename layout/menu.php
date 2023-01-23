@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/perfiles.css">
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -291,26 +293,53 @@
             <ul class="treeview-menu">
               <br>
               <div class="row">
-                <img src="../public/desarrolladores/daniel.PNG" class="imagen">
+                <img src="../public/desarrolladores/daniel.PNG" class="imagen asdf">
                 <div class="col-12 version">
-                  <b>ING. DANIEL JESÚS PÉREZ M.</b>
                   <br>
-                  <b>INGENIERÍA EN INFORMÁTICA <br></b>
-                  <b class="uno">MATRÍCULA 16830180 <br></b>
+                  <a class="uno">ING. DANIEL JESÚS PÉREZ M.</a>
+                  <br>
+                  <a class="uno">INGENIERÍA EN INFORMÁTICA <br></a>
+                  <a class="uno matri">MATRÍCULA 16830180 <br></a>
                 </div>
 
+                <div class="social-media">
+                  <div class="social-icons">
+                    <a href="https://www.facebook.com/tecnmcampus.china" target="_blank">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tecnmcampuschina/" target="_blank">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </div>
+                </div>
+                
               </div>
               <br>
               <div class="row">
-                <img src="../public/desarrolladores/emmanuel.PNG" class="imagen">
+                <img src="../public/desarrolladores/emmanuel.PNG" class="imagen asdf">
                 <div class="col-12 version">
-                  <b>ING. JOSÉ ESCAMILLA MORENO</b>
                   <br>
-                  <b>INGENIERÍA EN INFORMÁTICA <br></b>
-                  <b class="uno">MATRÍCULA 16830183 <br></b>
+                  <a class="uno">ING. JOSÉ ESCAMILLA MORENO</a>
+                  <br>
+                  <a class="uno">INGENIERÍA EN INFORMÁTICA <br></a>
+                  <a class="uno matri">MATRÍCULA 16830183 <br></a>
+                </div>
+
+                <div class="social-media">
+                  <div class="social-icons">
+                    <a href="https://www.facebook.com/tecnmcampus.china" target="_blank">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tecnmcampuschina/" target="_blank">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </div>
                 </div>
 
               </div>
+
+              <br>
+
             </ul>
           </li>
 
@@ -326,71 +355,172 @@
               <br>
 
               <div class="row">
-                <img src="../public/desarrolladores/diana.jpeg" class="imagen">
+                <img src="../public/desarrolladores/diana.jpeg" class="imagen asdf">
                 <div class="col-12 version">
-                  <b>DIANA L. MADRIGAL BENITEZ</b>
                   <br>
-                  <b>INGENIERÍA EN INFORMÁTICA <br></b>
-                  <b class="uno">MATRÍCULA 19830012 <br></b>
+                  <a class="uno">DIANA L. MADRIGAL BENITEZ</a>
+                  <br>
+                  <a class="uno" >INGENIERÍA EN INFORMÁTICA <br></a>
+                  <a class="uno matri">MATRÍCULA 19830012 <br></a>
                 </div>
 
-                <br>
-                <img src="../public/desarrolladores/chan.jpeg" class="imagen">
-                <div class="col-12 version">
-                  <b>JÓSE RICARDO CHAN MARIN</b>
-                  <br>
-                  <b>INGENIERÍA EN INFORMÁTICA <br></b>
-                  <b class="uno">MATRÍCULA 19830002 <br></b>
-                </div>
-
-                <br>
-                <img src="../public/desarrolladores/cuca.jpeg" class="imagen">
-                <div class="col-12 version">
-                  <b>JUAN ANTONIO CU CAHUICH</b>
-                  <br>
-                  <b>INGENIERÍA EN INFORMÁTICA <br></b>
-                  <b class="uno">MATRÍCULA 19830001 <br></b>
-                </div>
-
-                <br>
-                <img src="../public/desarrolladores/farfan.jpeg" class="imagen">
-                <div class="col-12 version">
-                  <b class="tres">DANIEL FARFÁN CAHUICH</b>
-                  <br>
-                  <b>INGENIERÍA EN INFORMÁTICA <br></b>
-                  <b class="uno">MATRÍCULA 19830027 <br></b>
-                </div>
-
-                <br>
-                <img src="../public/desarrolladores/boton.jpeg" class="imagen">
-                <div class="col-12 version">
-                  <b>CARLOS FRANCISCO BOTON</b>
-                  <br>
-                  <b>INGENIERÍA EN INFORMÁTICA <br></b>
-                  <b class="uno">MATRÍCULA 19830248 <br></b>
-                </div>
-
-                <br>
-                <img src="../public/desarrolladores/kevin.jfif" class="imagen">
-                <div class="col-12 version">
-                  <b>KEVIN BONIFAZ HERNÁNDEZ</b>
-                  <br>
-                  <b>INGENIERÍA EN INFORMÁTICA <br></b>
-                  <b class="uno">MATRÍCULA 19830014 <br></b>
-                </div>
-
-                <br>
-                <img src="../public/desarrolladores/felipe.jpeg" class="imagen">
-                <div class="col-12 version">
-                  <b class="dos">FELIPE GIL MAYOR</b>
-                  <br>
-                  <b>INGENIERÍA EN INFORMÁTICA <br></b>
-                  <b class="uno">MATRÍCULA 19830007 <br></b>
-                </div>
-
-
-
+                <div class="social-media">
+                  <div class="social-icons">
+                    <a href="https://www.facebook.com/diana.madrigalbenitez?mibextid=ZbWKwL" target="_blank">
+                      <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/dianalibz/" target="_blank">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                  </div>
+                </div>   
               </div>
+
+              <br>
+
+              <div class="row">
+                <img src="../public/desarrolladores/chan.jpeg" class="imagen asdf">
+                  <div class="col-12 version">
+                    <br>
+                    <a class="uno">JÓSE RICARDO CHAN MARIN</b>
+                    <br>
+                    <a class="uno">INGENIERÍA EN INFORMÁTICA <br></a>
+                    <a class="uno matri">MATRÍCULA 19830002 <br></a>
+                  </div>
+
+                  <div class="social-media">
+                    <div class="social-icons">
+                      <a href="https://www.facebook.com/XxRick17xX/" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/xxrick17xx/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </div>
+                  </div> 
+              </div>
+
+              <br>
+
+              <div class="row">
+                <img src="../public/desarrolladores/cuca.jpeg" class="imagen asdf">
+                  <div class="col-12 version">
+                    <br>
+                    <a class="uno">JUAN ANTONIO CU CAHUICH</a>
+                    <br>
+                    <a class="uno">INGENIERÍA EN INFORMÁTICA <br></a>
+                    <a class="uno matri">MATRÍCULA 19830001 <br></a>
+                  </div>
+
+                  <div class="social-media">
+                    <div class="social-icons">
+                      <a href="https://www.facebook.com/JuanQK1?mibextid=ZbWKwL" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/antonioqk0/?igshid=OGQ2MjdiOTE%3D" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+                <img src="../public/desarrolladores/farfan.jpeg" class="imagen asdf">
+                  <div class="col-12 version">
+                    <br>
+                    <a class="uno">DANIEL FARFÁN CAHUICH</a>
+                    <br>
+                    <a class="uno">INGENIERÍA EN INFORMÁTICA <br></a>
+                    <a class="uno matri">MATRÍCULA 19830027 <br></a>
+                  </div>
+
+                  <div class="social-media">
+                    <div class="social-icons">
+                      <a href="https://www.facebook.com/daniel.farfancahuich.9?mibextid=ZbWKwL" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/fxrfxxn/?igshid=OGQ2MjdiOTE%3D" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </div>
+                  </div> 
+              </div>
+
+              <br>
+
+              <div class="row">
+                <img src="../public/desarrolladores/boton.jpeg" class="imagen asdf">
+                  <div class="col-12 version">
+                    <br>
+                    <a class="uno">CARLOS FRANCISCO BOTON</a>
+                    <br>
+                    <a class="uno">INGENIERÍA EN INFORMÁTICA <br></a>
+                    <a class="uno matri">MATRÍCULA 19830248 <br></a>
+                  </div>
+
+                  <div class="social-media">
+                    <div class="social-icons">
+                      <a href="https://www.facebook.com/carlos.boton.77?mibextid=ZbWKwL" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/carlo_sboton/?igshid=OGQ2MjdiOTE%3D" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </div>
+                  </div> 
+              </div>
+
+              <br>
+
+              <div class="row">
+                <img src="../public/desarrolladores/kevin.jfif" class="imagen asdf">
+                  <div class="col-12 version">
+                    <br>
+                    <a class="uno">KEVIN BONIFAZ HERNÁNDEZ</a>
+                    <br>
+                    <a class="uno">INGENIERÍA EN INFORMÁTICA <br></a>
+                    <a class="uno matri">MATRÍCULA 19830014 <br></a>
+                  </div>
+
+                  <div class="social-media">
+                    <div class="social-icons">
+                      <a href="https://www.facebook.com/profile.php?id=100012771139647&mibextid=ZbWKwL" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/_kevinhernandez/?igshid=OGQ2MjdiOTE%3D" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </div>
+                  </div> 
+              </div>
+
+              <br>
+
+              <div class="row">
+                <img src="../public/desarrolladores/felipe.jpeg" class="imagen asdf">
+                  <div class="col-12 version">
+                    <br>
+                    <a class="uno">FELIPE GIL MAYOR</a>
+                    <br>
+                    <a class="uno">INGENIERÍA EN INFORMÁTICA <br></a>
+                    <a class="uno matri">MATRÍCULA 19830007 <br></a>
+                  </div>
+
+                  <div class="social-media">
+                    <div class="social-icons">
+                      <a href="https://www.facebook.com/felipe.gilmayor.5?mibextid=ZbWKwL" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/felipegilmayor/?igshid=OGQ2MjdiOTE%3D" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                    </div>
+                  </div>
+              </div>
+
+              <br>
 
             </ul>
 

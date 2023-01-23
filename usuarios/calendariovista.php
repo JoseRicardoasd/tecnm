@@ -4,7 +4,7 @@ session_start();
 
 
 
-if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
+if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
   //echo "existe sesión";
   //echo "bienvenido usuario";
   $correo_sesion = $_SESSION['u_usuario'];
@@ -39,7 +39,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
   $req->execute();
 
   $events = $req->fetchAll();
-  
+
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -160,7 +160,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
             <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                  <form class="form-horizontal" method="POST" action="editEventTitle.php">
+                  <form class="form-horizontal" method="POST" action="ctrl_suscribir.php">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="myModalLabel">Detalles del evento</h4>
@@ -219,10 +219,23 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2 ) {
                           </select>
                         </div>
                       </div>
-
+                      <!-- datos para tabla suscritos -->
                       <input type="hidden" name="id" class="form-control" id="id">
+                      <!--  -->
+                      <input type="text" name="matricula" value="<?php echo $sesion_usuario['numero_control']; ?>" style="display: none;">
+                      <!--  -->
+                      <input type="text" name="nombre_alumno" value="<?php echo $sesion_usuario['nombres']; ?>" style="display: none;">
+                      <!--  -->
+                      <input type="text" name="ap_paterno" value="<?php echo $sesion_usuario['ap_paterno']; ?>" style="display: none;">
+                      <!--  -->
+                      <input type="text" name="ap_materno" value="<?php echo $sesion_usuario['ap_materno']; ?>" style="display: none;">
+                      <!--  -->
+                      <input type="text" name="responsable" value="<?php echo $opciones['id']; ?>" style="display: none;">
+
                       <div class="modal-footer">
+                        <!-- <a href="ctrl_suscribir.php" class="btn btn-primary">Suscribirme a esta actividad</a> -->
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Suscribirme a esta actividad</button>
                       </div>
                   </form>
                 </div>

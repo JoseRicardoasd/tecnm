@@ -71,152 +71,55 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
         </section>
 
         <!-- Main content -->
-        <section class="content">
+            <div class="container">
           <div class="panel panel-primary">
             <div class="panel-heading">Guia de Actividades Complementarias</div>
-            <div class="panel-body">
-              <table class="table table-bordered table-hover table-condensed">
-                <thead>
-                  <tr>
-                    <th>Actividad</th>
-                    <th>Descripcion</th>
-                    <th>Credito por actividad</th>
-                    <th>Maximo Acomular</th>
-                  </tr>
-                </thead>
+            
+        <table class="table table-bordered table-hover table-condensed">
+            <thead>
+                <tr>
+                  <th scope="col">Actividad</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Crédito por actividad</th>
+                  <th scope="col">Máximo acomular</th>
+                </tr>
+            </thead>
+  
+                <tbody>
+    <!--registros de la bd-->
+    <?php
+                    $sql="SELECT * FROM guia";
+                    
+                    $row = mysqli_query($conexion, $sql); 
 
-                <tr>
-                  <td>Movilidad Academica</td>
-                  <td>Estancias en instituciones educativas de nivel superior,
-                    centros de investigacion, y empresas (al menos durante 4 Semanas Nacional</td>
-                  <td>1.0</td>
-                  <td>2.0</td>
-                </tr>
-                <tr>
-                  <td>Movilidad Academica</td>
-                  <td>Estancias en instituciones educativas de
-                    nivel superior, centros de investigacion,
-                    y empresas (al menos durante 4 Semanas
-                    Internacional</td>
-                  <td>2.0</td>
-                  <td>2.0</td>
-                </tr>
-                <tr>
-                  <td>Conferencia y/o Platica</td>
-                  <td>Asistencia o participación dentro o
-                    fuera del instituto en cualquier nivel que se trate, (local, regional, Nacional)
-                    relacionada con el profesional</td>
-                  <td>0.2</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Congreso, Seminario, Simponsio y/o Coloquio</td>
-                  <td>Asistencia o participacion dentro o fuera del instituto
-                    en cualquier nivel que se trate, (local, regional, Nacional)
-                    relacionada con el profesional</td>
-                  <td>0.4</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Curso y/o curso taller</td>
-                  <td>Participación o imparticion dentro o fuera de la institucion en cualquier nivel que se trate, (local, regional, Nacional)
-                    relacionado con el perfil profesional, con una duracion minima de 20 horas (presencial o a distancia)</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Diplomado</td>
-                  <td>Participación o imparticion dentro o fuera del instituto en cualquier nivel que se trate, (local, regional, Nacional)
-                    relacionado con el perfil profesional, con una duracion minima de 90 horas (presencial o a distancia)</td>
-                  <td>2.0</td>
-                  <td>2.0</td>
-                </tr>
+                    while($result=mysqli_fetch_assoc($row)){
+                    ?>
+                        <tr>
+                          <td><?php echo $result['actividad']?></td>
+                          <td><?php echo $result['descripcion']?></td>
+                          <td><?php echo $result['credito']?></td>
+                          <td><?php echo $result['maximo']?></td>
+                        
+                          </div> 
+                          <?php } ?>
+            </tr>
+            </tbody>
+        
+        </table>
+        </div>
+      </div>
+    </div>
+    </table>
+    </div>
+    </div>                
+    </div>    
+    
+                    
+        </div>
 
-                <tr>
-                  <td>Concurso Nacional de Ciencias Básicas</td>
-                  <td>Participación en concurso de ciencas básicas como seleccionado de acuerdo al área que corresponda a nivel local</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso Nacional de Ciencias Básicas</td>
-                  <td>Participación en concurso de ciencas básicas como seleccionado de acuerdo al área que corresponda a nivel regional</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso Nacional de Ciencias Básicas</td>
-                  <td>Participación en concurso de ciencas básicas como seleccionado de acuerdo al área que corresponda a nivel nacional</td>
-                  <td>1.0</td>
-                  <td>2.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de Creatividad e innovación</td>
-                  <td>Participación en concurso de creatividad e innovación de acuerdo al área que corresponda a nivel local</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de Creatividad e innovación</td>
-                  <td>Participación en concurso de creatividad e innovación de acuerdo al área que corresponda a nivel regional</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de Creatividad e innovación</td>
-                  <td>Participación en concurso de creatividad e innovación de acuerdo al área que corresponda a nivel nacional</td>
-                  <td>1.0</td>
-                  <td>2.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de emprendedurismo</td>
-                  <td>Participación en concurso de emprendedurismo de acuerdo al área que corresponda a nivel local</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de emprendedurismo</td>
-                  <td>Participación en concurso de emprendedurismo de acuerdo al área que corresponda a nivel regional</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-                <tr>
-                  <td>Concurso de emprendedurismo</td>
-                  <td>Participación en concurso de emprendedurismo de acuerdo al área que corresponda a nivel nacional</td>
-                  <td>1.0</td>
-                  <td>2.0</td>
-                </tr>
-                <tr>
-                  <td>Diseño de Prototipos</td>
-                  <td>Participar o ser responsable del diseño de un prototipo que solucione una problemática y esté relacionado con su perfil profesional</td>
-                  <td>0.75</td>
-                  <td>1.5</td>
-                </tr>
-                <tr>
-                  <td>Diseño de Software</td>
-                  <td>Participar o ser responsable del diseño de un prototipo que solucione una problemática y esté relacionado con su perfil profesional</td>
-                  <td>0.75</td>
-                  <td>1.5</td>
-                </tr>
-                <tr>
-                  <td>Diseño en proyecto</td>
-                  <td>Participar en un proyecto de producción, vinculación e investigación previamente autorizado de acuerdo a su perfil profesional realizando las actividades programadas, al menos durante 40 horas</td>
-                  <td>0.5</td>
-                  <td>1.0</td>
-                </tr>
-              </table>
-            </div>
-            <!-- /.content -->
-          </div>
-          <!-- /.content-wrapper -->
-          <?php include('../layout/footer.php'); ?>
-          <?php include('../layout/footer_links.php'); ?>
-
-
-
-
-  </body>
-
+        </body>
+   <?php include('../layout/footer.php'); ?>
+   <?php include('../layout/footer_links.php'); ?>
   </html>
 <?php
 } else {

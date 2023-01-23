@@ -52,7 +52,7 @@ try{
 	
 	echo $sql;
 	
-	$query = $bdd->prepare( $sql );
+	$query = $bdd->prepare($sql);
 	if ($query == false) {
 	 print_r($bdd->errorInfo());
 	 die ('Erreur prepare');

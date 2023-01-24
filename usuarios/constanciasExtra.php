@@ -128,7 +128,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
               </div>
 
               <!-- formulario para guardar la constancia -->
-              <form action="cntrlconstancia.php" method="POST">
+              <form action="cntrlconstancia2.php" method="POST">
 
                 <p style="margin-top:20px">
                   <input type="text" name="jefe" maxlength="100" class="input_border input_largo" placeholder="Jefe(a)" required style="text-transform: uppercase;">

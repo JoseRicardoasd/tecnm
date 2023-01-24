@@ -111,9 +111,11 @@ $correo_sesion = $_SESSION['u_usuario'];
                                                             echo "<input type='submit' class='btn btn-danger' name='categoria' value='Eliminar'>";
                                                         } else {
                                                             echo "<input type='hidden' name='id' value='".$campo ['id']."'>";
-                                                            echo "<input type='submit' class='btn btn-primary' name='categoria' value='Editar'>";
+                                                            echo "<input type='submit' onclick='return eliminar()' class='btn btn-primary' name='categoria' value='Editar'>";
                                                         }
                                                         ?>
+
+
 
                                                     </form>
                                                     </td>
@@ -137,6 +139,8 @@ $correo_sesion = $_SESSION['u_usuario'];
   <!-- /.content-wrapper -->
   <?php include ('../../layout/extraescolar/footer.php'); ?>
   <?php include ('../../layout/extraescolar/footer_links.php'); ?>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../js/alerta.js"></script>
 
 
 

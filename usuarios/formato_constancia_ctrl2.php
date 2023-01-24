@@ -19,7 +19,7 @@ $encabezadoBinario = fread($encabezadoSubida, $tamano_encabezado);
 $pieBinario = fread($pieSubida, $tamano_pie);
 
 $encabezadoBinario = mysqli_escape_string($conexion, $encabezadoBinario);
-$pieBinario = mysqli_escape_string($conexion, $pieBinario);
+$pieBinario = mysqli_escape_string($conexion, $pieBinario); 
 
 if ($tamano_encabezado > 1097152 || $tamano_pie > 1097152) {
   header('Location: formato_constancia.php');

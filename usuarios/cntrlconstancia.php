@@ -15,7 +15,7 @@ $valorcurri = $_POST['valorcurri'];
 $fecha = $_POST['fecha'];
 
 //sentencia sql
-$sql = "INSERT INTO constancias (jefe,
+$sql = "INSERT INTO constanciasextra2 (jefe,
                                 suscribe,
                                 alumno,
                                 matricula,

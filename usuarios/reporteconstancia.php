@@ -38,7 +38,7 @@ $datos_alumno = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 $consulta1 = "SELECT * FROM formato_constancia2 ORDER BY id DESC LIMIT 1";
 $res = mysqli_query($conexion, $consulta1)  ?>
 <?php foreach ($res as $opcion) : ?>
-  <div style="opacity: 70%; width: 100%;">
+  <div style="width: 100%;">
     <img style="width: 100%; margin-top:-10px; margin-bottom: -20px;" src="data:imagen/png;base64,<?php echo base64_encode($opcion['encabezado']) ?>">
     <!-- <img src="tecnm/images/avatar.jpg"> -->
   <?php endforeach ?>
@@ -98,7 +98,7 @@ $res = mysqli_query($conexion, $consulta1)  ?>
     <br>
     <!-- imagen de pie de pagina -->
     <?php foreach ($res as $opcion) : ?>
-      <div style="opacity: 70%;">
+      <div style="position: absolute; bottom: 0;">
         <img style="width: 100%; margin-top: -36px;" src="data:imagen/png;base64,<?php echo base64_encode($opcion['pie_pagina']) ?>">
 
       </div>

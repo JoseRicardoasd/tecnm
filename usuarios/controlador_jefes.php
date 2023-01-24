@@ -26,12 +26,12 @@ VALUES ('$nombres', '$correo', '$departamento')";
 $resultado = mysqli_query($conexion, $inserta);
 if (!$resultado) {
   if (mysqli_error($conexion) == "Duplicate entry '$correo' for key 'tb_jefes.PRIMARY'") {
-    echo '<script language="javascript">alert("El jefe ya existe");window.location.href="create_jefes.php"</script>';
+    echo '<script language="javascript">alert("El jefe ya existe");window.location.href="lista-jefes.php"</script>';
   } else {
-    echo '<script language="javascript">alert("No se pudo guardar. Inténtalo de nuevo.");window.location.href="create_jefes.php"</script>';
+    echo '<script language="javascript">alert("No se pudo guardar. Inténtalo de nuevo.");window.location.href="lista-jefes.php"</script>';
   }
 } else {
-   echo '<script language="javascript">alert("Jefe registrado");window.location.href="create_jefes.php"</script>';
+  header('Location: lista-jefes.php');
 }   
 
 

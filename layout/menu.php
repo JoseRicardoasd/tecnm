@@ -262,11 +262,9 @@
 
           <li><a href="lista-jefes.php"><i class="fa fa-users"></i>Lista de Jefes</a></li>
 
-          <li><a href="create_jefes.php"><i class="fa fa-user"></i> Agregar Jefes de departamento</a></li>
-
           <li><a href="añadirDepartamento.php"><i class="fa fa-users"></i>Departamentos</a></li>
 
-          <li><a href="formato_constancia.php"><i class="fa fa-book"></i> <span><b>Formato de la constancia</b></span></a></li>
+          <li><a href="formato_constancia.php"><i class="fa fa-book"></i> <span><b>Formato de la constancia A.A</b></span></a></li>
 
         </ul>
       </li>

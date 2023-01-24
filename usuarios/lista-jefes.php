@@ -78,6 +78,12 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0 ) {
 
         </section>
 
+        <br>
+
+        <div class="container">
+        <a href="create_jefes.php" class="btn btn-primary">Nuevo jefe</a>
+        </div>
+
         <!-- Main content -->
         <section class="content">
           <div class="panel panel-primary">

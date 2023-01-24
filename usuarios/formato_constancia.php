@@ -63,7 +63,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           echo ("<meta http-equiv='refresh' content='600'>");
         } ?>
         <section class="content-header">
-          <h1>FORMATO DE LAS CONSTANCIAS</h1>
+          <h1>FORMATO DE LA CONSTANCIA ACTIVIDADES ACADÉMICAS</h1>
           <br> <br>
 
           <div class="container" style="padding: 60px 90px 60px 40px; background: white;">

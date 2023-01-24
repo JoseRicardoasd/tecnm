@@ -40,7 +40,7 @@ if ($tamano_encabezado > 1097152 || $tamano_pie > 1097152) {
   if (!$ejecutar) {
     echo 'Error al registrarse';
   } else {
-    header('Location: formato_constancia.php');
+    header('Location: formato_constancia2.php');
   }
 }
 

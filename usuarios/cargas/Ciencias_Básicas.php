@@ -15,6 +15,10 @@ $credito = $_POST['credit'];
 
 $apellido = $_POST['ap_paterno'];
 
+date_default_timezone_set("America/Monterrey");
+
+$fechaHora = date('Y-m-d h:i:s');
+
 //se verifica si existe la carpeta don de se guardará el archivo
 if (!file_exists('Concurso de Ciencias Básicas')) {
   //si no existe la carpeta, se crea
@@ -27,7 +31,7 @@ if (!file_exists('Concurso de Ciencias Básicas')) {
       //Una vez que se confirmó que no se ha subido antes el archivo, se guarda el que se está subiendo a la carpeta que le corresponde
       if (move_uploaded_file($guardado, './Concurso de Ciencias Básicas/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
 
-        $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc, credito) VALUES ('$num_control', '$id_act', 1, 'Concurso de Ciencias Básicas/$num_control-$apellido-$id_act.pdf', $credito)";
+        $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc, credito, fecha_evidencia) VALUES ('$num_control', '$id_act', 1, 'Concurso de Ciencias Básicas/$num_control-$apellido-$id_act.pdf', '$credito', '$fechaHora')";
         $resultado = mysqli_query($conexion, $inserta);
         if (!$resultado) {
           echo 'Error al insertar archivo';
@@ -48,7 +52,7 @@ if (!file_exists('Concurso de Ciencias Básicas')) {
     //Una vez que se confirmó que no se ha subido antes el archivo, se mueve el que se está subiendo a la carpeta que le corresponde
     if (move_uploaded_file($guardado, './Concurso de Ciencias Básicas/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
 
-      $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc, credito) VALUES ('$num_control', '$id_act', 1, 'Concurso de Ciencias Básicas/$num_control-$apellido-$id_act.pdf', $credito)";
+      $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc, credito, fecha_evidencia) VALUES ('$num_control', '$id_act', 1, 'Concurso de Ciencias Básicas/$num_control-$apellido-$id_act.pdf', '$credito', '$fechaHora')";
       $resultado = mysqli_query($conexion, $inserta);
       if (!$resultado) {
         echo 'Error al insertar archivo';

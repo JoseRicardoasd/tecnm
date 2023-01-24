@@ -15,6 +15,10 @@ $credito = $_POST['credit'];
 
 $apellido = $_POST['ap_paterno'];
 
+date_default_timezone_set("America/Monterrey");
+
+$fechaHora = date('Y-m-d h:i:s');
+
 
 
 /*
@@ -59,7 +63,7 @@ if (!file_exists('Modalidad Academica')) {
     } else {
       if (move_uploaded_file($guardado, 'Modalidad Academica/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
 
-        $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc, credito) VALUES ('$num_control', '$id_act', 1, 'Modalidad Academica/$num_control-$apellido-$id_act.pdf', $credito)";
+        $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc, credito, fecha_evidencia) VALUES ('$num_control', '$id_act', 1, 'Modalidad Academica/$num_control-$apellido-$id_act.pdf', '$credito', '$fechaHora')";
         $resultado = mysqli_query($conexion, $inserta);
         if (!$resultado) {
           echo 'Error al insertar archivo';
@@ -78,7 +82,7 @@ if (!file_exists('Modalidad Academica')) {
   } else {
     if (move_uploaded_file($guardado, 'Modalidad Academica/' . $num_control . '-' . $apellido . '-' . $id_act . '.pdf')) {
 
-      $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc, credito) VALUES ('$num_control', '$id_act', 1, 'Modalidad Academica/$num_control-$apellido-$id_act.pdf', $credito)";
+      $inserta = "INSERT INTO evidencia(numero_control, id_evento, subido, ruta_doc, credito, fecha_evidencia) VALUES ('$num_control', '$id_act', 1, 'Modalidad Academica/$num_control-$apellido-$id_act.pdf', '$credito', '$fechaHora')";
       $resultado = mysqli_query($conexion, $inserta);
       if (!$resultado) {
         echo 'Error al insertar archivo';

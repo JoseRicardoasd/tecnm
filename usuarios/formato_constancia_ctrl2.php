@@ -22,7 +22,7 @@ $encabezadoBinario = mysqli_escape_string($conexion, $encabezadoBinario);
 $pieBinario = mysqli_escape_string($conexion, $pieBinario);
 
 if ($tamano_encabezado > 1097152 || $tamano_pie > 1097152) {
-  header('Location: formato_constancia.php');
+  header('Location: formato_constancia2.php');
 } else {
   //sentencia sql
   $sql = "INSERT INTO formato_cons2 (encabezado, nombre_encabezado,

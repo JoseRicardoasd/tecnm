@@ -67,7 +67,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           <br> <br>
 
           <div class="container" style="padding: 60px 90px 60px 40px; background: white;">
-            <form action="formato_constancia_ctrl2.php" method="POST" enctype="multipart/form-data" class="formato">
+            <form action="formato_constancia_ctrl.php" method="POST" enctype="multipart/form-data" class="formato">
               <label for="encabezado">Ingresa el encabezado de la constancia</label>
               <input type="file" name="encabezado" required id="encabezado">
               <br><br> <br>

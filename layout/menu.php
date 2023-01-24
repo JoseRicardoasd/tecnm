@@ -305,10 +305,10 @@
 
                 <div class="social-media">
                   <div class="social-icons">
-                    <a href="https://www.facebook.com/tecnmcampus.china" target="_blank">
+                    <a href="https://www.facebook.com/M10RG?mibextid=ZbWKwL" target="_blank">
                       <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://www.instagram.com/tecnmcampuschina/" target="_blank">
+                    <a href="https://www.instagram.com/mexito10/" target="_blank">
                       <i class="fab fa-instagram"></i>
                     </a>
                   </div>
@@ -328,10 +328,10 @@
 
                 <div class="social-media">
                   <div class="social-icons">
-                    <a href="https://www.facebook.com/tecnmcampus.china" target="_blank">
+                    <a href="https://www.facebook.com/profile.php?id=100000133948179&mibextid=ZbWKwL" target="_blank">
                       <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://www.instagram.com/tecnmcampuschina/" target="_blank">
+                    <a href="" target="_blank">
                       <i class="fab fa-instagram"></i>
                     </a>
                   </div>

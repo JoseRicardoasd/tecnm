@@ -38,63 +38,56 @@ foreach ($sesion_usuarios as $sesion_usuario) {
     <!-- <img src="tecnm/images/avatar.jpg"> -->
   <?php endforeach ?>
   </div>
-  
-  <thead>
-    <tr class="info">
-      <th scope="col">Alumnos</th>
-      <th scope="col">Matrícula</th>
-      <th scope="col">Fecha y Hora de Suscripción</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <!--registros de la bd-->
-    <?php
-                    $sql="SELECT * FROM suscritos";
-                    
-                    $row = mysqli_query($conexion, $sql); 
 
-                    while($result=mysqli_fetch_assoc($row)){
-                    ?>
-                        <tr>
-                          <td><?php echo $result['nombre_alumn']?></td>
-                          <td><?php echo $result['matricula_alumn']?></td>
-                          <td><?php echo $result['fecha_suscripcion']?></td>
-                        
-    
-  
-                    
-                          </div> 
+  <table class="table table-bordered table-hover table-condensed">
+    <thead>
+      <tr>
+        <th scope="col">Alumnos</th>
+        <th scope="col">Matrícula</th>
+        <th scope="col">Fecha y Hora de Suscripción</th>
+      </tr>
+    </thead>
 
+    <tbody>
+      <!--registros de la bd-->
+      <?php
+      $sql = "SELECT * FROM suscritos";
 
-            <?php
-                 }
-            ?>
-            </tr>
-            </tbody>
-        
-        </table>
-        </div>
-      </div>
+      $row = mysqli_query($conexion, $sql);
+
+      while ($result = mysqli_fetch_assoc($row)) {
+      ?>
+        <tr>
+          <td><?php echo $result['nombre_alumno'] ?></td>
+          <td><?php echo $result['matricula_alumn'] ?></td>
+          <td><?php echo $result['inicio'] ?></td>
+
+          </div>
+        <?php } ?>
+        </tr>
+    </tbody>
+
+  </table>
+  </div>
+  </div>
+  </div>
+  </table </div>
+  </div>
+  </section>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- imagen de pie de pagina -->
+  <!-- imagen de pie de pagina -->
+  <?php foreach ($row as $opcion) : ?>
+    <div style="opacity: 70%;">
+      <img style="width: 100%; margin-top: -36px;" src="data:imagen/png;base64,<?php echo base64_encode($opcion['pie_pagina']) ?>">
+
     </div>
-    </table
-    </div>
-    </div>
-                </section>
-
-                <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <!-- imagen de pie de pagina -->
-   <!-- imagen de pie de pagina -->
-   <?php foreach ($row as $opcion) : ?>
-      <div style="opacity: 70%;">
-        <img style="width: 100%; margin-top: -36px;" src="data:imagen/png;base64,<?php echo base64_encode($opcion['pie_pagina']) ?>">
-
-      </div>
-    <?php endforeach ?>
+  <?php endforeach ?>
 
 
   </div>

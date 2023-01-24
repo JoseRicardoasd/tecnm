@@ -84,8 +84,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
 
         <br>
 
-        <div>
-          <button style="margin-left: 90px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertar">Añadir actividad</button>
+        <div class="container">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertar">Añadir actividad</button>
         </div>
         <!--MODAL (nueva actividad)-->
         <div class="modal fade" id="insertar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

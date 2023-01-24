@@ -28,39 +28,47 @@ foreach ($sesion_usuarios as $sesion_usuario) {
   $id_foto_perfil = $sesion_usuario['foto_perfil'];
 }
 
-
+//id del evento
+$id_event = $_POST['id_evento'];
 ?>
 
+<?php
+$consulta1 = "SELECT * FROM formato_constancia2 ORDER BY id DESC LIMIT 1";
+$res = mysqli_query($conexion, $consulta1)  ?>
 
-<?php foreach ($row as $opcion) : ?>
-  <div style="opacity: 70%; width: 100%;">
+<?php foreach ($res as $opcion) : ?>
+  <div style="width: 100%;">
     <img style="width: 100%; margin-top:-10px; margin-bottom: -20px;" src="data:imagen/png;base64,<?php echo base64_encode($opcion['encabezado']) ?>">
     <!-- <img src="tecnm/images/avatar.jpg"> -->
   <?php endforeach ?>
   </div>
 
-  <table class="table table-bordered table-hover table-condensed">
+  <h2 style="text-align: center;">Lista de alumnos suscritos</h2>
+
+  <table class="table table-bordered table-hover table-condensed" style="width: 100%;">
     <thead>
-      <tr>
-        <th scope="col">Alumnos</th>
-        <th scope="col">Matrícula</th>
-        <th scope="col">Fecha y Hora de Suscripción</th>
+      <tr style="background-color: cadetblue;">
+        <th class="col-3">Alumnos</th>
+        <th class="col-3">Matrícula</th>
+        <th class="col-3">Inicio de la actividad</th>
+        <th class="col-3">Fin de la actividad</th>
       </tr>
     </thead>
 
     <tbody>
       <!--registros de la bd-->
       <?php
-      $sql = "SELECT * FROM suscritos";
+      $sql = "SELECT * FROM suscritos where id_evento = $id_event";
 
       $row = mysqli_query($conexion, $sql);
 
       while ($result = mysqli_fetch_assoc($row)) {
       ?>
-        <tr>
-          <td><?php echo $result['nombre_alumno'] ?></td>
-          <td><?php echo $result['matricula_alumn'] ?></td>
-          <td><?php echo $result['inicio'] ?></td>
+        <tr style="text-align: center; background-color: antiquewhite; ">
+          <td class="col-3"><?php echo $result['nombre_alumno'] ?></td>
+          <td class="col-3"><?php echo $result['matricula_alumn'] ?></td>
+          <td class="col-3"><?php echo $result['inicio'] ?></td>
+          <td class="col-3"><?php echo $result['fin'] ?></td>
 
           </div>
         <?php } ?>
@@ -82,8 +90,8 @@ foreach ($sesion_usuarios as $sesion_usuario) {
   <br>
   <!-- imagen de pie de pagina -->
   <!-- imagen de pie de pagina -->
-  <?php foreach ($row as $opcion) : ?>
-    <div style="opacity: 70%;">
+  <?php foreach ($res as $opcion) : ?>
+    <div style=" position: absolute; bottom: 0;">
       <img style="width: 100%; margin-top: -36px;" src="data:imagen/png;base64,<?php echo base64_encode($opcion['pie_pagina']) ?>">
 
     </div>

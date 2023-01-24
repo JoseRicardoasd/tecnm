@@ -52,7 +52,7 @@ if (isset($_SESSION['u_usuario'])) {
 
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
-      <?php include('../layout/menu.php'); ?>
+      <?php include('../layout/menumaestro.php'); ?>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -63,9 +63,9 @@ if (isset($_SESSION['u_usuario'])) {
           </h1>
           <br>
           <form action="Docx_suscribirse.php" method="POST" target="_blank">
-            <div class="row">
+            <div class="container">
               <input type="text" value=<?php echo $id ?> style="display: none;" name="id_evento">
-              <div id="content" class="col-lg-12">
+              <div id="content">
                 <button class="btn btn-primary" type="submit"><i class="fa fa-download"></i> Descargar PDF</button>
               </div>
             </div>

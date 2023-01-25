@@ -69,11 +69,11 @@ $correo_sesion = $_SESSION['u_usuario'];
                             <h3 class="panel-title">Agregar Campos Extraescolares</h3>
                             </div>
                             <div class="panel-body">
-<<<<<<< HEAD
+
                                 <form action="registro_categoria.php" class="formulario-categoria_editar" method="POST" enctype="multipart/form-data">
-=======
+
                                 <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data" class="alerta">
->>>>>>> c32f9b51c1300b83a28adee313e1590f58674732
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -105,10 +105,8 @@ $correo_sesion = $_SESSION['u_usuario'];
                                         <div class="form-group">
                                             <center>
                                             <a href="registro_categoria.php" class="btn btn-danger btn-lg">Cancelar</a>
-<<<<<<< HEAD
                                             <input type='hidden' name='categoria' value='Registrar'>
                                             <input type='submit' class='btn btn-primary btn-lg' value='Registrar'>
-=======
                                             <?php
                                             if (!empty($nombre)) {
                                                 echo "<input type='submit' name='categoria' class='btn btn-primary btn-lg' value='Actualizar'>";
@@ -116,7 +114,6 @@ $correo_sesion = $_SESSION['u_usuario'];
                                                 echo "<button type='submit' name='categoria' class='btn btn-primary btn-lg' value='Registrar'>Registrar</button>";
                                             }
                                             ?>
->>>>>>> c32f9b51c1300b83a28adee313e1590f58674732
                                             </center>
                                         </div>
                                     </div>
@@ -133,7 +130,7 @@ $correo_sesion = $_SESSION['u_usuario'];
   <!-- /.content-wrapper -->
   <?php include ('../../layout/extraescolar/footer.php'); ?>
   <?php include ('../../layout/extraescolar/footer_links.php'); ?>
-<<<<<<< HEAD
+  
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     $('.formulario-categoria_editar').submit(function (e) {
@@ -153,12 +150,12 @@ $correo_sesion = $_SESSION['u_usuario'];
         })
     });
   </script>
-=======
+
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/alerta.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
->>>>>>> c32f9b51c1300b83a28adee313e1590f58674732
+
 
   <script>
        //alerta guardar----------------

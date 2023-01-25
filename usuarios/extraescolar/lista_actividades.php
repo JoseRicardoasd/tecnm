@@ -106,17 +106,19 @@ if(isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0){
                                                 <input type='hidden' name='id' value='".$actividad['id']."'>
                                                 <input type='submit' name='actividad' class='btn btn-primary' value='Listas'>";
                                                 echo "</form>";
-                                                echo "<form action='nueva_actividad.php' method='POST'>";
+                                                echo "<form action='editar_actividad.php' class='formulario-actividad_editar' method='POST'>";
                                                 echo "<td style='width: 8%;'>";
                                                 echo "<input type='hidden' name='id' value='".$actividad['id']."'>";
                                                 echo "<input type='hidden' name='idCategoria' value='".$idCampos."'>";
-                                                echo "<input type='submit' name='actividad' class='btn btn-primary' value='Editar'>";
+                                                echo "<input type='hidden' name='actividad' value='Editar'>";
+                                                echo "<input type='submit' class='btn btn-primary' value='Editar'>";
                                                 echo "</td>";
                                                 echo "</form>";
-                                                echo "<form action='lista_actividades.php' method='POST'>";
+                                                echo "<form action='lista_actividades.php' class='formulario-actividad_eliminar' method='POST'>";
                                                 echo "<td style='width: 8%;'>";
                                                 echo "<input type='hidden' name='id' value='".$actividad['id']."'>";
-                                                echo "<input type='submit' name='actividad' class='btn btn-danger' value='Eliminar'>";
+                                                echo "<input type='hidden' name='actividad' value='Eliminar'>";
+                                                echo "<input type='submit' class='btn btn-danger' value='Eliminar'>";
                                                 echo "</td>";
                                                 echo "</form>";
                                                 echo"<tr>";
@@ -140,8 +142,78 @@ if(isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0){
   <!-- /.content-wrapper -->
   <?php include ('../../layout/extraescolar/footer.php'); ?>
   <?php include ('../../layout/extraescolar/footer_links.php'); ?>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <?php if (!empty($preso)) {?>
+        <?php
+            if ($preso == 1) {?>
+                <script>
+                    Swal.fire(
+                    'Actividad Creada',
+                    'La Actividad se creo con exito',
+                    'Correcto',
+                    )
+                </script>
+        <?php } ?>
 
+        <?php
+            if ($preso == 2) {?>
+                <script>
+                    Swal.fire(
+                    'Actividad Eliminada',
+                    'La Actividad se Elimino con exito',
+                    'Correcto',
+                    )
+                </script>
+        <?php } ?>
+
+        <?php
+            if ($preso == 3) {?>
+                <script>
+                    Swal.fire(
+                    'Actividad Actualizada',
+                    'La Actividad se Actualizo con exito',
+                    'Correcto',
+                    )
+                </script>
+        <?php } ?>
+    <?php } ?>
+
+    <script>
+        $('.formulario-actividad_eliminar').submit(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Eliminar Actividad',
+            text: "Confirmar si accede a Eliminar actividad",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })
+        });
+
+        $('.formulario-actividad_editar').submit(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Editar Actividad',
+            text: "Confirmar si accede a Editar actividad",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })
+        });
+      </script>
 
 
 </body>

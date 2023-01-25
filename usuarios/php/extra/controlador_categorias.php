@@ -6,8 +6,6 @@ $pase=(isset($_POST['categoria']))?$_POST['categoria']:"";
 switch ($pase) {
 	case 'Registrar':
 
-		include ('../../../app/config/config.php');
-
 		include('ciclo.php');
 
 		if (isset($_POST['nombreCampo']) && isset($_FILES['imagenCampo'])){
@@ -37,8 +35,6 @@ switch ($pase) {
 		
 			$sql = "INSERT INTO categorias(nombreCategoria,idImagen,idCiclo) VALUES ('$nombres','$imagenes','$idCiclo')";
 		
-			echo $sql;
-		
 			$query = $bdd->prepare( $sql );
 			if ($query == false) {
 				print_r($bdd->errorInfo());
@@ -49,8 +45,8 @@ switch ($pase) {
 				print_r($query->errorInfo());
 				die ('Erreur execute');
 			}
-		
-			header('Location: categorias.php');
+
+			$preso = 1;
 		}
 		break;
 
@@ -94,18 +90,19 @@ switch ($pase) {
 
 		$sql = "UPDATE `categorias` SET `nombreCategoria` = '$nombres' WHERE `categorias`.`id` = $id";
 		$resultado=mysqli_query($conexion,$sql);
-		header('Location: categorias.php');
+
+		$preso = 2;
 		break;
 
 	case 'Eliminar':
-		include ('../../../app/config/config.php');
 
 		$id=$_POST['id'];
 
 		$sql = "DELETE FROM categorias WHERE id='$id'";
 		$query = $bdd->prepare( $sql );
     	$query->execute();
-		header('Location: categorias.php');
+
+		$preso = 3;
 		break;
 	
 	default:

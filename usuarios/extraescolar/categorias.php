@@ -34,8 +34,8 @@ $correo_sesion = $_SESSION['u_usuario'];
 
     }
 
+    include('../php/extra/controlador_ciclo.php');
     include('../php/extra/controlador_categorias.php');
-    include('../php/extra/emergente.php')
 
 ?>
 
@@ -105,7 +105,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                                                     <td>
                                                     <form action="lista_actividades.php" method="POST">
                                                         <input type="hidden" name="id" value="<?php echo $campo ['id'] ?>">
-                                                        <input type="submit" name="actividad" class="btn btn-primary btn-lg" value="Entrar">
+                                                        <input type="submit" name="actividad" class="btn btn-primary btn-lg" value="Acceder">
                                                     </form>
                                                     </td>
                                             
@@ -128,8 +128,20 @@ $correo_sesion = $_SESSION['u_usuario'];
   <!-- /.content-wrapper -->
   <?php include ('../../layout/extraescolar/footer.php'); ?>
   <?php include ('../../layout/extraescolar/footer_links.php'); ?>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
+    <?php if (!empty($preso)) {?>
+        <?php
+            if ($preso == 1) {?>
+                <script>
+                    Swal.fire(
+                    'CICLOS EXTRAESCOLAR',
+                    'CICLO CREADO CON EXITO',
+                    'CORRECTO',
+                    )
+                </script>
+        <?php } ?>
+    <?php } ?>
 
 
 </body>

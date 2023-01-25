@@ -66,7 +66,7 @@ $correo_sesion = $_SESSION['u_usuario'];
         <div class="panel-heading">CREACION DE NUEVO CICLO</div>
 
         <div class="panel-body">
-            <form action="../php/extra/controlador_ciclo.php" method="POST" enctype="multipart/form-data">
+            <form action="categorias.php" method="POST" class="formulario-ciclo_crear" enctype="multipart/form-data">
                 <div class="row">
     
                     <div class="col-md-6">
@@ -96,7 +96,8 @@ $correo_sesion = $_SESSION['u_usuario'];
                         <div class="form-group">
                         <center>
                             <a href="registro_ciclo.php" class="btn btn-danger btn-lg">Cancelar</a>
-                            <input type="submit" name="ciclo" class="btn btn-primary btn-lg" value="Crear">
+                            <input type="hidden" name="ciclo" value="Crear">
+                            <input type="submit" class="btn btn-primary btn-lg" value="Crear">
                         </center>
                         </div>
                     </div>
@@ -117,6 +118,26 @@ $correo_sesion = $_SESSION['u_usuario'];
   <!-- /.content-wrapper -->
   <?php include ('../../layout/extraescolar/footer.php'); ?>
   <?php include ('../../layout/extraescolar/footer_links.php'); ?>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <script>
+            $('.formulario-ciclo_crear').submit(function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Crear Nuevo Ciclo',
+                text: "Seguro que quieres crear un nuevo Ciclo?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Crear ciclo',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.submit();
+                    }
+                })
+            });
+        </script>
 
 
 

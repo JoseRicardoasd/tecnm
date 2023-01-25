@@ -101,8 +101,8 @@ $correo_sesion = $_SESSION['u_usuario'];
                                         <div class="form-group">
                                             <center>
                                             <a href="registro_categoria.php" class="btn btn-danger btn-lg">Cancelar</a>
-                                            <input type='hidden' name='categoria' value='Registrar'>
-                                            <input type='submit' class='btn btn-primary btn-lg' value='Registrar'>
+                                            <input type='hidden' name='categoria' value='Actualizar'>
+                                            <input type='submit' class='btn btn-primary btn-lg' value='Actualizar'>
                                             </center>
                                         </div>
                                     </div>
@@ -124,13 +124,13 @@ $correo_sesion = $_SESSION['u_usuario'];
     $('.formulario-categoria_editar').submit(function (e) {
     e.preventDefault();
     Swal.fire({
-        title: 'Registrar categoria',
+        title: 'Editar categoria',
         text: "Confirmar",
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Crear',
+        confirmButtonText: 'Editar',
         }).then((result) => {
             if (result.isConfirmed) {
                 this.submit();

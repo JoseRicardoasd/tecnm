@@ -4,7 +4,7 @@
 $pase=(isset($_POST['actividad']))?$_POST['actividad']:"";
 
 switch ($pase) {
-	case 'Entrar':
+	case 'Acceder':
 
 		include('ciclo.php');//incluyendo el codigo del llamado del ciclo
 		include('controlador_actividades/Entrar.php');
@@ -38,6 +38,7 @@ switch ($pase) {
 
 		include('ciclo.php');//incluyendo el codigo del llamado del ciclo
 		include('controlador_actividades/Eliminar.php');
+		$preso = 2;
 		break;
 
 	case 'Listas':
@@ -52,6 +53,7 @@ switch ($pase) {
 	case 'Actualizar':
 		include('ciclo.php');//incluyendo el codigo del llamado del ciclo
 		include('controlador_actividades/Actualizar.php');//controlador para actualizar
+		$preso = 3;
 		break;	
 	default:
 		# code...

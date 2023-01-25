@@ -72,7 +72,9 @@ $correo_sesion = $_SESSION['u_usuario'];
                                         <button class="btn btn-secondary btn-lg">Todos</button>
                                     </div>
                                     <div class="col-md-2">
-                                        <a href="nuevoCiclo.php" class="btn btn-primary btn-lg">Crear Ciclo</a>
+                                        <form action="nuevoCiclo.php" method="POST" class="formulario-ciclo_crear" >
+                                            <input type="submit" class="btn btn-primary btn-lg" value="Crear Ciclo">
+                                        </form>
                                     </div>
                                 
                                     <br><br><br>
@@ -119,6 +121,26 @@ $correo_sesion = $_SESSION['u_usuario'];
         </div>
         <?php include ('../../layout/extraescolar/footer.php'); ?>
         <?php include ('../../layout/extraescolar/footer_links.php'); ?>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+            $('.formulario-ciclo_crear').submit(function (e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Crear Nuevo Ciclo',
+                text: "Acceder",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Acceder',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.submit();
+                    }
+                })
+            });
+        </script>
     </body>
 </html>
 <script>

@@ -271,7 +271,7 @@
       <!-- creditos -->
       <li class="treeview">
         <a href="#">
-          <span>DESARROLLADORES</span>
+          <i class="fa fa-users"></i><span> DESARROLLADORES</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>

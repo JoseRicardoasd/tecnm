@@ -202,7 +202,8 @@ if ($tiempo_transcurrido >= 600) {
                       <div class="form-group">
                         <label for=""><i class="glyphicon glyphicon-book"></i> CARRERA</label>
                         <select name="carrera" id="" class="form-control" value="<?php echo $sesion_usuario['carrera']; ?>" required style="text-transform: uppercase;" tabindex="6">
-                          <?php
+                          <option value="<?php echo $sesion_usuario['carrera']; ?>"><?php echo $sesion_usuario['carrera']; ?></option>
+			  <?php
                           $consulta1 = "SELECT carrera FROM cat_carreras";
                           $res = mysqli_query($conexion, $consulta1)  ?>
                           <?php foreach ($res as $opcion) : ?>

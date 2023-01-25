@@ -95,8 +95,34 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                     <th>Máximo acumular</th>
                     <th>Subir archivo</th </tr>
                 </thead>
-                <!-- FILA 1 DE MODALIDAD ACADEMICA-->
-                <tr>
+
+                <?php
+                $id_modal = 1;
+                $actividades = "SELECT * FROM guia";
+                $act = mysqli_query($conexion, $actividades)  ?>
+                <?php foreach ($act as $opcion1) : ?>
+
+
+                  <tr>
+                    <td><?php echo $opcion1['actividad'] ?></td>
+                    <td><?php echo $opcion1['descripcion'] ?></td>
+                    <td><?php echo $opcion1['credito'] ?></td>
+                    <td><?php echo $opcion1['maximo'] ?></td>
+                    <td>
+                      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#<?php echo $id_modal ?>">
+                        Cargar Archivo
+                      </button>
+                    </td>
+                  </tr>
+
+
+                  <?php $id_modal++; ?>
+                  <!-- <input type="text" name="credit" value="<?php echo $opcion['credito_activ'] ?>" placeholder="<?php echo $opcion['credito_activ'] ?>" style="display:none"> -->
+
+
+                <?php endforeach ?>
+
+                <!-- <tr>
                   <td>Movilidad Acádemica</td>
                   <td>Estancias en instituciones educativas de nivel superior,
                     centros de investigación, y empresas (al menos durante 4 semanas nacional).</td>
@@ -108,7 +134,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                     </button>
                   </td>
                 </tr>
-                <!-- FILA 2 DE MODALIDAD ACADEMICA-->
+
 
                 <tr>
                   <td>Movilidad Acádemica</td>
@@ -125,7 +151,6 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                 </tr>
 
 
-                <!-- FILA DE CONFERENCIA Y PLATICA -->
                 <tr>
                   <td>Conferencia y/o Plática</td>
                   <td>Asistencia o participación dentro o
@@ -137,7 +162,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA DE CONGRESO, SEMINARIO, ETC. -->
+
+
                 <tr>
                   <td>Congreso, Seminario, Simposio y/o Coloquio</td>
                   <td>Asistencia o participacion dentro o fuera del instituto
@@ -149,7 +175,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA DE CONSURSO O TALLER -->
+
+
                 <tr>
                   <td>Curso y/o curso taller</td>
                   <td>Participación o impartición dentro o fuera de la institución en cualquier nivel que se trate, (local, regional, nacional)
@@ -160,7 +187,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA DE DIPLOMADO -->
+
+
                 <tr>
                   <td>Diplomado</td>
                   <td>Participación o impartición dentro o fuera del instituto en cualquier nivel que se trate, (local, regional, nacional)
@@ -171,7 +199,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA 1 DE CONCURSO NACIONAL DE CIENCIAS BASICAS -->
+
+
                 <tr>
                   <td>Concurso Nacional de Ciencias Básicas</td>
                   <td>Participación en concurso de ciencias básicas como seleccionado de acuerdo al área que corresponda a nivel local</td>
@@ -181,7 +210,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA 2 DE CONCURSO NACIONAL DE CIENCIAS BASICAS -->
+
+
                 <tr>
                   <td>Concurso Nacional de Ciencias Básicas</td>
                   <td>Participación en concurso de ciencas básicas como seleccionado de acuerdo al área que corresponda a nivel regional</td>
@@ -191,7 +221,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA 3 DE CONCURSO NACIONAL DE CIENCIAS BASICAS -->
+
                 <tr>
                   <td>Concurso Nacional de Ciencias Básicas</td>
                   <td>Participación en concurso de ciencas básicas como seleccionado de acuerdo al área que corresponda a nivel nacional</td>
@@ -201,7 +231,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA 1 DE CONCURSO DE CREATIVIDAD E INNOVACIÓN -->
+
                 <tr>
                   <td>Concurso de Creatividad e innovación</td>
                   <td>Participación en concurso de creatividad e innovación de acuerdo al área que corresponda a nivel local</td>
@@ -211,7 +241,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA 2 DE CONCURSO DE CREATIVIDAD E INNOVACIÓN -->
+
+
                 <tr>
                   <td>Concurso de Creatividad e innovación</td>
                   <td>Participación en concurso de creatividad e innovación de acuerdo al área que corresponda a nivel regional</td>
@@ -221,7 +252,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA 3 DE CONCURSO DE CREATIVIDAD E INNOVACIÓN -->
+
                 <tr>
                   <td>Concurso de Creatividad e innovación</td>
                   <td>Participación en concurso de creatividad e innovación de acuerdo al área que corresponda a nivel nacional</td>
@@ -231,7 +262,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA 1 DE CONCURSO DE EMPRENDEDURISMO -->
+
                 <tr>
                   <td>Concurso de emprendedurismo</td>
                   <td>Participación en concurso de emprendedurismo de acuerdo al área que corresponda a nivel local</td>
@@ -241,7 +272,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA 2 DE CONCURSO DE EMPRENDEDURISMO -->
+
                 <tr>
                   <td>Concurso de emprendedurismo</td>
                   <td>Participación en concurso de emprendedurismo de acuerdo al área que corresponda a nivel regional</td>
@@ -251,7 +282,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA 3 DE CONCURSO DE EMPRENDEDURISMO  -->
+
                 <tr>
                   <td>Concurso de emprendedurismo</td>
                   <td>Participación en concurso de emprendedurismo de acuerdo al área que corresponda a nivel nacional</td>
@@ -261,7 +292,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                       Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA DE DISEÑO DE PROTOTIPOS -->
+
                 <tr>
                   <td>Diseño de Prototipos</td>
                   <td>Participar o ser responsable del diseño de un prototipo que solucione una problemática y esté relacionado con su perfil profesional</td>
@@ -270,7 +301,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                   <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Prototipos">Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA DE DISEÑO DE SOFTWARE -->
+
                 <tr>
                   <td>Diseño de Software</td>
                   <td>Participar o ser responsable del diseño de un prototipo que solucione una problemática y esté relacionado con su perfil profesional</td>
@@ -279,7 +310,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                   <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#Software">Cargar Archivo
                     </button></td>
                 </tr>
-                <!-- FILA DE DISEÑO EN PROYECTO -->
+
                 <tr>
                   <td>Diseño en proyecto</td>
                   <td>Participar en un proyecto de producción, vinculación e investigación previamente autorizado de acuerdo a su perfil profesional realizando las actividades programadas, al menos durante 40 horas</td>
@@ -289,7 +320,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                     <button type="button" class="btn btn-info btn-lg btn-succes" data-toggle="modal" data-target="#diseño-proyecto">Cargar Archivo
                     </button>
                   </td>
-                </tr>
+                </tr> -->
               </table>
             </div>
 
@@ -297,7 +328,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
             <!-- MODALES PARA CAPTURA DATOS COMO EL ARCHIVO, EL ID DEL EVENTO, Y LA MATRICULA DEL ALUMNO -->
             <!-- 1movilidad academica 1 -->
 
-            <div class="modal fade" id="movilidad-academica" tabindex="-1" role="dialog" aria-labelledby="movilidad-academica">
+            <div class="modal fade" id="1" tabindex="-1" role="dialog" aria-labelledby="movilidad-academica">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -355,7 +386,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
 
           <!-- 2movilidad academica 2 -->
 
-          <div class="modal fade" id="movilidad-academica2" tabindex="-1" role="dialog" aria-labelledby="movilidad-academica">
+          <div class="modal fade" id="2" tabindex="-1" role="dialog" aria-labelledby="movilidad-academica">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -410,7 +441,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
       </div>
 
       <!-- 3coferencia platica -->
-      <div class="modal fade" id="conferencia-platica" tabindex="-1" role="dialog" aria-labelledby="conferencia-platica">
+      <div class="modal fade" id="3" tabindex="-1" role="dialog" aria-labelledby="conferencia-platica">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -464,7 +495,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
       </div>
     </div>
     <!-- 4congreso -->
-    <div class="modal fade" id="congreso-seminario" tabindex="-1" role="dialog" aria-labelledby="congreso-seminario">
+    <div class="modal fade" id="4" tabindex="-1" role="dialog" aria-labelledby="congreso-seminario">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -518,7 +549,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
     </div>
     <!-- 5curso taller -->
-    <div class="modal fade" id="curso-taller" tabindex="-1" role="dialog" aria-labelledby="curso-taller">
+    <div class="modal fade" id="5" tabindex="-1" role="dialog" aria-labelledby="curso-taller">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -572,7 +603,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
     </div>
     <!-- 6diplomado -->
-    <div class="modal fade" id="diplomado" tabindex="-1" role="dialog" aria-labelledby="diplomado">
+    <div class="modal fade" id="6" tabindex="-1" role="dialog" aria-labelledby="diplomado">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -627,7 +658,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 7ciencias basicas 1 -->
-    <div class="modal fade" id="Ciencias-Básicas" tabindex="-1" role="dialog" aria-labelledby="Ciencias-Básicas">
+    <div class="modal fade" id="7" tabindex="-1" role="dialog" aria-labelledby="Ciencias-Básicas">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -681,7 +712,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 8ciencias basicas 2 -->
-    <div class="modal fade" id="Ciencias-Básicas2" tabindex="-1" role="dialog" aria-labelledby="Ciencias-Básicas2">
+    <div class="modal fade" id="8" tabindex="-1" role="dialog" aria-labelledby="Ciencias-Básicas2">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -735,7 +766,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 9ciencias basicas 3 -->
-    <div class="modal fade" id="Ciencias-Básicas3" tabindex="-1" role="dialog" aria-labelledby="Ciencias-Básicas3">
+    <div class="modal fade" id="9" tabindex="-1" role="dialog" aria-labelledby="Ciencias-Básicas3">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -790,7 +821,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 10creatividad 1-->
-    <div class="modal fade" id="Creatividad" tabindex="-1" role="dialog" aria-labelledby="Creatividad">
+    <div class="modal fade" id="10" tabindex="-1" role="dialog" aria-labelledby="Creatividad">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -845,7 +876,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 11creatividad 2-->
-    <div class="modal fade" id="Creatividad2" tabindex="-1" role="dialog" aria-labelledby="Creatividad">
+    <div class="modal fade" id="11" tabindex="-1" role="dialog" aria-labelledby="Creatividad">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -900,7 +931,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 12creatividad 3-->
-    <div class="modal fade" id="Creatividad3" tabindex="-1" role="dialog" aria-labelledby="Creatividad">
+    <div class="modal fade" id="12" tabindex="-1" role="dialog" aria-labelledby="Creatividad">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -955,7 +986,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 12emprendedurismo 1 -->
-    <div class="modal fade" id="emprendedurismo" tabindex="-1" role="dialog" aria-labelledby="emprendedurismo">
+    <div class="modal fade" id="13" tabindex="-1" role="dialog" aria-labelledby="emprendedurismo">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -1010,7 +1041,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 13emprendedurismo 2 -->
-    <div class="modal fade" id="emprendedurismo2" tabindex="-1" role="dialog" aria-labelledby="emprendedurismo">
+    <div class="modal fade" id="14" tabindex="-1" role="dialog" aria-labelledby="emprendedurismo">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -1065,7 +1096,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 14emprendedurismo 3 -->
-    <div class="modal fade" id="emprendedurismo3" tabindex="-1" role="dialog" aria-labelledby="emprendedurismo">
+    <div class="modal fade" id="15" tabindex="-1" role="dialog" aria-labelledby="emprendedurismo">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -1121,7 +1152,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
 
     <!-- 15prototipos -->
 
-    <div class="modal fade" id="Prototipos" tabindex="-1" role="dialog" aria-labelledby="Prototipos">
+    <div class="modal fade" id="16" tabindex="-1" role="dialog" aria-labelledby="Prototipos">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -1176,7 +1207,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 16software -->
-    <div class="modal fade" id="Software" tabindex="-1" role="dialog" aria-labelledby="Software">
+    <div class="modal fade" id="17" tabindex="-1" role="dialog" aria-labelledby="Software">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -1231,7 +1262,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
     </div>
 
     <!-- 17diseño proyecto -->
-    <div class="modal fade" id="diseño-proyecto" tabindex="-1" role="dialog" aria-labelledby="diseño-proyecto">
+    <div class="modal fade" id="18" tabindex="-1" role="dialog" aria-labelledby="diseño-proyecto">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">

@@ -69,9 +69,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                             <h3 class="panel-title">Agregar Campos Extraescolares</h3>
                             </div>
                             <div class="panel-body">
-
                                 <form action="registro_categoria.php" class="formulario-categoria_editar" method="POST" enctype="multipart/form-data">
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -103,8 +101,8 @@ $correo_sesion = $_SESSION['u_usuario'];
                                         <div class="form-group">
                                             <center>
                                             <a href="registro_categoria.php" class="btn btn-danger btn-lg">Cancelar</a>
-                                            <input type='hidden' name='categoria' value='Registrar'>
-                                            <input type='submit' class='btn btn-primary btn-lg' value='Registrar'>
+                                            <input type='hidden' name='categoria' value='Actualizar'>
+                                            <input type='submit' class='btn btn-primary btn-lg' value='Actualizar'>
                                             </center>
                                         </div>
                                     </div>
@@ -123,23 +121,25 @@ $correo_sesion = $_SESSION['u_usuario'];
   <?php include ('../../layout/extraescolar/footer_links.php'); ?>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-        $('.formulario-categoria_editar').submit(function (e) {
-        e.preventDefault();
-        Swal.fire({
-            title: 'Registrar categoria',
-            text: "Confirmar",
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Crear',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    this.submit();
-                }
-            })
-        });
+    $('.formulario-categoria_editar').submit(function (e) {
+    e.preventDefault();
+    Swal.fire({
+        title: 'Editar categoria',
+        text: "Confirmar",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Editar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit();
+            }
+        })
+    });
   </script>
+
+
 
 </body>
 </html>

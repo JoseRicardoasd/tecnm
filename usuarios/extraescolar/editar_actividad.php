@@ -77,21 +77,23 @@ if(isset($_SESSION['u_usuario'])){
                 </div>
 
                 <div class="panel-body">
-
-                  <form action="lista_actividades.php" method="POST" class="formulario-actividad_crear" enctype="multipart/form-data">
-
+                  <form action="lista_actividades.php" method="POST" enctype="multipart/form-data" class="formulario-actividad_actualizar">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Nombre de actividad</label> 
-                          <input type="text" class="form-control" name="nombreActividad" value="" required  style="text-transform:uppercase;">
+                          <input type="text" class="form-control" name="nombreActividad" value="<?php if (!empty($nombreActividad)) {
+                            echo $nombreActividad;
+                          } ?>" required  style="text-transform:uppercase;">
                         </div>
 
                         
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-user"></i> Horas a cumplir la actividad</label> 
-                          <input type="text" class="form-control" name="horaActividad" required value="" >
+                          <input type="text" class="form-control" name="horaActividad" required value="<?php if (!empty($horaActividad)) {
+                            echo $horaActividad;
+                          } ?>" >
                         </div>
 
                         <div class="form-group">
@@ -108,8 +110,8 @@ if(isset($_SESSION['u_usuario'])){
 
                         <div class="form-group">
                           <center>
-                            <input type="hidden" name="actividad" value="Registrar">
-                            <input type='submit' class='btn btn-primary btn-lg' value='Registrar'>
+                            <input type="hidden" name="actividad" value="Actualizar">
+                            <input type="submit" class="btn btn-primary btn-lg" value="Actualizar">
                           </center>
                         </div>
                         
@@ -120,13 +122,15 @@ if(isset($_SESSION['u_usuario'])){
                           <label for=""><i class="glyphicon glyphicon-book">
                           </i>Horas de actividad</label>
                           <br>
-                          <input type="time" class="form-control" value="" name="horaHacer" required >
+                          <input type="time" class="form-control" value="<?php if (!empty($horaHacer)) {
+                            echo $horaHacer;
+                          } ?>" name="horaHacer" required >
                         </div>
 
                         <div class="form-group">
                           <label for=""><i class="glyphicon glyphicon-book"></i>Encargado</label> 
-                          <select class="form-control" name="encargado">
-                            <option value="">SELECCIONE AL ENCARGADO</option>
+                          <select class="form-control" required name="encargado">
+                            <option value="" >SELECCIONE AL ENCARGADO</option>
                             <?php
                             foreach ($responsables as $responsable) {
                               echo "<option value='".$responsable['id']."'>".$responsable['nombres']."</option>";
@@ -172,30 +176,27 @@ if(isset($_SESSION['u_usuario'])){
       </div>
       <!-- /.content-wrapper -->
       <?php include ('../../layout/extraescolar/footer.php'); ?>
-
       <?php include ('../../layout/extraescolar/footer_links.php'); ?>
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
       <script>
-        $('.formulario-actividad_crear').submit(function (e) {
+        $('.formulario-actividad_actualizar').submit(function (e) {
         e.preventDefault();
         Swal.fire({
-            title: 'Crear Actividad',
-            text: "Confirmar si accede a Crear actividad",
-            icon: 'warning',
+            title: 'Actualizar Actividad',
+            text: "Confirmar si accede a Actualizar actividad",
+            icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'COMFIRMAR',
+            confirmButtonText: 'Confirmar',
             }).then((result) => {
                 if (result.isConfirmed) {
                     this.submit();
                 }
             })
         });
-
-        </script>
-
+      </script>
     </div>
   </body>
 </html>

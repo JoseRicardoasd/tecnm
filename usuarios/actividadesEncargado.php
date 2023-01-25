@@ -46,8 +46,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
     $_SESSION["ultimoAcceso"] = $ahora;
   }
 
-  include('php/extra/emergente.php');
   include('php/extra/actividadesEncargado.php');
+  $preso=(isset($_GET['valor']))?$_GET['valor']:"";
 ?>
 
 <!DOCTYPE html>
@@ -133,8 +133,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                                                 ?>
                                             </td>
                                             <td>
-                                            <a class="btn btn-primary" href="<?php echo "agregandoAlumno.php?id=".$fila['id']."&"."extra=".$id?> ">
-                                            Agregar Alumno</a>
+                                                <form action="agregandoAlumno.php" method="GET">
+                                                    <input type="hidden" name="extra" value="<?php echo $id?>">
+                                                    <input type="hidden" name="id" value="<?php echo $fila['id'] ?>">
+                                                    <input type="submit" class="btn btn-primary btn-lg" value="agregar Alumno">
+                                                </form>
                                             </td>
                                         </tr>
 
@@ -163,6 +166,22 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
         </div>
         <script src="js/acciones.js"></script>
         <script src="js/buscador.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <?php if (!empty($preso)) {?>
+            <?php
+                if ($preso == 1) {?>
+                    <script>
+                        Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Alumno Agregado',
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+                    </script>
+            <?php } ?>
+        <?php } ?>
         
     </body>
     

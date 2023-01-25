@@ -1,17 +1,17 @@
 <?php
-
-include('../../../app/config/config.php');
-
 /* LLAMAMOS AL ULTIMO ID DE LA TABLA CICLO */
 $sentencia = $con->prepare("SELECT id FROM ciclo ORDER BY id DESC LIMIT 1;");
 $sentencia->execute();
 $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-$idCicloA = $resultado['id'];
 
-$pase=(isset($_POST['ciclo']))?$_POST['ciclo']:"";
+if (!empty($resultado['id'])) {
+    $idCicloA = $resultado['id'];
+}
+
+$lase=(isset($_POST['ciclo']))?$_POST['ciclo']:"";
 
     
-switch ($pase) {
+switch ($lase) {
     case 'Crear':
         if (!empty($idCicloA)) {/* si la variable $idCicloA esta definida entra en la sentencia */
 
@@ -86,11 +86,8 @@ switch ($pase) {
         
             /* Conectamos a la base de datos para insertar todas los registros en la tabla */
             $con->commit();
-        
-        
-        
-        
-            header('Location: ../../extraescolar/categorias.php');
+
+            $preso = 1;
         
         } else if (empty($idCicloA)) {/* si la variable $idCicloA esta definida pero esta vacia entra en la sentencia */
             if (isset($_POST['inicio']) && isset($_POST['fin']) && isset($_POST['descripcion'])){
@@ -110,7 +107,7 @@ switch ($pase) {
                 $ciclos = $resultado->id;
         
                 /* Definimos la imagen de la siguiente Ruta */
-                $imagen = "update_usuarios/Categorias.png";
+                $imagen = "Categorias.png";
                 $a = 1;
         
                 /* Insertamos 4 registros de imagen de una solo imagen en la tabla imagen */
@@ -198,9 +195,8 @@ switch ($pase) {
                         }
                     }
                 }
-        
-                /* redireccionarlo al siguiente archivo */
-                header('Location: ../../extraescolar/categorias.php');
+
+                $preso = 1;
                 
         
             }
@@ -208,7 +204,6 @@ switch ($pase) {
         break;
     
     default:
-        echo "Error de Peticion";
         break;
 }
 

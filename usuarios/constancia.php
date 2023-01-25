@@ -108,6 +108,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                     <th>Valor</th>
                     <th>Evento o Actividad</th>
                     <th>Credito</th>
+                    <th>Fecha De Actividad</th>
                   </tr>
                 </thead>
                 <tbody id="body_table">
@@ -367,6 +368,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           let td6 = document.createElement('td');
           td6.innerHTML = datos[i]['credito'];
           a.appendChild(td5);
+          let td7 = document.createElement('td');
+          td7.innerHTML = datos[i]['fecha_evidencia'];
           //se meten todos los td en el elemento tr
           tr.appendChild(td1);
           tr.appendChild(td2);
@@ -374,6 +377,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
           tr.appendChild(td4);
           tr.appendChild(td5);
           tr.appendChild(td6);
+          tr.appendChild(td7);
           //se agrega el elemento tr en la tabla
           body_tabla.appendChild(tr);
           //se agrega el div con los pdfs en donde va

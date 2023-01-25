@@ -38,7 +38,6 @@ $correo_sesion = $_SESSION['u_usuario'];
     include('../php/extra/emergente.php')
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,7 +79,14 @@ $correo_sesion = $_SESSION['u_usuario'];
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <a class="btn btn-primary" href="nuevoCampo.php">NUEVA CATEGORIA</a>
+                                <?php
+                                    if (isset($ciclos->descripcion) == "") {
+                                        
+                                    } else if (isset($ciclos->descripcion) == $ciclos->descripcion) {
+                                        echo "<a class='btn btn-primary' href='nuevoCampo.php'>NUEVA CATEGORIA</a>";
+                                    }
+                                ?>
+                                    
                                     <table class="table table-light">
                                         <thead class="thead-light">
                                             <tr>
@@ -101,26 +107,28 @@ $correo_sesion = $_SESSION['u_usuario'];
                                                         <img src="data:image/jpg;base64,<?php echo base64_encode($campo['imagen']);?>" width = "100px" alt="">
                                                     </td>
                                         
-                                                    <td>
-                                                    <form action="nuevoCampo.php" method="POST">
-                                                        
+                                                    <td>     
                                                         <?php
-                                                        if ($campo['id'] >= $idCampo + 4 ) {
-                                                            echo "<input type='hidden' name='id' value='".$campo ['id']."'>";
-                                                            echo "<input type='submit' class='btn btn-primary' name='categoria' value='Editar'> ";
-                                                            echo "<input type='submit' class='btn btn-danger' name='categoria' value='Eliminar'>";
-                                                        } else {
-                                                            echo "<input type='hidden' name='id' value='".$campo ['id']."'>";
-                                                            echo "<input type='submit' onclick='return eliminar()' class='btn btn-primary' name='categoria' value='Editar'>";
-                                                        }
+                                                        if ($campo['id'] >= $idCampo + 4 ) {?>
+                                                            <form action="editar_categoria.php" method="POST" class="formulario-categoria_editar" >
+                                                            <input type="hidden" name="id" value="<?php echo $campo ['id']?>">
+                                                            <input type="hidden" name="categoria" value="Editar">
+                                                            <input type="submit" class="btn btn-primary" value="Editar">
+                                                            </form>
+                                                            <form action="registro_categoria.php" method="POST" class="formulario-categoria_eliminar">
+                                                            <input type="hidden" name="id" value="<?php echo $campo ['id']?>">
+                                                            <input type="hidden" name="categoria" value="Eliminar">
+                                                            <input type="submit" class="btn btn-danger" name="categoria" value="Eliminar">
+                                                            </form>
+                                                        <?php } else {?>
+                                                            <form action="editar_categoria.php" method="POST" class="formulario-categoria_editar">
+                                                            <input type="hidden" name="id" value="<?php echo $campo ['id']?>">
+                                                            <input type="hidden" name="categoria" value="Editar">
+                                                            <input type="submit" class="btn btn-primary" value="Editar">
+                                                            </form>
+                                                        <?php }
                                                         ?>
-
-
-
-                                                    </form>
                                                     </td>
-                                            
-                                            
                                                 </tr>
                                                 <?php } ?>
                                             </tbody>
@@ -140,9 +148,81 @@ $correo_sesion = $_SESSION['u_usuario'];
   <?php include ('../../layout/extraescolar/footer.php'); ?>
   <?php include ('../../layout/extraescolar/footer_links.php'); ?>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="../js/alerta.js"></script>
 
+  <?php if (!empty($preso)) {?>
+        <?php
+            if ($preso == 1) {?>
+                <script>
+                    Swal.fire(
+                    'Categoria Creada',
+                    'La categoria se creo con exito',
+                    'Correcto',
+                    )
+                </script>
+        <?php } ?>
 
+        <?php
+            if ($preso == 2) {?>
+                <script>
+                    Swal.fire(
+                    'Categoria Editada',
+                    'La categoria se Edito con exito',
+                    'Correcto',
+                    )
+                </script>
+        <?php } ?>
+
+        <?php
+            if ($preso == 3) {?>
+                <script>
+                    Swal.fire(
+                    'Categoria Eliminada',
+                    'La categoria se Elimino con exito',
+                    'Correcto',
+                    )
+                </script>
+        <?php } ?>
+  <?php }
+  ?>
+ 
+
+  <script>
+
+    $('.formulario-categoria_eliminar').submit(function (e) {
+    e.preventDefault();
+    Swal.fire({
+        title: 'Eliminar categoria',
+        text: "Confirmar si accede a Eliminarlo",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ELIMINAR',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit();
+            }
+        })
+    });
+
+    $('.formulario-categoria_editar').submit(function (e) {
+    e.preventDefault();
+    let categoria = "Editar";
+    Swal.fire({
+        title: 'Editar categoria',
+        text: "Confirmar si accede a Editar",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirmar',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit(categoria);
+            }
+        })
+    });
+</script>
 
 
 </body>

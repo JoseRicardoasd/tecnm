@@ -36,6 +36,26 @@ if (isset($_POST['nombreActividad']) && isset($_POST['horaActividad']) && isset(
     die ('Erreur execute');
     }
 
+    $sql = ("SELECT id FROM extraescolar WHERE idCategoria = $id ORDER BY id DESC LIMIT 1" );
+    $query = $bdd->prepare($sql);
+    $query->execute();
+    $extra = $query->fetch(PDO::FETCH_LAZY);
+
+    $idExtra = $extra['id'];
+
+    $sql = "INSERT INTO responsable(idUsuario, idActividad) VALUES ($encargado, $idExtra)";
+
+	$query = $bdd->prepare( $sql );
+	if ($query == false) {
+		print_r($bdd->errorInfo());
+		die ('Erreur prepare');
+	}
+	$sth = $query->execute();
+	if ($sth == false) {
+		print_r($query->errorInfo());
+		die ('Erreur execute');
+	}
+
 //Seleccionando los campos de la tabla estraescolar para tomar uso de ello
 $sql = "SELECT extraescolar.id, extraescolar.nombreActividad, extraescolar.horaActividad, extraescolar.encargadoActividad, tb_usuarios.nombres FROM extraescolar LEFT JOIN tb_usuarios ON extraescolar.encargadoActividad = tb_usuarios.id WHERE (idCategoria = ?) and (idCiclo = $idCiclo);";
 $req = $bdd->prepare($sql);
@@ -52,6 +72,8 @@ $campitos = $red->fetch(PDO::FETCH_LAZY);
 //Almacenando valores en variables para hacer su llamado y ser vistas por el usuario
 $idCampos=$campitos['id'];
 $campos=$campitos['nombreCategoria'];
+
+$preso = 1;
 
 }
 ?>

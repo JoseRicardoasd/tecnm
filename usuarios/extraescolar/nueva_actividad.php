@@ -77,7 +77,7 @@ if(isset($_SESSION['u_usuario'])){
                 </div>
 
                 <div class="panel-body">
-                  <form action="../php/extra/controlador_actividades/Actualizar.php" method="POST" enctype="multipart/form-data">
+                  <form action="../php/extra/controlador_actividades/Actualizar.php" method="POST" enctype="multipart/form-data" >
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -156,8 +156,8 @@ if(isset($_SESSION['u_usuario'])){
                           <br>
                           <label for=""><i class="glyphicon glyphicon-user"></i>Otros</label> 
                           <input type="text" class="form-control" name="otroActividad" style="text-transform:uppercase;">
-                          <input type="text" name="id" value="<?php echo $id ?>">
-                          <input type="text" name="idActividad" value="<?php echo $idActividad ?>" >
+                          <input type="hidden" name="id" value="<?php echo $id ?>">
+                          <input type="hidden" name="idActividad" value="<?php echo $idActividad ?>" >
                           
                         </div>
                       </div>
@@ -180,7 +180,36 @@ if(isset($_SESSION['u_usuario'])){
       </div>
       <!-- /.content-wrapper -->
       <?php include ('../../layout/extraescolar/footer.php'); ?>
-      <?php include ('../../layout/extraescolar/footer_links.php'); ?>
+      <?php include ('../../layout/extraescolar/footer_links.php'); ?> 
+
+      <script>
+       //alerta guardar----------------
+      $('.alertactividad').submit(function(e) {
+        e.preventDefault();
+        Swal.fire({
+          title: '¿DESEAS GUARDAR LOS DATOS?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'SI, DESEO GUARDAR'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: 'DATOS GUARDADOS CORRECTAMENTE',
+              icon: 'success',
+              showConfirmButton: false,
+            })
+            setTimeout(() => {
+              this.submit();
+            }, "1000")
+
+          }
+
+        })
+
+      });
+      </script>
 
     </div>
   </body>

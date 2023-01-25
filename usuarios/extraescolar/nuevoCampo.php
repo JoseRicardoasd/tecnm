@@ -69,7 +69,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                             <h3 class="panel-title">Agregar Campos Extraescolares</h3>
                             </div>
                             <div class="panel-body">
-                                <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data">
+                                <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data" class="alerta">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -105,7 +105,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                                             if (!empty($nombre)) {
                                                 echo "<input type='submit' name='categoria' class='btn btn-primary btn-lg' value='Actualizar'>";
                                             } elseif (empty($nombre)) {
-                                                echo "<input type='submit' name='categoria' class='btn btn-primary btn-lg' value='Registrar'>";
+                                                echo "<button type='submit' name='categoria' class='btn btn-primary btn-lg' value='Registrar'>Registrar</button>";
                                             }
                                             ?>
                                             </center>
@@ -125,7 +125,38 @@ $correo_sesion = $_SESSION['u_usuario'];
   <?php include ('../../layout/extraescolar/footer.php'); ?>
   <?php include ('../../layout/extraescolar/footer_links.php'); ?>
 
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="js/alerta.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+  <script>
+       //alerta guardar----------------
+    $('.alerta').submit(function(e) {
+      e.preventDefault();
+      Swal.fire({
+        title: '¿DESEAS GUARDAR LOS DATOS?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, DESEO GUARDAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'DATOS GUARDADOS CORRECTAMENTE',
+            icon: 'success',
+            showConfirmButton: false,
+          })
+          setTimeout(() => {
+            this.submit();
+          }, "1000")
+
+        }
+
+      })
+
+    });
+    </script>
 
 
 </body>

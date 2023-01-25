@@ -66,7 +66,7 @@ $correo_sesion = $_SESSION['u_usuario'];
         <div class="panel-heading">CREACION DE NUEVO CICLO</div>
 
         <div class="panel-body">
-            <form action="createCiclo.php" method="post" enctype="multipart/form-data">
+            <form action="createCiclo.php" method="post" enctype="multipart/form-data" class="alertaCiclo">
                 <div class="row">
     
                     <div class="col-md-6">
@@ -96,7 +96,7 @@ $correo_sesion = $_SESSION['u_usuario'];
                         <div class="form-group">
                         <center>
                             <a href="extraexcolar.php" class="btn btn-danger btn-lg">Cancelar</a>
-                            <input type="submit" class="btn btn-primary btn-lg" value="Crear">
+                            <button type="submit" class="btn btn-primary btn-lg" value="Crear">>Crear</button>
                         </center>
                         </div>
                     </div>
@@ -117,6 +117,38 @@ $correo_sesion = $_SESSION['u_usuario'];
   <!-- /.content-wrapper -->
   <?php include ('../layout/footer.php'); ?>
   <?php include ('../layout/footer_links.php'); ?>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+  <script>
+       //alerta guardar----------------
+    $('.alertaCiclo').submit(function(e) {
+      e.preventDefault();
+      Swal.fire({
+        title: '¿DESEAS GUARDAR LOS DATOS?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, DESEO GUARDAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'DATOS GUARDADOS CORRECTAMENTE',
+            icon: 'success',
+            showConfirmButton: false,
+          })
+          setTimeout(() => {
+            this.submit();
+          }, "1000")
+
+        }
+
+      })
+
+    });
+    </script>
 
 
 

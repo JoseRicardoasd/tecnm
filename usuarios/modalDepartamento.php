@@ -18,7 +18,7 @@
                         Nuevo Departamento
                     </button>
 
-                    <form action="departamentoCreate.php" method="post" enctype="multipart/form-data">
+                    <form action="departamentoCreate.php" method="post" enctype="multipart/form-data" class="guarda">
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -77,4 +77,34 @@
                         </div>
                     </form>
 </body>
+
+<script>
+       //alerta guardar----------------
+    $('.guarda').submit(function(e) {
+      e.preventDefault();
+      Swal.fire({
+        title: '¿DESEAS GUARDAR LOS DATOS?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, DESEO GUARDAR'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'DATOS GUARDADOS CORRECTAMENTE',
+            icon: 'success',
+            showConfirmButton: false,
+          })
+          setTimeout(() => {
+            this.submit();
+          }, "1000")
+
+        }
+
+      })
+
+    });
+</script>
+
 </html>

@@ -61,6 +61,8 @@ if (isset($_SESSION['u_usuario'])) {
                     Creacion de Departamentos
                 </section>
 
+                <br>
+
             
 <div class="container">
 <?php include('../usuarios/modalDepartamento.php'); ?>

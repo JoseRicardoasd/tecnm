@@ -35,7 +35,7 @@ $datos_alumno = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <?php
-$consulta1 = "SELECT * FROM formato_cons2 ORDER BY id DESC LIMIT 1";
+$consulta1 = "SELECT * FROM formato_constancia2 ORDER BY id DESC LIMIT 1";
 $res = mysqli_query($conexion, $consulta1)  ?>
 <?php foreach ($res as $opcion) : ?>
   <div style="opacity: 70%; width: 100%;">

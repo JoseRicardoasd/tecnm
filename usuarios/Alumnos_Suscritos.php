@@ -62,11 +62,11 @@ if (isset($_SESSION['u_usuario'])) {
             <small>Guia de Actividades Complementarias</small>
           </h1>
           <br>
-          <form action="Docx_suscribirse.php" method="POST" target="_blank">
+          <form action="Docx_suscribirse.php" method="POST" target="_blank" class="pdf">
             <div class="container">
               <input type="text" value=<?php echo $id ?> style="display: none;" name="id_evento">
               <div id="content">
-                <button class="btn btn-primary" type="submit"><i class="fa fa-download"></i> Descargar PDF</button>
+                <button id="descargar" class="btn btn-primary" type="submit"><i class="fa fa-download"></i> Descargar PDF</button>
               </div>
             </div>
           </form>
@@ -92,7 +92,7 @@ if (isset($_SESSION['u_usuario'])) {
                 </tr>
               </thead>
 
-              <tbody>
+              <tbody id='table_body'>
                 <!--registros de la bd-->
                 <?php
 
@@ -100,18 +100,20 @@ if (isset($_SESSION['u_usuario'])) {
 
                 $row = mysqli_query($conexion, $sql);
 
+
                 while ($result = mysqli_fetch_assoc($row)) {
                 ?>
                   <tr>
-                    <td><?php echo $result['nombre_alumno'] ?></td>
-                    <td><?php echo $result['matricula_alumn'] ?></td>
-                    <td><?php echo $result['inicio'] ?></td>
-                    <td><?php echo $result['fin'] ?></td>
+                    <td id="name_alumn"><?php echo $result['nombre_alumno'] ?></td>
+                    <td id="matri_alumn"><?php echo $result['matricula_alumn'] ?></td>
+                    <td id="inicio_alumn"><?php echo $result['inicio'] ?></td>
+                    <td id="fin_alumn"><?php echo $result['fin'] ?></td>
 
 
 
 
           </div>
+
 
 
         <?php
@@ -140,3 +142,51 @@ if (isset($_SESSION['u_usuario'])) {
   echo "no existe sesión";
   header('Location:' . $URL . '/login');
 }
+?>
+
+<script>
+  $('.pdf').submit(function(e) {
+    e.preventDefault();
+    let trs = document.querySelectorAll('#body_table tr');
+    let name = document.getElementById('name_alumn')
+    let matri = document.getElementById('matri_alumn')
+    let inicio = document.getElementById('inicio_alumn')
+    let fin = document.getElementById('fin_alumn')
+    let btn = document.getElementById('descargar');
+    if (name == null && matri == null && inicio == null && fin == null) {
+      Swal.fire({
+        title: '¿No hay alumnos registrados?',
+        icon: 'question',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar'
+      })
+    } else {
+      this.submit();
+    }
+    /*
+        Swal.fire({
+          title: '¿DESEAS GUARDAR LOS DATOS?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'SI, DESEO GUARDAR'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: 'DATOS GUARDADOS CORRECTAMENTE',
+              icon: 'success',
+              showConfirmButton: false,
+            })
+            setTimeout(() => {
+              this.submit();
+            }, "1000")
+
+          }
+
+        })*/
+
+  });
+</script>

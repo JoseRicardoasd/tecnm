@@ -95,7 +95,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                   <h3 class="panel-title">Agregar Jefes</h3>
                 </div>
                 <div class="panel-body">
-                  <form action="controlador_jefes.php" method="post" enctype="multipart/form-data">
+                  <form action="controlador_jefes.php" method="post" enctype="multipart/form-data" class="controladorjefes">
                     <div class="row">
 
 
@@ -124,10 +124,10 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                               <?php } ?>
                          </select>
                       <div class="col-md-6">
-  
+  <br>
                         <div class="form-group">
                           <center>
-                            <a href="create_jefes.php" class="btn btn-danger btn-lg">Cancelar</a>
+                            <a href="lista-jefes.php" class="btn btn-danger btn-lg">Cancelar</a>
                             <input type="submit" class="btn btn-primary btn-lg" value="Registrar">
                           </center>
                         </div>
@@ -159,13 +159,12 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
     <?php include('../layout/footer_links.php'); ?>
 
     
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- <script src="js/sweetalert.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
        //alerta guardar----------------
-    $('.controlador_jefes').submit(function(e) {
+    $('.controladorjefes').submit(function(e) {
       e.preventDefault();
       Swal.fire({
         title: '¿DESEAS GUARDAR LOS DATOS?',

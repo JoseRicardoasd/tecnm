@@ -77,7 +77,11 @@ if(isset($_SESSION['u_usuario'])){
                 </div>
 
                 <div class="panel-body">
+<<<<<<< HEAD
                   <form action="lista_actividades.php" method="POST" class="formulario-actividad_crear" enctype="multipart/form-data">
+=======
+                  <form action="../php/extra/controlador_actividades/Actualizar.php" method="POST" enctype="multipart/form-data" >
+>>>>>>> c32f9b51c1300b83a28adee313e1590f58674732
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -170,6 +174,7 @@ if(isset($_SESSION['u_usuario'])){
       </div>
       <!-- /.content-wrapper -->
       <?php include ('../../layout/extraescolar/footer.php'); ?>
+<<<<<<< HEAD
       <?php include ('../../layout/extraescolar/footer_links.php'); ?>
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -190,6 +195,37 @@ if(isset($_SESSION['u_usuario'])){
                 }
             })
         });
+=======
+      <?php include ('../../layout/extraescolar/footer_links.php'); ?> 
+
+      <script>
+       //alerta guardar----------------
+      $('.alertactividad').submit(function(e) {
+        e.preventDefault();
+        Swal.fire({
+          title: '¿DESEAS GUARDAR LOS DATOS?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'SI, DESEO GUARDAR'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: 'DATOS GUARDADOS CORRECTAMENTE',
+              icon: 'success',
+              showConfirmButton: false,
+            })
+            setTimeout(() => {
+              this.submit();
+            }, "1000")
+
+          }
+
+        })
+
+      });
+>>>>>>> c32f9b51c1300b83a28adee313e1590f58674732
       </script>
 
     </div>

@@ -35,7 +35,7 @@ function alerta_guardar() {
     Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'SEGUADO CORRECTAMENTE',
+        title: 'SEGUARDO CORRECTAMENTE',
         showConfirmButton: true,
       })
 }

@@ -80,8 +80,6 @@ if(isset($_SESSION['u_usuario'])){
 
                   <form action="lista_actividades.php" method="POST" class="formulario-actividad_crear" enctype="multipart/form-data">
 
-                  <form action="../php/extra/controlador_actividades/Actualizar.php" method="POST" enctype="multipart/form-data" >
-
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -196,37 +194,7 @@ if(isset($_SESSION['u_usuario'])){
             })
         });
 
-      <?php include ('../../layout/extraescolar/footer_links.php'); ?> 
-
-      <script>
-       //alerta guardar----------------
-      $('.alertactividad').submit(function(e) {
-        e.preventDefault();
-        Swal.fire({
-          title: '¿DESEAS GUARDAR LOS DATOS?',
-          icon: 'question',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'SI, DESEO GUARDAR'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire({
-              title: 'DATOS GUARDADOS CORRECTAMENTE',
-              icon: 'success',
-              showConfirmButton: false,
-            })
-            setTimeout(() => {
-              this.submit();
-            }, "1000")
-
-          }
-
-        })
-
-      });
-
-      </script>
+        </script>
 
     </div>
   </body>

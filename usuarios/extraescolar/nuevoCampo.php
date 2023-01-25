@@ -72,8 +72,6 @@ $correo_sesion = $_SESSION['u_usuario'];
 
                                 <form action="registro_categoria.php" class="formulario-categoria_editar" method="POST" enctype="multipart/form-data">
 
-                                <form action="<?=$_SERVER['PHP_SELF']?>" method="POST" enctype="multipart/form-data" class="alerta">
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -107,13 +105,6 @@ $correo_sesion = $_SESSION['u_usuario'];
                                             <a href="registro_categoria.php" class="btn btn-danger btn-lg">Cancelar</a>
                                             <input type='hidden' name='categoria' value='Registrar'>
                                             <input type='submit' class='btn btn-primary btn-lg' value='Registrar'>
-                                            <?php
-                                            if (!empty($nombre)) {
-                                                echo "<input type='submit' name='categoria' class='btn btn-primary btn-lg' value='Actualizar'>";
-                                            } elseif (empty($nombre)) {
-                                                echo "<button type='submit' name='categoria' class='btn btn-primary btn-lg' value='Registrar'>Registrar</button>";
-                                            }
-                                            ?>
                                             </center>
                                         </div>
                                     </div>
@@ -130,62 +121,25 @@ $correo_sesion = $_SESSION['u_usuario'];
   <!-- /.content-wrapper -->
   <?php include ('../../layout/extraescolar/footer.php'); ?>
   <?php include ('../../layout/extraescolar/footer_links.php'); ?>
-  
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-    $('.formulario-categoria_editar').submit(function (e) {
-    e.preventDefault();
-    Swal.fire({
-        title: 'Registrar categoria',
-        text: "Confirmar",
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Crear',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                this.submit();
-            }
-        })
-    });
+        $('.formulario-categoria_editar').submit(function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Registrar categoria',
+            text: "Confirmar",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Crear',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                }
+            })
+        });
   </script>
-
-
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="js/alerta.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-
-  <script>
-       //alerta guardar----------------
-    $('.alerta').submit(function(e) {
-      e.preventDefault();
-      Swal.fire({
-        title: '¿DESEAS GUARDAR LOS DATOS?',
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'SI, DESEO GUARDAR'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            title: 'DATOS GUARDADOS CORRECTAMENTE',
-            icon: 'success',
-            showConfirmButton: false,
-          })
-          setTimeout(() => {
-            this.submit();
-          }, "1000")
-
-        }
-
-      })
-
-    });
-    </script>
-
 
 </body>
 </html>

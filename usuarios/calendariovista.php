@@ -1,4 +1,7 @@
 <?php
+
+use Sabberworm\CSS\Value\Value;
+
 include('../app/config/config.php');
 session_start();
 
@@ -219,8 +222,11 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                           </select>
                         </div>
                       </div>
+
                       <!-- datos para tabla suscritos -->
-                      <input type="hidden" name="id" class="form-control" id="id">
+                      <input type="text" name="id" class="form-control" id="id" style="display: none;">
+
+
                       <!--  -->
                       <input type="text" name="matricula" value="<?php echo $sesion_usuario['numero_control']; ?>" style="display: none;">
                       <!--  -->
@@ -236,6 +242,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
                         <!-- <a href="ctrl_suscribir.php" class="btn btn-primary">Suscribirme a esta actividad</a> -->
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Suscribirme a esta actividad</button>
+
                       </div>
                   </form>
                 </div>

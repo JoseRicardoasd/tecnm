@@ -151,25 +151,6 @@
       </div>
     </div><br> -->
 
-      <li class="treeview">
-        <a href="#">
-          <i class="fa fa-users"></i> <span>Agregar Usuarios</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-
-          <li><a href="lista-usuarios.php"><i class="fa fa-users"></i>Usuarios</a></li>
-
-          <li><a href="create.php"><i class="fa fa-user"></i> Agregar Alumno</a></li>
-
-
-          <li><a href="create_usuario.php"><i class="fa fa-user"></i> Agregar Usuario</a></li>
-
-        </ul>
-      </li>
-
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <li class="treeview">
@@ -247,6 +228,25 @@
           <li class="header">Constancias de Act. Tutorías</li>
           
           <li><a href="tutoria_constancia.php"><i class="fa fa-users"></i> <span>Act. Compl. Tutorías</span></a></li>
+
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-users"></i> <span>Usuarios</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+
+          <li><a href="lista-usuarios.php"><i class="fa fa-users"></i>Usuarios</a></li>
+
+          <li><a href="create.php"><i class="fa fa-user"></i> Agregar Alumno</a></li>
+
+
+          <li><a href="create_usuario.php"><i class="fa fa-user"></i> Agregar Usuario</a></li>
 
         </ul>
       </li>

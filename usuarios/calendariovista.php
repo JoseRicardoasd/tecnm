@@ -163,7 +163,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
             <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                  <form class="form-horizontal" method="POST" action="ctrl_suscribir.php">
+                  <form class="form-horizontal suscribirse" method="POST" action="ctrl_suscribir.php">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="myModalLabel">Detalles del evento</h4>
@@ -263,6 +263,35 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 2) {
           <script src='js/fullcalendar/fullcalendar.min.js'></script>
           <script src='js/fullcalendar/fullcalendar.js'></script>
           <script src='js/fullcalendar/locale/es.js'></script>
+
+          <script>
+              //alerta guardar----------------
+            $('.suscribirse').submit(function(e) {
+              e.preventDefault();
+              Swal.fire({
+                title: '¿DESEA SUSCRIBIRSE?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire({
+                    title: 'SUSCRITO CORRECTAMENTE',
+                    icon: 'success',
+                    showConfirmButton: false,
+                  })
+                  setTimeout(() => {
+                    this.submit();
+                  }, "1000")
+
+                }
+
+              })
+
+            });
+            </script>
 
 
           <script>

@@ -189,6 +189,9 @@
         <li class="treeview">
         <li class="header">Actividades Extraescolares</li>
         <li><a href="AgregarActividad.php"><i class="glyphicon glyphicon-calendar"></i> <span>Gestión de Alumnos</span></a></li>
+        
+        <li class="header">Asesorias</li>
+        <li><a href="asesoriasevaluacion.php"><i class="fa fa-book"></i> <span>Asesorias</span></a></li>
       </ul>
     </li>
 

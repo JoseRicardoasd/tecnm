@@ -35,7 +35,6 @@ $correo_sesion = $_SESSION['u_usuario'];
     }
 
     include('../php/extra/controlador_categorias.php');
-    include('../php/extra/emergente.php')
 
 ?>
 <!DOCTYPE html>

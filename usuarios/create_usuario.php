@@ -173,8 +173,7 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 0) {
                           <input type="hidden" name="Tuto" value="no">
                           <input type="checkbox" name="Tuto" value="si"> <label for="">Tutor</label>
                           <br>
-                          <input type="hidden" name="Respon" value="no">
-                          <input type="checkbox" name="Respon" value="si"> <label for="">Responsable</label>
+                          <input type="checkbox" name="Respon" value="1"> <label for="">Responsable</label>
                         </div>
 
                         <div class="form-group">

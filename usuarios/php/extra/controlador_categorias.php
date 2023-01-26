@@ -118,7 +118,7 @@ switch ($pase) {
     $query->execute();
     $ciclos = $query->fetch(PDO::FETCH_OBJ);
 
-    $sql = "SELECT categorias.id, categorias.nombreCategoria, imagen.imagen FROM categorias INNER JOIN imagen ON categorias.idImagen = imagen.id WHERE idCiclo = $idCiclo;";
+    $sql = "SELECT categorias.id, categorias.nombreCategoria, imagen.imagen FROM categorias LEFT JOIN imagen ON categorias.idImagen = imagen.id WHERE idCiclo = $idCiclo;";
     $query = $bdd->prepare($sql);
     $query->execute();
     $campos = $query->fetchAll(PDO::FETCH_ASSOC);

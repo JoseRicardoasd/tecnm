@@ -16,7 +16,7 @@ $telefono = strtoupper($_POST['telefono']);
 $cargo = $_POST['cargo'];
 $maestro = $_POST['maes'];
 $tutor = $_POST['Tuto'];
-$responsable = $_POST['Respon'];
+$respon = $_POST['Respon'];
 $profesion = strtoupper($_POST['profesion']);
 //$cubiculo = $_POST['cubiculo'];
 $area = strtoupper($_POST['area']);
@@ -25,6 +25,14 @@ $contraseñaConfirm = $_POST['contraseñaConfirm'];
 
 $user_creacion = "Administrador";
 $cargo2 = 0;
+
+if ($respon == '1') {
+  $responsable = 1;
+} else {
+  $responsable = 0;
+}
+
+
 
 //cambiar cargo, de letras a numeros
 if ($cargo == "Administrador") {

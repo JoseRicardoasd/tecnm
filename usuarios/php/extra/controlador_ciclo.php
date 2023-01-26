@@ -107,7 +107,8 @@ switch ($lase) {
                 $ciclos = $resultado->id;
         
                 /* Definimos la imagen de la siguiente Ruta */
-                $imagen = "Categorias.png";
+                $imagen = "update_usuarios/Categorias.png";
+                // $imagen = addslashes(file_get_contents($_FILES['Categorias.png']['tmp_name']));
                 $a = 1;
         
                 /* Insertamos 4 registros de imagen de una solo imagen en la tabla imagen */

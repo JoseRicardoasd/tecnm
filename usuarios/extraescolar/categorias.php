@@ -100,6 +100,8 @@ $correo_sesion = $_SESSION['u_usuario'];
 
                                                     <td>
                                                         <img src="data:image/jpg;base64,<?php echo base64_encode($campo['imagen']);?>" width = "150px" alt="...">
+
+                                                        
                                                     </td>
                                         
                                                     <td>

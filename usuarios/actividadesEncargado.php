@@ -31,7 +31,8 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
     $id_foto_perfil = $sesion_usuario['foto_perfil'];
   }
 
-  
+
+  $a = 0;
   //control de inactividad
   $ahora = date("Y-n-j H:i:s");
   $fechaGuardada = $_SESSION["ultimoAcceso"];
@@ -125,11 +126,17 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                                             <td><?php echo $fila['ciudad']; ?></td>
                                             <td >
                                                 <?php
+                                                $parta = false;
                                                 foreach ($matriculas as $matricula) {
-                                                    if ($fila['numero_control']==$matricula['matricula']) {
-                                                        echo "<i class='fa fa-info'></i> ALUMNO REGISTRADO <br> EN UNA ACTIVIDAD";
+                                                    if ($matricula['matricula'] == $fila['numero_control']) {
+                                                        $parta = true;
                                                     }
                                                 }
+
+                                                if ($parta) {
+                                                    echo "<i class='fa fa-info'></i> ALUMNO REGISTRADO <br> EN UNA ACTIVIDAD";
+                                                }
+                                                
                                                 ?>
                                             </td>
                                             <td>
@@ -181,8 +188,18 @@ if (isset($_SESSION['u_usuario']) && $_SESSION['u_privilegio']  == 1 ) {
                         })
                     </script>
             <?php } ?>
+
+            <?php if ($preso == 2) {?>
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'El alumno ya esta dentro de la actividad!!',
+                        footer: '<a href="">Revisa tu lista de alumno para verificarlo</a>'
+                    })
+                </script>
+            <?php } ?>
         <?php } ?>
-        
     </body>
     
 </html>

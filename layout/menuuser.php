@@ -180,6 +180,7 @@
 
         <li><a href="actAlum.php"><i class="fa fa-users"></i> <span>Actividades</span></a></li>
         <li><a href="consAlum.php"><i class="fa fa-users"></i> <span>Generar constancia</span></a></li>
+         <li><a href="asesorias_alumno.php"><i class="fa fa-users"></i> <span>Asesorias</span></a></li>
 
       </ul>
     </li>

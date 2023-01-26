@@ -8,7 +8,7 @@ if (isset($_SESSION['u_usuario'])) {
   //echo "existe sesión";
   //echo "bienvenido usuario";
   $correo_sesion = $_SESSION['u_usuario'];
-  $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '2' ");
+  $query_sesion = $pdo->prepare("SELECT * FROM tb_usuarios WHERE correo = '$correo_sesion' AND estado = '1' ");
   $query_sesion->execute();
   $sesion_usuarios = $query_sesion->fetchAll(PDO::FETCH_ASSOC);
   foreach ($sesion_usuarios as $sesion_usuario) {
